@@ -26,7 +26,7 @@ func (s *scriptSepa) ListGauges() (result core.Gauges, err error) {
 			if err == nil {
 				result = append(result, g)
 			} else {
-				s.GetLogger().WithField("row", strings.Join(row, ", ")).Errorf("failed to convert row: %w", err)
+				s.GetLogger().WithField("row", strings.Join(row, ", ")).Errorf("failed to convert row: %v", err)
 			}
 			return nil
 		},
@@ -58,7 +58,7 @@ func (s *scriptSepa) Harvest(ctx context.Context, recv chan<- *core.Measurement,
 				}
 				recv <- m
 			} else {
-				s.GetLogger().WithField("row", strings.Join(row, ", ")).Errorf("failed to convert row: %w", err)
+				s.GetLogger().WithField("row", strings.Join(row, ", ")).Errorf("failed to convert row: %v", err)
 			}
 			return nil
 		},

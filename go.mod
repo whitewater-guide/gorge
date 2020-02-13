@@ -13,13 +13,16 @@ require (
 	github.com/antchfx/xquery v0.0.0-20180515051857-ad5b8c7a47b0
 	github.com/cenkalti/backoff v2.2.1+incompatible // indirect
 	github.com/containerd/continuity v0.0.0-20191214063359-1097c8bae83b // indirect
+	github.com/cortesi/modd v0.0.0-20191202231957-98a770274f90
 	github.com/fatih/structs v1.1.0
 	github.com/frankban/quicktest v1.6.0 // indirect
+	github.com/go-bindata/go-bindata v3.1.2+incompatible
 	github.com/go-chi/chi v4.0.3+incompatible
 	github.com/go-chi/render v1.0.1
 	github.com/gogo/protobuf v1.3.0 // indirect
 	github.com/golang-migrate/migrate/v4 v4.8.0
 	github.com/golang/groupcache v0.0.0-20200121045136-8c9f03a8e57e // indirect
+	github.com/golangci/golangci-lint v1.23.6 // indirect
 	github.com/gomodule/redigo v2.0.0+incompatible
 	github.com/google/uuid v1.1.1
 	github.com/gotestyourself/gotestyourself v2.2.0+incompatible // indirect
@@ -29,7 +32,6 @@ require (
 	github.com/juju/persistent-cookiejar v0.0.0-20171026135701-d5e5a8405ef9
 	github.com/kinbiko/jsonassert v1.0.1
 	github.com/lib/pq v1.3.0
-	github.com/mattn/go-colorable v0.1.4 // indirect
 	github.com/mattn/go-isatty v0.0.12 // indirect
 	github.com/mattn/go-nulltype v0.0.0-20190219090336-3e10e98e82af
 	github.com/mattn/go-runewidth v0.0.8 // indirect
@@ -43,15 +45,12 @@ require (
 	github.com/robfig/cron/v3 v3.0.1
 	github.com/sirupsen/logrus v1.4.2
 	github.com/spf13/cobra v0.0.5
-	github.com/spf13/pflag v1.0.5 // indirect
-	github.com/stretchr/objx v0.2.0 // indirect
 	github.com/stretchr/testify v1.4.0
 	github.com/yuin/gopher-lua v0.0.0-20191220021717-ab39c6098bdb // indirect
 	golang.org/x/net v0.0.0-20200114155413-6afb5195e5aa
 	golang.org/x/sys v0.0.0-20200124204421-9fbb57f87de9 // indirect
 	golang.org/x/text v0.3.2
 	google.golang.org/appengine v1.6.5 // indirect
-	google.golang.org/grpc v1.21.0 // indirect
 	gopkg.in/errgo.v1 v1.0.1 // indirect
 	gopkg.in/retry.v1 v1.0.3 // indirect
 	gopkg.in/yaml.v2 v2.2.8 // indirect

@@ -51,7 +51,7 @@ func NewClient(opts ClientOptions) *HTTPClient {
 	}
 	persJar, err := jar.New(&jarOpts)
 	if err != nil {
-		log.Fatalf("Failed to initialize cookie jar: %w", err)
+		log.Fatalf("Failed to initialize cookie jar: %v", err)
 		return nil
 	}
 	transport := http.DefaultTransport.(*http.Transport).Clone()

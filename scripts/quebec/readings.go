@@ -35,7 +35,7 @@ func (s *scriptQuebec) parseReadings(recv chan<- *core.Measurement, errs chan<- 
 		} else if e, ok := err.(*csv.ParseError); ok && e.Err == csv.ErrFieldCount {
 			continue
 		} else if err != nil {
-			logger.Errorf("csv lin error: %w", err)
+			logger.Errorf("csv lin error: %v", err)
 			continue
 		}
 		if len(line) < 3 || len(line) > 5 {

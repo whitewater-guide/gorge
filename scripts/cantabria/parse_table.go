@@ -91,7 +91,7 @@ func (s *scriptCantabria) parseTable() (<-chan *tableEntry, <-chan error, error)
 			}
 		}
 		if err := scanner.Err(); err != nil {
-			s.GetLogger().Errorf("scanner error: %w", err)
+			s.GetLogger().Errorf("scanner error: %v", err)
 		}
 	}()
 	return out, errCh, nil

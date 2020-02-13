@@ -1,0 +1,16 @@
+name: Build and test Go
+on:
+  push:
+    branches:
+      - master
+    release:
+      types: [published]
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v1
+      - name: Publish latest image
+        run: make latest
