@@ -1,6 +1,8 @@
 # Gorge
 
-Gorge is a service which harvests hydrological data (river's discharge and water level) on schedule. 
+![Build and test Go](https://github.com/whitewater-guide/gorge/workflows/Build%20and%20test%20Go/badge.svg)
+
+Gorge is a service which harvests hydrological data (river's discharge and water level) on schedule.
 Harvested data is stored in database and can be queried later.
 
 ## Usage
@@ -17,17 +19,18 @@ Gorge is distributed as docker image with two binary files:
 ```yaml
 command:
   [
-    '--pg-db',
-    'gorge',
-    '--debug',
-    '--log-format',
-    'plain',
-    '--db-chunk-size',
-    '1000',
+    "--pg-db",
+    "gorge",
+    "--debug",
+    "--log-format",
+    "plain",
+    "--db-chunk-size",
+    "1000",
   ]
 ```
 
 Here is the list of available flags:
+
 ```
 --cache string             Either 'inmemory' or 'redis' (default "redis")
 --db string                Either 'inmemory' or 'postgres' (default "postgres")
@@ -48,14 +51,15 @@ Here is the list of available flags:
 ```
 
 Postgres and redis can also be configured using folowing environment variables:
-  - POSTGRES_HOST
-  - POSTGRES_DB
-  - POSTGRES_USER
-  - POSTGRES_PASSWORD
-  - REDIS_HOST
-  - REDIS_PORT
 
-Environment variables have lower priority than cli flags.   
+- POSTGRES_HOST
+- POSTGRES_DB
+- POSTGRES_USER
+- POSTGRES_PASSWORD
+- REDIS_HOST
+- REDIS_PORT
+
+Environment variables have lower priority than cli flags.
 
 Gorge uses database to store harvested measurements and scheduled jobs. It comes with postgres and sqlite drivers. Postgres with timescaledb extension is recommended for production. Gorge will initialize all the required tables. Check out sql migration file if you're curious about db schema.
 
@@ -65,12 +69,13 @@ Gorge uses cache to store safe-to-lose data: latest measurement each gauge and h
 
 Preferred way of development is to develop inside docker container. I do this in [VS Code](https://code.visualstudio.com/docs/remote/containers). There's a compose file for this purpose.
 
-There's a [modd](https://github.com/cortesi/modd) tool installed in dev image, which enables liver reloading and tests. Start it using `make run`. 
+There's a [modd](https://github.com/cortesi/modd) tool installed in dev image, which enables liver reloading and tests. Start it using `make run`.
 
 If you want to develop on host machine, you'll need following tools installed on it (they're installed in docker image, see Dockerfile for more info):
-  - [libproj](https://proj.org/) shared library, to convert coordinate systems
-  - [go-bindata](https://github.com/go-bindata/go-bindata) to embed sql scripts
-  - [modd](https://github.com/cortesi/modd) it's actually optional
+
+- [libproj](https://proj.org/) shared library, to convert coordinate systems
+- [go-bindata](https://github.com/go-bindata/go-bindata) to embed sql scripts
+- [modd](https://github.com/cortesi/modd) it's actually optional
 
 Some tests require postgres. You cannot run them inside docker container (unless you want to mess with docker-inside-docker). They're excluded from main test set, I run them using `make test-nodocker` from host machine or CI environment.
 
@@ -89,19 +94,18 @@ Here are some recommendations for writing scripts for new sources
 - Pass variables like access keys via script options
 - Provide sample http requests (see `requests.http` files)
 
-
 ## Env variables
 
 Container makes use of following env variables. Env variables have lesser priority than config values.
 
-| Name                 | Default value             | Desription                                                                                                                                                                                                                                    |
-| -------------------- | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| POSTGRES_HOST        |                           | Postgres connection details - host                                                                                                                                                                                             |
-| POSTGRES_DB          |                           | Postgres connection details - database name                                                                                                                                                                                    |
-| POSTGRES_USER        |                           | Postgres connection details - user                                                                                                                                                                                             |
-| POSTGRES_PASSWORD    |                           | Postgres connection details - password                                                                                                                                                                                         |
-| REDIS_HOST           | redis                     | Redis connection details - host                                                                                                                                                                                                               |
-| REDIS_PORT           | 6379                      | Redis connection details - port                                                                                                                                                                                                               |
+| Name              | Default value | Desription                                  |
+| ----------------- | ------------- | ------------------------------------------- |
+| POSTGRES_HOST     |               | Postgres connection details - host          |
+| POSTGRES_DB       |               | Postgres connection details - database name |
+| POSTGRES_USER     |               | Postgres connection details - user          |
+| POSTGRES_PASSWORD |               | Postgres connection details - password      |
+| REDIS_HOST        | redis         | Redis connection details - host             |
+| REDIS_PORT        | 6379          | Redis connection details - port             |
 
 ## TODO
 
