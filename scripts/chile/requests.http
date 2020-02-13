@@ -1,0 +1,11 @@
+###
+# List gauges
+POST http://localhost:7080/upstream/chile/gauges
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+# Get measurements
+POST http://localhost:7080/upstream/chile/measurements?codes=10100002-8
+Cache-Control: no-cache
+Content-Type: application/json

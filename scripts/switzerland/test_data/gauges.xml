@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='utf-8'?>
+<locations xmlns:schemaLocation="http://www.hydrodaten.admin.ch/lhg/az/xml/hydroweb.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" export-time="2020-01-17T08:55:33" timezone="GMT+1">
+	<station number="2004" name="Murten" water-body-name="Murtensee" water-body-type="lake" easting="575500" northing="197790">
+		<parameter type="3" variant="0" name="Temperatur" unit="°C">
+			<datetime>2020-01-17T08:40:00</datetime>
+			<value temperature-class="1">5.8</value>
+			<previous-24h>6.0</previous-24h>
+			<delta-24h>-0.2</delta-24h>
+			<max-24h temperature-class="2">7.0</max-24h>
+			<mean-24h>6.6</mean-24h>
+			<min-24h>5.7</min-24h>
+			<max-1h>5.8</max-1h>
+			<mean-1h>5.8</mean-1h>
+			<min-1h>5.7</min-1h>
+		</parameter>
+	</station>
+	<station number="2007" name="Le Pont" water-body-name="Lac de Joux" water-body-type="lake" easting="514700" northing="168840">
+		<parameter type="2" variant="1" name="Pegel m ü. M." unit="m ü. M.">
+			<datetime>2020-01-17T00:00:00</datetime>
+			<value>1003.64</value>
+			<previous-24h>1003.64</previous-24h>
+			<delta-24h>-0.00</delta-24h>
+			<max-24h>1003.64</max-24h>
+			<mean-24h>1003.64</mean-24h>
+			<min-24h>1003.63</min-24h>
+			<max-1h>1003.64</max-1h>
+			<mean-1h>1003.64</mean-1h>
+			<min-1h>1003.64</min-1h>
+		</parameter>
+	</station>
+	<station number="2009" name="Porte du Scex" water-body-name="Rhône" water-body-type="river" easting="557660" northing="133280">
+		<parameter type="3" variant="0" name="Temperatur" unit="°C">
+			<datetime>2020-01-17T08:40:00</datetime>
+			<value temperature-class="1">5.8</value>
+			<previous-24h>6.0</previous-24h>
+			<delta-24h>-0.2</delta-24h>
+			<max-24h temperature-class="2">7.0</max-24h>
+			<mean-24h>6.6</mean-24h>
+			<min-24h>5.7</min-24h>
+			<max-1h>5.8</max-1h>
+			<mean-1h>5.8</mean-1h>
+			<min-1h>5.7</min-1h>
+		</parameter>
+		<parameter type="2" variant="0" name="Pegel m ü. M." unit="m ü. M.">
+			<datetime>2020-01-17T08:40:00</datetime>
+			<value>374.84</value>
+			<previous-24h>374.95</previous-24h>
+			<delta-24h>-0.11</delta-24h>
+			<max-24h>375.58</max-24h>
+			<mean-24h>375.29</mean-24h>
+			<min-24h>374.84</min-24h>
+			<max-1h>374.89</max-1h>
+			<mean-1h>374.86</mean-1h>
+			<min-1h>374.84</min-1h>
+		</parameter>
+		<parameter type="10" variant="10" name="Abfluss m3/s" unit="m3/s">
+			<datetime>2020-01-17T08:40:00</datetime>
+			<value quantile-class="3" warn-level-class="1">118</value>
+			<previous-24h>134</previous-24h>
+			<delta-24h>-16</delta-24h>
+			<max-24h quantile-class="5" warn-level-class="1">237</max-24h>
+			<mean-24h>188</mean-24h>
+			<min-24h>118</min-24h>
+			<max-1h>125</max-1h>
+			<mean-1h>121</mean-1h>
+			<min-1h>118</min-1h>
+		</parameter>
+	</station>
+	<station number="2011" name="Sion" water-body-name="Rhône" water-body-type="river" easting="593770" northing="118630">
+		<parameter type="10" variant="11" name="Abfluss m3/s" unit="m3/s">
+			<datetime>2020-01-17T08:50:00</datetime>
+			<value quantile-class="3" warn-level-class="1">46</value>
+			<previous-24h>45</previous-24h>
+			<delta-24h>1.3</delta-24h>
+			<max-24h quantile-class="4" warn-level-class="1">64</max-24h>
+			<mean-24h>54</mean-24h>
+			<min-24h>43</min-24h>
+			<max-1h>50</max-1h>
+			<mean-1h>48</mean-1h>
+			<min-1h>46</min-1h>
+		</parameter>
+		<parameter type="3" variant="30" name="Temperatur" unit="°C">
+			<datetime>2020-01-17T00:00:00</datetime>
+			<value temperature-class="1">3.6</value>
+			<previous-24h>3.9</previous-24h>
+			<delta-24h>-0.3</delta-24h>
+			<max-24h temperature-class="1">4.2</max-24h>
+			<mean-24h>3.6</mean-24h>
+			<min-24h>3.1</min-24h>
+			<max-1h>3.8</max-1h>
+			<mean-1h>3.7</mean-1h>
+			<min-1h>3.6</min-1h>
+		</parameter>
+	</station>
+</locations>

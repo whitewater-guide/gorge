@@ -1,0 +1,24 @@
+{
+    "sensors": [
+        {
+            "sensor": "CALC001110",
+            "observations": [
+                {
+                    "value": "148.512",
+                    "timestamp": "21/01/2020T19:00:00",
+                    "location": ""
+                }
+            ]
+        },
+        {
+            "sensor": "CALC000007",
+            "observations": [
+                {
+                    "value": "4.296",
+                    "timestamp": "21/01/2020T19:10:00",
+                    "location": ""
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,84 @@
+{
+    "providers": [
+        {
+            "provider": "AFORAMENT-EST",
+            "permission": "READ",
+            "sensors": [
+                {
+                    "sensor": "CALC000007",
+                    "description": "Cabal riu",
+                    "dataType": "NUMBER",
+                    "location": "41.81813956 2.979121769",
+                    "type": "0014",
+                    "unit": "m³/s",
+                    "timeZone": "CET",
+                    "publicAccess": true,
+                    "component": "171812-001",
+                    "componentType": "aforament",
+                    "componentDesc": "Santa Cristina d'Aro",
+                    "componentPublicAccess": true,
+                    "additionalInfo": {
+                        "Temps mostreig (min)": "5",
+                        "Rang mínim": "0",
+                        "Rang màxim": "400"
+                    },
+                    "componentAdditionalInfo": {
+                        "Comarca": "BAIX EMPORDÀ",
+                        "Província": "GIRONA",
+                        "Riu": "RIU RIDAURA",
+                        "Districte fluvial": "ACA",
+                        "Superfície conca drenada": "",
+                        "Subconca": "N/D",
+                        "Terme municipal": "SANTA CRISTINA D'ARO",
+                        "Conca": "RIERES DEL CAP DE BEGUR-BLANES"
+                    },
+                    "componentTechnicalDetails": {
+                        "producer": "",
+                        "model": "",
+                        "serialNumber": "",
+                        "macAddress": "",
+                        "energy": "",
+                        "connectivity": ""
+                    }
+                },
+                {
+                    "sensor": "CALC001110",
+                    "description": "Nivell riu",
+                    "dataType": "NUMBER",
+                    "location": "42.254381062 3.071999259",
+                    "type": "0019",
+                    "unit": "cm",
+                    "timeZone": "CET",
+                    "publicAccess": true,
+                    "component": "170470-003",
+                    "componentType": "aforament",
+                    "componentDesc": "Castelló d'Empúries",
+                    "componentPublicAccess": true,
+                    "additionalInfo": {
+                        "Temps mostreig (min)": "5",
+                        "Rang mínim": "0",
+                        "Rang màxim": "0"
+                    },
+                    "componentAdditionalInfo": {
+                        "Comarca": "ALT EMPORDÀ",
+                        "Província": "GIRONA",
+                        "Riu": "RIU MUGA",
+                        "Districte fluvial": "ACA",
+                        "Superfície conca drenada": "755,57 km²",
+                        "Subconca": "LA MUGA",
+                        "Terme municipal": "CASTELLÓ D'EMPÚRIES",
+                        "Conca": "LA MUGA"
+                    },
+                    "componentTechnicalDetails": {
+                        "producer": "",
+                        "model": "",
+                        "serialNumber": "",
+                        "macAddress": "",
+                        "energy": "",
+                        "connectivity": ""
+                    }
+                }
+            ]
+        }
+    ]
+}

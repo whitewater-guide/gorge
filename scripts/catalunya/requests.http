@@ -1,0 +1,20 @@
+###
+# List gauges
+POST http://localhost:7080/upstream/catalunya/gauges
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+# List all measurements
+POST http://localhost:7080/upstream/catalunya/measurements
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+
+# List some measurements
+POST http://localhost:7080/upstream/catalunya/measurements?codes=251116-005-ANA01,251462-001-ANA02
+Cache-Control: no-cache
+Content-Type: application/json
+
+###

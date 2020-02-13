@@ -1,0 +1,1142 @@
+<script language="javascript">
+function ScanCookie(variable)
+	{
+	cook = document.cookie;
+	variable += "=";
+	place = cook.indexOf(variable,0);
+	if (place <= -1)
+		return("0");
+	else
+		{
+		end = cook.indexOf(";",place)
+		if (end <= -1)
+			return(unescape(cook.substring(place+variable.length,cook.length)));
+		else
+			return(unescape(cook.substring(place+variable.length,end)));
+		}
+	}
+
+function CreationCookie(nom,valeur,permanent)
+	{
+	if(permanent)
+		{
+		dateExp = new Date(2020,11,11);
+		dateExp = dateExp.toGMTString();
+		ifpermanent = '; expires=' + dateExp + ';';
+		}
+	else
+		ifpermanent = '';
+	document.cookie = nom + '=' + escape(valeur) + ifpermanent;
+	}
+
+if(ScanCookie("dejapopup")==0)
+	{
+	//window.open('avertissement.htm','unepage','top=150,left=150,toolbar=0,location=0,directories=0,status=0,scrollbars=0,resizable=0,copyhistory=0,menuBar=0,width=500,height=275');
+	//CreationCookie("dejapopup","oui",false)
+	}
+
+    </script>
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+<meta name="description" content="Champs d'activit�s du centre d'expertise hydrique du Qu�bec - CEHQ" />
+<meta name="keywords" content="" />
+<script type="text/javascript" src="/script/switchTextSize.js"></script>
+<script type="text/javascript" src="/script/styleswitcher.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/menu.css" />
+<link rel="stylesheet" type="text/css" href="/css/accueil.css" />
+<link rel="stylesheet" type="text/css" href="/print.css" media="print"/>
+
+<link rel="stylesheet" type="text/css" href="/css/generale.css" />
+<title>Carte des r�gions hydrographiques</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+
+<script ID="clientEventHandlersJS" LANGUAGE="javascript">
+<!--
+//Cette fonction permet d'envoyer un courrier au support.
+function btnCourriel_onclick() 
+	{
+	var strMail
+	strMail = "mailto:expertise.hydrique@environnement.gouv.qc.ca"
+	window.location = strMail;
+	}
+
+//Cette fonction redirige vers une page d'aide.
+function btnAide_onclick() {
+	window.open("aide.htm","_blank","width=600,height=525,resizable=yes,scrollbars=yes")
+	
+}
+
+function glossaire_onclick(strhpl) {
+	var strAdresse;
+	strAdresse = "glossaire.asp?HPL=" + strhpl;
+	window.open(strAdresse,"_blank","width=600,height=200,resizable=yes,scrollbars=yes");
+	
+}
+
+//Cette fonction valide si l'usager � inscrit un mot cl�
+function valideRecherche()
+{	
+	
+	var Valeur = document.frmRecherche.lstStation.value + document.frmRecherche.lstMunicipalite.value + document.frmRecherche.lstRiviere.value + document.frmRecherche.lstRegion.value;
+	var straction;
+	var objForm;
+	
+	if (Valeur != "") 
+		{ 
+		straction = "ListeStation.asp?regionhydro=aucune&Tri=Non";
+		
+		objForm = document.getElementById('frmRecherche');
+		objForm.action = straction;
+		
+		return true;
+		}
+	else
+	{
+		alert("Aucun mot cl� n'a �t� inscrit")
+		document.frmRecherche.lstStation.focus();
+		return false;
+	}
+}
+//Si la recherche est infructueuse
+function InitFocus() {
+	alert("Aucune station ne correspond aux crit�res de recherche indiqu�s")
+	document.frmRecherche.lstStation.focus()
+}
+
+
+//-->
+</script>
+<link rel="stylesheet" type="text/css" href="/css/generale.css" />
+</head>
+<body LANGUAGE="javascript" topmargin="0" leftmargin="0"> <a name="HAUT"></a>
+
+<div align="center">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top" width="211"><map name="FPMap1_I1">
+      <area href="http://www.environnement.gouv.qc.ca/index.asp" shape="rect" coords="8, 16, 203, 92" alt="Lien vers le site web du minist�re"></map>
+    <img border="0" src="/images/cehq/logo-piv_css.jpg"  usemap="#FPMap1_I1" width="199" height="90"></td>
+    <td><img border="0" src="/images/cehq/ImageMin_css.jpg" width="548" height="57"><br>
+      <map name="FPMap0_I1">
+      <area href="../accueil/plan.htm" shape="rect" coords="90, 0, 153, 16" alt="Plan du site">
+      <area href="../accueil/renseignement.htm" shape="rect" coords="162, 0, 225, 15" alt="Nous joindre">
+      <area href="http://www.gouv.qc.ca/" shape="rect" coords="236, 0, 312, 16" alt="Portail Québec">
+      <area  target="_blank" href="https://cse.google.com/cse?cx=000692685005083833700:tgb628aiyva&amp;gs_l=partner.3...12568.13264.0.13777.3.3.0.0.0.0.40.79.3.3.0.gsnos%2Cn%3D13...0.704j298370j3..1ac.1.25.partner..2.1.39.fh9p2B6qv4U#gsc.tab=0"    shape="rect" coords="384, 0, 443, 17" alt="Recherche">
+      <area href="../index_en.asp" shape="rect" coords="484, 0, 533, 17" alt="English">
+      <area href="../index.asp" shape="rect" coords="36, 0, 83, 16" alt="Accueil">
+      <area href="http://www.environnement.gouv.qc.ca" shape="rect" coords="0, 17, 364, 42" alt="Minist�re de l'Environnement et de la Lutte contre les changements climatiques"></map>
+    <img border="0" src="../images/cehq/texte-uas.gif" usemap="#FPMap0_I1" width="548" height="43">
+    </td>
+  </tr>
+</table>
+</div>
+
+
+
+
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" dir="ltr">
+  <tr>
+      <td background="../interface/top_fondcell_milieu.gif" height="30" dir="ltr"></td>
+  </tr>
+</table>
+<br>
+<div style="float:left; margin-left:5px">
+	&nbsp;</div>
+<div align="center" style="margin-left: -10"><font face=Verdana size="4" color="#003399"><b>
+
+Suivi hydrologique de diff�rentes stations hydrom�triques&nbsp;&nbsp;&nbsp;</b></font></div>
+	  <a name="region"></a>
+      <p align="center"><font face=Verdana size="3"><b>Les r�gions 
+		hydrographiques</b></font></p>
+      <table border="0" cellspacing="1" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2" cellpadding="5">
+        <tr>
+          <td width="60%" valign="top" align="center">
+      <map name="FPMapRegion"> 
+        <blockquote>
+        <p align="center">
+        <area coords="406, 10, 399, 17, 396, 23, 393, 32, 393, 37, 390, 44, 389, 51, 384, 59, 381, 64, 381, 68, 382, 72, 379, 77, 375, 85, 370, 87, 365, 87, 356, 83, 345, 82, 340, 79, 338, 82, 329, 83, 320, 86, 317, 87, 320, 91, 322, 95, 327, 95, 320, 101, 314, 99, 307, 97, 308, 106, 325, 107, 334, 104, 340, 98, 344, 90, 349, 90, 357, 87, 360, 91, 377, 91, 384, 91, 389, 80, 385, 63, 396, 48, 399, 39, 401, 30, 401, 22, 412, 10, 406, 11" href="ListeStation.asp?regionhydro=00&amp;Tri=Non" shape="POLY" alt="Fleuve Saint-Laurent">
+        <area coords="291, 382, 285, 386, 282, 389, 276, 394, 271, 394, 263, 394, 259, 394, 250, 396, 240, 399, 237, 399, 232, 397, 229, 396, 223, 397, 219, 400, 217, 407, 213, 412, 209, 414, 205, 414, 203, 413, 196, 420, 189, 432, 183, 441, 180, 436, 183, 428, 189, 421, 194, 416, 198, 408, 203, 401, 210, 397, 220, 396, 228, 392, 227, 381, 233, 378, 235, 381, 247, 377, 250, 373, 254, 373, 260, 374, 266, 372, 270, 374, 273, 379, 278, 378, 284, 378, 286, 381, 291, 380" href="ListeStation.asp?regionhydro=01&amp;Tri=Non" shape="POLY" alt="Baie des Chaleurs et Perc�">
+        <area coords="288, 381, 284, 380, 281, 378, 277, 377, 274, 379, 268, 377, 264, 373, 258, 373, 254, 370, 247, 372, 247, 377, 238, 381, 232, 379, 228, 381, 229, 390, 223, 390, 218, 396, 215, 394, 207, 397, 201, 403, 195, 413, 191, 418, 183, 425, 178, 431, 178, 439, 180, 445, 179, 451, 174, 459, 170, 466, 168, 469, 165, 461, 169, 451, 163, 447, 159, 447, 155, 447, 152, 444, 149, 445, 139, 443, 143, 437, 151, 434, 160, 431, 166, 429, 176, 425, 189, 410, 195, 399, 212, 388, 232, 374, 250, 368, 270, 364, 284, 368, 289, 373, 288, 380" href="ListeStation.asp?regionhydro=02&amp;Tri=Non" shape="POLY" alt="Saint-Laurent sud-est">
+        <area coords="158, 479, 148, 479, 131, 478, 113, 477, 101, 476, 116, 470, 123, 462, 127, 455, 133, 448, 140, 446, 145, 451, 155, 448, 158, 454, 166, 450, 169, 458, 168, 460, 166, 466, 170, 472, 161, 471, 158, 477" href="ListeStation.asp?regionhydro=03&amp;Tri=Non" shape="POLY" alt="Saint-Laurent sud-ouest">
+        <area coords="416, 11, 407, 20, 404, 26, 402, 37, 396, 49, 393, 57, 387, 64, 388, 75, 391, 82, 389, 90, 385, 92, 374, 92, 365, 91, 359, 88, 352, 90, 347, 90, 343, 97, 339, 102, 329, 108, 324, 109, 322, 109, 316, 118, 415, 118, 416, 12" href="ListeStation.asp?regionhydro=03&amp;Tri=Non" shape="POLY" alt="Saint-Laurent sud-ouest">
+        <area coords="101, 474, 104, 468, 103, 464, 96, 460, 89, 460, 82, 461, 76, 463, 72, 460, 64, 460, 61, 456, 60, 448, 56, 450, 48, 443, 41, 439, 29, 436, 24, 433, 17, 415, 15, 405, 12, 393, 19, 381, 32, 373, 39, 372, 43, 375, 43, 380, 38, 383, 39, 391, 45, 392, 54, 392, 56, 398, 64, 391, 81, 391, 84, 392, 90, 391, 96, 393, 108, 393, 106, 403, 109, 409, 106, 414, 106, 424, 103, 432, 109, 436, 107, 443, 113, 446, 111, 454, 120, 456, 112, 462, 106, 466" href="ListeStation.asp?regionhydro=04&amp;Tri=Non" shape="POLY" alt="Outaouais et Montr�al">
+        <area coords="310, 117, 315, 107, 307, 106, 311, 99, 320, 98, 326, 96, 327, 93, 323, 92, 321, 89, 313, 88, 316, 86, 325, 83, 334, 82, 340, 79, 344, 80, 352, 82, 357, 82, 360, 84, 363, 86, 371, 84, 379, 75, 382, 72, 379, 70, 380, 63, 387, 55, 389, 48, 390, 40, 392, 37, 393, 24, 393, 23, 381, 23, 379, 21, 379, 14, 383, 9, 306, 9, 307, 116, 310, 116" href="ListeStation.asp?regionhydro=04&amp;Tri=Non" shape="POLY" alt="Outaouais et Montr�al">
+        <area coords="192, 399, 187, 408, 181, 415, 172, 424, 166, 429, 163, 434, 157, 434, 152, 436, 145, 439, 136, 443, 131, 447, 126, 454, 123, 457, 119, 457, 113, 454, 112, 446, 109, 444, 107, 440, 108, 432, 105, 431, 106, 422, 105, 414, 111, 410, 109, 408, 108, 395, 99, 392, 96, 394, 89, 390, 85, 390, 93, 380, 99, 372, 101, 367, 111, 372, 119, 375, 127, 376, 132, 379, 143, 387, 143, 392, 146, 399, 151, 405, 154, 411, 158, 414, 162, 407, 170, 405, 175, 400, 181, 402, 187, 400, 191, 397" href="ListeStation.asp?regionhydro=05&amp;Tri=Non" shape="POLY" alt="Saint-Laurent nord-ouest">
+        <area coords="191, 398, 189, 399, 184, 402, 182, 402, 178, 401, 175, 400, 172, 407, 167, 407, 159, 408, 158, 414, 150, 409, 145, 398, 139, 388, 136, 384, 130, 379, 124, 378, 117, 375, 113, 374, 114, 370, 112, 363, 114, 358, 117, 350, 123, 340, 126, 336, 133, 326, 140, 326, 149, 324, 154, 316, 157, 312, 162, 306, 164, 296, 171, 288, 178, 288, 179, 297, 182, 301, 180, 310, 181, 318, 184, 322, 184, 332, 183, 337, 179, 347, 174, 354, 172, 356, 171, 364, 173, 366, 173, 378, 174, 383, 180, 383, 186, 381, 189, 387, 191, 392, 192, 398" href="ListeStation.asp?regionhydro=06&amp;Tri=Non" shape="POLY" alt="Saguenay et lac Saint-Jean">
+        <area coords="191, 397, 191, 388, 187, 381, 180, 381, 175, 385, 174, 381, 175, 374, 173, 365, 173, 357, 179, 353, 181, 338, 185, 333, 183, 323, 183, 310, 180, 310, 181, 298, 179, 299, 179, 288, 184, 283, 187, 275, 192, 268, 199, 265, 200, 272, 202, 278, 210, 275, 216, 278, 220, 279, 226, 280, 226, 271, 230, 268, 235, 271, 241, 274, 249, 267, 251, 275, 249, 284, 262, 291, 266, 285, 272, 290, 275, 294, 282, 301, 284, 290, 286, 281, 285, 273, 292, 271, 295, 266, 299, 269, 307, 266, 319, 268, 327, 274, 338, 277, 343, 278, 349, 274, 356, 268, 364, 267, 371, 272, 374, 270, 377, 265, 383, 266, 389, 269, 392, 273, 396, 276, 402, 278, 404, 291, 389, 298, 382, 303, 377, 308, 372, 317, 365, 323, 362, 330, 360, 333, 333, 335, 307, 338, 273, 338, 257, 341, 243, 345, 240, 350, 237, 357, 235, 365, 227, 366, 218, 369, 215, 373, 207, 378, 203, 384, 201, 390, 192, 396" href="ListeStation.asp?regionhydro=07&amp;Tri=Non" shape="POLY" alt="Saint-Laurent nord-est">
+        <area coords="17, 381, 32, 292, 44, 288, 48, 289, 57, 290, 65, 290, 72, 283, 79, 283, 87, 283, 89, 288, 102, 288, 111, 287, 112, 291, 119, 300, 128, 296, 136, 296, 136, 302, 141, 298, 147, 298, 152, 297, 161, 286, 166, 289, 167, 295, 163, 301, 162, 307, 154, 316, 146, 325, 141, 325, 135, 328, 127, 336, 114, 359, 114, 361, 113, 373, 108, 370, 104, 367, 99, 371, 92, 379, 85, 386, 83, 391, 74, 391, 66, 391, 60, 395, 57, 395, 56, 392, 50, 392, 45, 392, 39, 389, 39, 385, 42, 379, 42, 373, 39, 368, 35, 371, 25, 374, 21, 380, 18, 380" href="ListeStation.asp?regionhydro=08&amp;Tri=Non" shape="POLY" alt="Baies de Hannah et de Rupert">
+        <area coords="40, 293, 40, 291, 46, 283, 49, 274, 46, 268, 45, 263, 45, 253, 45, 246, 48, 227, 44, 225, 42, 220, 42, 211, 59, 208, 72, 201, 89, 185, 93, 177, 95, 168, 95, 155, 91, 139, 91, 133, 73, 112, 74, 104, 89, 82, 94, 77, 94, 70, 92, 55, 85, 52, 92, 43, 92, 24, 92, 14, 101, 3, 120, 15, 116, 23, 118, 27, 122, 27, 123, 35, 140, 36, 151, 34, 153, 39, 150, 43, 140, 42, 131, 52, 141, 56, 131, 61, 132, 70, 133, 78, 131, 84, 127, 87, 126, 95, 126, 100, 135, 108, 134, 119, 132, 123, 125, 126, 124, 137, 121, 140, 115, 144, 107, 147, 99, 144, 103, 153, 115, 162, 125, 161, 135, 161, 129, 154, 135, 153, 137, 159, 140, 165, 146, 169, 146, 183, 161, 183, 166, 185, 161, 198, 160, 202, 171, 204, 176, 203, 181, 205, 183, 200, 193, 198, 187, 212, 197, 219, 205, 219, 211, 222, 219, 227, 225, 229, 225, 235, 224, 244, 231, 252, 237, 257, 240, 266, 232, 267, 229, 268, 226, 278, 218, 283, 214, 275, 203, 277, 199, 282, 198, 267, 192, 268, 190, 274, 186, 282, 181, 287, 173, 290, 168, 293, 165, 296, 164, 291, 158, 291, 148, 299, 143, 300, 137, 305, 134, 306, 133, 300, 126, 299, 121, 299, 116, 303, 111, 296, 107, 289, 101, 289, 91, 292, 83, 289, 74, 283, 71, 285, 61, 289, 54, 293, 45, 291, 41, 293" href="ListeStation.asp?regionhydro=09&amp;Tri=Non"shape="POLY" alt="Baies James et d'Hudson"></p>
+	    <area coords="120, 15, 116, 23, 118, 27, 122, 27, 123, 35, 140, 36, 151, 34, 153, 39, 150, 43, 140, 42, 131, 52, 141, 56, 131, 61, 132, 70, 133, 78, 131, 84, 127, 87, 126, 95, 126, 100, 135, 108, 134, 119, 132, 123, 125, 126, 124, 137, 121, 140, 115, 144, 107, 147, 99, 144, 103, 153, 115, 162, 125, 161, 135, 161, 129, 154, 135, 153, 137, 159, 140, 165, 146, 169, 146, 183, 161, 183, 166, 185, 161, 198, 160, 202, 171, 204, 176, 203, 181, 205, 183, 200, 193, 198, 187, 212, 197, 219, 205, 219, 211, 222, 219, 227, 225, 229, 235, 229, 232, 215, 243, 222, 243, 208, 253, 217, 256, 218, 259, 223, 268, 217, 276, 222, 275, 222, 282, 220, 287, 226, 286, 218, 289, 215, 290, 215, 290, 204, 286, 192, 291, 187, 280, 186, 280, 175, 283, 176, 279, 168, 284, 152, 280, 140, 272, 132, 281, 122, 276, 120, 274, 112, 269, 100, 266, 94, 266, 70, 257, 92, 257, 104, 250, 117, 244, 115, 240, 124, 229, 131, 220, 124, 214, 113, 200, 116, 199, 70, 204, 59, 196, 60, 195, 55, 173, 49, 164, 30, 162, 24, 159, 24, 150, 14, 138, 23, 125, 18" href="ListeStation.asp?regionhydro=10&amp;Tri=Non"shape="POLY" alt="Baie d'Ungava"></p>
+	    </blockquote>
+	  </map> 
+	  
+        <img align="middle" border="0" src="images/carte_2m_reg_hydro.jpg" useMap="#FPMapRegion" width="423" height="487" alt="Carte des r�gions hydrographiques du Qu�bec" ></td>
+          <td width="40%">
+<font face=Verdana size="2">
+  <p><A href="ListeStation.asp?regionhydro=00&amp;Tri=Non" ><font size="2">
+	00 - Fleuve Saint-Laurent </font></p>
+          <p><A href="ListeStation.asp?regionhydro=01&amp;Tri=Non" ><font size="2">
+			01 - Baie des Chaleurs et Perc�</font></A><font size="2">
+      </font>
+          </p>
+          <p><A href="ListeStation.asp?regionhydro=02&amp;Tri=Non" ><font size="2">
+			02 - Saint-Laurent sud-est</font></A><font size="2">
+      </font>
+          </p>
+          <p><A href="ListeStation.asp?regionhydro=03&amp;Tri=Non" ><font size="2">
+			03 - Saint-Laurent sud-ouest</font></A><font size="2">
+      </font>
+          </p>
+          <p><A href="ListeStation.asp?regionhydro=04&amp;Tri=Non" ><font size="2">
+			04 - Outaouais et Montr�al</font></A><font size="2"> </font>
+          </p>
+          <p><A href="ListeStation.asp?regionhydro=05&amp;Tri=Non" ><font size="2">
+			05 - Saint-Laurent nord-ouest</font></A><font size="2">
+      </font>
+          </p>
+          <p><A href="ListeStation.asp?regionhydro=06&amp;Tri=Non" ><font size="2">
+			06 - Saguenay et lac Saint-Jean</font></A></p>
+          <p><A href="ListeStation.asp?regionhydro=07&amp;Tri=Non" ><font size="2">
+			07 - Saint-Laurent nord-est</font></A> </p>
+          <p><A href="ListeStation.asp?regionhydro=08&amp;Tri=Non" ><font size="2">
+			08 - Baies de Hannah et de Rupert</font></A></p>
+          <p><A href="ListeStation.asp?regionhydro=09&amp;Tri=Non" ><font size="2">
+            09 - Baies James et d'Hudson</font></A></p>
+          <p><A href="ListeStation.asp?regionhydro=10&amp;Tri=Non" ><font size="2">
+            10 - Baie d'Ungava</font></A></p>
+          <p><font size="2">11 - Mer du Labrador</font> </p>
+          <p><font size="2">12 - �les du fleuve Saint-Laurent</font> </p>
+          <p><font size="2">13 - �les du golfe du Saint-Laurent</font> </p>
+</font>
+          <p align="left"><font face=Verdana size="1">
+      <a href="limites.htm">Limites des r�gions hydrographiques</a></font></p>
+          </td>
+        </tr>
+</table>
+ 
+    <p align="center"><font face=Verdana size="1">Derni�re mise � jour des 
+	donn�es : 2020-01-24 05:53</font></p>
+<blockquote>
+	  
+    <p align="center"><font face=Verdana size="1">Pour tout commentaire, vous 
+	pouvez communiquer avec le Centre d�expertise hydrique du Qu�bec par 
+	<a href="mailto:expertise.hydrique@environnement.gouv.qc.ca">courrier �lectronique 
+	</a>ou par t�l�phone au 418 521-3866, poste 7150. </font></p>
+</blockquote>
+
+
+
+<form id="frmRecherche" name="frmRecherche"  method="POST" onsubmit="return valideRecherche()">
+  <center>
+  <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="80%" height="116">
+    <tr>
+      <td width="100%" colspan="3" bgcolor="#F0F7FE" height="23">
+        <p class="Titre_2" align="center"><b><font face="Verdana">
+        <a name="nouvelle"></a>Recherche</font></b></td>
+    </tr>
+    <tr>
+      <td width="27%" height="5"> 
+      </td>
+      <td width="48%" height="5"></td>
+      <td width="25%" align="right" height="5">
+            </td>
+    </tr>
+    <tr>
+      <td width="27%" height="22"><font face="Verdana" size="2">Num�ro de la 
+		station </font> 
+      </td>
+      <td width="48%" height="22"><select size="1" name="lstStation" id="lstStation" dir="ltr" tabindex="1">
+            <option></option>
+            
+            <option value="023402    ">023402    </option>
+
+            <option value="030247    ">030247    </option>
+            
+            <option value="050409    ">050409    </option>
+            
+  			</select></td>
+      <td width="25%" rowspan="3" align="right" height="66">
+            <input type="submit" id="BtnRechercher0" name="BtnRechercher1" value="Rechercher"><br>
+            <input type="reset" value="    R�tablir    " name="B3"></td>
+    </tr>
+    <tr>
+      <td width="27%" height="22"><font face="Verdana" size="2">Municipalit�</font></td>
+      <td width="48%" height="22"><select size="1" name="lstMunicipalite" id="lstMunicipalite" dir="ltr" tabindex="2">
+            <option></option>
+			
+            <option value="Amqui">Amqui</option>
+            
+            <option value="Authier">Authier</option>
+            
+            <option value="Baie-Comeau">Baie-Comeau</option>
+            
+            <option value="Baie-d'Hudson                                             ">Baie-d'Hudson                                             </option>
+            
+            <option value="Belle-Rivi�re                                             ">Belle-Rivi�re                                             </option>
+            
+            <option value="Boischatel">Boischatel</option>
+            
+            <option value="Bois-des-Filion">Bois-des-Filion</option>
+            
+            <option value="Bromont">Bromont</option>
+            
+            <option value="Carignan">Carignan</option>
+            
+            <option value="Chambord">Chambord</option>
+            
+            <option value="Ch�n�ville">Ch�n�ville</option>
+            
+            <option value="Chute-Saint-Philippe">Chute-Saint-Philippe</option>
+            
+            <option value="Clermont">Clermont</option>
+            
+            <option value="Coaticook">Coaticook</option>
+            
+            <option value="Cookshire-Eaton">Cookshire-Eaton</option>
+            
+            <option value="Cowansville">Cowansville</option>
+            
+            <option value="Danville">Danville</option>
+            
+            <option value="D�gelis">D�gelis</option>
+            
+            <option value="Deschaillons-sur-Saint-Laurent">Deschaillons-sur-Saint-Laurent</option>
+            
+            <option value="Dolbeau-Mistassini">Dolbeau-Mistassini</option>
+            
+            <option value="Donnacona">Donnacona</option>
+            
+            <option value="Drummondville">Drummondville</option>
+            
+            <option value="Farnham">Farnham</option>
+            
+            <option value="Franklin">Franklin</option>
+            
+            <option value="Gasp�">Gasp�</option>
+            
+            <option value="Godbout">Godbout</option>
+            
+            <option value="Gouvernement r�gional d'Eeyou Istchee Baie-James">Gouvernement r�gional d'Eeyou Istchee Baie-James</option>
+            
+            <option value="Gracefield">Gracefield</option>
+            
+            <option value="Granby">Granby</option>
+            
+            <option value="Grenville-sur-la-Rouge">Grenville-sur-la-Rouge</option>
+            
+            <option value="Hatley">Hatley</option>
+            
+            <option value="H�bertville">H�bertville</option>
+            
+            <option value="Huntingdon">Huntingdon</option>
+            
+            <option value="Inukjuak">Inukjuak</option>
+            
+            <option value="Inverness">Inverness</option>
+            
+            <option value="Ivry-sur-le-Lac">Ivry-sur-le-Lac</option>
+            
+            <option value="Joliette">Joliette</option>
+            
+            <option value="Kamouraska">Kamouraska</option>
+            
+            <option value="Kinnear's Mills">Kinnear's Mills</option>
+            
+            <option value="Kipawa">Kipawa</option>
+            
+            <option value="La Minerve">La Minerve</option>
+            
+            <option value="La Tuque">La Tuque</option>
+            
+            <option value="Lac-Bouchette">Lac-Bouchette</option>
+            
+            <option value="Lac-Brome">Lac-Brome</option>
+            
+            <option value="Lac-Casault                                               ">Lac-Casault                                               </option>
+            
+            <option value="Lac-des-�corces">Lac-des-�corces</option>
+            
+            <option value="Lac-Douaire                                               ">Lac-Douaire                                               </option>
+            
+            <option value="Lac-Granet                                                ">Lac-Granet                                                </option>
+            
+            <option value="Lac-Jacques-Cartier                                       ">Lac-Jacques-Cartier                                       </option>
+            
+            <option value="Lac-J�r�me                                                ">Lac-J�r�me                                                </option>
+            
+            <option value="Lac-M�gantic">Lac-M�gantic</option>
+            
+            <option value="Lac-Ministuk                                              ">Lac-Ministuk                                              </option>
+            
+            <option value="Lac-Oscar                                                 ">Lac-Oscar                                                 </option>
+            
+            <option value="Lac-Pikauba                                               ">Lac-Pikauba                                               </option>
+            
+            <option value="Lac-Saint-Paul">Lac-Saint-Paul</option>
+            
+            <option value="Lac-Sup�rieur">Lac-Sup�rieur</option>
+            
+            <option value="Laforce">Laforce</option>
+            
+            <option value="Laniel                                                    ">Laniel                                                    </option>
+            
+            <option value="Lanoraie">Lanoraie</option>
+            
+            <option value="Lantier">Lantier</option>
+            
+            <option value="Laval">Laval</option>
+            
+            <option value="Laverloch�re-Angliers">Laverloch�re-Angliers</option>
+            
+            <option value="L'�piphanie">L'�piphanie</option>
+            
+            <option value="Les Escoumins">Les Escoumins</option>
+            
+            <option value="Les Lacs-du-T�miscamingue                                 ">Les Lacs-du-T�miscamingue                                 </option>
+            
+            <option value="L�vis">L�vis</option>
+            
+            <option value="Lingwick">Lingwick</option>
+            
+            <option value="Macamic">Macamic</option>
+            
+            <option value="Maddington Falls">Maddington Falls</option>
+            
+            <option value="Magog">Magog</option>
+            
+            <option value="Mandeville">Mandeville</option>
+            
+            <option value="Matagami">Matagami</option>
+            
+            <option value="Matane">Matane</option>
+            
+            <option value="Mercier">Mercier</option>
+            
+            <option value="Mont-Albert                                               ">Mont-Albert                                               </option>
+            
+            <option value="Montcerf-Lytton">Montcerf-Lytton</option>
+            
+            <option value="Mont-Laurier">Mont-Laurier</option>
+            
+            <option value="Montr�al">Montr�al</option>
+            
+            <option value="Mont-Tremblant">Mont-Tremblant</option>
+            
+            <option value="New Richmond">New Richmond</option>
+            
+            <option value="Normandin">Normandin</option>
+            
+            <option value="North Hatley">North Hatley</option>
+            
+            <option value="Notre-Dame-des-Neiges">Notre-Dame-des-Neiges</option>
+            
+            <option value="Notre-Dame-de-Stanbridge">Notre-Dame-de-Stanbridge</option>
+            
+            <option value="Notre-Dame-du-Laus">Notre-Dame-du-Laus</option>
+            
+            <option value="Nouvelle">Nouvelle</option>
+            
+            <option value="Orford">Orford</option>
+            
+            <option value="P�ribonka">P�ribonka</option>
+            
+            <option value="Petit-M�catina                                            ">Petit-M�catina                                            </option>
+            
+            <option value="Petit-Saguenay">Petit-Saguenay</option>
+            
+            <option value="Pike River">Pike River</option>
+            
+            <option value="Pikogan                                                   ">Pikogan                                                   </option>
+            
+            <option value="Plessisville">Plessisville</option>
+            
+            <option value="Pointe-Calumet">Pointe-Calumet</option>
+            
+            <option value="Pointe-Claire">Pointe-Claire</option>
+            
+            <option value="Port-Cartier">Port-Cartier</option>
+            
+            <option value="Qu�bec">Qu�bec</option>
+            
+            <option value="Rawdon">Rawdon</option>
+            
+            <option value="Rimouski">Rimouski</option>
+            
+            <option value="Ripon">Ripon</option>
+            
+            <option value="Rivi�re-du-Loup">Rivi�re-du-Loup</option>
+            
+            <option value="Rivi�re-Koksoak                                           ">Rivi�re-Koksoak                                           </option>
+            
+            <option value="Rivi�re-Saint-Jean                                        ">Rivi�re-Saint-Jean                                        </option>
+            
+            <option value="Roberval">Roberval</option>
+            
+            <option value="Routhierville                                             ">Routhierville                                             </option>
+            
+            <option value="Rouyn-Noranda">Rouyn-Noranda</option>
+            
+            <option value="Roxton Pond">Roxton Pond</option>
+            
+            <option value="Sacr�-Coeur">Sacr�-Coeur</option>
+            
+            <option value="Saguenay">Saguenay</option>
+            
+            <option value="Saint-Alexandre-de-Kamouraska">Saint-Alexandre-de-Kamouraska</option>
+            
+            <option value="Saint-Alexis-des-Monts">Saint-Alexis-des-Monts</option>
+            
+            <option value="Saint-Alphonse">Saint-Alphonse</option>
+            
+            <option value="Saint-Anaclet-de-Lessard">Saint-Anaclet-de-Lessard</option>
+            
+            <option value="Saint-Andr�-d'Argenteuil">Saint-Andr�-d'Argenteuil</option>
+            
+            <option value="Saint-Armand">Saint-Armand</option>
+            
+            <option value="Saint-Basile">Saint-Basile</option>
+            
+            <option value="Saint-Charles-de-Bellechasse">Saint-Charles-de-Bellechasse</option>
+            
+            <option value="Saint-Chrysostome">Saint-Chrysostome</option>
+            
+            <option value="Saint-Colomban">Saint-Colomban</option>
+            
+            <option value="Saint-David">Saint-David</option>
+            
+            <option value="Saint-Denis-de-Brompton">Saint-Denis-de-Brompton</option>
+            
+            <option value="Saint-Didace">Saint-Didace</option>
+            
+            <option value="Sainte-Agathe-des-Monts">Sainte-Agathe-des-Monts</option>
+            
+            <option value="Sainte-Anne-de-Bellevue">Sainte-Anne-de-Bellevue</option>
+            
+            <option value="Sainte-Anne-de-la-Pocati�re">Sainte-Anne-de-la-Pocati�re</option>
+            
+            <option value="Sainte-Catherine-de-la-Jacques-Cartier">Sainte-Catherine-de-la-Jacques-Cartier</option>
+            
+            <option value="Sainte-�m�lie-de-l'�nergie">Sainte-�m�lie-de-l'�nergie</option>
+            
+            <option value="Sainte-H�l�ne-de-Mancebourg">Sainte-H�l�ne-de-Mancebourg</option>
+            
+            <option value="Sainte-Lucie-des-Laurentides">Sainte-Lucie-des-Laurentides</option>
+            
+            <option value="Sainte-Marguerite-du-Lac-Masson">Sainte-Marguerite-du-Lac-Masson</option>
+            
+            <option value="Sainte-Prax�de">Sainte-Prax�de</option>
+            
+            <option value="Saint-Esprit">Saint-Esprit</option>
+            
+            <option value="Sainte-Th�r�se-de-la-Gatineau">Sainte-Th�r�se-de-la-Gatineau</option>
+            
+            <option value="Sainte-Ursule">Sainte-Ursule</option>
+            
+            <option value="Saint-Eustache">Saint-Eustache</option>
+            
+            <option value="Saint-Faustin--Lac-Carr�">Saint-Faustin--Lac-Carr�</option>
+            
+            <option value="Saint-F�licien">Saint-F�licien</option>
+            
+            <option value="Saint-F�lix-de-Valois">Saint-F�lix-de-Valois</option>
+            
+            <option value="Saint-Fr�d�ric">Saint-Fr�d�ric</option>
+            
+            <option value="Saint-Fulgence">Saint-Fulgence</option>
+            
+            <option value="Saint-Gabriel">Saint-Gabriel</option>
+            
+            <option value="Saint-Georges">Saint-Georges</option>
+            
+            <option value="Saint-Gilbert">Saint-Gilbert</option>
+            
+            <option value="Saint-Gilles">Saint-Gilles</option>
+            
+            <option value="Saint-Henri">Saint-Henri</option>
+            
+            <option value="Saint-Hyacinthe">Saint-Hyacinthe</option>
+            
+            <option value="Saint-Jean-Baptiste">Saint-Jean-Baptiste</option>
+            
+            <option value="Saint-Jean-de-l'�le-d'Orl�ans">Saint-Jean-de-l'�le-d'Orl�ans</option>
+            
+            <option value="Saint-Jean-sur-Richelieu">Saint-Jean-sur-Richelieu</option>
+            
+            <option value="Saint-J�r�me">Saint-J�r�me</option>
+            
+            <option value="Saint-Joseph-de-Coleraine">Saint-Joseph-de-Coleraine</option>
+            
+            <option value="Saint-Joseph-de-Kamouraska">Saint-Joseph-de-Kamouraska</option>
+            
+            <option value="Saint-Lambert-de-Lauzon">Saint-Lambert-de-Lauzon</option>
+            
+            <option value="Saint-L�onard-d'Aston">Saint-L�onard-d'Aston</option>
+            
+            <option value="Saint-Martin">Saint-Martin</option>
+            
+            <option value="Saint-Mathias-sur-Richelieu">Saint-Mathias-sur-Richelieu</option>
+            
+            <option value="Saint-Michel-des-Saints">Saint-Michel-des-Saints</option>
+            
+            <option value="Saint-Paul">Saint-Paul</option>
+            
+            <option value="Saint-Paul-de-l'�le-aux-Noix">Saint-Paul-de-l'�le-aux-Noix</option>
+            
+            <option value="Saint-Pie">Saint-Pie</option>
+            
+            <option value="Saint-Prime">Saint-Prime</option>
+            
+            <option value="Saint-Rapha�l">Saint-Rapha�l</option>
+            
+            <option value="Saint-Raymond">Saint-Raymond</option>
+            
+            <option value="Saint-Stanislas">Saint-Stanislas</option>
+            
+            <option value="Saint-Ulric">Saint-Ulric</option>
+            
+            <option value="Saint-Val�rien-de-Milton">Saint-Val�rien-de-Milton</option>
+            
+            <option value="Senneterre">Senneterre</option>
+            
+            <option value="Sept-�les">Sept-�les</option>
+            
+            <option value="Shannon">Shannon</option>
+            
+            <option value="Sherbrooke">Sherbrooke</option>
+            
+            <option value="Stoneham-et-Tewkesbury">Stoneham-et-Tewkesbury</option>
+            
+            <option value="Stratford">Stratford</option>
+            
+            <option value="Terrebonne">Terrebonne</option>
+            
+            <option value="Toponyme � venir                                          ">Toponyme � venir                                          </option>
+            
+            <option value="Tr�s-Saint-Sacrement">Tr�s-Saint-Sacrement</option>
+            
+            <option value="Val-d'Or">Val-d'Or</option>
+            
+            <option value="Val-Morin">Val-Morin</option>
+            
+            <option value="Victoriaville">Victoriaville</option>
+            
+            <option value="Waterloo">Waterloo</option>
+            
+            <option value="Waterville">Waterville</option>
+            
+            <option value="Weedon">Weedon</option>
+            
+            <option value="Westbury">Westbury</option>
+            
+			</select></td>
+    </tr>
+    <tr>
+      <td width="27%" height="22"><font face="Verdana" size="2">Lac ou cours 
+		d'eau</font></td>
+      <td width="48%" height="22"><select size="1" name="lstRiviere" id="lstRiviere" dir="ltr" tabindex="3">
+            <option></option>
+			
+            <option value="Abitibi, Lac">Abitibi, Lac</option>
+            
+            <option value="Achigan, Rivi�re de l'">Achigan, Rivi�re de l'</option>
+            
+            <option value="Anglais, Rivi�re aux">Anglais, Rivi�re aux</option>
+            
+            <option value="Anglais, Rivi�re des">Anglais, Rivi�re des</option>
+            
+            <option value="Ashuapmushuan, Rivi�re">Ashuapmushuan, Rivi�re</option>
+            
+            <option value="Aulnaies, Ruisseau des">Aulnaies, Ruisseau des</option>
+            
+            <option value="Aylmer, Lac">Aylmer, Lac</option>
+            
+            <option value="Baleine, Grande rivi�re de la">Baleine, Grande rivi�re de la</option>
+            
+            <option value="Baleine, Rivi�re � la">Baleine, Rivi�re � la</option>
+            
+            <option value="Batiscan, Rivi�re">Batiscan, Rivi�re</option>
+            
+            <option value="Bayonne, Rivi�re">Bayonne, Rivi�re</option>
+            
+            <option value="Beaudet, R�servoir">Beaudet, R�servoir</option>
+            
+            <option value="Beauport, Rivi�re">Beauport, Rivi�re</option>
+            
+            <option value="Beaurivage, Rivi�re">Beaurivage, Rivi�re</option>
+            
+            <option value="B�cancour, Rivi�re">B�cancour, Rivi�re</option>
+            
+            <option value="Bell, Rivi�re">Bell, Rivi�re</option>
+            
+            <option value="Belle Rivi�re, La">Belle Rivi�re, La</option>
+            
+            <option value="Bellefeuille, Rivi�re">Bellefeuille, Rivi�re</option>
+            
+            <option value="Blanche, Rivi�re">Blanche, Rivi�re</option>
+            
+            <option value="Bonaventure, Rivi�re">Bonaventure, Rivi�re</option>
+            
+            <option value="Bonniebrook, Ruisseau">Bonniebrook, Ruisseau</option>
+            
+            <option value="Bourbon, Rivi�re">Bourbon, Rivi�re</option>
+            
+            <option value="Bourlamaque, Rivi�re">Bourlamaque, Rivi�re</option>
+            
+            <option value="Boyer Sud, Rivi�re">Boyer Sud, Rivi�re</option>
+            
+            <option value="Boyer, Rivi�re">Boyer, Rivi�re</option>
+            
+            <option value="Broadback, Rivi�re">Broadback, Rivi�re</option>
+            
+            <option value="Brochets, Rivi�re aux">Brochets, Rivi�re aux</option>
+            
+            <option value="Brome, Lac">Brome, Lac</option>
+            
+            <option value="Brompton, Lac">Brompton, Lac</option>
+            
+            <option value="Br�l�, Lac">Br�l�, Lac</option>
+            
+            <option value="Bulstrode, Rivi�re">Bulstrode, Rivi�re</option>
+            
+            <option value="Caniapiscau, Rivi�re">Caniapiscau, Rivi�re</option>
+            
+            <option value="Capitachouane, Rivi�re">Capitachouane, Rivi�re</option>
+            
+            <option value="Cascap�dia, Petite rivi�re">Cascap�dia, Petite rivi�re</option>
+            
+            <option value="Cascap�dia, Rivi�re">Cascap�dia, Rivi�re</option>
+            
+            <option value="Champlain, Lac">Champlain, Lac</option>
+            
+            <option value="Chapleau, Lac">Chapleau, Lac</option>
+            
+            <option value="Ch�teauguay, Rivi�re">Ch�teauguay, Rivi�re</option>
+            
+            <option value="Chaudi�re, Rivi�re">Chaudi�re, Rivi�re</option>
+            
+            <option value="Ch�ne, Petite rivi�re du">Ch�ne, Petite rivi�re du</option>
+            
+            <option value="Ch�ne, Rivi�re du">Ch�ne, Rivi�re du</option>
+            
+            <option value="Chicoutimi, Rivi�re">Chicoutimi, Rivi�re</option>
+            
+            <option value="Coaticook, Rivi�re">Coaticook, Rivi�re</option>
+            
+            <option value="Commissaires, Lac des">Commissaires, Lac des</option>
+            
+            <option value="Cornu, Lac">Cornu, Lac</option>
+            
+            <option value="Croche, Rivi�re">Croche, Rivi�re</option>
+            
+            <option value="Cyriac, Rivi�re">Cyriac, Rivi�re</option>
+            
+            <option value="Dartmouth, Rivi�re">Dartmouth, Rivi�re</option>
+            
+            <option value="Dauphine, Rivi�re">Dauphine, Rivi�re</option>
+            
+            <option value="David, Rivi�re">David, Rivi�re</option>
+            
+            <option value="D�sert, Rivi�re">D�sert, Rivi�re</option>
+            
+            <option value="Deux Montagnes, Lac des">Deux Montagnes, Lac des</option>
+            
+            <option value="Diable, Rivi�re du">Diable, Rivi�re du</option>
+            
+            <option value="Doncaster, Rivi�re">Doncaster, Rivi�re</option>
+            
+            <option value="Dumoine, Rivi�re">Dumoine, Rivi�re</option>
+            
+            <option value="Eaton, Rivi�re">Eaton, Rivi�re</option>
+            
+            <option value="Eaux Vol�es, Ruisseau des">Eaux Vol�es, Ruisseau des</option>
+            
+            <option value="�corces, Lac des">�corces, Lac des</option>
+            
+            <option value="�corces, Rivi�re aux">�corces, Rivi�re aux</option>
+            
+            <option value="Escoumins, Rivi�re des">Escoumins, Rivi�re des</option>
+            
+            <option value="Etchemin, Rivi�re">Etchemin, Rivi�re</option>
+            
+            <option value="Ewing, Ruisseau">Ewing, Ruisseau</option>
+            
+            <option value="Famine, Rivi�re">Famine, Rivi�re</option>
+            
+            <option value="Fermes, Rivi�re des">Fermes, Rivi�re des</option>
+            
+            <option value="Feuilles, Rivi�re aux">Feuilles, Rivi�re aux</option>
+            
+            <option value="Fourchue, Rivi�re">Fourchue, Rivi�re</option>
+            
+            <option value="Gatineau, Rivi�re">Gatineau, Rivi�re</option>
+            
+            <option value="George, Rivi�re">George, Rivi�re</option>
+            
+            <option value="Godbout, Rivi�re">Godbout, Rivi�re</option>
+            
+            <option value="Gordon, Ruisseau">Gordon, Ruisseau</option>
+            
+            <option value="Ha! Ha!, Rivi�re">Ha! Ha!, Rivi�re</option>
+            
+            <option value="Harricana, Rivi�re">Harricana, Rivi�re</option>
+            
+            <option value="Henri, Bras d'">Henri, Bras d'</option>
+            
+            <option value="Hurons, Rivi�re des">Hurons, Rivi�re des</option>
+            
+            <option value="Innuksuac, Rivi�re">Innuksuac, Rivi�re</option>
+            
+            <option value="Iroquois, Rivi�re aux">Iroquois, Rivi�re aux</option>
+            
+            <option value="Jacques-Cartier, Rivi�re">Jacques-Cartier, Rivi�re</option>
+            
+            <option value="Kamouraska, Rivi�re">Kamouraska, Rivi�re</option>
+            
+            <option value="K�nogami, Lac">K�nogami, Lac</option>
+            
+            <option value="Kiamika, R�servoir">Kiamika, R�servoir</option>
+            
+            <option value="Kiamika, Rivi�re">Kiamika, Rivi�re</option>
+            
+            <option value="Kinoj�vis, Rivi�re">Kinoj�vis, Rivi�re</option>
+            
+            <option value="Kipawa, Lac">Kipawa, Lac</option>
+            
+            <option value="Kipawa, Rivi�re">Kipawa, Rivi�re</option>
+            
+            <option value="La Chevroti�re, Rivi�re">La Chevroti�re, Rivi�re</option>
+            
+            <option value="L'Acadie, Rivi�re">L'Acadie, Rivi�re</option>
+            
+            <option value="L'Assomption, Rivi�re">L'Assomption, Rivi�re</option>
+            
+            <option value="Li�vre, Rivi�re du">Li�vre, Rivi�re du</option>
+            
+            <option value="Louise, Lac">Louise, Lac</option>
+            
+            <option value="Loup, Rivi�re du">Loup, Rivi�re du</option>
+            
+            <option value="Loups Marins, Lac des">Loups Marins, Lac des</option>
+            
+            <option value="Ludger, Lac">Ludger, Lac</option>
+            
+            <option value="Lyster, Lac">Lyster, Lac</option>
+            
+            <option value="Macamic, Lac">Macamic, Lac</option>
+            
+            <option value="Madawaska, Rivi�re">Madawaska, Rivi�re</option>
+            
+            <option value="Magpie, Lac">Magpie, Lac</option>
+            
+            <option value="Malbaie, Rivi�re">Malbaie, Rivi�re</option>
+            
+            <option value="Manitou, Lac">Manitou, Lac</option>
+            
+            <option value="Mars, Rivi�re �">Mars, Rivi�re �</option>
+            
+            <option value="Maskinong�, Lac">Maskinong�, Lac</option>
+            
+            <option value="Maskinong�, Rivi�re">Maskinong�, Rivi�re</option>
+            
+            <option value="Massawippi, Lac">Massawippi, Lac</option>
+            
+            <option value="Massawippi, Rivi�re">Massawippi, Rivi�re</option>
+            
+            <option value="Masson, Lac">Masson, Lac</option>
+            
+            <option value="Mastigouche, Rivi�re">Mastigouche, Rivi�re</option>
+            
+            <option value="Matane, Rivi�re">Matane, Rivi�re</option>
+            
+            <option value="Matap�dia, Rivi�re">Matap�dia, Rivi�re</option>
+            
+            <option value="Matawin, Rivi�re">Matawin, Rivi�re</option>
+            
+            <option value="M�gantic, Lac">M�gantic, Lac</option>
+            
+            <option value="M�l�zes, Rivi�re aux">M�l�zes, Rivi�re aux</option>
+            
+            <option value="Memphr�magog, Lac">Memphr�magog, Lac</option>
+            
+            <option value="M�tabetchouane, Rivi�re">M�tabetchouane, Rivi�re</option>
+            
+            <option value="Mille �les, Rivi�re des">Mille �les, Rivi�re des</option>
+            
+            <option value="Mistassibi, Rivi�re">Mistassibi, Rivi�re</option>
+            
+            <option value="Mistassini, Rivi�re">Mistassini, Rivi�re</option>
+            
+            <option value="Mitchinamecus, R�servoir">Mitchinamecus, R�servoir</option>
+            
+            <option value="Mitchinamecus, Rivi�re">Mitchinamecus, Rivi�re</option>
+            
+            <option value="Moisie, Rivi�re">Moisie, Rivi�re</option>
+            
+            <option value="Montagne Noire, Lac de la">Montagne Noire, Lac de la</option>
+            
+            <option value="Montmorency, Rivi�re">Montmorency, Rivi�re</option>
+            
+            <option value="Morin, Lac">Morin, Lac</option>
+            
+            <option value="Morpions, Ruisseau">Morpions, Ruisseau</option>
+            
+            <option value="Moulin, Rivi�re du">Moulin, Rivi�re du</option>
+            
+            <option value="Natashquan, Rivi�re">Natashquan, Rivi�re</option>
+            
+            <option value="Neigette, Petite rivi�re">Neigette, Petite rivi�re</option>
+            
+            <option value="Nelson, Rivi�re">Nelson, Rivi�re</option>
+            
+            <option value="Nicolet Sud-Ouest, Rivi�re">Nicolet Sud-Ouest, Rivi�re</option>
+            
+            <option value="Nicolet, Rivi�re">Nicolet, Rivi�re</option>
+            
+            <option value="Noire, Rivi�re">Noire, Rivi�re</option>
+            
+            <option value="Nord, Bras du">Nord, Bras du</option>
+            
+            <option value="Nord, Rivi�re du">Nord, Rivi�re du</option>
+            
+            <option value="Nouvelle, Rivi�re">Nouvelle, Rivi�re</option>
+            
+            <option value="Ontaritzi, Rivi�re">Ontaritzi, Rivi�re</option>
+            
+            <option value="Osgood, Rivi�re">Osgood, Rivi�re</option>
+            
+            <option value="Ouareau, Rivi�re">Ouareau, Rivi�re</option>
+            
+            <option value="Ouelle, Rivi�re">Ouelle, Rivi�re</option>
+            
+            <option value="Ouiatchouan, Rivi�re">Ouiatchouan, Rivi�re</option>
+            
+            <option value="Ours, Ruisseau � l'">Ours, Ruisseau � l'</option>
+            
+            <option value="Outaouais, Rivi�re des">Outaouais, Rivi�re des</option>
+            
+            <option value="Papineau, Lac">Papineau, Lac</option>
+            
+            <option value="P�ribonka, Petite rivi�re">P�ribonka, Petite rivi�re</option>
+            
+            <option value="Petit M�catina, Rivi�re du">Petit M�catina, Rivi�re du</option>
+            
+            <option value="Petit Saguenay, Rivi�re">Petit Saguenay, Rivi�re</option>
+            
+            <option value="Petite Nation, Rivi�re de la">Petite Nation, Rivi�re de la</option>
+            
+            <option value="Picanoc, Rivi�re">Picanoc, Rivi�re</option>
+            
+            <option value="Pikauba, Rivi�re">Pikauba, Rivi�re</option>
+            
+            <option value="Poisson Blanc, Lac du">Poisson Blanc, Lac du</option>
+            
+            <option value="Pommes, Rivi�re aux">Pommes, Rivi�re aux</option>
+            
+            <option value="Pontax, Rivi�re">Pontax, Rivi�re</option>
+            
+            <option value="Portneuf, Rivi�re">Portneuf, Rivi�re</option>
+            
+            <option value="Prairies, Rivi�re des">Prairies, Rivi�re des</option>
+            
+            <option value="Quinze, Lac des ">Quinze, Lac des </option>
+            
+            <option value="Richelieu, Rivi�re">Richelieu, Rivi�re</option>
+            
+            <option value="Rimouski, Rivi�re">Rimouski, Rivi�re</option>
+            
+            <option value="Riverin, Rivi�re">Riverin, Rivi�re</option>
+            
+            <option value="Roche, Rivi�re de la">Roche, Rivi�re de la</option>
+            
+            <option value="Rouge, Rivi�re">Rouge, Rivi�re</option>
+            
+            <option value="Rouge, Ruisseau">Rouge, Ruisseau</option>
+            
+            <option value="Runnels, Ruisseau">Runnels, Ruisseau</option>
+            
+            <option value="Sables, Lac des">Sables, Lac des</option>
+            
+            <option value="Sables, Rivi�re aux">Sables, Rivi�re aux</option>
+            
+            <option value="Saint-Charles, Rivi�re">Saint-Charles, Rivi�re</option>
+            
+            <option value="Sainte-Anne, Rivi�re">Sainte-Anne, Rivi�re</option>
+            
+            <option value="Sainte-Marguerite Nord-Est, Rivi�re">Sainte-Marguerite Nord-Est, Rivi�re</option>
+            
+            <option value="Saint-Esprit, Rivi�re">Saint-Esprit, Rivi�re</option>
+            
+            <option value="Saint-Fran�ois, Grand lac">Saint-Fran�ois, Grand lac</option>
+            
+            <option value="Saint-Fran�ois, Rivi�re">Saint-Fran�ois, Rivi�re</option>
+            
+            <option value="Saint-Germain, Rivi�re">Saint-Germain, Rivi�re</option>
+            
+            <option value="Saint-Jean, Lac">Saint-Jean, Lac</option>
+            
+            <option value="Saint-Joseph, Lac">Saint-Joseph, Lac</option>
+            
+            <option value="Saint-Laurent, Fleuve">Saint-Laurent, Fleuve</option>
+            
+            <option value="Saint-Louis, Lac">Saint-Louis, Lac</option>
+            
+            <option value="Saint-Louis, Ruisseau">Saint-Louis, Ruisseau</option>
+            
+            <option value="Saint-Paul, Rivi�re">Saint-Paul, Rivi�re</option>
+            
+            <option value="Saint-Pierre, Ruisseau">Saint-Pierre, Ruisseau</option>
+            
+            <option value="Saumon, Rivi�re au">Saumon, Rivi�re au</option>
+            
+            <option value="Saumons, Rivi�re aux">Saumons, Rivi�re aux</option>
+            
+            <option value="Simard, Lac">Simard, Lac</option>
+            
+            <option value="Stukely, Lac">Stukely, Lac</option>
+            
+            <option value="Sud, Rivi�re du">Sud, Rivi�re du</option>
+            
+            <option value="Suffolk, Ruisseau">Suffolk, Ruisseau</option>
+            
+            <option value="Th�odore, Lac">Th�odore, Lac</option>
+            
+            <option value="Trente et Un Milles, Lac des">Trente et Un Milles, Lac des</option>
+            
+            <option value="Trib.46D.58M.15S.-71D.39M.29S.">Trib.46D.58M.15S.-71D.39M.29S.</option>
+            
+            <option value="Trois Pistoles, Rivi�re des">Trois Pistoles, Rivi�re des</option>
+            
+            <option value="Valin, Rivi�re">Valin, Rivi�re</option>
+            
+            <option value="Vermillon, Rivi�re">Vermillon, Rivi�re</option>
+            
+            <option value="Waswanipi, Rivi�re">Waswanipi, Rivi�re</option>
+            
+            <option value="Waterloo, Lac">Waterloo, Lac</option>
+            
+            <option value="Yamaska Nord, Rivi�re">Yamaska Nord, Rivi�re</option>
+            
+            <option value="Yamaska Sud-Est, Rivi�re">Yamaska Sud-Est, Rivi�re</option>
+            
+            <option value="Yamaska, Rivi�re">Yamaska, Rivi�re</option>
+            
+            <option value="York, Rivi�re">York, Rivi�re</option>
+            
+			</select></td>
+    </tr>
+    <tr>
+      <td width="27%" height="22"><font face="Verdana" size="2">R�gion 
+		administrative</font></td>
+      <td width="48%" height="22"><select size="1" name="lstRegion" id="lstRegion" dir="ltr" tabindex="4">
+            <option></option>
+			
+            <option value="Abitibi-T�miscamingue">Abitibi-T�miscamingue</option>
+            
+            <option value="Bas-Saint-Laurent">Bas-Saint-Laurent</option>
+            
+            <option value="Capitale-Nationale">Capitale-Nationale</option>
+            
+            <option value="Centre-du-Qu�bec">Centre-du-Qu�bec</option>
+            
+            <option value="Chaudi�re-Appalaches">Chaudi�re-Appalaches</option>
+            
+            <option value="C�te-Nord">C�te-Nord</option>
+            
+            <option value="Estrie">Estrie</option>
+            
+            <option value="Gasp�sie--�les-de-la-Madeleine">Gasp�sie--�les-de-la-Madeleine</option>
+            
+            <option value="Lanaudi�re">Lanaudi�re</option>
+            
+            <option value="Laurentides">Laurentides</option>
+            
+            <option value="Laval">Laval</option>
+            
+            <option value="Mauricie">Mauricie</option>
+            
+            <option value="Mont�r�gie">Mont�r�gie</option>
+            
+            <option value="Montr�al">Montr�al</option>
+            
+            <option value="Nord-du-Qu�bec">Nord-du-Qu�bec</option>
+            
+            <option value="Outaouais">Outaouais</option>
+            
+            <option value="Saguenay--Lac-Saint-Jean">Saguenay--Lac-Saint-Jean</option>
+            
+			</select></td>
+    </tr>
+
+  </table>
+  </center>
+<font face=Arial size="4">
+<P></P>
+<table border="0" cellPadding="1" cellSpacing="1" width="100%">
+  <tr>
+    <td align="middle" width="20%"></td>
+    <td align="middle" width="20%"><input id="btnAide" name="btnAide" type="button" value="Aide" style="HEIGHT: 24px; WIDTH: 165px" LANGUAGE="javascript" onclick="return btnAide_onclick()"></td>
+    <td align="middle" width="20%"></td>
+    <td align="middle" width="20%"><input id="btnCourriel" name="btnCourriel" type="button" value="Pour nous joindre" style="HEIGHT: 24px; WIDTH: 165px" LANGUAGE="javascript" onclick="return btnCourriel_onclick()"></td>
+    <td align="middle" width="20%"></td>
+    </tr>
+ </table>
+ </font>
+</p>
+</form>
+
+<hr color="#003399">
+
+<table border="0" cellpadding="3" cellspacing="0" width="100%">
+  <tr>
+    <td width="50%"><a href="#HAUT">
+    <img src="/images/cfleche-haut.gif"
+    alt="Barre de navigation" border="0" hspace="5"></a></td>
+    <td width="50%"><p align="right"></td>
+  </tr>
+</table>
+
+
+
+
+
+
+<div class="quebec">
+	<ul>
+		<li><a title="Accueil" href="/index.asp">Accueil</a> | <a title="Plan du site" href="../accueil/plan.htm">Plan du site</a> |
+		<a title="Accessibilit�" href="../accueil/accessibilite.htm">Accessibilit�</a> | <a  title="Nous joindre" href="http://www.environnement.gouv.qc.ca/eau/hydrique-barrage/index.htm">Nous joindre</a>&nbsp;| <a title="Politique de confidentialit�" href="http://www.environnement.gouv.qc.ca/accueil/apropos/politique.htm">Politique de confidentialit�</a> |
+		<a title="Recherche" target="_blank" href="https://cse.google.com/cse?cx=000692685005083833700:tgb628aiyva&amp;gs_l=partner.3...12568.13264.0.13777.3.3.0.0.0.0.40.79.3.3.0.gsnos%2Cn%3D13...0.704j298370j3..1ac.1.25.partner..2.1.39.fh9p2B6qv4U#gsc.tab=0">
+		Recherche</a></li>
+	</ul>
+
+				<a title="Gouvernement du Qu�bec" target="_blank" href="https://www.quebec.ca/en/">
+				<img class="quebec-drapeau" alt="Gouvernement du Qu�bec" src="../images/cehq/quebw1.gif" width="105" height="32" /></a><br />
+				<a title="Gouvernement du Qu�bec" target="_blank" href="http://www.droitauteur.gouv.qc.ca/copyright.php">
+				� Gouvernement du Qu�bec, 20</a><a href="http://www.droitauteur.gouv.qc.ca/copyright.php">20</a> </div>
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-20681969-6']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+<script type="text/javascript" src="/js/functions_GA.js"></script>
+
+<p align="right">&nbsp;
+
+</p>
+
+</body>
+</html>

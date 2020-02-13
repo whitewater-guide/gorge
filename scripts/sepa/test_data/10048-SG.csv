@@ -1,0 +1,9 @@
+Office,Perth
+Station Name,Perth
+Location Code,10048
+Parameter,River Stage(SG)
+Timeseries,SG.15m.Cmd
+Copyright SEPA 2018. This SEPA Data is licensed under the Open Government Licence 3.0., http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3
+Date/Time,SG(m)
+14/01/2020 19:30:00,2.042
+14/01/2020 19:45:00,1.984

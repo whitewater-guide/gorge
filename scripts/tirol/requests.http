@@ -1,0 +1,13 @@
+###
+# List gauges
+POST http://localhost:7080/upstream/tirol/gauges
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+# Get measurements
+POST http://localhost:7080/upstream/tirol/measurements?codes=201434,201178
+Cache-Control: no-cache
+Content-Type: application/json
+
+###

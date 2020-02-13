@@ -1,0 +1,18 @@
+[
+    {
+        "LegendText": "Akerselva v/Elvebakken (6.38.0), Vannføring (m³/s)",
+        "SeriesPoints": [
+            {
+                "Key": "\/Date(1579722600000)\/",
+                "Value": 13.69747,
+                "CorrectionMark": 0
+            },
+            {
+                "Key": "\/Date(1579722900000)\/",
+                "Value": 13.5778,
+                "CorrectionMark": 0
+            }
+        ],
+        "Statistics": []
+    }
+]

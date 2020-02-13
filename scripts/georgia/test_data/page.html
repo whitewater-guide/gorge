@@ -1,0 +1,2100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Forecast | meteo.gov.ge</title>
+
+<meta property="og:title" content="Forecast | meteo.gov.ge" />
+<link href="styles_en.css" rel="stylesheet" type="text/css"><meta name="description" content="Meteo allows you to find the  hight quality information  real time and forecast information about weather, hydrology, radiation, geological, dangerous hazardous fhenomena and so on in Georgia.">
+<meta name="keywords" content="Weather forecast, Live cameras, hydrology, radiation, geology, weather in Georgia, weather in Tbilisi, weather in Batumi." /><link rel="SHORTCUT ICON" href="images/logo_icon.ico" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/mplayer.js"></script>
+
+
+<script type="text/javascript" src="main.js"></script>
+<SCRIPT src="geokb.js"></SCRIPT>
+<script type="text/javascript" src="flash.js"></script>
+
+
+
+<!--
+<script type="text/javascript" src="ddaccordion_2.js"></script>
+<script type="text/javascript" src="ddaccordion.js"></script>
+<link href="ddaccordion.css" rel="stylesheet" type="text/css" />
+-->
+<script language="JavaScript">
+<!--
+var  hr = 14;
+var min = 34;
+var sec = 01;
+
+function tick() {
+	sec++;
+	if (sec>59) { 
+		sec = 0;
+		min++;
+		if (min > 59) {
+			min = 0;
+			hr++;
+			if (hr > 23) hr = 0;
+		}
+	}
+	var Smin = min.toString();
+	var  Shr = hr.toString();
+
+	if (Smin.length < 2) Smin = "0" + Smin;
+	if (Shr.length < 2) Shr = "0" + Shr;
+	
+	
+	document.getElementById("time").innerHTML = Shr + ":" + Smin;	
+}
+setInterval("tick()", 1000);
+-->
+</script>
+
+<link rel="stylesheet" href="css/li-scroller.css" type="text/css"/>
+<script type="text/javascript" language="javascript" src="js/jquery.li-scroller.1.0.js"></script>
+
+
+
+<script src="js/jquery-1.4.2.min.js" type="text/javascript"></script>
+<script src="js/jquery-ui-1.8.6.custom.min.js" type="text/javascript"></script>
+<link href="css/ui-lightness/jquery-ui-1.8.6.custom.css" rel="stylesheet" type="text/css" />
+
+<script src="js/cplayers.js" type="text/javascript"></script>
+<script src="js/cplayer24.js" type="text/javascript"></script>
+
+<link rel="stylesheet" type="text/css" href="pro_drop_1/pro_drop_1.css" />
+<script src="pro_drop_1/stuHover.js" type="text/javascript"></script>
+
+
+<link rel="stylesheet" type="text/css" href="sub_modal/subModal.css"/>
+<script type="text/javascript" src="sub_modal/common.js"></script>
+<script type="text/javascript" src="sub_modal/subModal.js"></script>
+</head>
+<body class="BODY" style="margin-left:0px; margin-right:0px; position:relative">
+<script>
+var onclose_callbackfunction = function () { alert('Were going to close!'); }
+</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_EN/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+  <td width="16"><img src="images/spacer.gif" alt="" width="16" height="10" /></td>
+    <td width="331" valign="bottom"><a href="http://meteo.gov.ge/"><img src="images/logo4_1.gif" width="331" height="39" border="0" /></a></td>
+    <td width="30" valign="bottom"><img src="images/lim7.gif" width="2" height="57" hspace="20" /></td>
+    <td width="80" valign="bottom"><a href="http://moe.gov.ge/" target="_blank"><img src="images/tree_1.gif" width="51" height="49" border="0" /></a></td>
+    <td valign="bottom"> </td>
+    <td align="right" valign="bottom"  class="text_sm"><nobr>Thursday, 23 January, <font color="#22a7de"><b><span id="time">14:34</span>
+</b></font>&nbsp;&nbsp;</nobr></td>
+    <td align="right" valign="bottom"><table width="65" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td align="center" height="18"><span class="lang">ENG</span></td>
+         <td width="2" ><img src="images/lim.gif" width="3" height="7" hspace="1" /></td>
+        <td align="center" ><a href="index.php?l=1&pg=hd&ct=1&cm=" class="lang_link">GEO</a></td>
+        <td width="10" ></td>
+      </tr>
+    </table></td>
+  </tr>
+ 
+</table>
+ <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr class="grade_top">
+    <td width="16"><img src="images/spacer.gif" alt="" width="16" height="10" /></td>
+    <td width="180" height="90" align="right"><table width="158" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="100" align="right" class="date">+7&deg;</td>
+    <td><img src="photos_icons/126.png" width="64" height="64" hspace="5" /></td>
+  </tr>
+</table>
+</td>
+    <td>
+    
+    
+        <table width="100%" border="0" cellspacing="0" cellpadding="0"> 
+  <tr >
+    <td width="180" align="right"><nobr><a href="http://meteo.gov.ge/weather-in-tbilisi" class="link"><h1>Weather in  <font color="#c72222">Tbilisi</font></h1></a></nobr></td>
+     <td width="115">&nbsp;</td>
+    
+    <td width="10"><table width="100" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="30" height="28" align="center" background="images/top5_l.gif"><img src="photos_icons/arr_6.png" width="17" height="17" hspace="6" /></td>
+        <td   class="top7 text" ><nobr>North-West Wind</nobr></td>
+        <td  class="top7"><img src="images/lim8.gif" width="1" height="16" hspace="15" /></td>
+         <td  class="top7 text"><nobr>10-15/17-22m/s</nobr></td>
+        <td><img src="images/top5_r.gif" width="15" height="28" /></td>
+      </tr>
+      <tr>
+        <td height="8" colspan="5" ></td>
+        </tr>
+    </table>
+    </td>
+    <td>
+        <table width="100" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="30" height="28"><img src="images/spacer.gif" width="3" height="1" /></td>
+        <td width="15"><img src="images/top6_l.gif" width="15" height="28" /></td>
+        <td   class="text_wh2" bgcolor="#0099d9" ><nobr>Max: +17.0 2004, Min: -16.2 1883</nobr></td>      
+        <td width="15"><img src="images/top6_r.gif" width="15" height="28" /></td>
+      </tr>
+      <tr>
+        <td height="8" colspan="4" ></td>
+      </tr>
+    </table>
+        </td>
+    <td>&nbsp;</td>
+   
+  </tr> 
+</table>
+         
+    
+    
+    
+    </td>
+    <td width="230" valign="top"><div class="fb-like-box" data-href="http://www.facebook.com/nea.georgia" data-width="230" data-height="100" data-show-faces="false" data-stream="false" data-border-color="transparent" data-header="false"></div>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+  <td width="16"><img src="images/spacer.gif" alt="" width="16" height="1" /></td>
+    <td height="1" bgcolor="#efefef"></td>
+    <td width="16"><img src="images/spacer.gif" alt="" width="16" height="1" /></td>
+     
+  </tr>
+    <tr>
+    <td height="25" colspan="3"></td>
+  </tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="207" valign="top" >
+   <table width="100%" border="0" cellspacing="0" cellpadding="0">
+     <tr>
+       <td width="16"><img src="images/spacer.gif" alt="" width="16" height="10" /></td>
+       <td><table width="207" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="29" background="images/mn1.gif" ><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="41">&nbsp;</td>
+        <td><a href="http://meteo.gov.ge/" class="link_blue2">FORECAST</a></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td  height="34" background="images/mn2_on.gif" ><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="41">&nbsp;</td>
+        <td><a href="http://meteo.gov.ge/hidro" class="link_blue2">HYDROLOGICAL</br>DATA</a></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td height="34" background="images/mn3.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="41">&nbsp;</td>
+        <td><a href="http://meteo.gov.ge/natural-disaster" class="link_blue2">NATURAL DISASTER</a></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td height="29" background="images/mn4.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="41">&nbsp;</td>
+        <td><a href="http://meteo.gov.ge/avalanche-danger-focuses" class="link_blue2">AVALANCHE DANGER<br>FOCUSES</a></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td height="34" background="images/mn5.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="41">&nbsp;</td>
+        <td><a href="http://meteo.gov.ge/radiation" class="link_blue2">ENVIRONMENTAL<br>POLLUTION (RADIATION)</a></td>
+      </tr>
+    </table></td>
+  </tr>
+  <!--
+  <tr>
+    <td height="29" background="images/mn6.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="41">&nbsp;</td>
+        <td><a href="http://meteo.gov.ge/video" class="link_blue2">VIDEO</a></td>
+      </tr>
+    </table></td>
+  </tr>
+  -->
+  <tr>
+    <td height="29" background="images/mn7.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="41">&nbsp;</td>
+        <td><a href="javascript:open_m()" class="link_blue2">INTERACTIVE MAP</a></td>
+      </tr>
+    </table></td>
+  </tr>
+  <!-- <tr>
+    <td><a href="http://meteo.gov.ge/live-georgia"><img src="images/livcam.gif" width="207" height="65" border="0" /></a></td>
+  </tr> -->
+  <!-- <tr>
+    <td background="images/menu_left_bg.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="42">&nbsp;</td>
+        <td height="55" valign="top"><a href="http://meteo.gov.ge/live-georgia" class="link_sm">Check the live weather</a></td>
+        </tr>
+    </table></td>
+  </tr> -->
+  <!-- <tr>
+    <td><a href="javascript:open_v7('2')" ><img src="images/livcam2_en.gif" width="179" height="28" border="0" /></a></td></tr> -->
+ 
+</table>
+<br />
+<a href="http://meteo.gov.ge/contact-us" target="_blank"><img src="images/meteo_contact_eng.png" border="0" /></a>
+<br />
+<table width="180" border="0" cellspacing="0" cellpadding="0">
+<tr>
+        <td align="center" ><a href="http://www.ymparisto.fi" target="_blank"><img src="images/syke.gif" width="166" height="139" vspace="5" border="0" /></a></td>
+  </tr>
+<tr>
+        <td height="5"></td>
+  </tr>
+  <tr>
+    <td height="93" valign="bottom" background="images/subs_ban.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+    
+      <tr>
+        <td align="center" class="text_sm4">Create  <a href="index.php?pg=sb" class="link_en_blue">www.meteo.gov.ge</a>          weather for your  web page</td>
+      </tr>
+      <tr>
+        <td height="15"></td>
+      </tr>
+      <tr>
+        <td align="center" valign="top"><a href="index.php?pg=sb"><img src="images/spacer.gif" width="128" height="45" border="0"></a></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<table width="179" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="8"></td>
+  </tr>
+  <tr>
+    <td height="120" align="center" valign="top" bgcolor="#131f2e"><table width="170" border="0" cellspacing="0" cellpadding="0">
+     <tr>
+        <td height="10"></td>
+      </tr>
+      <tr>
+        <td height="70"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="60" valign="top"><table width="57" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="68" align="center" style="background:url(images/moon_frame_l.gif)"><img src="photos_moons/29.png" width="45" height="45" /></td>
+              </tr>
+            </table></td>
+            <td valign="top" class="text_wh2">
+             <img src="images/spacer.gif" width="10" height="5px"><br>
+            <span class="header_wh">Current phase</span><br>
+            <img src="images/spacer.gif" width="10" height="10px"><br>
+
+            <span class="text_sm_blue2">29 Day -4 Quarter</span><br>
+23 January</td>
+          </tr>
+        </table></td>
+      </tr>
+       <tr>
+        <td height="10"></td>
+      </tr>
+      <tr>
+        <td align="center" class="moon1"><a href="javascript:open_v6('2')" class="link_wh">Phases Calendar</a><img src="images/spacer.gif" width="24" height="10"></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td height="10"></td>
+  </tr>
+</table>
+<table width="179" border="0" cellspacing="0" cellpadding="0">
+ 
+  <tr>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="27"><img src="images/mze1.gif" width="27" height="27"></td>
+        <td  bgcolor="#805600" style="padding-top:5px;"><span class="header_wh3" >მზის ამოსვლა და ჩასვლა</span></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td  bgcolor="#eeeeee"><table  border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="20"><img src="images/mze2.gif" width="20" height="18"></td>
+        <td width="1" height="18" align="center" bgcolor="#e0bf05" class="text_sm"><nobr>&nbsp;&nbsp;<font color="#805600">23 January 2020</font>&nbsp;&nbsp;</nobr></td>
+        <td width="8"><img src="images/mze3.gif" width="8" height="18"></td>
+        <td></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td height="25" align="center" valign="bottom" bgcolor="#eeeeee" >
+      <table width="165" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td align="left"  class="text_sm5">მზის ამოსვლა:</td>
+          <td align="right"  class="text_sm5">08:21</td>
+        </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td align="center" height="25" bgcolor="#dbdbdb"><table width="165" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td align="left"  class="text_sm5"  >მზის ჩასვლა:</td>
+        <td align="right"  class="text_sm5">18:03</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td align="center" height="25" bgcolor="#cacaca"><table width="165" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td align="left"  class="text_sm5">დღის ხანგრძლივობა:</td>
+        <td align="right"  class="text_sm5" valign="bottom">9სთ 42წთ</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</td>
+     </tr>
+   </table>
+   <table width="195" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align="right">              
+			
+
+              <table width="100%"  border="0" cellpadding="0" cellspacing="0" >
+                <tr>
+                  <td width="16" valign="top" bgcolor="#FFFFFF"><img src="images/reklama.gif" width="16" height="70" /></td>
+                  <td valign="top" bgcolor="#FFFFFF">
+                     <img src="bnrs/20.jpg" vspace="0" border="0">                    </td>
+                </tr>
+  </table><img src="images/baner_line.gif" width="179" height="1" vspace="8"/><br />
+</td>
+  </tr>
+</table>
+   <table width="100%" border="0" cellspacing="0" cellpadding="0">
+     <tr>
+       <td width="16"><img src="images/spacer.gif" width="16" height="10" /></td>
+       <td><table width="179" border="0" cellspacing="0" cellpadding="0">
+<tr>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="images/ban_header_en.gif" width="178" height="37" /></td>
+</tr>
+<tr>
+<td>              
+              <table width="100%"  border="0" cellpadding="0" cellspacing="0" >
+                <tr>
+                  <td width="100%" valign="top" bgcolor="#FFFFFF">
+                    <a href="http://emblasproject.org/" target="_blank"><img src="bnrs/31.jpg" vspace="0" border="0"></a></td>
+                </tr>
+  </table><img src="images/baner_line.gif" width="179" height="1" vspace="8"/><br />
+              <table width="100%"  border="0" cellpadding="0" cellspacing="0" >
+                <tr>
+                  <td width="100%" valign="top" bgcolor="#FFFFFF">
+                    <a href="http://www.wmo.int/pages/index_en.html" target="_blank"><img src="bnrs/3.jpg" vspace="0" border="0"></a></td>
+                </tr>
+  </table><img src="images/baner_line.gif" width="179" height="1" vspace="8"/><br />
+              <table width="100%"  border="0" cellpadding="0" cellspacing="0" >
+                <tr>
+                  <td width="100%" valign="top" bgcolor="#FFFFFF">
+                    <a href="http://france.meteofrance.com/france/accueil" target="_blank"><img src="bnrs/5.jpg" vspace="0" border="0"></a></td>
+                </tr>
+  </table><img src="images/baner_line.gif" width="179" height="1" vspace="8"/><br />
+              <table width="100%"  border="0" cellpadding="0" cellspacing="0" >
+                <tr>
+                  <td width="100%" valign="top" bgcolor="#FFFFFF">
+                    <a href="http://ecmwf.int/" target="_blank"><img src="bnrs/4.jpg" vspace="0" border="0"></a></td>
+                </tr>
+  </table><img src="images/baner_line.gif" width="179" height="1" vspace="8"/><br />
+</td>
+  </tr>
+</table>
+</td>
+     </tr>
+   </table>
+   
+   </td>
+    <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+           <tr>
+        <td>
+          
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="200" height="32"  ><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+              <td width="1" rowspan="2"><img src="images/zv6.gif" alt="" width="14" height="33" /></td>
+              <td height="1" bgcolor="#dcdcdc"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+              <td bgcolor="#dcdcdc"></td>
+              <td width="1" rowspan="2" bgcolor="#dcdcdc"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+            </tr>
+            <tr>
+              <td height="32" align="center" bgcolor="#ebece7" class="text_14"><nobr><span class="text_red_en2"><b>2020-01-23</b>&nbsp;&nbsp;&nbsp;</span> Hydrological Data</nobr></td>
+              <td width="10" align="center" bgcolor="#ebece7" class="text_14"><img src="images/spacer.gif" alt="" width="10" height="10" /></td>
+            </tr>
+        </table></td>
+        <td background="images/top4_bg.gif" style="background-position:bottom; background-repeat:repeat-x">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="20" ><img src="images/spacer.gif" width="20" height="10" /></td>
+    <td width="10" valign="bottom"  class="text_sm"><img src="images/lim6.gif" width="2" height="15" hspace="6" vspace="4" /></td>
+    <td width="100%" height="23"   id="logdv" class="text"><script  type="text/javascript" > 
+			  CreateFlashObject_fullscr("logdv","logdv","100%", "23","#ffffff", "flash/morbenali.swf?l=2");
+			   </script></td>
+    <td  width="10"><img src="images/spacer.gif" width="10" height="1" /></td>
+  </tr>
+</table>
+</td>
+        <td width="11" valign="bottom"><img src="images/wth5.gif" alt="" width="11" height="1" /></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ebebeb"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+      	<td width="1" bgcolor="#dcdcdc"></td>
+          <td width="14"><img src="images/spacer.gif" width="14" height="1" /></td>
+        <td valign="top">
+        
+        
+<img src="images/spacer.gif" width="100" height="10"><br><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="12"><img src="images/tbl5_1.gif" alt="" width="12" height="12"></td>
+    <td background="images/tbl5_5.gif"></td>
+    <td><img src="images/tbl5_4.gif" alt="" width="12" height="12"></td>
+  </tr>
+  <tr>
+    <td background="images/tbl5_7.gif"></td>
+    <td bgcolor="#ebebeb"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  
+    <tr>
+        <td height="5" colspan="11"></td>
+        </tr>
+      <tr>
+        <td width="150"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="29" align="center" background="images/hidro1.gif" class="text"><b>Acharistskali - keda</b></td>
+          </tr>
+          <tr>
+            <td height="106" valign="top"    background="images/hidro2.gif"  onmouseover="this.style.backgroundImage='url(images/hidro2_on.gif)';" onmouseout="this.style.backgroundImage='url(images/hidro2.gif)';"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="25" align="center" class="text_sm">Water level  <span class="text_sm_blue2">(sm)</span></td>
+              </tr>
+              <tr>
+                <td align="center" class="date2">64</td>
+              </tr>
+              <tr>
+                <td><table width="120" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" class="text_y"><nobr>Signal Level&nbsp;</nobr></td>
+                    <td align="center" class="text_red">Dangerous</td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_grey2_en" height="25">300</td>
+                    <td align="center" class="text_grey2_en">370</td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+        <td>&nbsp;</td>
+        
+        
+        <td width="150"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="29" align="center" background="images/hidro1.gif" class="text"><b>Alazani - Shakriani</b></td>
+          </tr>
+          <tr>
+            <td height="106" valign="top"    background="images/hidro2.gif"  onmouseover="this.style.backgroundImage='url(images/hidro2_on.gif)';" onmouseout="this.style.backgroundImage='url(images/hidro2.gif)';"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="25" align="center" class="text_sm">Water level  <span class="text_sm_blue2">(sm)</span></td>
+              </tr>
+              <tr>
+                <td align="center" class="date2">198</td>
+              </tr>
+              <tr>
+                <td><table width="120" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" class="text_y"><nobr>Signal Level&nbsp;</nobr></td>
+                    <td align="center" class="text_red">Dangerous</td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_grey2_en" height="25">450</td>
+                    <td align="center" class="text_grey2_en">580</td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+        <td>&nbsp;</td>
+        
+        
+        
+        <td width="150"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="29" align="center" background="images/hidro1.gif" class="text"><b>Chorokhi Mirveti</b></td>
+          </tr>
+          <tr>
+            <td height="106" valign="top"    background="images/hidro2.gif"  onmouseover="this.style.backgroundImage='url(images/hidro2_on.gif)';" onmouseout="this.style.backgroundImage='url(images/hidro2.gif)';"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="25" align="center" class="text_sm">Water level  <span class="text_sm_blue2">(sm)</span></td>
+              </tr>
+              <tr>
+                <td align="center" class="date2">0</td>
+              </tr>
+              <tr>
+                <td><table width="120" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" class="text_y"><nobr>Signal Level&nbsp;</nobr></td>
+                    <td align="center" class="text_red">Dangerous</td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_grey2_en" height="25">230</td>
+                    <td align="center" class="text_grey2_en">420</td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+        <td>&nbsp;</td>
+        
+        
+        
+        <td width="150"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="29" align="center" background="images/hidro1.gif" class="text"><b>Enguri-Khaishi</b></td>
+          </tr>
+          <tr>
+            <td height="106" valign="top"    background="images/hidro2.gif"  onmouseover="this.style.backgroundImage='url(images/hidro2_on.gif)';" onmouseout="this.style.backgroundImage='url(images/hidro2.gif)';"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="25" align="center" class="text_sm">Water level  <span class="text_sm_blue2">(sm)</span></td>
+              </tr>
+              <tr>
+                <td align="center" class="date2">153</td>
+              </tr>
+              <tr>
+                <td><table width="120" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" class="text_y"><nobr>Signal Level&nbsp;</nobr></td>
+                    <td align="center" class="text_red">Dangerous</td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_grey2_en" height="25">320</td>
+                    <td align="center" class="text_grey2_en">500</td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+         <td>&nbsp;</td>
+         
+         
+         
+        <td width="150"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="29" align="center" background="images/hidro1.gif" class="text"><b>Khobi - Legakhare</b></td>
+          </tr>
+          <tr>
+            <td height="106" valign="top"    background="images/hidro2.gif"  onmouseover="this.style.backgroundImage='url(images/hidro2_on.gif)';" onmouseout="this.style.backgroundImage='url(images/hidro2.gif)';"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="25" align="center" class="text_sm">Water level  <span class="text_sm_blue2">(sm)</span></td>
+              </tr>
+              <tr>
+                <td align="center" class="date2">117</td>
+              </tr>
+              <tr>
+                <td><table width="120" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" class="text_y"><nobr>Signal Level&nbsp;</nobr></td>
+                    <td align="center" class="text_red">Dangerous</td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_grey2_en" height="25">300</td>
+                    <td align="center" class="text_grey2_en">450</td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+        <td>&nbsp;</td>
+        
+        
+        
+        <td width="150"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="29" align="center" background="images/hidro1.gif" class="text"><b>Kvirila - Sachkhere</b></td>
+          </tr>
+          <tr>
+            <td height="106" valign="top"    background="images/hidro2.gif"  onmouseover="this.style.backgroundImage='url(images/hidro2_on.gif)';" onmouseout="this.style.backgroundImage='url(images/hidro2.gif)';"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="25" align="center" class="text_sm">Water level  <span class="text_sm_blue2">(sm)</span></td>
+              </tr>
+              <tr>
+                <td align="center" class="date2">71</td>
+              </tr>
+              <tr>
+                <td><table width="120" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" class="text_y"><nobr>Signal Level&nbsp;</nobr></td>
+                    <td align="center" class="text_red">Dangerous</td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_grey2_en" height="25">300</td>
+                    <td align="center" class="text_grey2_en">350</td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+      </tr>
+      
+      <tr>
+        <td height="5" colspan="11"></td>
+        </tr>
+  
+    <tr>
+        <td height="5" colspan="11"></td>
+        </tr>
+      <tr>
+        <td width="150"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="29" align="center" background="images/hidro1.gif" class="text"><b>Mashavera - Kazreti</b></td>
+          </tr>
+          <tr>
+            <td height="106" valign="top"    background="images/hidro2.gif"  onmouseover="this.style.backgroundImage='url(images/hidro2_on.gif)';" onmouseout="this.style.backgroundImage='url(images/hidro2.gif)';"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="25" align="center" class="text_sm">Water level  <span class="text_sm_blue2">(sm)</span></td>
+              </tr>
+              <tr>
+                <td align="center" class="date2">62</td>
+              </tr>
+              <tr>
+                <td><table width="120" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" class="text_y"><nobr>Signal Level&nbsp;</nobr></td>
+                    <td align="center" class="text_red">Dangerous</td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_grey2_en" height="25">-</td>
+                    <td align="center" class="text_grey2_en">-</td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+        <td>&nbsp;</td>
+        
+        
+        <td width="150"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="29" align="center" background="images/hidro1.gif" class="text"><b>Mtkvari Khertvisi</b></td>
+          </tr>
+          <tr>
+            <td height="106" valign="top"    background="images/hidro2.gif"  onmouseover="this.style.backgroundImage='url(images/hidro2_on.gif)';" onmouseout="this.style.backgroundImage='url(images/hidro2.gif)';"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="25" align="center" class="text_sm">Water level  <span class="text_sm_blue2">(sm)</span></td>
+              </tr>
+              <tr>
+                <td align="center" class="date2">126</td>
+              </tr>
+              <tr>
+                <td><table width="120" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" class="text_y"><nobr>Signal Level&nbsp;</nobr></td>
+                    <td align="center" class="text_red">Dangerous</td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_grey2_en" height="25">180</td>
+                    <td align="center" class="text_grey2_en">440</td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+        <td>&nbsp;</td>
+        
+        
+        
+        <td width="150"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="29" align="center" background="images/hidro1.gif" class="text"><b>Mtkvari Likani</b></td>
+          </tr>
+          <tr>
+            <td height="106" valign="top"    background="images/hidro2.gif"  onmouseover="this.style.backgroundImage='url(images/hidro2_on.gif)';" onmouseout="this.style.backgroundImage='url(images/hidro2.gif)';"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="25" align="center" class="text_sm">Water level  <span class="text_sm_blue2">(sm)</span></td>
+              </tr>
+              <tr>
+                <td align="center" class="date2">138</td>
+              </tr>
+              <tr>
+                <td><table width="120" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" class="text_y"><nobr>Signal Level&nbsp;</nobr></td>
+                    <td align="center" class="text_red">Dangerous</td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_grey2_en" height="25">350</td>
+                    <td align="center" class="text_grey2_en">500</td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+        <td>&nbsp;</td>
+        
+        
+        
+        <td width="150"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="29" align="center" background="images/hidro1.gif" class="text"><b>Mtkvari Tbilisi</b></td>
+          </tr>
+          <tr>
+            <td height="106" valign="top"    background="images/hidro2.gif"  onmouseover="this.style.backgroundImage='url(images/hidro2_on.gif)';" onmouseout="this.style.backgroundImage='url(images/hidro2.gif)';"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="25" align="center" class="text_sm">Water level  <span class="text_sm_blue2">(sm)</span></td>
+              </tr>
+              <tr>
+                <td align="center" class="date2">72</td>
+              </tr>
+              <tr>
+                <td><table width="120" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" class="text_y"><nobr>Signal Level&nbsp;</nobr></td>
+                    <td align="center" class="text_red">Dangerous</td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_grey2_en" height="25">350</td>
+                    <td align="center" class="text_grey2_en">600</td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+         <td>&nbsp;</td>
+         
+         
+         
+        <td width="150"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="29" align="center" background="images/hidro1.gif" class="text"><b>Pharavani Khertvisi</b></td>
+          </tr>
+          <tr>
+            <td height="106" valign="top"    background="images/hidro2.gif"  onmouseover="this.style.backgroundImage='url(images/hidro2_on.gif)';" onmouseout="this.style.backgroundImage='url(images/hidro2.gif)';"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="25" align="center" class="text_sm">Water level  <span class="text_sm_blue2">(sm)</span></td>
+              </tr>
+              <tr>
+                <td align="center" class="date2">151</td>
+              </tr>
+              <tr>
+                <td><table width="120" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" class="text_y"><nobr>Signal Level&nbsp;</nobr></td>
+                    <td align="center" class="text_red">Dangerous</td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_grey2_en" height="25">260</td>
+                    <td align="center" class="text_grey2_en">-</td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+        <td>&nbsp;</td>
+        
+        
+        
+        <td width="150"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="29" align="center" background="images/hidro1.gif" class="text"><b>Phshavis Aragvi</b></td>
+          </tr>
+          <tr>
+            <td height="106" valign="top"    background="images/hidro2.gif"  onmouseover="this.style.backgroundImage='url(images/hidro2_on.gif)';" onmouseout="this.style.backgroundImage='url(images/hidro2.gif)';"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="25" align="center" class="text_sm">Water level  <span class="text_sm_blue2">(sm)</span></td>
+              </tr>
+              <tr>
+                <td align="center" class="date2">86</td>
+              </tr>
+              <tr>
+                <td><table width="120" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" class="text_y"><nobr>Signal Level&nbsp;</nobr></td>
+                    <td align="center" class="text_red">Dangerous</td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_grey2_en" height="25">240</td>
+                    <td align="center" class="text_grey2_en">-</td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+      </tr>
+      
+      <tr>
+        <td height="5" colspan="11"></td>
+        </tr>
+  
+    <tr>
+        <td height="5" colspan="11"></td>
+        </tr>
+      <tr>
+        <td width="150"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="29" align="center" background="images/hidro1.gif" class="text"><b>Rioni - Alpana</b></td>
+          </tr>
+          <tr>
+            <td height="106" valign="top"    background="images/hidro2.gif"  onmouseover="this.style.backgroundImage='url(images/hidro2_on.gif)';" onmouseout="this.style.backgroundImage='url(images/hidro2.gif)';"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="25" align="center" class="text_sm">Water level  <span class="text_sm_blue2">(sm)</span></td>
+              </tr>
+              <tr>
+                <td align="center" class="date2">100</td>
+              </tr>
+              <tr>
+                <td><table width="120" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" class="text_y"><nobr>Signal Level&nbsp;</nobr></td>
+                    <td align="center" class="text_red">Dangerous</td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_grey2_en" height="25">250</td>
+                    <td align="center" class="text_grey2_en">380</td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+        <td>&nbsp;</td>
+        
+        
+        <td width="150"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="29" align="center" background="images/hidro1.gif" class="text"><b>Rioni Chaladidi</b></td>
+          </tr>
+          <tr>
+            <td height="106" valign="top"    background="images/hidro2.gif"  onmouseover="this.style.backgroundImage='url(images/hidro2_on.gif)';" onmouseout="this.style.backgroundImage='url(images/hidro2.gif)';"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="25" align="center" class="text_sm">Water level  <span class="text_sm_blue2">(sm)</span></td>
+              </tr>
+              <tr>
+                <td align="center" class="date2">235</td>
+              </tr>
+              <tr>
+                <td><table width="120" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" class="text_y"><nobr>Signal Level&nbsp;</nobr></td>
+                    <td align="center" class="text_red">Dangerous</td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_grey2_en" height="25">650</td>
+                    <td align="center" class="text_grey2_en">740</td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+        <td>&nbsp;</td>
+        
+        
+        
+        <td width="150"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="29" align="center" background="images/hidro1.gif" class="text"><b>Shavi Aragvi</b></td>
+          </tr>
+          <tr>
+            <td height="106" valign="top"    background="images/hidro2.gif"  onmouseover="this.style.backgroundImage='url(images/hidro2_on.gif)';" onmouseout="this.style.backgroundImage='url(images/hidro2.gif)';"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="25" align="center" class="text_sm">Water level  <span class="text_sm_blue2">(sm)</span></td>
+              </tr>
+              <tr>
+                <td align="center" class="date2">35</td>
+              </tr>
+              <tr>
+                <td><table width="120" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" class="text_y"><nobr>Signal Level&nbsp;</nobr></td>
+                    <td align="center" class="text_red">Dangerous</td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_grey2_en" height="25">210</td>
+                    <td align="center" class="text_grey2_en">-</td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+        <td>&nbsp;</td>
+        
+        
+        
+        <td width="150"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="29" align="center" background="images/hidro1.gif" class="text"><b>Supsa - Chokhatauri</b></td>
+          </tr>
+          <tr>
+            <td height="106" valign="top"    background="images/hidro2.gif"  onmouseover="this.style.backgroundImage='url(images/hidro2_on.gif)';" onmouseout="this.style.backgroundImage='url(images/hidro2.gif)';"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="25" align="center" class="text_sm">Water level  <span class="text_sm_blue2">(sm)</span></td>
+              </tr>
+              <tr>
+                <td align="center" class="date2">179</td>
+              </tr>
+              <tr>
+                <td><table width="120" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" class="text_y"><nobr>Signal Level&nbsp;</nobr></td>
+                    <td align="center" class="text_red">Dangerous</td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_grey2_en" height="25">340</td>
+                    <td align="center" class="text_grey2_en">370</td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+         <td>&nbsp;</td>
+         
+         
+         
+        <td width="150"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="29" align="center" background="images/hidro1.gif" class="text"><b>Tekhuri - Nokalakevi</b></td>
+          </tr>
+          <tr>
+            <td height="106" valign="top"    background="images/hidro2.gif"  onmouseover="this.style.backgroundImage='url(images/hidro2_on.gif)';" onmouseout="this.style.backgroundImage='url(images/hidro2.gif)';"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="25" align="center" class="text_sm">Water level  <span class="text_sm_blue2">(sm)</span></td>
+              </tr>
+              <tr>
+                <td align="center" class="date2">241</td>
+              </tr>
+              <tr>
+                <td><table width="120" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" class="text_y"><nobr>Signal Level&nbsp;</nobr></td>
+                    <td align="center" class="text_red">Dangerous</td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_grey2_en" height="25">500</td>
+                    <td align="center" class="text_grey2_en">560</td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+        <td>&nbsp;</td>
+        
+        
+        
+        <td width="150"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="29" align="center" background="images/hidro1.gif" class="text"><b>Tetri Aragvi</b></td>
+          </tr>
+          <tr>
+            <td height="106" valign="top"    background="images/hidro2.gif"  onmouseover="this.style.backgroundImage='url(images/hidro2_on.gif)';" onmouseout="this.style.backgroundImage='url(images/hidro2.gif)';"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="25" align="center" class="text_sm">Water level  <span class="text_sm_blue2">(sm)</span></td>
+              </tr>
+              <tr>
+                <td align="center" class="date2">25</td>
+              </tr>
+              <tr>
+                <td><table width="120" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" class="text_y"><nobr>Signal Level&nbsp;</nobr></td>
+                    <td align="center" class="text_red">Dangerous</td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_grey2_en" height="25">140</td>
+                    <td align="center" class="text_grey2_en">220</td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+      </tr>
+      
+      <tr>
+        <td height="5" colspan="11"></td>
+        </tr>
+  
+    <tr>
+        <td height="5" colspan="11"></td>
+        </tr>
+      <tr>
+        <td width="150"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="29" align="center" background="images/hidro1.gif" class="text"><b>Tskhenisckali - Ludji</b></td>
+          </tr>
+          <tr>
+            <td height="106" valign="top"    background="images/hidro2.gif"  onmouseover="this.style.backgroundImage='url(images/hidro2_on.gif)';" onmouseout="this.style.backgroundImage='url(images/hidro2.gif)';"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="25" align="center" class="text_sm">Water level  <span class="text_sm_blue2">(sm)</span></td>
+              </tr>
+              <tr>
+                <td align="center" class="date2">4</td>
+              </tr>
+              <tr>
+                <td><table width="120" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" class="text_y"><nobr>Signal Level&nbsp;</nobr></td>
+                    <td align="center" class="text_red">Dangerous</td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_grey2_en" height="25">160</td>
+                    <td align="center" class="text_grey2_en">190</td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+        <td>&nbsp;</td>
+        
+        
+        <td width="150"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="29" align="center" background="images/hidro1.gif" class="text"><b>Vere-Tbilisi(Svanidze)</b></td>
+          </tr>
+          <tr>
+            <td height="106" valign="top"    background="images/hidro2.gif"  onmouseover="this.style.backgroundImage='url(images/hidro2_on.gif)';" onmouseout="this.style.backgroundImage='url(images/hidro2.gif)';"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="25" align="center" class="text_sm">Water level  <span class="text_sm_blue2">(sm)</span></td>
+              </tr>
+              <tr>
+                <td align="center" class="date2">156</td>
+              </tr>
+              <tr>
+                <td><table width="120" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" class="text_y"><nobr>Signal Level&nbsp;</nobr></td>
+                    <td align="center" class="text_red">Dangerous</td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_grey2_en" height="25">210</td>
+                    <td align="center" class="text_grey2_en">260</td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+        <td>&nbsp;</td>
+        
+        
+        
+        <td width="150"></td>
+        <td>&nbsp;</td>
+        
+        
+        
+        <td width="150"></td>
+         <td>&nbsp;</td>
+         
+         
+         
+        <td width="150"></td>
+        <td>&nbsp;</td>
+        
+        
+        
+        <td width="150"></td>
+      </tr>
+        
+    </table></td>
+    <td background="images/tbl5_8.gif"></td>
+  </tr>
+  <tr>
+    <td height="12"><img src="images/tbl5_2.gif" alt="" width="12" height="12"></td>
+    <td background="images/tbl5_6.gif"></td>
+    <td width="12"><img src="images/tbl5_3.gif" alt="" width="12" height="12"></td>
+  </tr>
+</table><img src="images/spacer.gif" width="100" height="5"><br>
+        
+        
+        
+        </td>
+        <td width="11" valign="top" background="images/wth4_bg.gif"><img src="images/wth3.gif" width="11" height="12" /></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+   <td width="9"><img src="images/cal3.gif" alt="" width="9" height="66"></td>
+    <td background="images/cal12_bg.gif"><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="45" bgcolor="#ebebeb"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td></td>
+            <td width="18" align="center" valign="bottom"></td><td width="18" align="center" valign="bottom"></td><td width="18" align="center" valign="bottom"></td><td width="18" align="center" valign="bottom"></td><td width="18" align="center" valign="bottom"></td><td width="18" align="center" valign="bottom"></td><td width="18" align="center" valign="bottom"></td><td width="18" align="center" valign="bottom"></td><td width="18" align="center" valign="bottom"></td><td width="18" align="center" valign="bottom"></td><td width="18" align="center" valign="bottom"></td><td width="18" align="center" valign="bottom"></td><td width="18" align="center" valign="bottom"></td><td width="18" align="center" valign="bottom"></td><td width="18" align="center" valign="bottom"></td><td width="18" align="center" valign="bottom"></td><td width="18" align="center" valign="bottom"></td><td width="18" align="center" valign="bottom"></td><td width="18" align="center" valign="bottom"></td><td width="18" align="center" valign="bottom"></td><td width="18" align="center" valign="bottom"></td><td width="18" align="center" valign="bottom"></td><td width="18" align="center" valign="bottom"><img src="images/arr3.gif" width="8" height="6" vspace="0"></td><td width="18" align="center" valign="bottom"></td><td width="18" align="center" valign="bottom"></td><td width="18" align="center" valign="bottom"></td><td width="18" align="center" valign="bottom"></td><td width="18" align="center" valign="bottom"></td><td width="18" align="center" valign="bottom"></td><td width="18" align="center" valign="bottom"></td><td width="18" align="center" valign="bottom"></td>            <td></td>
+            
+          </tr>
+          <tr>
+            <td width="10" background="images/cal11_bg.gif"><img src="images/cal9.gif" width="10" height="35"></td>
+            <td align="center" background="images/cal11_bg.gif" width="22"><a href="http://meteo.gov.ge/index.php?dd=2020-01-1&pg=hd" class="link_sm_black_11">1<br>Wed</a></td><td align="center" background="images/cal11_bg.gif" width="22"><a href="http://meteo.gov.ge/index.php?dd=2020-01-2&pg=hd" class="link_sm_black_11">2<br>Thu</a></td><td align="center" background="images/cal11_bg.gif" width="22"><a href="http://meteo.gov.ge/index.php?dd=2020-01-3&pg=hd" class="link_sm_black_11">3<br>Fri</a></td><td align="center" background="images/cal11_bg.gif" width="22"><a href="http://meteo.gov.ge/index.php?dd=2020-01-4&pg=hd" class="link_sm_black_11">4<br>Sat</a></td><td align="center" background="images/cal11_bg.gif" width="22"><a href="http://meteo.gov.ge/index.php?dd=2020-01-5&pg=hd" class="link_sm_black_11">5<br>Sun</a></td><td align="center" background="images/cal11_bg.gif" width="22"><a href="http://meteo.gov.ge/index.php?dd=2020-01-6&pg=hd" class="link_sm_black_11">6<br>Mon</a></td><td align="center" background="images/cal11_bg.gif" width="22"><a href="http://meteo.gov.ge/index.php?dd=2020-01-7&pg=hd" class="link_sm_black_11">7<br>Tue</a></td><td align="center" background="images/cal11_bg.gif" width="22"><a href="http://meteo.gov.ge/index.php?dd=2020-01-8&pg=hd" class="link_sm_black_11">8<br>Wed</a></td><td align="center" background="images/cal11_bg.gif" width="22"><a href="http://meteo.gov.ge/index.php?dd=2020-01-9&pg=hd" class="link_sm_black_11">9<br>Thu</a></td><td align="center" background="images/cal11_bg.gif" width="22"><a href="http://meteo.gov.ge/index.php?dd=2020-01-10&pg=hd" class="link_sm_black_11">10<br>Fri</a></td><td align="center" background="images/cal11_bg.gif" width="22"><a href="http://meteo.gov.ge/index.php?dd=2020-01-11&pg=hd" class="link_sm_black_11">11<br>Sat</a></td><td align="center" background="images/cal11_bg.gif" width="22"><a href="http://meteo.gov.ge/index.php?dd=2020-01-12&pg=hd" class="link_sm_black_11">12<br>Sun</a></td><td align="center" background="images/cal11_bg.gif" width="22"><a href="http://meteo.gov.ge/index.php?dd=2020-01-13&pg=hd" class="link_sm_black_11">13<br>Mon</a></td><td align="center" background="images/cal11_bg.gif" width="22"><a href="http://meteo.gov.ge/index.php?dd=2020-01-14&pg=hd" class="link_sm_black_11">14<br>Tue</a></td><td align="center" background="images/cal11_bg.gif" width="22"><a href="http://meteo.gov.ge/index.php?dd=2020-01-15&pg=hd" class="link_sm_black_11">15<br>Wed</a></td><td align="center" background="images/cal11_bg.gif" width="22"><a href="http://meteo.gov.ge/index.php?dd=2020-01-16&pg=hd" class="link_sm_black_11">16<br>Thu</a></td><td align="center" background="images/cal11_bg.gif" width="22"><a href="http://meteo.gov.ge/index.php?dd=2020-01-17&pg=hd" class="link_sm_black_11">17<br>Fri</a></td><td align="center" background="images/cal11_bg.gif" width="22"><a href="http://meteo.gov.ge/index.php?dd=2020-01-18&pg=hd" class="link_sm_black_11">18<br>Sat</a></td><td align="center" background="images/cal11_bg.gif" width="22"><a href="http://meteo.gov.ge/index.php?dd=2020-01-19&pg=hd" class="link_sm_black_11">19<br>Sun</a></td><td align="center" background="images/cal11_bg.gif" width="22"><a href="http://meteo.gov.ge/index.php?dd=2020-01-20&pg=hd" class="link_sm_black_11">20<br>Mon</a></td><td align="center" background="images/cal11_bg.gif" width="22"><a href="http://meteo.gov.ge/index.php?dd=2020-01-21&pg=hd" class="link_sm_black_11">21<br>Tue</a></td><td align="center" background="images/cal11_bg.gif" width="22"><a href="http://meteo.gov.ge/index.php?dd=2020-01-22&pg=hd" class="link_sm_black_11">22<br>Wed</a></td><td align="center" background="images/cal11_bg_on.gif" width="22"><a href="http://meteo.gov.ge/index.php?dd=2020-01-23&pg=hd" class="link_sm_black_11">23<br>Thu</a></td><td align="center" background="images/cal11_bg.gif" width="22" class="text_grey">24<br>Fri</td><td align="center" background="images/cal11_bg.gif" width="22" class="text_grey">25<br>Sat</td><td align="center" background="images/cal11_bg.gif" width="22" class="text_grey">26<br>Sun</td><td align="center" background="images/cal11_bg.gif" width="22" class="text_grey">27<br>Mon</td><td align="center" background="images/cal11_bg.gif" width="22" class="text_grey">28<br>Tue</td><td align="center" background="images/cal11_bg.gif" width="22" class="text_grey">29<br>Wed</td><td align="center" background="images/cal11_bg.gif" width="22" class="text_grey">30<br>Thu</td><td align="center" background="images/cal11_bg.gif" width="22" class="text_grey">31<br>Fri</td>            <td width="10"><img src="images/cal10.gif" alt="" width="10" height="35"></td>
+          </tr>
+        </table></td>
+        <td width="6" bgcolor="#ebebeb"></td>
+        <td bgcolor="#ebebeb"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td></td>
+              <td align="center" valign="bottom"><img src="images/arr3.gif" alt="" width="8" height="6" vspace="0"></td> <td align="center" valign="bottom"></td> <td align="center" valign="bottom"></td> <td align="center" valign="bottom"></td> <td align="center" valign="bottom"></td> <td align="center" valign="bottom"></td> <td align="center" valign="bottom"></td> <td align="center" valign="bottom"></td> <td align="center" valign="bottom"></td> <td align="center" valign="bottom"></td> <td align="center" valign="bottom"></td> <td align="center" valign="bottom"></td>            <td></td>
+          </tr>
+          <tr>
+            <td width="10"><img src="images/cal9.gif" alt="" width="10" height="35"></td>
+           <td  width="20" align="center" background="images/cal11_bg_on.gif" ><a href="http://meteo.gov.ge/index.php?dd=2020-1-23&pg=hd" class="link_sm_black_11">Jan</a></td><td  width="20" align="center" background="images/cal11_bg.gif"  class="text_grey">Feb</td><td  width="20" align="center" background="images/cal11_bg.gif"  class="text_grey">Mar</td><td  width="20" align="center" background="images/cal11_bg.gif"  class="text_grey">Apr</td><td  width="20" align="center" background="images/cal11_bg.gif"  class="text_grey">May</td><td  width="20" align="center" background="images/cal11_bg.gif"  class="text_grey">Jun</td><td  width="20" align="center" background="images/cal11_bg.gif"  class="text_grey">Jul</td><td  width="20" align="center" background="images/cal11_bg.gif"  class="text_grey">Aug</td><td  width="20" align="center" background="images/cal11_bg.gif"  class="text_grey">Sep</td><td  width="20" align="center" background="images/cal11_bg.gif"  class="text_grey">Oct</td><td  width="20" align="center" background="images/cal11_bg.gif"  class="text_grey">Nov</td><td  width="20" align="center" background="images/cal11_bg.gif"  class="text_grey">Dec</td>            <td width="10"><img src="images/cal10.gif" alt="" width="10" height="35"></td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td height="21" background="images/cal1.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td><table width="140" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="10"></td>
+                <td width="14"><img src="images/cal4.gif" width="14" height="21" hspace="0"></td>
+                 <td background="images/cal5.gif"><img src="images/spacer.gif" width="3" height="3"></td>
+                <td background="images/cal5.gif"><a href="http://meteo.gov.ge/index.php?dd=2019-12-01&pg=hd" class="link_sm_black_11"><nobr>PREV MONTH</nobr></a></td>
+                <td background="images/cal5.gif"><img src="images/spacer.gif" width="15" height="3"></td>
+                <td align="right" background="images/cal5.gif" class="text_red"><b>January</b></td>
+                <td width="7"><img src="images/cal6.gif" width="7" height="21"></td>
+              </tr>
+            </table></td>
+            <td align="right"><table width="120" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="7"><img src="images/cal8.gif" alt="" width="7" height="21"></td>
+                <td align="center" background="images/cal5.gif"><nobr><span class="text_grey">NEXT</span></nobr></td>
+                <td width="14"><img src="images/cal7.gif" alt="" width="14" height="21"></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+        <td background="images/cal1.gif"></td>
+        <td background="images/cal1.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td><table width="100" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="10"></td>
+                <td width="14"><img src="images/cal4.gif" alt="" width="14" height="21" hspace="0"></td>
+                <td background="images/cal5.gif"><img src="images/spacer.gif" alt="" width="3" height="3"></td>
+                <td background="images/cal5.gif"><a href="http://meteo.gov.ge/index.php?dd=2019-01-01&pg=hd" class="link_sm_black_11"><nobr>PREV</nobr></a></td>
+                <td background="images/cal5.gif"><img src="images/spacer.gif" alt="" width="15" height="3"></td>
+                <td align="right" background="images/cal5.gif" class="text_red_en"><b>2020</b></td>
+                <td width="7"><img src="images/cal6.gif" alt="" width="7" height="21"></td>
+              </tr>
+            </table></td>
+            <td align="right"><table width="75" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="7"><img src="images/cal8.gif" alt="" width="7" height="21"></td>
+                <td align="center" background="images/cal5.gif"><nobr><span class="text_grey">NEXT</span></nobr></td>
+                <td width="14"><img src="images/cal7.gif" alt="" width="14" height="21"></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+      </tr>
+    </table></td>
+    <td width="9"><img src="images/cal2.gif" alt="" width="9" height="66"></td>
+  </tr>
+</table><img src="images/spacer.gif" width="100" height="15"><br>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="13"><img src="images/hidro3.gif" width="13" height="45" /></td>
+    <td width="190" background="images/hidro5_bg.gif"><img src="images/arr4.gif" width="6" height="8" hspace="5" /><a href="saqartvelos_zogadgeografiuli_ruka_2008.pdf" target="_blank" class="link"><b>Map of Georgia</b></a></td>
+    <td width="370" background="images/hidro5_bg.gif"><img src="images/arr4.gif" width="6" height="8" hspace="5" /><a href="images/sagushagoebi.jpg" class="link" target="_blank"><b>Hydrological posts in Georgia</b></a></td>
+    <td background="images/hidro5_bg.gif"><img src="images/arr4.gif" width="6" height="8" hspace="5" /><a href="" class="link"><b>Water Quality Points in Georgia</b></a></td>
+    <td background="images/hidro5_bg.gif">&nbsp;</td>
+    <td width="13"><img src="images/hidro4.gif" alt="" width="13" height="45" /></td>
+  </tr>
+</table><img src="images/spacer.gif" width="100" height="15"><br>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="12"><img src="images/tbl1.gif" width="12" height="14"></td>
+    <td background="images/tbl5.gif"></td>
+    <td><img src="images/tbl4.gif" width="12" height="14"></td>
+  </tr>
+  <tr>
+    <td background="images/tbl7.gif"></td>
+    <td ><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td height="23" valign="top" class="text_blue2">&nbsp;&nbsp;&nbsp;<b>WEATHER IN THE CITIES OF GEORGIA</b></td>
+        <td width="10" valign="top" class="text_blue2"></td>
+        <td width="275" valign="top" class="text_green">&nbsp;&nbsp;&nbsp;<b>ABROAD</b></td>
+      </tr>
+      <tr>
+        <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="12"><img src="images/tbl2_1.gif" width="12" height="14"></td>
+            <td background="images/tbl2_5.gif"></td>
+            <td><img src="images/tbl2_4.gif" width="12" height="14"></td>
+          </tr>
+          <tr>
+            <td background="images/tbl2_7.gif"></td>
+            <td bgcolor="#f5f5f5"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+            
+ 		           
+              <tr>
+                <td height="45"><table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>                    
+                    <td width="30%"  title="Snow"><img src="photos_icons/40.png" width="40" height="40" hspace="5" vspace="5" /></td>
+                    <td width="45%" class="text"><a href="/weather-in-akhaltsikhe" class="link_head"><b>AKHALTSIKHE</b></a></td>
+                    <td align="center" class="text_temp">+5&deg;</td>
+                  </tr>
+                </table></td>
+                <td width="1" bgcolor="#cfd9da"></td>
+                <td><table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                   
+                    <td width="30%"  title="Snow"><img src="photos_icons/40.png" alt="" width="40" height="40" hspace="5" vspace="5" /></td>
+                     <td width="45%" class="text"><a href="/weather-in-ambrolauri" class="link_head"><b>AMBROLAURI</b></a></td>
+                    <td align="center" class="text_temp">+5                      &deg;</td>
+                  </tr>
+                </table></td>
+                <td width="1" bgcolor="#cfd9da"></td>
+                <td>                  <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                      
+                      <td width="30%"  title="Sleet"><img src="photos_icons/36.png" alt="" width="40" height="40" hspace="5" vspace="5" /></td>
+                      <td width="45%" class="text"><a href="/weather-in-anaklia" class="link_head"><b>ANAKLIA</b></a></td>
+                      <td align="center" class="text_temp">+6                        &deg;</td>
+                    </tr>
+                  </table>
+                  </td>
+              </tr>
+		           
+              <tr>
+                <td height="45"><table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>                    
+                    <td width="30%"  title="Snow"><img src="photos_icons/40.png" width="40" height="40" hspace="5" vspace="5" /></td>
+                    <td width="45%" class="text"><a href="/weather-in-bakhmaro" class="link_head"><b>BAKHMARO</b></a></td>
+                    <td align="center" class="text_temp">-1&deg;</td>
+                  </tr>
+                </table></td>
+                <td width="1" bgcolor="#cfd9da"></td>
+                <td><table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                   
+                    <td width="30%"  title="Snow"><img src="photos_icons/40.png" alt="" width="40" height="40" hspace="5" vspace="5" /></td>
+                     <td width="45%" class="text"><a href="/weather-in-bakuriani" class="link_head"><b>BAKURIANI</b></a></td>
+                    <td align="center" class="text_temp">0                      &deg;</td>
+                  </tr>
+                </table></td>
+                <td width="1" bgcolor="#cfd9da"></td>
+                <td>                  <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                      
+                      <td width="30%"  title="Rain"><img src="photos_icons/20.png" alt="" width="40" height="40" hspace="5" vspace="5" /></td>
+                      <td width="45%" class="text"><a href="/weather-in-batumi" class="link_head"><b>BATUMI</b></a></td>
+                      <td align="center" class="text_temp">+7                        &deg;</td>
+                    </tr>
+                  </table>
+                  </td>
+              </tr>
+		           
+              <tr>
+                <td height="45"><table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>                    
+                    <td width="30%"  title="Snow"><img src="photos_icons/40.png" width="40" height="40" hspace="5" vspace="5" /></td>
+                    <td width="45%" class="text"><a href="/weather-in-bordjomi" class="link_head"><b>BORDJOMI</b></a></td>
+                    <td align="center" class="text_temp">+4&deg;</td>
+                  </tr>
+                </table></td>
+                <td width="1" bgcolor="#cfd9da"></td>
+                <td><table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                   
+                    <td width="30%"  title="Snow"><img src="photos_icons/40.png" alt="" width="40" height="40" hspace="5" vspace="5" /></td>
+                     <td width="45%" class="text"><a href="/weather-in-chiatura" class="link_head"><b>CHIATURA</b></a></td>
+                    <td align="center" class="text_temp">+5                      &deg;</td>
+                  </tr>
+                </table></td>
+                <td width="1" bgcolor="#cfd9da"></td>
+                <td>                  <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                      
+                      <td width="30%"  title="Snow"><img src="photos_icons/40.png" alt="" width="40" height="40" hspace="5" vspace="5" /></td>
+                      <td width="45%" class="text"><a href="/weather-in-gori" class="link_head"><b>GORI</b></a></td>
+                      <td align="center" class="text_temp">+6                        &deg;</td>
+                    </tr>
+                  </table>
+                  </td>
+              </tr>
+		           
+              <tr>
+                <td height="45"><table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>                    
+                    <td width="30%"  title="Light Snow"><img src="photos_icons/35.png" width="40" height="40" hspace="5" vspace="5" /></td>
+                    <td width="45%" class="text"><a href="/weather-in-gudauri" class="link_head"><b>GUDAURI</b></a></td>
+                    <td align="center" class="text_temp">-3&deg;</td>
+                  </tr>
+                </table></td>
+                <td width="1" bgcolor="#cfd9da"></td>
+                <td><table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                   
+                    <td width="30%"  title="Rain"><img src="photos_icons/20.png" alt="" width="40" height="40" hspace="5" vspace="5" /></td>
+                     <td width="45%" class="text"><a href="/weather-in-kobuleti" class="link_head"><b>KOBULETI</b></a></td>
+                    <td align="center" class="text_temp">+7                      &deg;</td>
+                  </tr>
+                </table></td>
+                <td width="1" bgcolor="#cfd9da"></td>
+                <td>                  <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                      
+                      <td width="30%"  title="Sleet"><img src="photos_icons/36.png" alt="" width="40" height="40" hspace="5" vspace="5" /></td>
+                      <td width="45%" class="text"><a href="/weather-in-kutaisi" class="link_head"><b>KUTAISI</b></a></td>
+                      <td align="center" class="text_temp">+6                        &deg;</td>
+                    </tr>
+                  </table>
+                  </td>
+              </tr>
+		           
+              <tr>
+                <td height="45"><table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>                    
+                    <td width="30%"  title="Mainly no precipitation"><img src="photos_icons/126.png" width="40" height="40" hspace="5" vspace="5" /></td>
+                    <td width="45%" class="text"><a href="/weather-in-lagodekhi" class="link_head"><b>LAGODEKHI</b></a></td>
+                    <td align="center" class="text_temp">+10&deg;</td>
+                  </tr>
+                </table></td>
+                <td width="1" bgcolor="#cfd9da"></td>
+                <td><table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                   
+                    <td width="30%"  title="Snow"><img src="photos_icons/40.png" alt="" width="40" height="40" hspace="5" vspace="5" /></td>
+                     <td width="45%" class="text"><a href="/weather-in-mestia" class="link_head"><b>MESTIA</b></a></td>
+                    <td align="center" class="text_temp">0                      &deg;</td>
+                  </tr>
+                </table></td>
+                <td width="1" bgcolor="#cfd9da"></td>
+                <td>                  <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                      
+                      <td width="30%"  title="Sleet"><img src="photos_icons/36.png" alt="" width="40" height="40" hspace="5" vspace="5" /></td>
+                      <td width="45%" class="text"><a href="/weather-in-ozurgeti" class="link_head"><b>OZURGETI</b></a></td>
+                      <td align="center" class="text_temp">+7                        &deg;</td>
+                    </tr>
+                  </table>
+                  </td>
+              </tr>
+		           
+              <tr>
+                <td height="45"><table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>                    
+                    <td width="30%"  title="Sleet"><img src="photos_icons/36.png" width="40" height="40" hspace="5" vspace="5" /></td>
+                    <td width="45%" class="text"><a href="/weather-in-poti" class="link_head"><b>POTI</b></a></td>
+                    <td align="center" class="text_temp">+6&deg;</td>
+                  </tr>
+                </table></td>
+                <td width="1" bgcolor="#cfd9da"></td>
+                <td><table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                   
+                    <td width="30%"  title="Mainly no precipitation"><img src="photos_icons/126.png" alt="" width="40" height="40" hspace="5" vspace="5" /></td>
+                     <td width="45%" class="text"><a href="/weather-in-rustavi" class="link_head"><b>RUSTAVI</b></a></td>
+                    <td align="center" class="text_temp">+8                      &deg;</td>
+                  </tr>
+                </table></td>
+                <td width="1" bgcolor="#cfd9da"></td>
+                <td>                  <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                      
+                      <td width="30%"  title="Mainly no precipitation"><img src="photos_icons/126.png" alt="" width="40" height="40" hspace="5" vspace="5" /></td>
+                      <td width="45%" class="text"><a href="/weather-in-signagi" class="link_head"><b>SIGNAGI</b></a></td>
+                      <td align="center" class="text_temp">+7                        &deg;</td>
+                    </tr>
+                  </table>
+                  </td>
+              </tr>
+		           
+              <tr>
+                <td height="45"><table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>                    
+                    <td width="30%"  title="Mainly no precipitation"><img src="photos_icons/126.png" width="40" height="40" hspace="5" vspace="5" /></td>
+                    <td width="45%" class="text"><a href="/weather-in-stephantsminda" class="link_head"><b>STEPHANTSMINDA</b></a></td>
+                    <td align="center" class="text_temp">0&deg;</td>
+                  </tr>
+                </table></td>
+                <td width="1" bgcolor="#cfd9da"></td>
+                <td><table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                   
+                    <td width="30%"  title="Sleet"><img src="photos_icons/36.png" alt="" width="40" height="40" hspace="5" vspace="5" /></td>
+                     <td width="45%" class="text"><a href="/weather-in-sukhumi" class="link_head"><b>SUKHUMI</b></a></td>
+                    <td align="center" class="text_temp">+5                      &deg;</td>
+                  </tr>
+                </table></td>
+                <td width="1" bgcolor="#cfd9da"></td>
+                <td>                  <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                      
+                      <td width="30%"  title="Mainly no precipitation"><img src="photos_icons/126.png" alt="" width="40" height="40" hspace="5" vspace="5" /></td>
+                      <td width="45%" class="text"><a href="/weather-in-tbilisi" class="link_head"><b>TBILISI</b></a></td>
+                      <td align="center" class="text_temp">+7                        &deg;</td>
+                    </tr>
+                  </table>
+                  </td>
+              </tr>
+		           
+              <tr>
+                <td height="45"><table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>                    
+                    <td width="30%"  title="Mainly no precipitation"><img src="photos_icons/126.png" width="40" height="40" hspace="5" vspace="5" /></td>
+                    <td width="45%" class="text"><a href="/weather-in-telavi" class="link_head"><b>TELAVI</b></a></td>
+                    <td align="center" class="text_temp">+8&deg;</td>
+                  </tr>
+                </table></td>
+                <td width="1" bgcolor="#cfd9da"></td>
+                <td><table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                   
+                    <td width="30%"  title="Mainly no precipitation"><img src="photos_icons/126.png" alt="" width="40" height="40" hspace="5" vspace="5" /></td>
+                     <td width="45%" class="text"><a href="/weather-in-tianeti" class="link_head"><b>TIANETI</b></a></td>
+                    <td align="center" class="text_temp">+3                      &deg;</td>
+                  </tr>
+                </table></td>
+                <td width="1" bgcolor="#cfd9da"></td>
+                <td>                  <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                      
+                      <td width="30%"  title="Snow"><img src="photos_icons/40.png" alt="" width="40" height="40" hspace="5" vspace="5" /></td>
+                      <td width="45%" class="text"><a href="/weather-in-tsageri" class="link_head"><b>TSAGERI</b></a></td>
+                      <td align="center" class="text_temp">+4                        &deg;</td>
+                    </tr>
+                  </table>
+                  </td>
+              </tr>
+		           
+              <tr>
+                <td height="45"><table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>                    
+                    <td width="30%"  title="Sleet"><img src="photos_icons/36.png" width="40" height="40" hspace="5" vspace="5" /></td>
+                    <td width="45%" class="text"><a href="/weather-in-tskaltubo" class="link_head"><b>TSKALTUBO</b></a></td>
+                    <td align="center" class="text_temp">+6&deg;</td>
+                  </tr>
+                </table></td>
+                <td width="1" bgcolor="#cfd9da"></td>
+                <td><table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                   
+                    <td width="30%"  title="Snow"><img src="photos_icons/40.png" alt="" width="40" height="40" hspace="5" vspace="5" /></td>
+                     <td width="45%" class="text"><a href="/weather-in-tskhinvali" class="link_head"><b>TSKHINVALI</b></a></td>
+                    <td align="center" class="text_temp">+5                      &deg;</td>
+                  </tr>
+                </table></td>
+                <td width="1" bgcolor="#cfd9da"></td>
+                <td>                  <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                      
+                      <td width="30%"  title="Sleet"><img src="photos_icons/36.png" alt="" width="40" height="40" hspace="5" vspace="5" /></td>
+                      <td width="45%" class="text"><a href="/weather-in-zugdidi" class="link_head"><b>ZUGDIDI</b></a></td>
+                      <td align="center" class="text_temp">+5                        &deg;</td>
+                    </tr>
+                  </table>
+                  </td>
+              </tr>
+              
+            </table></td>
+            <td background="images/tbl2_8.gif"></td>
+          </tr>
+          <tr>
+            <td><img src="images/tbl2_2.gif" width="12" height="14"></td>
+            <td background="images/tbl2_6.gif"></td>
+            <td width="12"><img src="images/tbl2_3.gif" width="12" height="14"></td>
+          </tr>
+        </table></td>
+        <td></td>
+        <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="12"><img src="images/tbl3_1.gif" alt="" width="12" height="14"></td>
+            <td background="images/tbl3_5.gif"></td>
+            <td><img src="images/tbl3_4.gif" alt="" width="12" height="14"></td>
+          </tr>
+          <tr>
+            <td background="images/tbl3_7.gif"></td>
+            <td bgcolor="#e8f0f2">
+            
+
+
+<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">      
+	
+  <tr>
+    
+    <td><img src="photos_icons/10.png" width="40" height="40" hspace="5" vspace="5" /></td>
+    <td width="45%" height="45" class="text_head"><b>ANKARA</b></td>
+    <td class="text_temp">+3&deg;</td>
+  </tr>
+	
+  <tr>
+    
+    <td><img src="photos_icons/4.png" width="40" height="40" hspace="5" vspace="5" /></td>
+    <td width="45%" height="45" class="text_head"><b>ATHENS</b></td>
+    <td class="text_temp">+15&deg;</td>
+  </tr>
+	
+  <tr>
+    
+    <td><img src="photos_icons/4.png" width="40" height="40" hspace="5" vspace="5" /></td>
+    <td width="45%" height="45" class="text_head"><b>BERLIN</b></td>
+    <td class="text_temp">+5&deg;</td>
+  </tr>
+	
+  <tr>
+    
+    <td><img src="photos_icons/4.png" width="40" height="40" hspace="5" vspace="5" /></td>
+    <td width="45%" height="45" class="text_head"><b>CAIRO</b></td>
+    <td class="text_temp">+16&deg;</td>
+  </tr>
+	
+  <tr>
+    
+    <td><img src="photos_icons/10.png" width="40" height="40" hspace="5" vspace="5" /></td>
+    <td width="45%" height="45" class="text_head"><b>MOSCOW</b></td>
+    <td class="text_temp">-2&deg;</td>
+  </tr>
+	
+  <tr>
+    
+    <td><img src="photos_icons/4.png" width="40" height="40" hspace="5" vspace="5" /></td>
+    <td width="45%" height="45" class="text_head"><b>NEW YORK</b></td>
+    <td class="text_temp">+8&deg;</td>
+  </tr>
+	
+  <tr>
+    
+    <td><img src="photos_icons/4.png" width="40" height="40" hspace="5" vspace="5" /></td>
+    <td width="45%" height="45" class="text_head"><b>PARIS</b></td>
+    <td class="text_temp">+7&deg;</td>
+  </tr>
+	
+  <tr>
+    
+    <td><img src="photos_icons/4.png" width="40" height="40" hspace="5" vspace="5" /></td>
+    <td width="45%" height="45" class="text_head"><b>PRAGUE</b></td>
+    <td class="text_temp">+3&deg;</td>
+  </tr>
+	
+  <tr>
+    
+    <td><img src="photos_icons/4.png" width="40" height="40" hspace="5" vspace="5" /></td>
+    <td width="45%" height="45" class="text_head"><b>TEHERAN</b></td>
+    <td class="text_temp">+3&deg;</td>
+  </tr>
+              
+</table> 
+
+
+
+         
+            
+            </td>
+            <td background="images/tbl3_8.gif"></td>
+          </tr>
+          <tr>
+            <td><img src="images/tbl3_2.gif" alt="" width="12" height="14"></td>
+            <td background="images/tbl3_6.gif"></td>
+            <td width="12"><img src="images/tbl3_3.gif" alt="" width="12" height="14"></td>
+          </tr>
+        </table></td>
+      </tr>
+    </table></td>
+    <td background="images/tbl8.gif"></td>
+  </tr>
+  <tr>
+    <td><img src="images/tbl2.gif" width="12" height="14"></td>
+    <td background="images/tbl6.gif"></td>
+    <td width="12"><img src="images/tbl3.gif" width="12" height="14"></td>
+  </tr>
+</table><img src="images/spacer.gif" width="100" height="10" /><br />
+<form id="f_pl" name="f_pl" method="get" action="" style="margin:0px"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="12"><img src="images/tbl1.gif" alt="" width="12" height="14"></td>
+    <td background="images/tbl5.gif"></td>
+    <td><img src="images/tbl4.gif" alt="" width="12" height="14"></td>
+  </tr>
+  <tr>
+    <td background="images/tbl7.gif"></td>
+    <td ><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="12"></td>
+        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            
+            <td width="280" valign="top"><table width="280" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="280" height="40" class="text_sm">Airmass  from Meteo Satellites                  <img src="images/arr5.gif" alt="" width="10" height="6" hspace="3" /></td>
+              </tr>
+              <tr>
+                <td valign="top" id="mp1">&nbsp;</td>
+              </tr>
+            </table></td>
+            <td></td>
+            <td width="280" valign="top"><table width="280" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="280" height="40" class="text_sm">Precipitation Estimation from Meteo Satellites                  <img src="images/arr5.gif" alt="" width="10" height="6" hspace="3" /></td>
+              </tr>
+              <tr>
+                <td valign="top" id="mp2">&nbsp;</td>
+              </tr>
+            </table></td>
+            <td></td>
+            <td width="280" valign="top"><table width="336" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="336" ><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="40" class="text_sm"><nobr>Temperature forecast from NWP Model</nobr></td>
+                    <td width="110" align="right">                    
+                      <select name="d_pl" id="d_pl" class="input_reg" style="width:90px" onchange="go_pl()">
+<option value="01-1" >1 January</option><option value="01-2" >2 January</option><option value="01-3" >3 January</option><option value="01-4" >4 January</option><option value="01-5" >5 January</option><option value="01-6" >6 January</option><option value="01-7" >7 January</option><option value="01-8" >8 January</option><option value="01-9" >9 January</option><option value="01-10" >10 January</option><option value="01-11" >11 January</option><option value="01-12" >12 January</option><option value="01-13" >13 January</option><option value="01-14" >14 January</option><option value="01-15" >15 January</option><option value="01-16" >16 January</option><option value="01-17" >17 January</option><option value="01-18" >18 January</option><option value="01-19" >19 January</option><option value="01-20" >20 January</option><option value="01-21" >21 January</option><option value="01-22" >22 January</option><option value="01-23" selected>23 January</option><option value="01-24" >24 January</option><option value="01-25" >25 January</option><option value="01-26" >26 January</option><option value="01-27" >27 January</option><option value="01-28" >28 January</option><option value="01-29" >29 January</option><option value="01-30" >30 January</option><option value="01-31" >31 January</option>  
+                      </select>
+                    </td>
+                  </tr>
+                </table></td>
+              </tr>
+              <tr>
+                <td valign="top" id="mp3">&nbsp;</td>
+              </tr>
+            </table></td>
+            <td></td>
+          </tr>
+        </table></td>
+      </tr>
+    </table></td>
+    <td background="images/tbl8.gif"></td>
+  </tr>
+  <tr>
+    <td><img src="images/tbl2.gif" alt="" width="12" height="14"></td>
+    <td background="images/tbl6.gif"></td>
+    <td width="12"><img src="images/tbl3.gif" alt="" width="12" height="14"></td>
+  </tr>
+</table><input type="hidden" name="pg" id="pg" value="hd" /><input type="hidden" name="ct" id="ct" value="1" /><input type="hidden" name="cm" id="cm" value="" /><img src="images/spacer.gif" width="100" height="15"><br>
+</form>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="12"><img src="images/tbl4_1.gif" width="12" height="14"></td>
+    <td background="images/tbl4_5.gif"></td>
+    <td><img src="images/tbl4_4.gif" width="12" height="14"></td>
+  </tr>
+  <tr>
+    <td background="images/tbl4_7.gif"></td>
+    <td bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td height="23" valign="top" class="text_green">&nbsp;&nbsp;&nbsp;<b>WEATHER IN REGIONS OF GEORGIA</b></td>
+        </tr>
+      <tr>
+        <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+        
+   <tr>          
+            <td width="135"><table width="135" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td  height="35" align="center" background="images/regi1.gif" class="text_sm2"><b>Western Georgia</b><br />
+<span class="text_sm3">Plain Regions</span></td>
+              </tr>
+              <tr>
+                <td height="185" valign="top"  background="images/regi3.gif" bgcolor="#f5f5f5" onmouseover="this.style.backgroundImage='url(images/regi3_on.gif)';" onmouseout="this.style.backgroundImage='url(images/regi3.gif)';"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td align="center" class="text">Today, 
+					<span class="text_blue4">23 January</span></td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_sm_blue2">Day</td>
+                  </tr>
+                  <tr>
+                    <td height="30" align="center" valign="bottom" class="text_temp2">+10&deg;</td>
+                  </tr>
+                  <tr>
+                    <td align="center"  title="In some areas sleet"><img src="photos_icons/49.png" width="50" height="50" hspace="0" vspace="0" /></td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_sm_blue2" title="West Wind"><img src="photos_icons/arr_4.png" alt="" width="17" height="17" hspace="3" vspace="5" /></td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_sm2">10-15/17-22m/s</td>
+                  </tr>
+                  
+                </table></td>
+              </tr>
+              <tr>
+                <td height="14" valign="top"  background="images/regi2.gif" style="background-repeat:no-repeat; background-position: center top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="16"></td>
+                    <td><a href="javascript:open_v('16','2')" class="link_blask_sm">NEXT 3 DAYS<img src="images/arr2.gif" width="5" height="8" hspace="3" border="0" />
+                      </a></td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table></td>
+            <td>&nbsp;</td>
+	
+     <td width="135"><table width="135" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td  height="35" align="center" background="images/regi1.gif" class="text_sm2"><b>Eastern Georgia</b><br />
+<span class="text_sm3">Mountain Regions</span></td>
+              </tr>
+              <tr>
+                <td height="185" valign="top"  background="images/regi3.gif" bgcolor="#f5f5f5" onmouseover="this.style.backgroundImage='url(images/regi3_on.gif)';" onmouseout="this.style.backgroundImage='url(images/regi3.gif)';"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td align="center" class="text">Today                      , <span class="text_blue4">
+                        23 January                      </span></td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_sm_blue2">Day</td>
+                  </tr>
+                  <tr>
+                    <td height="30" align="center" valign="bottom" class="text_temp2">+5&deg;</td>
+                  </tr>
+                  <tr>
+                    <td align="center" title="In some Areas Snow"><img src="photos_icons/41.png" alt="" width="50" height="50" hspace="0" vspace="0" /></td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_sm_blue2" title="West Wind"><img src="photos_icons/arr_4.png" alt="" width="17" height="17" hspace="3" vspace="5" /></td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_sm2">10-15m/s</td>
+                  </tr>
+                </table></td>
+              </tr>
+              <tr>
+                <td height="14" valign="top"  background="images/regi2.gif" style="background-repeat:no-repeat; background-position: center top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="16"></td>
+                    <td><a href="javascript:open_v('20','2')" class="link_blask_sm">NEXT 3 DAYS<img src="images/arr2.gif" width="5" height="8" hspace="3" border="0" />
+                      </a></td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table> </td>
+            <td>&nbsp;</td> 
+            
+             
+            
+             <td width="135"><table width="135" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td  height="35" align="center" background="images/regi1.gif" class="text_sm2"><b>Western Georgia</b><br />
+<span class="text_sm3">High Mountain Regions</span></td>
+              </tr>
+              <tr>
+                <td height="185" valign="top"  background="images/regi3.gif" bgcolor="#f5f5f5" onmouseover="this.style.backgroundImage='url(images/regi3_on.gif)';" onmouseout="this.style.backgroundImage='url(images/regi3.gif)';"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td align="center" class="text">Today                      , <span class="text_blue4">
+                        23 January                      </span></td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_sm_blue2">Day</td>
+                  </tr>
+                  <tr>
+                    <td height="30" align="center" valign="bottom" class="text_temp2">+3&deg;</td>
+                  </tr>
+                  <tr>
+                    <td align="center" title="In some Areas Snow"><img src="photos_icons/41.png" alt="" width="50" height="50" hspace="0" vspace="0" /></td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_sm_blue2" title="West Wind"><img src="photos_icons/arr_4.png" alt="" width="17" height="17" hspace="3" vspace="5" /></td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_sm2">10-15m/s</td>
+                  </tr>
+                </table></td>
+              </tr>
+              <tr>
+                <td height="14" valign="top"  background="images/regi2.gif" style="background-repeat:no-repeat; background-position: center top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="16"></td>
+                    <td><a href="javascript:open_v('17','2')" class="link_blask_sm">NEXT 3 DAYS<img src="images/arr2.gif" width="5" height="8" hspace="3" border="0" />
+                      </a></td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table></td>
+            <td>&nbsp;</td>
+            
+            
+            
+            
+             <td width="135"><table width="135" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td  height="35" align="center" background="images/regi1.gif" class="text_sm2"><b>Eastern Georgia</b><br />
+<span class="text_sm3">Plain Regions</span></td>
+              </tr>
+              <tr>
+                <td height="185" valign="top"  background="images/regi3.gif" bgcolor="#f5f5f5" onmouseover="this.style.backgroundImage='url(images/regi3_on.gif)';" onmouseout="this.style.backgroundImage='url(images/regi3.gif)';"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td align="center" class="text">Today                      , <span class="text_blue4">
+                        23 January                      </span></td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_sm_blue2">Day</td>
+                  </tr>
+                  <tr>
+                    <td height="30" align="center" valign="bottom" class="text_temp2">+7&deg;</td>
+                  </tr>
+                  <tr>
+                    <td align="center" title="In most Area Snow, in some Places Heavy Snow"><img src="photos_icons/73.png" alt="" width="50" height="50" hspace="0" vspace="0" /></td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_sm_blue2" title="West Wind"><img src="photos_icons/arr_4.png" alt="" width="17" height="17" hspace="3" vspace="5" /></td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_sm2">10-15m/s</td>
+                  </tr>
+                </table></td>
+              </tr>
+              <tr>
+                <td height="14" valign="top"  background="images/regi2.gif" style="background-repeat:no-repeat; background-position: center top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="16"></td>
+                    <td><a href="javascript:open_v('15','2')" class="link_blask_sm">NEXT 3 DAYS<img src="images/arr2.gif" width="5" height="8" hspace="3" border="0" />
+                      </a></td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table></td>
+            <td>&nbsp;</td>
+            
+            
+            
+            
+            
+             <td width="135"><table width="135" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td  height="35" align="center" background="images/regi1.gif" class="text_sm2"><b>Western Georgia </b><br />
+<span class="text_sm3">Mountain Regions</span></td>
+              </tr>
+              <tr>
+                <td height="185" valign="top"  background="images/regi3.gif" bgcolor="#f5f5f5" onmouseover="this.style.backgroundImage='url(images/regi3_on.gif)';" onmouseout="this.style.backgroundImage='url(images/regi3.gif)';"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td align="center" class="text">Today                      , <span class="text_blue4">
+                        23 January                      </span></td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_sm_blue2">Day</td>
+                  </tr>
+                  <tr>
+                    <td height="30" align="center" valign="bottom" class="text_temp2">+5&deg;</td>
+                  </tr>
+                  <tr>
+                    <td align="center" title="In most Area Snow, in some Places Heavy Snow"><img src="photos_icons/73.png" alt="" width="50" height="50" hspace="0" vspace="0" /></td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_sm_blue2" title="West Wind"><img src="photos_icons/arr_4.png" alt="" width="17" height="17" hspace="3" vspace="5" /></td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_sm2">10-15m/s</td>
+                  </tr>
+                </table></td>
+              </tr>
+              <tr>
+                <td height="14" valign="top"  background="images/regi2.gif" style="background-repeat:no-repeat; background-position: center top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="16"></td>
+                    <td><a href="javascript:open_v('13','2')" class="link_blask_sm">NEXT 3 DAYS<img src="images/arr2.gif" width="5" height="8" hspace="3" border="0" />
+                      </a></td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table></td>
+            <td>&nbsp;</td>
+            
+            
+            
+            
+             <td width="135"><table width="135" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td  height="35" align="center" background="images/regi1.gif" class="text_sm2"><b>Eastern Georgia</b><br />
+<span class="text_sm3">High Mountain Regions</span></td>
+              </tr>
+              <tr>
+                <td height="185" valign="top"  background="images/regi3.gif" bgcolor="#f5f5f5" onmouseover="this.style.backgroundImage='url(images/regi3_on.gif)';" onmouseout="this.style.backgroundImage='url(images/regi3.gif)';"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td align="center" class="text">Today                      , <span class="text_blue4">
+                        23 January                      </span></td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_sm_blue2">Day</td>
+                  </tr>
+                  <tr>
+                    <td height="30" align="center" valign="bottom" class="text_temp2">+1&deg;</td>
+                  </tr>
+                  <tr>
+                    <td align="center" title="In most Area Snow, in some Places Heavy Snow"><img src="photos_icons/73.png" alt="" width="50" height="50" hspace="0" vspace="0" /></td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_sm_blue2" title="West Wind"><img src="photos_icons/arr_4.png" alt="" width="17" height="17" hspace="3" vspace="5" /></td>
+                  </tr>
+                  <tr>
+                    <td align="center" class="text_sm2">10-15m/s</td>
+                  </tr>
+                </table></td>
+              </tr>
+              <tr>
+                <td height="14" valign="top"  background="images/regi2.gif" style="background-repeat:no-repeat; background-position: center top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="16"></td>
+                    <td><a href="javascript:open_v('14','2')" class="link_blask_sm">NEXT 3 DAYS<img src="images/arr2.gif" width="5" height="8" hspace="3" border="0" />
+                      </a></td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table></td>
+            <td>&nbsp;</td>
+            
+            
+            
+            
+            
+             <td width="135"></td>
+             
+            
+</tr>
+ <tr>
+   <td height="15" colspan="13"></td>
+   </tr>
+             
+          
+        </table>
+       </td>
+        </tr>
+    </table></td>
+    <td background="images/tbl4_8.gif"></td>
+  </tr>
+  <tr>
+    <td><img src="images/tbl4_2.gif" width="12" height="14"></td>
+    <td background="images/tbl4_6.gif"></td>
+    <td width="12"><img src="images/tbl4_3.gif" width="12" height="14"></td>
+  </tr>
+</table><img src="images/spacer.gif" width="100" height="10"><br>
+</td>
+      </tr>
+    </table></td>
+    <td><img src="images/spacer.gif" alt="" width="16" height="10" /></td>
+  </tr>
+  
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="35">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="1" bgcolor="#e1e1e1"></td>
+  </tr>
+  <tr>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="16" ></td>
+        <td width="350" class="text"><img src="images/spacer.gif" width="100" height="5" /><br /><font color="#717171"><b>The National Environmental Agency</b></font><br>
+<span class="text_grey2">150 D. Agmashenebeli Ave, 0112 Tbilisi, Georgia<br />
+
+Tel: +995 32 2439503, Fax: +995 32 2439502</span></td>
+        <td width="75"><a href="http://moe.gov.ge/" target="_blank"><img src="images/fot_image.gif" width="93" height="40" hspace="5" vspace="0" border="0" /></a></td>
+        <td >&nbsp;</td>
+        <td align="right" valign="top"><table width="250" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="10" colspan="6" ></td>
+            </tr>
+          <tr>
+            <td height="30" align="center"><a href="http://meteo.gov.ge/" class="link_sm"><nobr>HOME PAGE</nobr></a></td>
+            <td width="10" align="center"><img src="images/footer_lim.gif" width="2" height="7" hspace="5"></td>
+            <td align="center"><a href="http://meteo.gov.ge/contact-us" class="link_sm"><nobr>CONTACT US</nobr></a></td>
+            <td width="10" align="center"><img src="images/footer_lim.gif" width="2" height="7" hspace="5"></td>
+            <td align="center"><a href="http://meteo.gov.ge/sitemap" class="link_sm"><nobr>SITE MAP</nobr></a></td>
+            <td width="30">&nbsp;</td>
+            </tr>
+          </table>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td class="text_grey11">Copyright © 2011 by National Environmental AgencyWeb Page was created by   <a href="http://www.davidriki.com/" target="_blank" class="link_en"><font color="#305471"  size="1">RENDER PRODUCTION</font></a></td>
+              </tr>
+            <tr>
+              <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td height="10" colspan="2"></td>
+                  </tr>
+                <tr>
+                  <td align="right"><table width="282" border="0" cellpadding="2" cellspacing="1" bgcolor="#D1D1D1">
+                    <tr>
+                      <td align="right" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td class="text_sm"><nobr>&nbsp;
+                            You are visitor number:                            </nobr></td>
+                          <td><img src="includes/counter.php" alt="" hspace="5" vspace="2" border="0" /></td>
+                          </tr>
+                        </table></td>
+                      </tr>
+                    </table></td>
+                  <td width="96"><!-- TOP.GE COUNTER CODE -->
+<script language="JavaScript" src="http://counter.top.ge/cgi-bin/cod?100+71156" type="text/javascript"></script>
+<noscript>
+<a target="_top" href="http://counter.top.ge/cgi-bin/showtop?71156">
+<img src="http://counter.top.ge/cgi-bin/count?ID:71156+JS:false" border="0" alt="TOP.GE" /></a>
+</noscript>
+<!-- / END OF COUNTER CODE --></td>
+                  </tr>
+                </table></td>
+              </tr>
+          </table></td>
+        <td width="16" align="right" valign="top">&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>  
+<script type="text/javascript" >
+    mplayerInit('mp1','mp2','mp3','')
+    //var mp2 = new mplayer('mp2');
+    //var mm = new myObject();
+    //mm.test();
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24571202-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<SCRIPT src="includes/get_r.php"></SCRIPT>
+</body>
+</html>

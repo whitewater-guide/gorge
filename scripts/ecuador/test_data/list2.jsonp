@@ -1,0 +1,27 @@
+
+([{
+        "esta__id": 30,
+        "puobnomb": "PAYAMINO AJ NAPO",
+        "puobcodi": "H5011",
+        "provnomb": "ORELLANA",
+        "coorlati": "-0.440000",
+        "coorlong": "-77.008000",
+        "cooraltu": "265.00",
+        "esteicon": "http:\/\/maps.google.com\/mapfiles\/ms\/micons\/blue-dot.png",
+        "estenomb": "OPERATIVA",
+        "catenomb": "HIDROLOGICA",
+        "proesnomb": "INAMHI"
+    },
+    {
+        "esta__id": 62023,
+        "puobnomb": "QUIJOS DJ OYACACHI",
+        "puobcodi": "H0719",
+        "provnomb": "NAPO",
+        "coorlati": "-0.302778",
+        "coorlong": "-77.775000",
+        "cooraltu": "1490.00",
+        "esteicon": "http:\/\/maps.google.com\/mapfiles\/ms\/micons\/blue-dot.png",
+        "estenomb": "OPERATIVA",
+        "catenomb": "HIDROLOGICA",
+        "proesnomb": "INAMHI"
+    }])

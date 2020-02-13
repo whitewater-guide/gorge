@@ -1,0 +1,370 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+<meta name="description" content="Champs d'activités du centre d'expertise hydrique du Québec - CEHQ" />
+<meta name="keywords" content="" />
+<script type="text/javascript" src="/script/switchTextSize.js"></script>
+<script type="text/javascript" src="/script/styleswitcher.js"></script>
+<link rel="stylesheet" type="text/css" href="/print.css" media="print"/>
+
+<link rel="stylesheet" type="text/css" href="/css/menu.css" />
+<link rel="stylesheet" type="text/css" href="/css/accueil.css" />
+
+<link rel="stylesheet" type="text/css" href="/css/generale.css" />
+<title>Graphique des données à une station hydrométrique</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+
+<script language="jscript" src="script_client.js"></script>
+
+<script>
+//script client
+function body_onLoad()
+{
+	f_afficher_message_expire();
+}
+
+function f_afficher_message_expire()
+{
+	
+}
+
+function btnTableau_onclick(strNoStation,strIndFederale,strSecteur,strZone)
+{
+	if (strIndFederale == "N")
+	{
+		window.location = "tableau.asp?NoStation=" + strNoStation  + "&Zone=" + strZone + "&Secteur=" + strSecteur;
+	} else
+	    if (strIndFederale == "O")
+	    {
+	       //affichage de l'avis «fédérale» au centre de l'écran
+	       window.open('empechement_federale.htm','unepage','top=150,left=150,toolbar=0,location=0,directories=0,status=0,scrollbars=0,resizable=0,copyhistory=0,menuBar=0,width=500,height=275');
+
+	       //f_afficher_message_centre("empechement_federale.htm");
+	       //f_afficher_message_centre("station_federale.asp?TypeDonnees=tableau");
+	     }
+}
+
+function btnRecherche_onclick()
+{
+	window.location = "default.asp#Nouvelle"
+}
+
+function btnCourriel_onclick() 
+	//Cette fonction permet d'envoyer un courrier au support.
+	{
+	var strMail
+	strMail = "mailto:expertise.hydrique@environnement.gouv.qc.ca"
+	window.location = strMail;
+	}
+
+function AfficherAvisPreliminaire()
+{
+	window.open('avertissement.htm','unepage','top=150,left=150,toolbar=0,location=0,directories=0,status=0,scrollbars=0,resizable=0,copyhistory=0,menuBar=0,width=500,height=275');
+}	
+
+
+NavName = navigator.appName;
+NavVers = navigator.appVersion.substr(0,3);
+Navigateur = NavName + " " + NavVers;
+var win = null;
+
+w="500";
+h="100";
+LeftPosition=150;
+TopPosition=150;
+if (!NavVers)
+	{LeftPosition=150;
+	TopPosition=150;}
+else
+	{LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
+	TopPosition = (screen.height) ? (screen.height-h)/2 : 0;}
+
+function NewWindow(mypage,myname){
+settings =
+'height=225,width=500,top='+TopPosition+',left='+LeftPosition+',scrollbars=1,resizable'
+win = window.open(mypage,myname,settings)
+if(win.window.focus){win.window.focus();}
+}
+</script>
+
+
+
+<link rel="stylesheet" type="text/css" href="/FeuilleStyle.css" />
+
+<style type="text/css">
+.style9 {
+				text-align: left;
+			padding-left:5px;
+}
+.style10 {
+				text-align: left;
+}
+
+.tab { border:1px black solid;
+width:660px;
+margin-bottom:15px;
+				
+}
+
+#fiche {
+				width:600px;
+}
+
+
+/*.conteneur {
+				width:600px;
+				margin-left:auto;
+				margin-right:auto;
+				
+}*/
+
+</style>
+
+</head>
+
+<body topmargin="0" id="oBody" onLoad="body_onLoad()" leftmargin="0"> <a name="HAUT"></a>
+
+<div class="conteneur">
+<center>
+
+
+<div class="contenant-banniere">
+				<div id="bandeauPIV">
+								<div id="section1">
+												<a href="http://www.environnement.gouv.qc.ca" title="Lien vers le site web du ministère" tabindex="1">
+												<img alt="" src="/images/cehq/logo-piv_css.jpg" width="199" height="90" /></a></div>
+								<div id="section2">
+												<div id="section21">
+												</div>
+												<div id="section22">
+																<ul class="menu_bandeau">
+																				<li class="lang"><a title="English" href="/index_en.asp">English</a> </li>
+																				<li><a title="Accueil" href="/">Accueil</a> </li>
+																				<li><a title="Plan du site" href="/accueil/plan.htm">Plan du site</a> </li>
+																				<li><a title="Nous joindre" href="http://www.environnement.gouv.qc.ca/eau/hydrique-barrage/index.htm">Nous joindre</a> </li>
+																				<li><a title="Québec.ca" href="https://www.quebec.ca/">Québec.ca</a> </li>
+																				<li>&nbsp;</li>
+																				<li><a target="_blank" href="https://cse.google.com/cse?cx=000692685005083833700:tgb628aiyva&amp;gs_l=partner.3...12568.13264.0.13777.3.3.0.0.0.0.40.79.3.3.0.gsnos%2Cn%3D13...0.704j298370j3..1ac.1.25.partner..2.1.39.fh9p2B6qv4U#gsc.tab=0"  title="Recherche">Recherche</a></li>
+																</ul>
+												</div>
+								</div>
+								
+				</div><div class="nom">
+												Expertise hydrique et barrages
+								</div>
+</div>
+
+
+
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" dir="ltr">
+  <tr>
+      <td background="../interface/top_fondcell_milieu.gif" height="30" dir="ltr"></td>
+  </tr>
+</table>
+
+
+
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%">
+  <tr>
+    <td width="100%">
+              <p class="microBleu" align="center">
+              <a href="#Fiche">Fiche signalétique</a> 
+              &nbsp; |&nbsp;
+              <a href="tableau.asp?NoStation=030247&Zone=&Secteur=nulle">Tableau des données</a> 
+			  &nbsp; |&nbsp;
+              <a href="default.asp">Carte des régions hydrographiques</a> 
+			  &nbsp; |&nbsp;
+			  <a href="default.asp#nouvelle">Nouvelle recherche</a>
+			  </p>
+              </td>
+  </tr>
+</table>
+
+
+
+<p align="center">
+ </p>
+
+&nbsp;</td>
+	</tr>
+<table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td class="ligne">
+			<h2>
+			<font color="#003399"><b>Niveau d'eau à la station</b></font>
+		    </h2>
+		    
+		    
+		     Pour connaître les <a href="#Fiche">particularités 
+            de la station</a>
+		    
+		    <br>
+		    
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+			<a href="javascript:AfficherAvisPreliminaire()">(Données préliminaires)</a>
+			<br>
+			<br><p style="margin-top: 0; margin-bottom: 0" class="ligne">
+<img border="0" src="..\depot\suivihydro\images\030247_Niveau.jpg">
+
+</p>
+
+		</td>
+	</tr>
+
+<p align="center">
+<table style="width: 100%">
+				<tr>
+								<td>
+								<h2 class="ligne">Fiche signalétique de la station</h2>
+								</td>
+				</tr>
+</table>
+<table>
+
+<table class="tab">
+  <tr>
+    <td width="35%" class="style9"><font face="Verdana" size="2"><b>Numéro de la station :</b></font></td>
+    <td width="65%" class="style10">030247&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="35%" class="style9"><font face="Verdana" size="2"><b>Nom de la station :</b></font></td>
+    <td width="65%" class="style10">Barrage Bombardier&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="35%" class="style9"><font face="Verdana" size="2"><b>Description : </b></font></td>
+    <td width="65%" class="style10">au lac Brompton à Saint-Denis-de-Brompton&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="35%" class="style9"><font face="Verdana" size="2"><b>Municipalité :</b></font></td>
+    <td width="65%" class="style10">Saint-Denis-de-Brompton&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="35%" class="style9"><font face="Verdana" size="2"><b>Région administrative : </b>
+    </font></td>
+    <td width="65%" class="style10">Estrie&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="35%" class="style9"><font face="Verdana" size="2"><b>Lac ou cours d'eau :</b></font></td>
+    <td width="65%" class="style10">Brompton, Lac&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="35%" class="style9"><font face="Verdana" size="2"><b><a href="../glossaire-petit.htm#region" onclick="NewWindow(this.href,'nom_page');return false">Région hydrographique</a> :</b></font></td>
+    <td width="65%" class="style10">Saint-Laurent sud-ouest&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="35%" class="style9"><font face="Verdana" size="2">
+    <span class="276212218-01102003"><strong><a href="../glossaire-petit.htm#versant" onclick="NewWindow(this.href,'nom_page');return false">Bassin versant à la station</a> :</strong></span></font></td>
+    <td width="65%" class="style10">140 km²&nbsp;</td>
+  </tr>
+  
+  <tr>
+    <td width="35%" class="style9"><font face="Verdana" size="2"><b><a href="../glossaire-petit.htm#ecoulnaturel" onclick="NewWindow(this.href,'nom_page');return false">Régime d'écoulement</a> :</b></font></td>
+    <td width="65%" class="style10">Naturel&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="35%" class="style9"><font face="Verdana" size="2"><b>Numéro fédéral de la station :</b></font></td>
+    <td width="65%" class="style10">02OF015   &nbsp;</td>
+  </tr>
+  
+  <tr>
+    <td width="35%" class="style9"><font face="Verdana" size="2"><b><a href="../glossaire-petit.htm#systemearbi" onclick="NewWindow(this.href,'nom_page');return false">Système de référence</a> : </b></font></td>
+    <td width="65%" class="style10">Géodésique&nbsp;</td>
+  </tr>
+  
+   <tr>
+    <td COLSPAN=2" class="style9">
+	<div class="style9">
+					<font face="Verdana" size="2"><b>Particularité(s) :</b></font>
+     </div>
+     <TABLE class="style9">
+      
+       <TR>
+        <TD width="2%" valign="top" class="style9">-</TD>
+        <TD width="94%" class="style9">Le 4 juin 2018, la constante géodésique a été abaissée de 0.585 m.&nbsp;<BR></TD>
+       </TR>
+		  
+     </TABLE>    	
+    </td>
+  </tr>
+ 
+</table>
+
+<form method="POST" action="graphique.asp" webbot-action="--WEBBOT-SELF--">
+  <input TYPE="hidden" NAME="VTI-GROUP" VALUE="0">
+   <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="660">
+    <tr height="26px">
+      	<td width="33%" align="left" valign="top">
+      	<input type="button" value="Tableau des données" name="btnTableau" style="HEIGHT: 24px; WIDTH: 165px" onclick="return btnTableau_onclick('030247','N','nulle','')"></td>
+      	<td width="33%" align="center" valign="top">
+      	<input type="button" value="Nouvelle recherche" name="btnRecherche" style="HEIGHT: 24px; WIDTH: 165px" onclick="return btnRecherche_onclick()"></td>
+      	<td width="34%" align="right" valign="top">
+      	<input type="button" value="Pour nous joindre" name="btnJoindre" style="HEIGHT: 24px; WIDTH: 165px" onclick="return btnCourriel_onclick()"></td>
+    </tr>
+
+    <tr height="26px">
+      	<td width="33%"></td>
+      	<td width="33%" align="center" valign="bottom"><td width="34%" align="right"></td>
+    </tr>
+  </table>
+</form>
+
+
+
+
+<br>
+
+            <a title="Revenir à la carte du Québec" href="default.asp#region">
+            <img border="0" src="Images/carte_2m_reg_hydro_small.jpg" width="62" height="70"></a>
+            <br>
+            <font size="1">Pour revenir à la carte du Québec</font><br>
+<br>
+<a title="Revenir à la page précédente" href="javascript:history.go(-1)">
+<img border="0" src="../images/cfleche-g.gif"></a><br>
+<hr color="#003399">
+</center>
+
+</div>
+
+  <a href="#HAUT">
+  <img src="/images/cfleche-haut.gif"alt="Barre de navigation" border="0" hspace="5">
+    
+
+
+<div class="quebec">
+	<ul>
+		<li><a title="Accueil" href="/index.asp">Accueil</a> | <a title="Plan du site" href="../accueil/plan.htm">Plan du site</a> |
+		<a title="Accessibilité" href="../accueil/accessibilite.htm">Accessibilité</a> | <a  title="Nous joindre" href="http://www.environnement.gouv.qc.ca/eau/hydrique-barrage/index.htm">Nous joindre</a>&nbsp;| <a title="Politique de confidentialité" href="http://www.environnement.gouv.qc.ca/accueil/apropos/politique.htm">Politique de confidentialité</a> |
+		<a title="Recherche" target="_blank" href="https://cse.google.com/cse?cx=000692685005083833700:tgb628aiyva&amp;gs_l=partner.3...12568.13264.0.13777.3.3.0.0.0.0.40.79.3.3.0.gsnos%2Cn%3D13...0.704j298370j3..1ac.1.25.partner..2.1.39.fh9p2B6qv4U#gsc.tab=0">
+		Recherche</a></li>
+	</ul>
+
+				<a title="Gouvernement du Québec" target="_blank" href="https://www.quebec.ca/en/">
+				<img class="quebec-drapeau" alt="Gouvernement du Québec" src="../images/cehq/quebw1.gif" width="105" height="32" /></a><br />
+				<a title="Gouvernement du Québec" target="_blank" href="http://www.droitauteur.gouv.qc.ca/copyright.php">
+				© Gouvernement du Québec, 20</a><a href="http://www.droitauteur.gouv.qc.ca/copyright.php">20</a> </div>
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-20681969-6']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+<script type="text/javascript" src="/js/functions_GA.js"></script>
+
+
+</body></html>

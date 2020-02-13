@@ -1,0 +1,13 @@
+###
+# List gauges
+POST http://localhost:7080/upstream/ecuador/gauges
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+# Harvest Quijos dj Oyacachi gauge
+POST http://localhost:7080/upstream/ecuador/measurements?codes=H0719
+Cache-Control: no-cache
+Content-Type: application/json
+
+###

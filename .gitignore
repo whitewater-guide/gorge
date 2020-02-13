@@ -1,0 +1,15 @@
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+/.idea/
+
+.env.*
+!.env.*.secret
+/cookies/
+/cache/
+/pkg/
+/storage/migrations/**/*.go
+**/bench_data/
+
+.vscode
+.devcontainer

@@ -1,0 +1,12 @@
+# List gauges
+POST http://localhost:7080/upstream/quebec/gauges
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+# Get measurements
+POST http://localhost:7080/upstream/quebec/measurements?codes=010802
+Cache-Control: no-cache
+Content-Type: application/json
+
+###

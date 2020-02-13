@@ -1,0 +1,13 @@
+###
+# List gauges
+POST http://localhost:7080/upstream/galicia2/gauges
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+# Get measurements
+POST http://localhost:7080/upstream/galicia2/measurements?codes=A015
+Cache-Control: no-cache
+Content-Type: application/json
+
+###

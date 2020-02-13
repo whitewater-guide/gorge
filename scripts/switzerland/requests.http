@@ -1,0 +1,13 @@
+###
+# List gauges
+POST http://localhost:7080/upstream/switzerland/gauges
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+# List measurements
+POST http://localhost:7080/upstream/switzerland/measurements
+Cache-Control: no-cache
+Content-Type: application/json
+
+###

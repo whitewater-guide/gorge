@@ -1,0 +1,6 @@
+.dockerignore
+Dockerfile
+/cookies/
+**/*.cookies
+**/requests.http
+**/bench_data/

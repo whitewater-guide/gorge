@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+  app:
+    build:
+      context: .
+      target: development
+    image: gorge-dev
+    container_name: gorge-dev
+    ports:
+      - "7080:7080"
+    env_file: .env.development
+    # [Optional] Required for ptrace-based debuggers like C++, Go, and Rust
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
+    volumes:
+      - .:/workspace:cached
+    command: /bin/sh -c "while sleep 1000; do :; done"

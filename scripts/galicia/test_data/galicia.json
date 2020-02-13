@@ -1,0 +1,56 @@
+{
+  "listaAforos": [
+    {
+      "concello": "Mondoñedo",
+      "dataLocal": "2018-02-19T20:40:00",
+      "dataUTC": "2018-02-19T19:40:00",
+      "ide": 30431,
+      "latitude": "43.47774",
+      "listaMedidas": [
+        {
+          "codParametro": 1,
+          "codValidacion": 1,
+          "parametro": "Nivel Medio da Auga",
+          "unidade": "m",
+          "valor": 1.07
+        },
+        {
+          "codParametro": 4,
+          "codValidacion": 1,
+          "parametro": "Caudal Medio da Auga",
+          "unidade": "m3\/s",
+          "valor": 8.689578
+        }
+      ],
+      "lonxitude": "-7.33423",
+      "nomeEstacion": "Masma",
+      "provincia": "Lugo"
+    },
+    {
+      "concello": "Foz",
+      "dataLocal": "2018-02-19T20:40:00",
+      "dataUTC": "2018-02-19T19:40:00",
+      "ide": 30433,
+      "latitude": "43.55815",
+      "listaMedidas": [
+        {
+          "codParametro": 4,
+          "codValidacion": 1,
+          "parametro": "Caudal Medio da Auga",
+          "unidade": "m3\/s",
+          "valor": 7.1654706
+        },
+        {
+          "codParametro": 1,
+          "codValidacion": 1,
+          "parametro": "Nivel Medio da Auga",
+          "unidade": "m",
+          "valor": 1.63
+        }
+      ],
+      "lonxitude": "-7.37617",
+      "nomeEstacion": "Ouro",
+      "provincia": "Lugo"
+    }
+  ]
+}

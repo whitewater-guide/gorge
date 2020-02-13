@@ -1,0 +1,118 @@
+{
+    "head": {
+        "transaction": 0,
+        "signature": 16885,
+        "environment": {
+            "station_name": "Nombre Estacion",
+            "table_name": "hora1",
+            "model": "CR1000",
+            "serial_no": "62030",
+            "os_version": "CR1000.Std.27",
+            "dld_name": "CPU:radar.CR1",
+            "dld_sig": "53995"
+        },
+        "fields": [
+            {
+                "name": "FechaHora",
+                "type": "xsd:string",
+                "process": "Smp",
+                "settable": false
+            },
+            {
+                "name": "nivelMax",
+                "type": "xsd:double",
+                "process": "Smp",
+                "settable": false
+            },
+            {
+                "name": "Calidad(1)",
+                "type": "xsd:double",
+                "process": "Smp",
+                "settable": false
+            },
+            {
+                "name": "nivelMin",
+                "type": "xsd:double",
+                "process": "Smp",
+                "settable": false
+            },
+            {
+                "name": "Calidad(2)",
+                "type": "xsd:double",
+                "process": "Smp",
+                "settable": false
+            },
+            {
+                "name": "nivelAvg",
+                "type": "xsd:double",
+                "process": "Smp",
+                "settable": false
+            },
+            {
+                "name": "Calidad(3)",
+                "type": "xsd:double",
+                "process": "Smp",
+                "settable": false
+            },
+            {
+                "name": "nivelSmp",
+                "type": "xsd:double",
+                "process": "Smp",
+                "settable": false
+            },
+            {
+                "name": "Calidad(4)",
+                "type": "xsd:double",
+                "process": "Smp",
+                "settable": false
+            },
+            {
+                "name": "nivelStd",
+                "type": "xsd:double",
+                "process": "Smp",
+                "settable": false
+            },
+            {
+                "name": "Calidad(5)",
+                "type": "xsd:double",
+                "process": "Smp",
+                "settable": false
+            },
+            {
+                "name": "battVolt",
+                "type": "xsd:double",
+                "units": "voltios",
+                "process": "Smp",
+                "settable": false
+            },
+            {
+                "name": "Calidad(11)",
+                "type": "xsd:double",
+                "process": "Smp",
+                "settable": false
+            }
+        ]
+    },
+    "data": [
+        {
+            "no": 691,
+            "time": "2020-01-23T11:00:00",
+            "vals": [
+                "20200123110000",
+                0.13,
+                50,
+                0.13,
+                50,
+                0.13,
+                50,
+                0.13,
+                50,
+                0,
+                50,
+                11.8,
+                50
+            ]
+        }
+    ],
+    "more": false
+}

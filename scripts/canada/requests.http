@@ -1,0 +1,35 @@
+# List gauges in all provinces
+POST http://localhost:7080/upstream/canada/gauges
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+
+# List gauges in some provinces
+POST http://localhost:7080/upstream/canada/gauges
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "provinces": "QC,NL"
+}
+
+###
+# All measurements from QC
+POST http://localhost:7080/upstream/canada/measurements
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "provinces": "QC"
+}
+###
+# Some measurements from QC
+POST http://localhost:7080/upstream/canada/measurements?codes=02OA016
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "provinces": "QC"
+}
+###

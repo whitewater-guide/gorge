@@ -1,0 +1,168 @@
+# List scripts
+GET http://localhost:7080/scripts
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+
+# List jobs
+
+GET http://localhost:7080/jobs
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+
+# Create all-at-once job
+POST http://localhost:7080/jobs
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "id": "65d53a9b-26f4-4040-8e89-9c7f5906a0e2",
+  "script": "all_at_once",
+  "gauges": {
+    "g001": {},
+    "g002": {}
+  },
+  "cron": "* * * * *"
+}
+
+###
+
+# Get all-at-once job
+GET http://localhost:7080/jobs/65d53a9b-26f4-4040-8e89-9c7f5906a0e2
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+
+# Get all-at-once job gauge statuses
+GET http://localhost:7080/jobs/65d53a9b-26f4-4040-8e89-9c7f5906a0e2/gauges
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+# Get all at one job measurements
+GET http://localhost:7080/measurements/all_at_once
+Cache-Control: no-cache
+Content-Type: application/json
+
+
+###
+
+# Delete all-at-once job
+DELETE http://localhost:7080/jobs/65d53a9b-26f4-4040-8e89-9c7f5906a0e2
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+
+# Create one-by-one job
+POST http://localhost:7080/jobs
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "id": "78a9e166-2a73-4be2-a3fb-71d254eb7868",
+  "script": "one_by_one",
+  "gauges": {
+    "g000": {},
+    "g001": {},
+    "g002": {},
+    "g003": {},
+    "g004": {},
+    "g005": {},
+    "g006": {},
+    "g007": {},
+    "g008": {},
+    "g009": {},
+    "g010": {},
+    "g011": {},
+    "g012": {},
+    "g013": {},
+    "g014": {},
+    "g015": {},
+    "g016": {},
+    "g017": {},
+    "g018": {},
+    "g019": {},
+    "g020": {},
+    "g021": {},
+    "g022": {},
+    "g023": {},
+    "g024": {},
+    "g025": {},
+    "g026": {},
+    "g027": {},
+    "g028": {},
+    "g029": {},
+    "g030": {},
+    "g031": {},
+    "g032": {},
+    "g033": {},
+    "g034": {},
+    "g035": {},
+    "g036": {},
+    "g037": {},
+    "g038": {},
+    "g039": {},
+    "g040": {},
+    "g041": {},
+    "g042": {},
+    "g043": {},
+    "g044": {},
+    "g045": {},
+    "g046": {},
+    "g047": {},
+    "g048": {},
+    "g049": {},
+    "g050": {},
+    "g051": {},
+    "g052": {},
+    "g053": {},
+    "g054": {},
+    "g055": {},
+    "g056": {},
+    "g057": {},
+    "g058": {},
+    "g059": {}
+  }
+}
+
+###
+
+# Get one by one job
+GET http://localhost:7080/jobs/78a9e166-2a73-4be2-a3fb-71d254eb7868
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+
+# Get one by one job gauge statuses
+GET http://localhost:7080/jobs/78a9e166-2a73-4be2-a3fb-71d254eb7868/gauges
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+
+# Get one by one job measurements
+GET http://localhost:7080/measurements/one_by_one
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+
+# Delete one by one job
+DELETE http://localhost:7080/jobs/78a9e166-2a73-4be2-a3fb-71d254eb7868
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+
+# List latest measurements
+GET http://localhost:7080/measurements/latest?scripts=all_at_once
+Cache-Control: no-cache
+Content-Type: application/json
+
+###

@@ -1,0 +1,34 @@
+###
+# List gauges
+POST http://localhost:7080/upstream/all_at_once/gauges
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+
+# List gauges w/ params
+POST http://localhost:7080/upstream/all_at_once/gauges
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+    "gauges": 3
+}
+
+###
+# List measurements
+POST http://localhost:7080/upstream/all_at_once/measurements?codes=g000,g001
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+# List measurements w/params
+POST http://localhost:7080/upstream/all_at_once/measurements?codes=g000,g001
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+    "value": 100
+}
+
+###

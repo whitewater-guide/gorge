@@ -1,0 +1,7 @@
+BEGIN;
+
+DROP TABLE IF EXISTS measurements;
+
+DROP TABLE IF EXISTS jobs;
+
+COMMIT;
