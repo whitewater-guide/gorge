@@ -13,4 +13,6 @@ jobs:
       - name: Check out
         uses: actions/checkout@v1
       - name: Publish latest image
-        run: make latest
+        run: |
+          docker login docker.pkg.github.com --u ww-github -p ${{ secrets.GITHUB_TOKEN }}
+          make latest
