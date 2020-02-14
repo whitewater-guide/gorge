@@ -10,8 +10,8 @@ generate: tools
 
 build: GOOS=linux 
 build: generate
-	govvv build -o /go/bin/gorge-server -ldflags="-s -w -X main.BuildNumber=$(VERSION)" github.com/whitewater-guide/gorge/server
-	govvv build -o /go/bin/gorge-cli -ldflags="-s -w -X main.BuildNumber=$(VERSION)" github.com/whitewater-guide/gorge/cli
+	go build -o /go/bin/gorge-server -ldflags="-s -w -X 'github.com/whitewater-guide/gorge/version.Version=$(VERSION)'" github.com/whitewater-guide/gorge/server
+	go build -o /go/bin/gorge-cli -ldflags="-s -w -X 'github.com/whitewater-guide/gorge/version.Version=$(VERSION)'" github.com/whitewater-guide/gorge/cli
 
 test: generate
 	go test -count=1 ./... 

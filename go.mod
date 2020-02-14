@@ -6,7 +6,6 @@ require (
 	github.com/AlecAivazis/survey/v2 v2.0.5
 	github.com/EDDYCJY/fake-useragent v0.2.0
 	github.com/PuerkitoBio/goquery v1.5.0
-	github.com/ahmetb/govvv v0.3.0 // indirect
 	github.com/alicebob/miniredis/v2 v2.11.1
 	github.com/andybalholm/cascadia v1.1.0 // indirect
 	github.com/antchfx/htmlquery v1.2.2
@@ -23,7 +22,7 @@ require (
 	github.com/gogo/protobuf v1.3.0 // indirect
 	github.com/golang-migrate/migrate/v4 v4.8.0
 	github.com/golang/groupcache v0.0.0-20200121045136-8c9f03a8e57e // indirect
-	github.com/golangci/golangci-lint v1.23.6 // indirect
+	github.com/golangci/golangci-lint v1.23.6
 	github.com/gomodule/redigo v2.0.0+incompatible
 	github.com/google/uuid v1.1.1
 	github.com/gotestyourself/gotestyourself v2.2.0+incompatible // indirect
