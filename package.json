@@ -7,6 +7,9 @@
   "files": [
     "index.d.ts"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": "https://github.com/whitewater-guide/gorge.git",
   "author": "ww-github <info@whitewater.guide>",
   "license": "MIT",
