@@ -19,12 +19,21 @@ test: generate
 test-nodocker: generate
 	go test -count=1 -v -tags=nodocker ./...
 
-latest:
-	docker build -t docker.pkg.github.com/whitewater-guide/gorge/gorge:latest .
-	docker push docker.pkg.github.com/whitewater-guide/gorge/gorge:latest
-
 lint: tools
 	golangci-lint run
 
 run: tools
 	modd
+
+######################################################
+# ⭡ Command above run inside docker container       #
+# ⭣ Command below run outside of docker container   #
+######################################################
+verify:
+	docker build --target tester .
+prepare:
+	docker build -t docker.pkg.github.com/whitewater-guide/gorge/gorge:latest .
+	docker tag docker.pkg.github.com/whitewater-guide/gorge/gorge:latest docker.pkg.github.com/whitewater-guide/gorge/gorge:$(VERSION)
+publish: latest
+	docker push docker.pkg.github.com/whitewater-guide/gorge/gorge:latest
+	docker push docker.pkg.github.com/whitewater-guide/gorge/gorge:$(VERSION)

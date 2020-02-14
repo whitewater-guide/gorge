@@ -21,16 +21,25 @@ RUN mkdir -p /temp/libproj && cp $(dpkg --listfiles libproj13 | grep .so) /temp/
 WORKDIR /workspace
 
 ################################
-# Builder for production image #
+# Test/lint production   image #
 ################################
-
-FROM development as builder
+FROM development as tester
 
 COPY go.mod go.sum ./
 
 RUN go mod download
 
 COPY . .
+
+# Because it runs inside docker container, launch nodocker tests set
+RUN make test-nodocker
+RUN make lint
+
+################################
+# Builder for production image #
+################################
+
+FROM tester as builder
 
 RUN make build
 

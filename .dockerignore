@@ -4,7 +4,10 @@
 .vscode
 .dockerignore
 Dockerfile
-/cookies/
+cookies
 **/*.cookies
 **/requests.http
 **/bench_data/
+node_modules
+package.json
+yarn.lock
