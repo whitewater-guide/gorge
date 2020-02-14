@@ -3,7 +3,6 @@
 ##############################
 
 FROM golang:1.13.7-buster as development
-ARG VERSION=0.0.0
 
 ENV GO111MODULE=on
 
@@ -21,6 +20,7 @@ WORKDIR /workspace
 ################################
 # Test/lint production   image #
 ################################
+
 FROM development as tester
 
 COPY go.mod go.sum ./
@@ -38,6 +38,8 @@ RUN make test && \
 ################################
 
 FROM tester as builder
+
+ARG VERSION=0.0.0
 
 RUN make build
 
