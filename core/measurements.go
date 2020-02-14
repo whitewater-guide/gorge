@@ -55,11 +55,11 @@ func (t HTime) Value() (driver.Value, error) {
 // Measurement represents water level and/or flow value returned by gauge at the timestamp
 type Measurement struct {
 	GaugeID
-	Timestamp HTime `json:"timestamp"`
+	Timestamp HTime `json:"timestamp" ts_type:"string"`
 	// Level is null when gauge doesn't provide it or is temporary broken
-	Level nulltype.NullFloat64 `json:"level"`
+	Level nulltype.NullFloat64 `json:"level" ts_type:"number"`
 	// Flow is null when gauge doesn't provide it or is temporary broken
-	Flow nulltype.NullFloat64 `json:"flow"`
+	Flow nulltype.NullFloat64 `json:"flow" ts_type:"number"`
 }
 
 // Measurements is helper for sorting

@@ -37,3 +37,5 @@ prepare:
 publish: latest
 	docker push docker.pkg.github.com/whitewater-guide/gorge/gorge:latest
 	docker push docker.pkg.github.com/whitewater-guide/gorge/gorge:$(VERSION)
+typescript:
+	go run ./typescriptify

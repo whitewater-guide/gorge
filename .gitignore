@@ -14,3 +14,4 @@
 .vscode
 .devcontainer
 node_modules
+index.d.ts

@@ -35,3 +35,15 @@ func (m *HarvestMode) UnmarshalJSON(bytes []byte) error {
 	}
 	return fmt.Errorf("invalid harvest mode '%s'", string(bytes))
 }
+
+// TSName is required to generate typescript enum
+func (m HarvestMode) TSName() string {
+	switch m {
+	case AllAtOnce:
+		return "AllAtOnce"
+	case OneByOne:
+		return "OneByOne"
+	default:
+		return "???"
+	}
+}

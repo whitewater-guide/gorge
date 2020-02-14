@@ -16,11 +16,11 @@ type JobDescription struct {
 	Script string `json:"script" structs:"script"`
 	// a map with keys being gauge codes and value being pieces of json representing harvest options for that gauge
 	// pass `{}` or `null` if no options are given for the gauge
-	Gauges map[string]json.RawMessage `json:"gauges" structs:"codes"`
+	Gauges map[string]json.RawMessage `json:"gauges" structs:"codes" ts_type:"{[key: string]: any} | null"`
 	// cron expression, ignored for OneByOne scripts. AllAtOnce script will run on this cron schedule
 	Cron string `json:"cron" structs:"cron"`
 	// harvest options for the entire script. For example, upstream credentials
-	Options json.RawMessage `json:"options" structs:"options,omitempty"`
+	Options json.RawMessage `json:"options" structs:"options,omitempty" ts_type:"{[key: string]: any} | null"`
 	// When used as input this must be nil
 	Status *Status `json:"status,omitempty"`
 }
@@ -68,11 +68,11 @@ func (j *JobDescription) Scan(src interface{}) error {
 type Status struct {
 	Success bool `json:"success"`
 	// When job was executed last time (has nothing to do wuth measurements timestamps)
-	Timestamp HTime `json:"timestamp"`
+	Timestamp HTime `json:"timestamp" ts_type:"string"`
 	// Error, if last time job failed
 	Error string `json:"error,omitempty"`
 	// Number of harvested measurements
 	Count int `json:"count"`
 	// When this job will run next time
-	Next *HTime `json:"next,omitempty"`
+	Next *HTime `json:"next,omitempty" ts_type:"string"`
 }
