@@ -13,9 +13,6 @@ RUN apt-get update && \
     # Graphviz is needed for pprof
     graphviz 
 
-RUN go get github.com/cortesi/modd/cmd/modd && \
-    go get github.com/go-bindata/go-bindata/...
-
 # Unpack libproj shared library files to be copied to distroless debian image
 RUN mkdir -p /temp/libproj && cp $(dpkg --listfiles libproj13 | grep .so) /temp/libproj
 
