@@ -3,6 +3,7 @@
 package tools
 
 import (
+	_ "github.com/ahmetb/govvv"
 	_ "github.com/cortesi/modd"
 	_ "github.com/cortesi/modd/cmd/modd"
 	_ "github.com/go-bindata/go-bindata"

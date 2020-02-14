@@ -6,6 +6,7 @@ require (
 	github.com/AlecAivazis/survey/v2 v2.0.5
 	github.com/EDDYCJY/fake-useragent v0.2.0
 	github.com/PuerkitoBio/goquery v1.5.0
+	github.com/ahmetb/govvv v0.3.0 // indirect
 	github.com/alicebob/miniredis/v2 v2.11.1
 	github.com/andybalholm/cascadia v1.1.0 // indirect
 	github.com/antchfx/htmlquery v1.2.2
