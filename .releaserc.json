@@ -3,12 +3,14 @@
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
+    "@semantic-release/npm",
     "@semantic-release/git",
     [
       "@semantic-release/exec",
       {
         "verifyReleaseCmd": "make verify",
-        "prepareCmd": "make VERSION=${nextRelease.version}"
+        "prepareCmd": "make VERSION=${nextRelease.version}",
+        "publishCmd": "make publish"
       }
     ],
     "@semantic-release/github"

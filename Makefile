@@ -10,8 +10,8 @@ generate: tools
 
 build: GOOS=linux 
 build: generate
-	go build -o /go/bin/gorge-server -ldflags="-s -w" github.com/whitewater-guide/gorge/server
-	go build -o /go/bin/gorge-cli -ldflags="-s -w" github.com/whitewater-guide/gorge/cli
+	govvv build -o /go/bin/gorge-server -ldflags="-s -w -X main.BuildNumber=$(VERSION)" github.com/whitewater-guide/gorge/server
+	govvv build -o /go/bin/gorge-cli -ldflags="-s -w -X main.BuildNumber=$(VERSION)" github.com/whitewater-guide/gorge/cli
 
 test: generate
 	go test -count=1 ./... 
@@ -22,6 +22,9 @@ test-nodocker: generate
 lint: tools
 	golangci-lint run
 
+typescript: tools
+	go run ./typescriptify
+
 run: tools
 	modd
 
@@ -30,12 +33,14 @@ run: tools
 # ⭣ Command below run outside of docker container   #
 ######################################################
 verify:
-	docker build --target tester .
+	docker build --target tester -t gorge_tester .
+	# Extract index.d.ts from image
+	docker run --rm --entrypoint "/bin/sh" \
+           -v $(shell pwd):/extract gorge_tester -c "cp index.d.ts /extract"
 prepare:
-	docker build -t docker.pkg.github.com/whitewater-guide/gorge/gorge:latest .
+	docker build --build-arg VERSION=$(VERSION) -t docker.pkg.github.com/whitewater-guide/gorge/gorge:latest .
 	docker tag docker.pkg.github.com/whitewater-guide/gorge/gorge:latest docker.pkg.github.com/whitewater-guide/gorge/gorge:$(VERSION)
-publish: latest
+publish:
+	docker login docker.pkg.github.com -u $(GITHUB_USER) -p $(GITHUB_TOKEN)
 	docker push docker.pkg.github.com/whitewater-guide/gorge/gorge:latest
 	docker push docker.pkg.github.com/whitewater-guide/gorge/gorge:$(VERSION)
-typescript:
-	go run ./typescriptify

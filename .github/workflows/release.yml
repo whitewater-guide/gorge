@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - master
+env:
+  GITHUB_USER: ww-github
 jobs:
   release:
     name: Release
@@ -19,8 +21,5 @@ jobs:
       - name: Release
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           run: npx semantic-release
-      - name: Publish latest image
-        run: |
-          docker login docker.pkg.github.com -u ww-github -p ${{ secrets.GITHUB_TOKEN }}
-          make latest

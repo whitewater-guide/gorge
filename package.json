@@ -4,6 +4,9 @@
   "description": "Hydrological data harvester",
   "main": "",
   "types": "index",
+  "files": [
+    "index.d.ts"
+  ],
   "repository": "https://github.com/whitewater-guide/gorge.git",
   "author": "ww-github <info@whitewater.guide>",
   "license": "MIT",

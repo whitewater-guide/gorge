@@ -3,6 +3,7 @@
 ##############################
 
 FROM golang:1.13.7-buster as development
+ARG VERSION=0.0.0
 
 ENV GO111MODULE=on
 
@@ -31,9 +32,9 @@ RUN go mod download
 
 COPY . .
 
-# Because it runs inside docker container, launch nodocker tests set
-RUN make test-nodocker
-RUN make lint
+RUN make test && \
+    make lint && \
+    make typescript
 
 ################################
 # Builder for production image #
