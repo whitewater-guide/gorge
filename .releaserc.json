@@ -9,8 +9,8 @@
       "@semantic-release/exec",
       {
         "verifyReleaseCmd": "make verify",
-        "prepareCmd": "make VERSION=${nextRelease.version}",
-        "publishCmd": "make publish"
+        "prepareCmd": "make prepare VERSION=${nextRelease.version}",
+        "publishCmd": "make publish VERSION=${nextRelease.version}"
       }
     ],
     "@semantic-release/github"
