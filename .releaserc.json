@@ -8,7 +8,8 @@
     [
       "@semantic-release/exec",
       {
-        "prepareCmd": "make prepare VERSION=${nextRelease.version}",
+        "verifyReleaseCmd": "make verify",
+        "prepareCmd": "[ \"$GITHUB_EVENT\" = \"push\" ] && make prepare VERSION=${nextRelease.version}",
         "publishCmd": "make publish VERSION=${nextRelease.version}"
       }
     ],
