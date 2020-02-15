@@ -40,7 +40,6 @@ require (
 	github.com/olekukonko/tablewriter v0.0.4
 	github.com/opencontainers/runc v0.1.1 // indirect
 	github.com/ory/dockertest v3.3.5+incompatible
-	github.com/pebbe/proj v0.0.0-20190901113523-f366dc020b1f
 	github.com/pkg/errors v0.9.1
 	github.com/robfig/cron/v3 v3.0.1
 	github.com/sirupsen/logrus v1.4.2

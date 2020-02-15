@@ -1,9 +1,6 @@
 package core
 
-import "C"
-import (
-	"github.com/pebbe/proj/v5"
-)
+import "github.com/whitewater-guide/gorge/proj"
 
 const epsg4326Def = "+proj=longlat +datum=WGS84 +no_defs"
 

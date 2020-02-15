@@ -85,7 +85,7 @@ Here are some recommendations for writing scripts for new sources
 
 - Write tests, but when testing, **do not use** calls to real URLs, because unit tests can flood upstream with requests
 - Round locations to 5 digits precision [link](https://en.wikipedia.org/wiki/Decimal_degrees), round levels and flows to what seems reasonable
-- When converting coordinates, use core.ToEPSG4326 utility function. It uses [PROJ](https://github.com/pebbe/proj) internally
+- When converting coordinates, use core.ToEPSG4326 utility function. It uses [PROJ](https://proj.org/) internally
 - Use `core.Client` http client, which sets timeout, user-agent and has various helpers
 - Do not bother with sorting results - this is done by script consumers
 - Do not filter by `codes` and `since` inside worker. They are meant to be passed to upstream. Empty `codes` for all-at-once script must return all available measurements.
@@ -109,6 +109,7 @@ Container makes use of following env variables. Env variables have lesser priori
 
 ## TODO
 
+- Build this using github actions _without_ docker. Problem: ubuntu 18.04 has old version of libproj-dev
 - Virtual gauges
   - Statuses
   - What happens when one component is broken?

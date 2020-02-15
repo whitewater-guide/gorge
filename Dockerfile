@@ -8,12 +8,9 @@ ENV GO111MODULE=on
 
 RUN apt-get update && \
     # Install Proj - C library for coordinate system conversion and its requirements 
-    apt-get install -y libproj13 libproj-dev \
+    apt-get install -y libproj-dev \
     # Graphviz is needed for pprof
     graphviz 
-
-# Unpack libproj shared library files to be copied to distroless debian image
-RUN mkdir -p /temp/libproj && cp $(dpkg --listfiles libproj13 | grep .so) /temp/libproj
 
 WORKDIR /workspace
 
@@ -49,7 +46,6 @@ RUN make build
 FROM gcr.io/distroless/base-debian10 as production
 
 COPY --from=builder /go/bin/gorge-server /go/bin/gorge-cli /usr/local/bin/
-COPY --from=builder /temp/libproj /usr/lib
 
 EXPOSE 7080
 
