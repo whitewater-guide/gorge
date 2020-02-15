@@ -8,7 +8,6 @@
     [
       "@semantic-release/exec",
       {
-        "verifyReleaseCmd": "make verify",
         "prepareCmd": "make prepare VERSION=${nextRelease.version}",
         "publishCmd": "make publish VERSION=${nextRelease.version}"
       }
