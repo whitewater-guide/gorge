@@ -109,6 +109,7 @@ Container makes use of following env variables. Env variables have lesser priori
 
 ## TODO
 
+- Do not run tests when semantic release is not requred (e.g. on docs commits)
 - Build this using github actions _without_ docker. Problem: ubuntu 18.04 has old version of libproj-dev
 - Virtual gauges
   - Statuses
