@@ -41,7 +41,7 @@ jobs:
         # This ensures that:
         # - When commit-analyzer says that no release should be made, then test and build phase do not run
         # - On pull requests build phase doesn't run, but test phase does
-        - name: Release
+      - name: Release
         env:
           GITHUB_EVENT: ${{ github.event_name }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
