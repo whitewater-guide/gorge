@@ -1,6 +1,6 @@
 # Gorge
 
-![Build and test Go](https://github.com/whitewater-guide/gorge/workflows/Build%20and%20test%20Go/badge.svg)
+![Release](https://github.com/whitewater-guide/gorge/workflows/Release/badge.svg?branch=master&event=push)
 
 Gorge is a service which harvests hydrological data (river's discharge and water level) on schedule.
 Harvested data is stored in database and can be queried later.
