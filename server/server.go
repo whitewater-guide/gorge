@@ -40,6 +40,7 @@ func (s *server) routes() {
 		middleware.Heartbeat("/healthcheck"),
 	)
 	s.router.Route(s.endpoint, func(r chi.Router) {
+		r.Get("/version", s.handleVersion())
 		r.Get("/scripts", s.handleListScripts())
 
 		r.Post("/upstream/{script}/gauges", s.handleUpstreamGauges())

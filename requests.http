@@ -166,3 +166,10 @@ Cache-Control: no-cache
 Content-Type: application/json
 
 ###
+
+# Get version
+GET http://localhost:7080/version
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
