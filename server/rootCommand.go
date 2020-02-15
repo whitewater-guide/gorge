@@ -16,6 +16,7 @@ import (
 	"github.com/octago/sflags/gen/gpflag"
 	"github.com/spf13/cobra"
 	"github.com/whitewater-guide/gorge/scripts"
+	"github.com/whitewater-guide/gorge/version"
 )
 
 var rootCmd *cobra.Command
@@ -23,8 +24,9 @@ var rootCmd *cobra.Command
 func init() {
 	cfg := defaultConfig()
 	rootCmd = &cobra.Command{
-		Use:   fmt.Sprintf("%s [flags]", filepath.Base(os.Args[0])),
-		Short: "Runs gorge server",
+		Use:     fmt.Sprintf("%s [flags]", filepath.Base(os.Args[0])),
+		Short:   "Runs gorge server",
+		Version: version.Version,
 		Run: func(cmd *cobra.Command, args []string) {
 			cfg.readFromEnv()
 			// if cfg.Debug {

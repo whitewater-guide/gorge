@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/spf13/cobra"
+	"github.com/whitewater-guide/gorge/version"
 )
 
 var (
@@ -14,8 +15,9 @@ var (
 	endpointURL string
 
 	rootCmd = &cobra.Command{
-		Use:   fmt.Sprintf("%s [command] [arguments]", filepath.Base(os.Args[0])),
-		Short: "command line interface to gorge server",
+		Use:     fmt.Sprintf("%s [command] [arguments]", filepath.Base(os.Args[0])),
+		Short:   "command line interface to gorge server",
+		Version: version.Version,
 		PersistentPreRun: func(cmd *cobra.Command, args []string) {
 			if !strings.HasSuffix(endpointURL, "/") {
 				endpointURL = endpointURL + "/"
