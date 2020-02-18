@@ -65,17 +65,17 @@ Gorge uses database to store harvested measurements and scheduled jobs. It comes
 
 Gorge uses cache to store safe-to-lose data: latest measurement each gauge and harvest statuses. It comes with redis (recommended) and embedded redis drivers.
 
+Gorge server is supposed to be running in private network. It doesn't support HTTPS. If you want to expose it to public, use reverse proxy.
+
 ## Development
 
 Preferred way of development is to develop inside docker container. I do this in [VS Code](https://code.visualstudio.com/docs/remote/containers). There's a compose file for this purpose.
 
-There's a [modd](https://github.com/cortesi/modd) tool installed in dev image, which enables liver reloading and tests. Start it using `make run`.
+There's a [modd](https://github.com/cortesi/modd) tool installed in dev image, which enables live reloading and tests. Start it using `make run`.
 
 If you want to develop on host machine, you'll need following tools installed on it (they're installed in docker image, see Dockerfile for more info):
 
 - [libproj](https://proj.org/) shared library, to convert coordinate systems
-- [go-bindata](https://github.com/go-bindata/go-bindata) to embed sql scripts
-- [modd](https://github.com/cortesi/modd) it's actually optional
 
 Some tests require postgres. You cannot run them inside docker container (unless you want to mess with docker-inside-docker). They're excluded from main test set, I run them using `make test-nodocker` from host machine or CI environment.
 
@@ -85,7 +85,7 @@ Here are some recommendations for writing scripts for new sources
 
 - Write tests, but when testing, **do not use** calls to real URLs, because unit tests can flood upstream with requests
 - Round locations to 5 digits precision [link](https://en.wikipedia.org/wiki/Decimal_degrees), round levels and flows to what seems reasonable
-- When converting coordinates, use core.ToEPSG4326 utility function. It uses [PROJ](https://proj.org/) internally
+- When converting coordinates, use `core.ToEPSG4326` utility function. It uses [PROJ](https://proj.org/) internally
 - Use `core.Client` http client, which sets timeout, user-agent and has various helpers
 - Do not bother with sorting results - this is done by script consumers
 - Do not filter by `codes` and `since` inside worker. They are meant to be passed to upstream. Empty `codes` for all-at-once script must return all available measurements.
@@ -93,19 +93,7 @@ Here are some recommendations for writing scripts for new sources
 - Pay extra attention to time zones!
 - Pass variables like access keys via script options
 - Provide sample http requests (see `requests.http` files)
-
-## Env variables
-
-Container makes use of following env variables. Env variables have lesser priority than config values.
-
-| Name              | Default value | Desription                                  |
-| ----------------- | ------------- | ------------------------------------------- |
-| POSTGRES_HOST     |               | Postgres connection details - host          |
-| POSTGRES_DB       |               | Postgres connection details - database name |
-| POSTGRES_USER     |               | Postgres connection details - user          |
-| POSTGRES_PASSWORD |               | Postgres connection details - password      |
-| REDIS_HOST        | redis         | Redis connection details - host             |
-| REDIS_PORT        | 6379          | Redis connection details - port             |
+- Be forgiving when handling errors: only exit harvest function on real stoppers. If a single JSON object/CSV line causes error - log it then process next entry.
 
 ## TODO
 
@@ -120,5 +108,3 @@ Container makes use of following env variables. Env variables have lesser priori
 - Scripts as Go plugins
 - Send logs to sentry
 - Per-script binaries for third-party consumption
-- Autogenerate typescript definitions
-- Add "upstream" JSON field to allow upstream methods pass arbitrary fields
