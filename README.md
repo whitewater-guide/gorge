@@ -5,7 +5,7 @@
 Gorge is a service which harvests hydrological data (river's discharge and water level) on schedule.
 Harvested data is stored in database and can be queried later.
 
-## How/why should I use it?
+## Why should I use it?
 
 This project is mainly intended for whitewater enthusiasts. Currently, there are several projects that harvest and/or publish hydrological data for kayakers and other river folks. There's certain level of duplication, because these projects harvest data from the same sources. So, if you have a project and want to add new data source(s) to it, you have 3 choices:
 
@@ -24,7 +24,7 @@ Gorge was designed with 2 more features in mind. These features are not implemen
 
 ## Usage
 
-Gorge is distributed as [docker image](https://github.com/whitewater-guide/gorge/packages/113546) with two binary files:
+Gorge is distributed as a [docker image](https://github.com/whitewater-guide/gorge/packages/113546) with two binary files:
 
 - `gorge-server` (_entrypoint_) - web server with REST API
 - `gorge-cli` - command-line client for this server. Since image is distroless, use `docker exec gorge gorge-cli` to call it
@@ -80,13 +80,13 @@ Environment variables have lower priority than cli flags.
 
 Gorge uses database to store harvested measurements and scheduled jobs. It comes with postgres and sqlite drivers. Postgres with timescaledb extension is recommended for production. Gorge will initialize all the required tables. Check out sql migration file if you're curious about db schema.
 
-Gorge uses cache to store safe-to-lose data: latest measurement each gauge and harvest statuses. It comes with redis (recommended) and embedded redis drivers.
+Gorge uses cache to store safe-to-lose data: latest measurement from each gauge and harvest statuses. It comes with redis (recommended) and embedded redis drivers.
 
 Gorge server is supposed to be running in private network. It doesn't support HTTPS. If you want to expose it to public, use reverse proxy.
 
 ### Working with API
 
-Below is the list of emdpoints exposed by gorge server. You can use `request.http` files in project root and script directories to play with running server.
+Below is the list of endpoints exposed by gorge server. You can use `request.http` files in project root and script directories to play with running server.
 
 - `GET /version`
 
