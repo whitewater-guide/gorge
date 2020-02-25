@@ -19,7 +19,7 @@ All the other notes, links and comments go here below the list
 - **Status:** ✅ Live on production
 - **Terms of use**: ✅  on production
 - **License**:  ✅ [license](http://dd.weather.gc.ca/doc/LICENCE_GENERAL.txt)
-- **Script**: [link](scripts/canada)
+- **Script**: [link](canada)
 - **Issue:**
 
 ## Cantabria, Spain
@@ -27,7 +27,7 @@ All the other notes, links and comments go here below the list
 - **Status:** 🕙 Ready on production
 - **Terms of use**: ❌  on production
 - **License**: ❌ ???
-- **Script**: [link](scripts/cantabria)
+- **Script**: [link](cantabria)
 - **Issue:**
 
 [Map](https://www.chcantabrico.es/?cod_estacion=A610). [html all gauges](https://www.chcantabrico.es/nivel-de-los-rios). Every 15 minutes.
@@ -37,7 +37,7 @@ All the other notes, links and comments go here below the list
 - **Status:** ✅ Live on production
 - **Terms of use**: ✅  on production
 - **License**:  ✅ [license](https://aca.gencat.ca/)
-- **Script**: [link](scripts/catalunya)
+- **Script**: [link](catalunya)
 - **Issue:** 
 
 [Map](http://aca-web.gencat.cat/sentilo-catalog-web/component/map)
@@ -48,7 +48,7 @@ gauges [json](http://aca-web.gencat.cat/sdim2/apirest/data/AFORAMENT-EST), value
 - **Status:** ✅ Live on production
 - **Terms of use**: ✅  on production
 - **License**: ❌  ???
-- **Script**: [link](scripts/chile)
+- **Script**: [link](chile)
 - **Issue:**
 
 ## Ecuador
@@ -56,7 +56,7 @@ gauges [json](http://aca-web.gencat.cat/sdim2/apirest/data/AFORAMENT-EST), value
 - **Status:** ✅ Live on production 
 - **Terms of use**: ❌ on production
 - **License**: ❌ ???
-- **Script**: [link](scripts/ecuador)
+- **Script**: [link](ecuador)
 - **Issue:** 
 
 ## Galicia 1.
@@ -64,7 +64,7 @@ gauges [json](http://aca-web.gencat.cat/sdim2/apirest/data/AFORAMENT-EST), value
 - **Status:** ✅ Live on production (as `Galicia and Northern Portugal`)
 - **Terms of use**: ✅ on production
 - **License**: ✅ email consent
-- **Script**: [link](scripts/galicia)
+- **Script**: [link](galicia)
 - **Issue:**
 
 ## Galicia 2 + Asturias
@@ -74,7 +74,7 @@ Mino bassin.
 - **Status:** ✅ Live on production (as `Galicia 2`)
 - **Terms of use**: ✅ on production
 - **License**: ✅ email consent
-- **Script**: [link](scripts/galicia2)
+- **Script**: [link](galicia2)
 - **Issue:**
 
 ## Georgia
@@ -82,7 +82,7 @@ Mino bassin.
 - **Status:** ✅ Live on production
 - **Terms of use**: ✅ on production
 - **License**: ✅ email consent
-- **Script**: [link](scripts/georgia)
+- **Script**: [link](georgia)
 - **Issue:**
 
 ## Norway
@@ -90,7 +90,7 @@ Mino bassin.
 - **Status:** ✅ Live on production
 - **Terms of use**: ✅ on production
 - **License**: ✅ email consent
-- **Script**: [link](scripts/norway)
+- **Script**: [link](norway)
 - **Issue:**
 
 ## Quebec
@@ -98,7 +98,7 @@ Source description one-liner
 - **Status:** ✅ Live on production
 - **Terms of use**: ✅  on production
 - **License**: ✅ email consent
-- **Script**: [link](scripts/quebec)
+- **Script**: [link](quebec)
 - **Issue:** 
 
 ## Riverzone 
@@ -108,7 +108,7 @@ Another whitewater project that aggregates multiple sources in Europe
 - **Status:** ✅ Live on production
 - **Terms of use**: ✅ on production
 - **License**: // ✅ email consent
-- **Script**: [link](scripts/riverzone)
+- **Script**: [link](riverzone)
 - **Issue:** 
 
 ## SEPA
@@ -118,7 +118,7 @@ Another whitewater project that aggregates multiple sources in Europe
 - **Status:** ✅ Live on production
 - **Terms of use**: ✅ on production
 - **Agreement**: ✅ [terms and conditions](https://www2.sepa.org.uk/waterlevels/docs/sepa_general_data_reuse_statement_V3.pdf)
-- **Script**: [link](scripts/sepa)
+- **Script**: [link](sepa)
 - **Issue:** 
 
 ## Switzerland
@@ -126,7 +126,7 @@ Another whitewater project that aggregates multiple sources in Europe
 - **Status:** ✅ Live on production
 - **Terms of use**: ✅ on production
 - **Agreement**: ✅ email consent
-- **Script**: [link](scripts/switzerland)
+- **Script**: [link](switzerland)
 - **Issue:** 
 
 ## Tirol, Austria
@@ -134,5 +134,5 @@ Another whitewater project that aggregates multiple sources in Europe
 - **Status:** ✅ Live on production
 - **Terms of use**: ✅ on production
 - **Agreement**: ✅ [Open Government Data of the state of Tyrol](https://www.tirol.gv.at) is licensed under [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/deed.de "Opens internal link in the current window")
-- **Script**: [link](scripts/tirol)
+- **Script**: [link](tirol)
 - **Issue:**
