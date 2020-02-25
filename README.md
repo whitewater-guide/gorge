@@ -5,9 +5,26 @@
 Gorge is a service which harvests hydrological data (river's discharge and water level) on schedule.
 Harvested data is stored in database and can be queried later.
 
+## How/why should I use it?
+
+This project is mainly intended for whitewater enthusiasts. Currently, there are several projects that harvest and/or publish hydrological data for kayakers and other river folks. There's certain level of duplication, because these projects harvest data from the same sources. So, if you have a project and want to add new data source(s) to it, you have 3 choices:
+
+1. Write parser/harvester yourself and harvest data yourself
+2. Reuse parser/harvester from another project, but harvest data yourself
+3. Cooperate with another project to reduce load on the original data source
+
+So how can gorge/whitewater.guide help you? Currently, you can harvest data from whitewater.guide (which uses gorge internally to publish it). It's available via our [GRAPHQL endpoint](https://whitewater.guide/graphql). Please respect the original data licenses. This is option 3.
+
+If you prefer option 2, you can run gorge server in docker container and use our scripts to harvest data, so you don't have to write them yourself.
+
+Gorge was designed with 2 more features in mind. These features are not implemented yet, but they should not take long for us to implement in case someone would like to use them:
+
+- standalone distribution. Gorge can be distibuted as standalone linux/mac/windows program, so you can execute it from cli and get harvested results in your stdout. In case you don't want docker and gorge server.
+- pushing data downstream. Instead of pulling data from gorge, we can make gorge push data to your project. 
+
 ## Usage
 
-Gorge is distributed as docker image with two binary files:
+Gorge is distributed as [docker image](https://github.com/whitewater-guide/gorge/packages/113546) with two binary files:
 
 - `gorge-server` (_entrypoint_) - web server with REST API
 - `gorge-cli` - command-line client for this server. Since image is distroless, use `docker exec gorge gorge-cli` to call it
@@ -284,6 +301,10 @@ Below is the list of emdpoints exposed by gorge server. You can use `request.htt
 
   Same as `GET /measurements/{script}/{code}/latest` but allows to return latest measurements from multiple scripts at once.
 
+### Other
+
+There're Typescript type definitions for the API available on [NPM](https://www.npmjs.com/package/@whitewater-guide/gorge)
+
 ## Development
 
 Preferred way of development is to develop inside docker container. I do this in [VS Code](https://code.visualstudio.com/docs/remote/containers). There's a compose file for this purpose.
@@ -296,10 +317,14 @@ If you want to develop on host machine, you'll need following tools installed on
 
 Some tests require postgres. You cannot run them inside docker container (unless you want to mess with docker-inside-docker). They're excluded from main test set, I run them using `make test-nodocker` from host machine or CI environment.
 
+
 ### Writing scripts
+
+
 
 Here are some recommendations for writing scripts for new sources
 
+- Examine `testscripts` package, which contains simplest test scripts. Then examine existing scripts. Some of them process JSON and CSV sources, other parse raw HTML pages.
 - Write tests, but when testing, **do not use** calls to real URLs, because unit tests can flood upstream with requests
 - Round locations to 5 digits precision [link](https://en.wikipedia.org/wiki/Decimal_degrees), round levels and flows to what seems reasonable
 - When converting coordinates, use `core.ToEPSG4326` utility function. It uses [PROJ](https://proj.org/) internally
@@ -308,7 +333,7 @@ Here are some recommendations for writing scripts for new sources
 - Do not filter by `codes` and `since` inside worker. They are meant to be passed to upstream. Empty `codes` for all-at-once script must return all available measurements.
 - Return null value (`nulltype.NullFloat64{}`) for level/flow when it's not provided
 - Pay extra attention to time zones!
-- Pass variables like access keys via script options
+- Pass variables like access keys via script options, but provide environment variable fallbacks
 - Provide sample http requests (see `requests.http` files)
 - Be forgiving when handling errors: only exit harvest function on real stoppers. If a single JSON object/CSV line causes error - log it then process next entry.
 
@@ -319,7 +344,7 @@ Here are some recommendations for writing scripts for new sources
   - Statuses
   - What happens when one component is broken?
 - Authorization
-- Pushing
+- Pushing data downstream to peer projects
 - Subscriptions
 - Advanced scheduling, new harvest mode: batched
 - Scripts as Go plugins
