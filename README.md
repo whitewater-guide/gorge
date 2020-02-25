@@ -13,7 +13,7 @@ This project is mainly intended for whitewater enthusiasts. Currently, there are
 2. Reuse parser/harvester from another project, but harvest data yourself
 3. Cooperate with another project to reduce load on the original data source
 
-So how can gorge/whitewater.guide help you? Currently, you can harvest data from whitewater.guide (which uses gorge internally to publish it). It's available via our [GRAPHQL endpoint](https://whitewater.guide/graphql). Please respect the original data licenses. This is option 3.
+So how can gorge/whitewater.guide help you? Currently, you can harvest data from whitewater.guide (which uses gorge internally to publish it). It's available via our [GRAPHQL endpoint](https://whitewater.guide/graphql). Please respect the [original data licenses](scripts/README.md). This is option 3.
 
 If you prefer option 2, you can run gorge server in docker container and use our scripts to harvest data, so you don't have to write them yourself.
 
@@ -300,6 +300,10 @@ Below is the list of endpoints exposed by gorge server. You can use `request.htt
   - `scripts` - comma-separated list of script names, required
 
   Same as `GET /measurements/{script}/{code}/latest` but allows to return latest measurements from multiple scripts at once.
+
+### Available scripts
+
+List of available scripts is [here](scripts/README.md)
 
 ### Other
 
