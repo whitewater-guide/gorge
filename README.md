@@ -67,6 +67,223 @@ Gorge uses cache to store safe-to-lose data: latest measurement each gauge and h
 
 Gorge server is supposed to be running in private network. It doesn't support HTTPS. If you want to expose it to public, use reverse proxy.
 
+### Working with API
+
+Below is the list of emdpoints exposed by gorge server. You can use `request.http` files in project root and script directories to play with running server.
+
+- `GET /version`
+
+  Returns running server version:
+  ```json
+  {
+    "version": "1.0.0"
+  }
+  ```
+
+- `GET /scripts`
+
+  Returns array of available scripts with their harvest modes:
+  ```json
+  [
+    {
+      "name": "sepa",
+      "mode": "oneByOne"
+    },
+    {
+      "name": "switzerland",
+      "mode": "allAtOnce"
+    }
+  ]
+  ```
+
+- `POST /upstream/{script}/gauges`
+
+  Lists gauges available for harvest in an upsteam source.
+
+  URL parameters:
+    
+  - `script` - script name for usptream source
+  
+  POST body contains JSON that contains script-specific parameters. For example, it can contain authentication credentials for protected sources. Another example is `all_at_once` test script, which accepts `gauges` JSON parameter to specify number of gauges to return.
+
+  Returns JSON array of gauges. For example:
+
+  ```json
+  [
+    {
+      "script": "tirol", // script name
+      "code": "201012", // gauge code in upstream source
+      "name": "Lech / Steeg", // gauge name
+      "url": "https://apps.tirol.gv.at/hydro/#/Wasserstand/?station=201012", // upstream gauge webpage for humans 
+      "levelUnit": "cm", // units of water level measurement, if gauge provides water level 
+      "flowUnit": "cm", // units of water discharge measurement, if gauge provides discharge
+      "location": { // gauge location in EPSG4326 coordinate system, if provided
+        "latitude": 47.24192,
+        "longitude": 10.2935,
+        "altitude": 1109
+      }
+    },
+  ]
+  ```
+
+- `POST /upstream/{script}/measurements?codes=[codes]&since=[since]`
+
+  Harvests measurements directly from upstream source without saving them.
+
+  URL parameters:
+    
+  - `script` - script name for usptream source
+  - `codes` - comma-separated list of gauge codes to return. This paramter is required for one-by-one scripts. For all-at-once scripts it's optional, and without it all gauges will be returned.
+  - `since` - optional unix timstamp indicating start of the period you want to get measurements from. This is passed directly to upstream, if it support such parameter (very few actually do)
+  
+  POST body contains JSON that contains script-specific parameters. For example, it can contain authentication credentials for protected sources. Another example is `all_at_once` test script, which accepts `min`, `max` and `value` JSON parameters to control produced values.
+
+  Returns JSON array of measurements. For example:
+
+  ```json
+  [
+    {
+      "script": "tirol", // script name
+      "code": "201178", // gauge code
+      "timestamp": "2020-02-25T17:15:00Z", // timestamp in RFC3339
+      "level": 212.3, // water level value, if provided, otherwise null
+      "flow": null // water discharge value, if provided, otherwise null
+    }
+  ]
+  ```
+
+- `GET /jobs`
+
+  Returns array of running jobs:
+
+  ```json
+  [
+    {
+      "id": "3382456e-4242-11e8-aa0e-134a9bf0be3b", // unique job id
+      "script": "norway", // job script
+      "gauges": { // array of gauges that this job harvests
+        "100.1": null,
+        "103.1": { // it's possible to set script-specific parameter for each individual gauge
+          "version": 2
+        }
+      },
+      "cron": "38 * * * *", // job's cron schedule, for all-at-once jobs
+      "options": { // script-specific parameters
+        "csv": true
+      },
+      "status": { // information about running job
+        "success": true, // whether latest execution was successful
+        "timestamp": "2020-02-25T17:44:00Z", // latest execution timestamp
+        "count": 10, // number of measurements harvested during latest execution
+        "next": "2020-02-25T17:46:00Z", // next execution timestamp
+        "error": "somethin went wrong" // latest execution error, omitted when success = true
+      }
+    }
+  ]
+  ```
+
+- `GET /jobs/{jobId}`
+
+  URL parameters:
+    
+  - `jobId` - harvest job id
+
+  Returns the job description. It's same as item in `/jobs` array, but without `status`
+
+  ```json
+  {
+    "id": "3382456e-4242-11e8-aa0e-134a9bf0be3b",
+    "script": "norway",
+    "gauges": {
+      "100.1": null,
+      "103.1": {
+        "version": 2
+      }
+    },
+    "cron": "38 * * * *",
+    "options": null
+  }
+  ```
+
+- `GET /jobs/{jobId}/gauges`
+
+  URL parameters:
+    
+  - `jobId` - harvest job 
+  
+  Returns map object with gauge statuses, where keys are gauge codes and values are statuses:
+
+  ```json
+  [
+    {
+    "010802": {
+      "success": false,
+      "timestamp": "2020-02-24T18:00:00Z",
+      "count": 0,
+      "next": "2020-02-25T18:00:00Z"
+    }
+  ]
+  ```
+
+- `POST /jobs`
+
+  Adds new job.
+
+  POST body must contain JSON job description. For example:
+
+  ```json
+  {
+    "id": "78a9e166-2a73-4be2-a3fb-71d254eb7868", // unique id, must be set by client
+    "script": "one_by_one", // script for this job
+    "gauges": { // list of gauges
+      "g000": null, // set to null if gauge has no script-specific options
+      "g001": { "version": 2 } // or pass script-specific options
+    },
+    "options": { // optional, common script-specific options
+      "auth": "some_token"
+    },
+    "cron": "10 * * * *" // cron schedule required for all-at-once scripts
+  }
+  ```
+
+  Returns same object in case of success, error object otherwise
+
+- `DELETE /jobs/{jobId}`
+  
+  URL parameters:
+    
+  - `jobId` - harvest job id
+  
+  Stop the job and deletes it from schedule
+
+- `GET /measurements/{script}/{code}?from=[from]&to=[to]`
+
+  URL parameters:
+    
+  - `script` - script name
+  - `code` - optional, gauge code
+  - `from` - optional unix timstamp indicating start of the period you want to get measurements from. Default to 30 days from now.
+  - `to` - optional unix timstamp indicating end of the period you want to get measurements from. Defaults to now.
+
+  Returns array of measurements that were harvested and stored in gorge database for given script (and gauge). Resulting JSON is same as in `/upstream/{script}/measurements`
+
+- `GET /measurements/{script}/{code}/latest`
+
+  URL parameters:
+
+  - `script` - script name, required
+  - `code` - gauge code, optional
+
+  Returns array of measurements for given script or gauge. For each gauge, only latest measurement will be returned. Resulting JSON is same as in `/upstream/{script}/measurements`
+
+- `GET /measurements/latest?scripts=[scripts]`
+
+  URL parameters:
+
+  - `scripts` - comma-separated list of script names, required
+
+  Same as `GET /measurements/{script}/{code}/latest` but allows to return latest measurements from multiple scripts at once.
+
 ## Development
 
 Preferred way of development is to develop inside docker container. I do this in [VS Code](https://code.visualstudio.com/docs/remote/containers). There's a compose file for this purpose.
