@@ -16,7 +16,7 @@ var Descriptor = &core.ScriptDescriptor{
 		if _, ok := options.(*optionsSepa); ok {
 			return &scriptSepa{
 				name:    name,
-				baseURL: "https://apps.sepa.org.uk/database/riverlevels",
+				baseURL: "https://www2.sepa.org.uk/waterlevels/CSVs",
 			}, nil
 		}
 		return nil, fmt.Errorf("failed to cast %T", optionsSepa{})
