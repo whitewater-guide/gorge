@@ -67,6 +67,12 @@ func (s *clTestSuite) TestSaveLastestMeasurements() {
 			Level:     nulltype.NullFloat64Of(0),
 		},
 		{
+			GaugeID:   core.GaugeID{Script: "all_at_once", Code: "a002"},
+			Timestamp: core.HTime{Time: time.Date(2019, time.January, 1, 0, 0, 0, 0, time.UTC)},
+			Flow:      nulltype.NullFloat64{},
+			Level:     nulltype.NullFloat64{},
+		},
+		{
 			GaugeID:   core.GaugeID{Script: "all_at_once", Code: "a003"},
 			Timestamp: core.HTime{Time: time.Date(2010, time.January, 1, 0, 0, 0, 0, time.UTC)},
 			Flow:      nulltype.NullFloat64Of(222),

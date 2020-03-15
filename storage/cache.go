@@ -217,6 +217,9 @@ func (cache RedisCacheManager) SaveLatestMeasurements(ctx context.Context, in <-
 				if !ok {
 					break outer
 				}
+				if !m.Flow.Valid() && !m.Level.Valid() {
+					continue
+				}
 				if e, ok := byGauge[m.GaugeID]; ok {
 					if e.Timestamp.Before(m.Timestamp.Time) {
 						byGauge[m.GaugeID] = m
