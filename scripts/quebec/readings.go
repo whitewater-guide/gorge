@@ -48,7 +48,7 @@ func (s *scriptQuebec) parseReadings(recv chan<- *core.Measurement, errs chan<- 
 				if vt == "Niveau" {
 					levelInd = i
 				}
-				if vt == "Débit" || vt == "DÈbit" {
+				if vt == "Débit" || vt == "DÈbit" || vt == "DÃ©bit" {
 					flowInd = i
 				}
 			}

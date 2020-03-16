@@ -121,4 +121,63 @@ func TestQuebec_Harvest_HTML(t *testing.T) {
 	if assert.NoError(t, err) {
 		assert.Equal(t, expected, actual)
 	}
+
+	// File encoding windows-1252
+	actual, err = core.HarvestSlice(&s, core.StringSet{"062701": {}}, 0)
+	expected = core.Measurements{
+		&core.Measurement{
+			GaugeID: core.GaugeID{
+				Script: "quebec",
+				Code:   "062701",
+			},
+			Timestamp: core.HTime{
+				Time: time.Date(2020, time.March, 16, 13, 30, 0, 0, time.UTC),
+			},
+			Level: nulltype.NullFloat64{},
+			Flow:  nulltype.NullFloat64Of(9.716),
+		},
+		&core.Measurement{
+			GaugeID: core.GaugeID{
+				Script: "quebec",
+				Code:   "062701",
+			},
+			Timestamp: core.HTime{
+				Time: time.Date(2020, time.March, 16, 13, 15, 0, 0, time.UTC),
+			},
+			Level: nulltype.NullFloat64{},
+			Flow:  nulltype.NullFloat64Of(9.792),
+		},
+	}
+	if assert.NoError(t, err) {
+		assert.Equal(t, expected, actual)
+	}
+	// File encoding utf8
+	actual, err = core.HarvestSlice(&s, core.StringSet{"062702": {}}, 0)
+	expected = core.Measurements{
+		&core.Measurement{
+			GaugeID: core.GaugeID{
+				Script: "quebec",
+				Code:   "062702",
+			},
+			Timestamp: core.HTime{
+				Time: time.Date(2020, time.March, 16, 13, 30, 0, 0, time.UTC),
+			},
+			Level: nulltype.NullFloat64{},
+			Flow:  nulltype.NullFloat64Of(9.716),
+		},
+		&core.Measurement{
+			GaugeID: core.GaugeID{
+				Script: "quebec",
+				Code:   "062702",
+			},
+			Timestamp: core.HTime{
+				Time: time.Date(2020, time.March, 16, 13, 15, 0, 0, time.UTC),
+			},
+			Level: nulltype.NullFloat64{},
+			Flow:  nulltype.NullFloat64Of(9.792),
+		},
+	}
+	if assert.NoError(t, err) {
+		assert.Equal(t, expected, actual)
+	}
 }
