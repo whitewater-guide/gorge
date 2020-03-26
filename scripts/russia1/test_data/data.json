@@ -1,0 +1,244 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    33.803694,
+                    44.473948
+                ]
+            },
+            "properties": {
+                "id": 275,
+                "name": "ЭМЕРСИТ-0249",
+                "desc": "Крым",
+                "fix": false,
+                "type": 1,
+                "data": {
+                    "river_level": {
+                        "level": {
+                            "d": 9.2530088424683,
+                            "bs": 256.02199115753,
+                            "z": 256.02199115753
+                        },
+                        "prevention": {
+                            "d": -4.275,
+                            "bs": 261,
+                            "z": 261
+                        },
+                        "danger": {
+                            "d": -1.975,
+                            "bs": 263.3,
+                            "z": 263.3
+                        },
+                        "dr_prevention": {
+                            "d": null,
+                            "bs": null,
+                            "z": null
+                        },
+                        "dr_danger": {
+                            "d": null,
+                            "bs": null,
+                            "z": null
+                        },
+                        "fix_bs_level": 265.275,
+                        "time": "2020-03-26 16:40:00",
+                        "condition": 0,
+                        "v": -0.82969665527344,
+                        "v_condition": 0,
+                        "ihr": 1.0786893877174,
+                        "t_up": 0,
+                        "a_level": 0,
+                        "actual": 1
+                    },
+                    "waves": null,
+                    "precipitation": null,
+                    "wind": null,
+                    "temperature": null,
+                    "humidity": null,
+                    "abs_pressure": null,
+                    "dew_point": null,
+                    "meds": null,
+                    "global_radiation": null,
+                    "discharge": null,
+                    "soil_moisture": null,
+                    "soil_temperature": null,
+                    "gas:2": null,
+                    "gas:4": null,
+                    "gas:7": null,
+                    "gas:8": null,
+                    "gas:9": null,
+                    "gas:10": null,
+                    "gas:11": null,
+                    "din": null,
+                    "ultrasound_level": null,
+                    "tech_signal": null,
+                    "photo": null
+                }
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    38.70207,
+                    44.32223
+                ]
+            },
+            "properties": {
+                "id": 35,
+                "name": "АГК-0034",
+                "desc": null,
+                "fix": true,
+                "type": 1,
+                "data": {
+                    "river_level": {
+                        "level": {
+                            "d": 4.9536128044128,
+                            "bs": -0.19361280441284,
+                            "z": -5.9622128044128
+                        },
+                        "prevention": {
+                            "d": -2.99,
+                            "bs": 1.77,
+                            "z": -3.9986
+                        },
+                        "danger": {
+                            "d": -2.22,
+                            "bs": 2.54,
+                            "z": -3.2286
+                        },
+                        "dr_prevention": {
+                            "d": null,
+                            "bs": null,
+                            "z": null
+                        },
+                        "dr_danger": {
+                            "d": null,
+                            "bs": null,
+                            "z": null
+                        },
+                        "fix_bs_level": 4.76,
+                        "time": "2020-03-26 16:42:32",
+                        "condition": 0,
+                        "v": 1.7267114975873,
+                        "v_condition": 0,
+                        "ihr": 1.1204076354757,
+                        "t_up": 0,
+                        "a_level": 0,
+                        "actual": 1
+                    },
+                    "waves": null,
+                    "precipitation": null,
+                    "wind": null,
+                    "temperature": null,
+                    "humidity": null,
+                    "abs_pressure": null,
+                    "dew_point": null,
+                    "meds": null,
+                    "global_radiation": null,
+                    "discharge": null,
+                    "soil_moisture": null,
+                    "soil_temperature": null,
+                    "gas:2": null,
+                    "gas:4": null,
+                    "gas:7": null,
+                    "gas:8": null,
+                    "gas:9": null,
+                    "gas:10": null,
+                    "gas:11": null,
+                    "din": null,
+                    "ultrasound_level": null,
+                    "tech_signal": null,
+                    "photo": null
+                }
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    38.997167,
+                    45.0123
+                ]
+            },
+            "properties": {
+                "id": 385,
+                "name": "ЭМЕРСИТ-0007Д",
+                "desc": null,
+                "fix": true,
+                "type": 2,
+                "data": {
+                    "river_level": null,
+                    "waves": null,
+                    "precipitation": null,
+                    "wind": null,
+                    "temperature": {
+                        "value": 16,
+                        "time": "2020-03-26 17:30:17",
+                        "condition": null,
+                        "actual": 1
+                    },
+                    "humidity": null,
+                    "abs_pressure": null,
+                    "dew_point": null,
+                    "meds": null,
+                    "global_radiation": null,
+                    "discharge": null,
+                    "soil_moisture": null,
+                    "soil_temperature": null,
+                    "gas:2": null,
+                    "gas:4": null,
+                    "gas:7": null,
+                    "gas:8": null,
+                    "gas:9": null,
+                    "gas:10": null,
+                    "gas:11": null,
+                    "din": null,
+                    "ultrasound_level": {
+                        "level": {
+                            "d": 4.477,
+                            "bs": -4.477,
+                            "z": -4.477
+                        },
+                        "prevention": {
+                            "d": null,
+                            "bs": null,
+                            "z": null
+                        },
+                        "danger": {
+                            "d": null,
+                            "bs": null,
+                            "z": null
+                        },
+                        "dr_prevention": {
+                            "d": null,
+                            "bs": null,
+                            "z": null
+                        },
+                        "dr_danger": {
+                            "d": null,
+                            "bs": null,
+                            "z": null
+                        },
+                        "fix_bs_level": 0,
+                        "time": null,
+                        "condition": null,
+                        "actual": 1
+                    },
+                    "tech_signal": {
+                        "si": 2,
+                        "rs": 31,
+                        "time": "2020-03-26 17:30:17",
+                        "actual": 1
+                    },
+                    "photo": null
+                }
+            }
+        }
+    ]
+}

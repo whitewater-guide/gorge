@@ -111,6 +111,16 @@ Another whitewater project that aggregates multiple sources in Europe
 - **Script**: [link](riverzone)
 - **Issue:** 
 
+## Russia 1 
+
+http://www.emercit.com/map/overall.php
+
+- **Status:** 🕙 Ready on production
+- **Terms of use**: ❌  on production
+- **License**: ❌ ???
+- **Script**: [link](russia1)
+- **Issue:** 
+
 ## SEPA
 
 [Scottish Environment Protection Agency](https://www.sepa.org.uk/)

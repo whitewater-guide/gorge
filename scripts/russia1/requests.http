@@ -1,0 +1,20 @@
+###
+# List gauges
+POST http://localhost:7080/upstream/russia1/gauges
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+# List all measurements
+POST http://localhost:7080/upstream/russia1/measurements
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+
+# List some measurements
+POST http://localhost:7080/upstream/russia1/measurements?codes=АГК-0089
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
