@@ -5,6 +5,22 @@
 Gorge is a service which harvests hydrological data (river's discharge and water level) on schedule.
 Harvested data is stored in database and can be queried later.
 
+## Table of contents
+
+- [Why should I use it?](#why-should-i-use-it-)
+- [Usage](#usage)
+  - [Launching](#launching)
+  - [Working with API](#working-with-api)
+  - [Available scripts](#available-scripts)
+  - [Other](#other)
+- [Development](#development)
+  - [Inside container](#inside-container)
+  - [On host machine](#on-host-machine)
+  - [Building and running](#building-and-running)
+  - [Writing scripts](#writing-scripts)
+- [TODO](#todo)
+- [License](#license)
+
 ## Why should I use it?
 
 This project is mainly intended for whitewater enthusiasts. Currently, there are several projects that harvest and/or publish hydrological data for kayakers and other river folks. There's certain level of duplication, because these projects harvest data from the same sources. So, if you have a project and want to add new data source(s) to it, you have 3 choices:
@@ -20,7 +36,7 @@ If you prefer option 2, you can run gorge server in docker container and use our
 Gorge was designed with 2 more features in mind. These features are not implemented yet, but they should not take long for us to implement in case someone would like to use them:
 
 - standalone distribution. Gorge can be distibuted as standalone linux/mac/windows program, so you can execute it from cli and get harvested results in your stdout. In case you don't want docker and gorge server.
-- pushing data downstream. Instead of pulling data from gorge, we can make gorge push data to your project. 
+- pushing data downstream. Instead of pulling data from gorge, we can make gorge push data to your project.
 
 ## Usage
 
@@ -91,6 +107,7 @@ Below is the list of endpoints exposed by gorge server. You can use `request.htt
 - `GET /version`
 
   Returns running server version:
+
   ```json
   {
     "version": "1.0.0"
@@ -100,6 +117,7 @@ Below is the list of endpoints exposed by gorge server. You can use `request.htt
 - `GET /scripts`
 
   Returns array of available scripts with their harvest modes:
+
   ```json
   [
     {
@@ -118,9 +136,9 @@ Below is the list of endpoints exposed by gorge server. You can use `request.htt
   Lists gauges available for harvest in an upsteam source.
 
   URL parameters:
-    
+
   - `script` - script name for usptream source
-  
+
   POST body contains JSON that contains script-specific parameters. For example, it can contain authentication credentials for protected sources. Another example is `all_at_once` test script, which accepts `gauges` JSON parameter to specify number of gauges to return.
 
   Returns JSON array of gauges. For example:
@@ -131,15 +149,16 @@ Below is the list of endpoints exposed by gorge server. You can use `request.htt
       "script": "tirol", // script name
       "code": "201012", // gauge code in upstream source
       "name": "Lech / Steeg", // gauge name
-      "url": "https://apps.tirol.gv.at/hydro/#/Wasserstand/?station=201012", // upstream gauge webpage for humans 
-      "levelUnit": "cm", // units of water level measurement, if gauge provides water level 
+      "url": "https://apps.tirol.gv.at/hydro/#/Wasserstand/?station=201012", // upstream gauge webpage for humans
+      "levelUnit": "cm", // units of water level measurement, if gauge provides water level
       "flowUnit": "cm", // units of water discharge measurement, if gauge provides discharge
-      "location": { // gauge location in EPSG4326 coordinate system, if provided
+      "location": {
+        // gauge location in EPSG4326 coordinate system, if provided
         "latitude": 47.24192,
         "longitude": 10.2935,
         "altitude": 1109
       }
-    },
+    }
   ]
   ```
 
@@ -148,11 +167,11 @@ Below is the list of endpoints exposed by gorge server. You can use `request.htt
   Harvests measurements directly from upstream source without saving them.
 
   URL parameters:
-    
+
   - `script` - script name for usptream source
   - `codes` - comma-separated list of gauge codes to return. This paramter is required for one-by-one scripts. For all-at-once scripts it's optional, and without it all gauges will be returned.
   - `since` - optional unix timstamp indicating start of the period you want to get measurements from. This is passed directly to upstream, if it support such parameter (very few actually do)
-  
+
   POST body contains JSON that contains script-specific parameters. For example, it can contain authentication credentials for protected sources. Another example is `all_at_once` test script, which accepts `min`, `max` and `value` JSON parameters to control produced values.
 
   Returns JSON array of measurements. For example:
@@ -178,17 +197,21 @@ Below is the list of endpoints exposed by gorge server. You can use `request.htt
     {
       "id": "3382456e-4242-11e8-aa0e-134a9bf0be3b", // unique job id
       "script": "norway", // job script
-      "gauges": { // array of gauges that this job harvests
+      "gauges": {
+        // array of gauges that this job harvests
         "100.1": null,
-        "103.1": { // it's possible to set script-specific parameter for each individual gauge
+        "103.1": {
+          // it's possible to set script-specific parameter for each individual gauge
           "version": 2
         }
       },
       "cron": "38 * * * *", // job's cron schedule, for all-at-once jobs
-      "options": { // script-specific parameters
+      "options": {
+        // script-specific parameters
         "csv": true
       },
-      "status": { // information about running job
+      "status": {
+        // information about running job
         "success": true, // whether latest execution was successful
         "timestamp": "2020-02-25T17:44:00Z", // latest execution timestamp
         "count": 10, // number of measurements harvested during latest execution
@@ -202,7 +225,7 @@ Below is the list of endpoints exposed by gorge server. You can use `request.htt
 - `GET /jobs/{jobId}`
 
   URL parameters:
-    
+
   - `jobId` - harvest job id
 
   Returns the job description. It's same as item in `/jobs` array, but without `status`
@@ -225,9 +248,9 @@ Below is the list of endpoints exposed by gorge server. You can use `request.htt
 - `GET /jobs/{jobId}/gauges`
 
   URL parameters:
-    
-  - `jobId` - harvest job 
-  
+
+  - `jobId` - harvest job
+
   Returns map object with gauge statuses, where keys are gauge codes and values are statuses:
 
   ```json
@@ -252,11 +275,13 @@ Below is the list of endpoints exposed by gorge server. You can use `request.htt
   {
     "id": "78a9e166-2a73-4be2-a3fb-71d254eb7868", // unique id, must be set by client
     "script": "one_by_one", // script for this job
-    "gauges": { // list of gauges
+    "gauges": {
+      // list of gauges
       "g000": null, // set to null if gauge has no script-specific options
       "g001": { "version": 2 } // or pass script-specific options
     },
-    "options": { // optional, common script-specific options
+    "options": {
+      // optional, common script-specific options
       "auth": "some_token"
     },
     "cron": "10 * * * *" // cron schedule required for all-at-once scripts
@@ -266,17 +291,17 @@ Below is the list of endpoints exposed by gorge server. You can use `request.htt
   Returns same object in case of success, error object otherwise
 
 - `DELETE /jobs/{jobId}`
-  
+
   URL parameters:
-    
+
   - `jobId` - harvest job id
-  
+
   Stop the job and deletes it from schedule
 
 - `GET /measurements/{script}/{code}?from=[from]&to=[to]`
 
   URL parameters:
-    
+
   - `script` - script name
   - `code` - optional, gauge code
   - `from` - optional unix timstamp indicating start of the period you want to get measurements from. Default to 30 days from now.
@@ -311,20 +336,39 @@ There're Typescript type definitions for the API available on [NPM](https://www.
 
 ## Development
 
-Preferred way of development is to develop inside docker container. I do this in [VS Code](https://code.visualstudio.com/docs/remote/containers). There's a compose file for this purpose.
+### Inside container
 
-There's a [modd](https://github.com/cortesi/modd) tool installed in dev image, which enables live reloading and tests. Start it using `make run`.
+Preferred way of development is to develop inside docker container. I do this in [VS Code](https://code.visualstudio.com/docs/remote/containers). The repo already contains `.devcontainer` configuration.
 
-If you want to develop on host machine, you'll need following tools installed on it (they're installed in docker image, see Dockerfile for more info):
-
-- [libproj](https://proj.org/) shared library, to convert coordinate systems
+If you use `docker-compose.yml` you need `.env.development` file where you can put env variables with secrets for scripts. The app will work without those variables, but docker-compose requires `.env.development` file to be present. If you use VS Code, `.devcontainer` takes care of this.
 
 Some tests require postgres. You cannot run them inside docker container (unless you want to mess with docker-inside-docker). They're excluded from main test set, I run them using `make test-nodocker` from host machine or CI environment.
 
+### On host machine
+
+If you want to develop on host machine, you'll need following libraries installed on it (they're installed in docker image, see Dockerfile for more info):
+
+- [libproj](https://proj.org/) shared library, to convert coordinate systems. Currently version 6.3.0 is required.
+
+Also you'll need following go tools:
+
+- [go-bindata](https://github.com/go-bindata/go-bindata) - required for database schemas
+- [modd](https://github.com/cortesi/modd) - live reloading tool, not really required, but some might prefer such workflow
+- [golangci-lint](github.com/golangci/golangci-lint) - not a requirement, but this is the linter of choice and CI uses it
+
+These tools are installed locally (see `tools.go`), but you should make sure that binaries are in your `PATH`
+
+### Building and running
+
+Take a look at [Makefile](Makefile). Here are the highlights:
+
+- `make run` builds and launches server and cli, provides live reloading and tests
+- `make build` builds `gorge-server` and `gorge-cli` binaries in `/go/bin` directory
+- `make test` runs all tests expect postgres tests
+- `make test-nodocker` runs all test including postgres tests
+- `make lint` runs linter
 
 ### Writing scripts
-
-
 
 Here are some recommendations for writing scripts for new sources
 
@@ -354,3 +398,7 @@ Here are some recommendations for writing scripts for new sources
 - Scripts as Go plugins
 - Send logs to sentry
 - Per-script binaries for third-party consumption
+
+## License
+
+[MIT](LICENSE)

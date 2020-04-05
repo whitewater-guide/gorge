@@ -4,7 +4,6 @@
 /.idea/
 
 .env.*
-!.env.*.secret
 /cookies/
 /cache/
 /pkg/
@@ -12,6 +11,5 @@
 **/bench_data/
 
 .vscode
-.devcontainer
 node_modules
 index.d.ts

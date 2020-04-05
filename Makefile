@@ -1,3 +1,6 @@
+######################################################
+# ⭣ Commands below run inside docker container      #
+######################################################
 download:
 	go mod download
 
@@ -29,8 +32,15 @@ run: tools
 	modd
 
 ######################################################
-# ⭡ Command above run inside docker container       #
-# ⭣ Command below run outside of docker container   #
+# ⭣ Commands below run on host machine   		    #
+######################################################
+
+compose:
+	touch .env.development
+	docker-compose up
+
+######################################################
+# ⭣ Commands below run in CI					    #
 ######################################################
 verify:
 	docker build --target tester -t gorge_tester .
