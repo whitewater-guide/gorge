@@ -1,8 +1,6 @@
 package ukraine
 
 import (
-	"crypto/md5"
-	"fmt"
 	"github.com/mattn/go-nulltype"
 	"regexp"
 	"strings"
@@ -27,6 +25,7 @@ func (s *scriptUkraine) parseTable(gauges chan<- *core.Gauge, measurements chan<
 		return
 	}
 	doc.Find("Document Placemark").Each(func(i int, elem *goquery.Selection) {
+		code := elem.Find("name").First().Text()
 		description, _ := elem.Find("description").First().Html()
 		rName, _ := regexp.Compile(`Річка <b>(.+)</b><br/>`)
 		rPost, _ := regexp.Compile(`Пост <b-->(.+)<br/>`)
@@ -35,17 +34,16 @@ func (s *scriptUkraine) parseTable(gauges chan<- *core.Gauge, measurements chan<
 		matchPost := rPost.FindStringSubmatch(description)
 
 		name := strings.TrimSpace(matchName[1]) + " " + strings.TrimSpace(matchPost[1])
-		code := nameRegex.ReplaceAllString(name, "")
-		code = strings.ToLower(code)
-		code = fmt.Sprintf("%x", md5.Sum([]byte(code)))
-		gauges <- &core.Gauge{
-			GaugeID: core.GaugeID{
-				Script: s.name,
-				Code:   code,
-			},
-			LevelUnit: "cm",
-			Name:      name,
-			URL:       s.url,
+		if gauges != nil {
+			gauges <- &core.Gauge{
+				GaugeID: core.GaugeID{
+					Script: s.name,
+					Code:   code,
+				},
+				LevelUnit: "cm",
+				Name:      name,
+				URL:       s.url,
+			}
 		}
 		if measurements != nil {
 			var level nulltype.NullFloat64

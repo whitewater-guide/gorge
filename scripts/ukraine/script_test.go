@@ -35,7 +35,7 @@ func TestUkraine_ListGauges(t *testing.T) {
 	expected := core.Gauge{
 		GaugeID: core.GaugeID{
 			Script: "ukraine",
-			Code:   "d41d8cd98f00b204e9800998ecf8427e",
+			Code:   "42136",
 		},
 		LevelUnit: "cm",
 		Name:      "Прут Татарів",
@@ -59,7 +59,7 @@ func TestUkraine_Harvest(t *testing.T) {
 	expected := &core.Measurement{
 		GaugeID: core.GaugeID{
 			Script: "ukraine",
-			Code:   "d41d8cd98f00b204e9800998ecf8427e",
+			Code:   "42136",
 		},
 		Timestamp: core.HTime{
 			Time: now,
