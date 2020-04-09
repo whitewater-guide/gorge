@@ -47,7 +47,7 @@ func (s *scriptUkraine) parseTable(gauges chan<- *core.Gauge, measurements chan<
 		}
 		if measurements != nil {
 			var level nulltype.NullFloat64
-			rLevel, _ := regexp.Compile(`\d+\.\d+\.\d+: (\d+)см\.`)
+			rLevel, _ := regexp.Compile(`\d+\.\d+\.\d+: (-?\d+)см\.`)
 			matchLevel := rLevel.FindStringSubmatch(description)
 			levelStr := strings.TrimSpace(matchLevel[1])
 			err := level.UnmarshalJSON([]byte(levelStr))
