@@ -1,6 +1,7 @@
 package core
 
 import (
+	"crypto/tls"
 	"encoding/csv"
 	"encoding/json"
 	"encoding/xml"
@@ -28,8 +29,9 @@ type HTTPClient struct {
 
 // ClientOptions are HTTPClient that can be passed as args at startup
 type ClientOptions struct {
-	UserAgent string `desc:"User agent for requests sent from scripts. Leave empty to use fake browser agent"`
-	Timeout   int64  `desc:"Request timeout in seconds"`
+	UserAgent  string `desc:"User agent for requests sent from scripts. Leave empty to use fake browser agent"`
+	Timeout    int64  `desc:"Request timeout in seconds"`
+	WithoutTLS bool   `desc:"Disable TLS for some gauges"`
 }
 
 // RequestOptions are additional per-request options
@@ -40,8 +42,9 @@ type RequestOptions struct {
 
 // Client is default client for scripts
 var Client = NewClient(ClientOptions{
-	UserAgent: "whitewater.guide robot",
-	Timeout:   60,
+	UserAgent:  "whitewater.guide robot",
+	Timeout:    60,
+	WithoutTLS: false,
 })
 
 // NewClient constructs new HTTPClient with options
@@ -56,6 +59,9 @@ func NewClient(opts ClientOptions) *HTTPClient {
 	}
 	transport := http.DefaultTransport.(*http.Transport).Clone()
 	transport.DisableKeepAlives = true
+	if opts.WithoutTLS {
+		transport.TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
+	}
 	client := &HTTPClient{
 		Client:        &http.Client{Jar: persJar, Transport: transport},
 		PersistentJar: persJar,

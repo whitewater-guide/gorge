@@ -11,9 +11,14 @@ import (
 )
 
 var nameRegex = regexp.MustCompile(`\W`)
+var Client = core.NewClient(core.ClientOptions{
+	UserAgent:  "whitewater.guide robot",
+	Timeout:    60,
+	WithoutTLS: true,
+})
 
 func (s *scriptUkraine) parseTable(gauges chan<- *core.Gauge, measurements chan<- *core.Measurement, errs chan<- error) {
-	resp, err := core.Client.Get(s.url, nil)
+	resp, err := Client.Get(s.url, nil)
 	if err != nil {
 		errs <- err
 		return

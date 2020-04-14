@@ -18,6 +18,7 @@ import (
 	"github.com/whitewater-guide/gorge/scripts/switzerland"
 	"github.com/whitewater-guide/gorge/scripts/testscripts"
 	"github.com/whitewater-guide/gorge/scripts/tirol"
+	"github.com/whitewater-guide/gorge/scripts/ukraine"
 )
 
 // Registry is used both by server and cli
@@ -37,6 +38,7 @@ func init() {
 	Registry.Register(galicia.Descriptor)
 	Registry.Register(galicia2.Descriptor)
 	Registry.Register(georgia.Descriptor)
+	Registry.Register(ukraine.Descriptor)
 	Registry.Register(norway.Descriptor)
 	Registry.Register(quebec.Descriptor)
 	Registry.Register(riverzone.Descriptor)
