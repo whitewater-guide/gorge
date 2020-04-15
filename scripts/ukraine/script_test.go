@@ -43,7 +43,7 @@ func TestUkraine_ListGauges(t *testing.T) {
 			Longitude: 48.36876,
 		},
 		Name: "Прут Татарів",
-		URL:  ts.URL,
+		URL:  "https://meteo.gov.ua/ua/33345/hydrostorm",
 	}
 	if assert.NoError(t, err) {
 		assert.Len(t, actual, 192)

@@ -11,12 +11,13 @@ import (
 	"github.com/whitewater-guide/gorge/core"
 )
 
-var nameRegex = regexp.MustCompile(`\W`)
 var Client = core.NewClient(core.ClientOptions{
 	UserAgent:  "whitewater.guide robot",
 	Timeout:    60,
 	WithoutTLS: true,
 })
+
+var UserURL = "https://meteo.gov.ua/ua/33345/hydrostorm"
 
 func (s *scriptUkraine) parseTable(gauges chan<- *core.Gauge, measurements chan<- *core.Measurement, errs chan<- error) {
 	resp, err := Client.Get(s.url, nil)
@@ -56,7 +57,7 @@ func (s *scriptUkraine) parseTable(gauges chan<- *core.Gauge, measurements chan<
 					Longitude: core.TruncCoord(lng),
 				},
 				Name: name,
-				URL:  s.url,
+				URL:  UserURL,
 			}
 		}
 		if measurements != nil {
