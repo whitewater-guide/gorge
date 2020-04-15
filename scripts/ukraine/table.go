@@ -38,8 +38,8 @@ func (s *scriptUkraine) parseTable(gauges chan<- *core.Gauge, measurements chan<
 		rPost, _ := regexp.Compile(`Пост <b-->(.+)<br/>`)
 		location := elem.Find("Point coordinates").First().Text()
 		var locStr = strings.Split(location, ",")
-		lat, _ := strconv.ParseFloat(locStr[0], 64)
-		lng, _ := strconv.ParseFloat(locStr[1], 64)
+		lng, _ := strconv.ParseFloat(locStr[0], 64)
+		lat, _ := strconv.ParseFloat(locStr[1], 64)
 
 		matchName := rName.FindStringSubmatch(description)
 		matchPost := rPost.FindStringSubmatch(description)

@@ -39,8 +39,8 @@ func TestUkraine_ListGauges(t *testing.T) {
 		},
 		LevelUnit: "cm",
 		Location: &core.Location{
-			Latitude:  24.55166,
-			Longitude: 48.36876,
+			Latitude:  48.36876,
+			Longitude: 24.55166,
 		},
 		Name: "Прут Татарів",
 		URL:  "https://meteo.gov.ua/ua/33345/hydrostorm",
