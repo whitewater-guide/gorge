@@ -146,3 +146,11 @@ http://www.emercit.com/map/overall.php
 - **Agreement**: ✅ [Open Government Data of the state of Tyrol](https://www.tirol.gv.at) is licensed under [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/deed.de "Opens internal link in the current window")
 - **Script**: [link](tirol)
 - **Issue:**
+
+## Ukraine
+
+- **Status:** ✅ Live on production
+- **Terms of use**: ❌  on production
+- **License**: ❌ ???
+- **Script**: [link](ukraine)
+- **Issue:**
