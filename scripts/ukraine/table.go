@@ -3,6 +3,7 @@ package ukraine
 import (
 	"github.com/mattn/go-nulltype"
 	"regexp"
+	"strconv"
 	"strings"
 	"time"
 
@@ -34,6 +35,10 @@ func (s *scriptUkraine) parseTable(gauges chan<- *core.Gauge, measurements chan<
 		description, _ := elem.Find("description").First().Html()
 		rName, _ := regexp.Compile(`Річка <b>(.+)</b><br/>`)
 		rPost, _ := regexp.Compile(`Пост <b-->(.+)<br/>`)
+		location := elem.Find("Point coordinates").First().Text()
+		var locStr = strings.Split(location, ",")
+		lat, _ := strconv.ParseFloat(locStr[0], 64)
+		lng, _ := strconv.ParseFloat(locStr[1], 64)
 
 		matchName := rName.FindStringSubmatch(description)
 		matchPost := rPost.FindStringSubmatch(description)
@@ -46,8 +51,12 @@ func (s *scriptUkraine) parseTable(gauges chan<- *core.Gauge, measurements chan<
 					Code:   code,
 				},
 				LevelUnit: "cm",
-				Name:      name,
-				URL:       s.url,
+				Location: &core.Location{
+					Latitude:  core.TruncCoord(lat),
+					Longitude: core.TruncCoord(lng),
+				},
+				Name: name,
+				URL:  s.url,
 			}
 		}
 		if measurements != nil {

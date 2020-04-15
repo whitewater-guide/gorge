@@ -38,8 +38,12 @@ func TestUkraine_ListGauges(t *testing.T) {
 			Code:   "42136",
 		},
 		LevelUnit: "cm",
-		Name:      "Прут Татарів",
-		URL:       ts.URL,
+		Location: &core.Location{
+			Latitude:  24.55166,
+			Longitude: 48.36876,
+		},
+		Name: "Прут Татарів",
+		URL:  ts.URL,
 	}
 	if assert.NoError(t, err) {
 		assert.Len(t, actual, 192)
