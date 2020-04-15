@@ -61,7 +61,7 @@ func printGauges(data []core.Gauge) {
 	table.SetHeader(header)
 	for i, g := range data {
 		loc := ""
-		if g.Location.Longitude != 0 && g.Location.Latitude != 0 {
+		if g.Location != nil && g.Location.Longitude != 0 && g.Location.Latitude != 0 {
 			loc = fmt.Sprintf("%.4f, %.4f", g.Location.Latitude, g.Location.Longitude)
 			if g.Location.Altitude != 0 {
 				loc = fmt.Sprintf("%s (%.f)", loc, g.Location.Altitude)
