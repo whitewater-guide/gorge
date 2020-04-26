@@ -1,0 +1,63 @@
+{
+    "type": "FeatureCollection",
+    "crs": {
+        "type": "name",
+        "properties": {
+            "name": "EPSG:4326"
+        }
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -3.34592371998524,
+                    51.7087547487603
+                ]
+            },
+            "properties": {
+                "Location": "4064",
+                "LatestValue": "0.275",
+                "LatestTime": "13/06/2016 14:00",
+                "NameEN": "Troedyrhiw",
+                "NameCY": "Troed-y-rhiw",
+                "NGR": "SO0710001970",
+                "ParamNameEN": "RiverLevel",
+                "ParamNameCY": "Lefel yr afon",
+                "StatusEN": "Online",
+                "StatusCY": "Ar-lein",
+                "TitleEN": "Taff at Troedyrhiw",
+                "TitleCY": "Afon Taf yn Nhroed-y-rhiw",
+                "Units": "m",
+                "url": "http://rloi.naturalresources.wales/ViewDetails?station=4064"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -3.20988534441,
+                    51.4973099653968
+                ]
+            },
+            "properties": {
+                "Location": "4067",
+                "LatestValue": "0.633",
+                "LatestTime": "13/06/2016 14:00",
+                "NameEN": "Western Avenue",
+                "NameCY": "Rhodfa'r Gorllewin",
+                "NGR": "ST1611078290",
+                "ParamNameEN": "RiverLevel",
+                "ParamNameCY": "Lefel yr afon",
+                "StatusEN": "Online",
+                "StatusCY": "Ar-lein",
+                "TitleEN": "Taff at Western Avenue",
+                "TitleCY": "Afon Taf ger Rhodfa'r Gorllewin",
+                "Units": "m",
+                "url": "http://rloi.naturalresources.wales/ViewDetails?station=4067"
+            }
+        }
+    ]
+}

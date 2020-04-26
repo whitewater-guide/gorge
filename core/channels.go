@@ -86,3 +86,25 @@ func Split(ctx context.Context, in <-chan *Measurement) (<-chan *Measurement, <-
 	}()
 	return left, right
 }
+
+// GaugeSinkToSlice converts gauges channels to struct and error
+func GaugeSinkToSlice(gauges chan *Gauge, errs chan error) (Gauges, error) {
+	var result Gauges
+outer:
+	for {
+		select {
+		case err := <-errs:
+			if err != nil {
+				return nil, err
+			}
+		case g, ok := <-gauges:
+			if g != nil {
+				result = append(result, *g)
+			}
+			if !ok {
+				break outer
+			}
+		}
+	}
+	return result, nil
+}
