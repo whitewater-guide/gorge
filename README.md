@@ -387,6 +387,7 @@ Here are some recommendations for writing scripts for new sources
 
 ## TODO
 
+- Notify when some script seems to be croken
 - Build this using github actions _without_ docker. Problem: ubuntu 18.04 has old version of libproj-dev
 - Virtual gauges
   - Statuses
