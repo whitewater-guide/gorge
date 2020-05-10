@@ -1,0 +1,33 @@
+{
+    "odata.metadata": "http://rajapinnat.ymparisto.fi/api/Hydrologiarajapinta/1.1/odata/$metadata#Paikka&$select=KoordLat,KoordLong,KuntaNimi,Nro,Paikka_Id,Nimi,Laitteisto_Id",
+    "value": [
+        {
+            "KoordLat": "634052",
+            "KoordLong": "255950",
+            "KuntaNimi": "Pyh\u00e4j\u00e4rvi",
+            "Nro": "54002",
+            "Paikka_Id": 501,
+            "Nimi": "Pyh\u00e4j\u00e4rvi Pyh\u00e4salmi B W 54:1 ",
+            "Laitteisto_Id": null
+        },
+        {
+            "KoordLat": "642415",
+            "KoordLong": "271010",
+            "KuntaNimi": "Vaala",
+            "Nro": "59301",
+            "Paikka_Id": 503,
+            "Nimi": "Ouluj\u00e4rvi, Manamansalo",
+            "Laitteisto_Id": 15
+        },
+        {
+            "KoordLat": "630041",
+            "KoordLong": "264053",
+            "KuntaNimi": "Tervo",
+            "Nro": "1402710",
+            "Paikka_Id": 1003,
+            "Nimi": "Nilakka, \u00c4yskoski",
+            "Laitteisto_Id": 7
+        }
+    ],
+    "odata.nextLink": "/Paikka?$select=KoordLat%2CKoordLong%2CKuntaNimi%2CNro%2CPaikka_Id%2CNimi%2CLaitteisto_Id&$skip=2"
+}

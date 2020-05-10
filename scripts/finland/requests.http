@@ -1,0 +1,11 @@
+###
+# List gauges
+POST http://localhost:7080/upstream/finland/gauges
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+# Measurements
+POST http://localhost:7080/upstream/finland/measurements?codes=894
+Cache-Control: no-cache
+Content-Type: application/json

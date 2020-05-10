@@ -1,0 +1,9 @@
+{
+    "odata.metadata": "http://rajapinnat.ymparisto.fi/api/Hydrologiarajapinta/1.1/odata/$metadata#Virtaama&$select=Aika,Arvo",
+    "value": [
+        {
+            "Aika": "2020-05-08T00:00:00",
+            "Arvo": "37.15"
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "odata.metadata": "http://rajapinnat.ymparisto.fi/api/Hydrologiarajapinta/1.1/odata/$metadata#Paikka&$select=KoordLat,KoordLong,KuntaNimi,Nro,Paikka_Id,Nimi,Laitteisto_Id",
+    "value": [
+        {
+            "KoordLat": "671151",
+            "KoordLong": "274712",
+            "KuntaNimi": "Pelkosenniemi",
+            "Nro": "65411",
+            "Paikka_Id": 513,
+            "Nimi": "Kemihaara Kummaniva W 65:17 ",
+            "Laitteisto_Id": null
+        },
+        {
+            "KoordLat": "670814",
+            "KoordLong": "254450",
+            "KuntaNimi": "Sodankyl\u00e4",
+            "Nro": "65501",
+            "Paikka_Id": 514,
+            "Nimi": "Unari, Sodankyl\u00e4",
+            "Laitteisto_Id": 8
+        },
+        {
+            "KoordLat": "663632",
+            "KoordLong": "252234",
+            "KuntaNimi": "Rovaniemi",
+            "Nro": "65502",
+            "Paikka_Id": 515,
+            "Nimi": "Sinett\u00e4j\u00e4rvi W 65:37b ",
+            "Laitteisto_Id": 20
+        }
+    ]
+}
