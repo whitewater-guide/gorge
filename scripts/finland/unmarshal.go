@@ -2,8 +2,6 @@ package finland
 
 import (
 	"time"
-
-	"github.com/mattn/go-nulltype"
 )
 
 type fTime struct {
@@ -24,13 +22,13 @@ type stationsList struct {
 }
 
 type station struct {
-	Lat          string             `json:"KoordLat"`
-	Lng          string             `json:"KoordLong"`
-	KuntaNimi    string             `json:"KuntaNimi"`
-	Nro          string             `json:"Nro"`
-	PaikkaID     int                `json:"Paikka_Id"`
-	Nimi         string             `json:"Nimi"`
-	LaitteistoID nulltype.NullInt64 `json:"Laitteisto_Id"`
+	Lat       string `json:"KoordLat"`
+	Lng       string `json:"KoordLong"`
+	KuntaNimi string `json:"KuntaNimi"`
+	Nro       string `json:"Nro"`
+	PaikkaID  int    `json:"Paikka_Id"`
+	Nimi      string `json:"Nimi"`
+	SuureID   int    `json:"Suure_Id"`
 }
 
 type virtaamaList struct {

@@ -8,7 +8,7 @@
             "Nro": "65411",
             "Paikka_Id": 513,
             "Nimi": "Kemihaara Kummaniva W 65:17 ",
-            "Laitteisto_Id": null
+            "Suure_Id": 3
         },
         {
             "KoordLat": "670814",
@@ -17,7 +17,7 @@
             "Nro": "65501",
             "Paikka_Id": 514,
             "Nimi": "Unari, Sodankyl\u00e4",
-            "Laitteisto_Id": 8
+            "Suure_Id": 2
         },
         {
             "KoordLat": "663632",
@@ -26,7 +26,7 @@
             "Nro": "65502",
             "Paikka_Id": 515,
             "Nimi": "Sinett\u00e4j\u00e4rvi W 65:37b ",
-            "Laitteisto_Id": 20
+            "Suure_Id": 20
         }
     ]
 }

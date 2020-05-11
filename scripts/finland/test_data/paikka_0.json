@@ -8,7 +8,7 @@
             "Nro": "54002",
             "Paikka_Id": 501,
             "Nimi": "Pyh\u00e4j\u00e4rvi Pyh\u00e4salmi B W 54:1 ",
-            "Laitteisto_Id": null
+            "Suure_Id": 3
         },
         {
             "KoordLat": "642415",
@@ -17,7 +17,7 @@
             "Nro": "59301",
             "Paikka_Id": 503,
             "Nimi": "Ouluj\u00e4rvi, Manamansalo",
-            "Laitteisto_Id": 15
+            "Suure_Id": 4
         },
         {
             "KoordLat": "630041",
@@ -26,7 +26,7 @@
             "Nro": "1402710",
             "Paikka_Id": 1003,
             "Nimi": "Nilakka, \u00c4yskoski",
-            "Laitteisto_Id": 7
+            "Suure_Id": 1
         }
     ],
     "odata.nextLink": "/Paikka?$select=KoordLat%2CKoordLong%2CKuntaNimi%2CNro%2CPaikka_Id%2CNimi%2CLaitteisto_Id&$skip=2"

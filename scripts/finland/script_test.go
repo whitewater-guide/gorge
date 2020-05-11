@@ -48,12 +48,12 @@ func TestFinland_ListGauges(t *testing.T) {
 				Script: "finland",
 				Code:   "1003",
 			},
-			FlowUnit: "m3/s",
+			LevelUnit: "cm",
 			Location: &core.Location{
 				Latitude:  63.0041,
 				Longitude: 26.4053,
 			},
-			Name: "Tervo - Nilakka, Äyskoski - 1402710",
+			Name: "Tervo - Nilakka, Äyskoski - 1402710 (level)",
 			URL:  "https://wwwi2.ymparisto.fi/i2/14/q1402710y/wqfi.html",
 		},
 		core.Gauge{
@@ -66,7 +66,7 @@ func TestFinland_ListGauges(t *testing.T) {
 				Latitude:  67.0814,
 				Longitude: 25.4450,
 			},
-			Name: "Sodankylä - Unari, Sodankylä - 65501",
+			Name: "Sodankylä - Unari, Sodankylä - 65501 (discharge)",
 			URL:  "",
 		},
 	}
