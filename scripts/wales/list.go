@@ -9,11 +9,6 @@ import (
 	"github.com/whitewater-guide/gorge/core"
 )
 
-type item struct {
-	gauge       *core.Gauge
-	measurement *core.Measurement
-}
-
 func (s *scriptWales) fetchList(path string, gauges chan<- *core.Gauge, measurements chan<- *core.Measurement, errs chan<- error) {
 	key := s.options.Key
 	if key == "" {
