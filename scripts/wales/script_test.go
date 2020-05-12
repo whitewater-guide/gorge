@@ -15,6 +15,12 @@ import (
 
 func setupTestServer() *httptest.Server {
 	return httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		key := r.Header.Get("Ocp-Apim-Subscription-Key")
+		if key != "__thekey__" {
+			w.WriteHeader(http.StatusUnauthorized)
+			w.Write([]byte("Unauthorized.\n")) //nolint:errcheck
+			return
+		}
 		file, _ := os.Open("./test_data/data.json")
 		w.WriteHeader(http.StatusOK)
 		_, err := io.Copy(w, file)
@@ -24,12 +30,25 @@ func setupTestServer() *httptest.Server {
 	}))
 }
 
+func TestWales_Auth(t *testing.T) {
+	ts := setupTestServer()
+	defer ts.Close()
+	s := scriptWales{
+		name:    "wales",
+		url:     ts.URL,
+		options: optionsWales{Key: "__bad__"},
+	}
+	_, err := s.ListGauges()
+	assert.Error(t, err)
+}
+
 func TestWales_ListGauges(t *testing.T) {
 	ts := setupTestServer()
 	defer ts.Close()
 	s := scriptWales{
-		name: "wales",
-		url:  ts.URL,
+		name:    "wales",
+		url:     ts.URL,
+		options: optionsWales{Key: "__thekey__"},
 	}
 	actual, err := s.ListGauges()
 	expected := core.Gauges{
@@ -54,7 +73,7 @@ func TestWales_ListGauges(t *testing.T) {
 			LevelUnit: "m",
 			Location: &core.Location{
 				Latitude:  51.4973,
-				Longitude:  -3.20988,
+				Longitude: -3.20988,
 			},
 			Name: "Taff at Western Avenue",
 			URL:  "https://rloi.naturalresources.wales/ViewDetails?station=4067",
@@ -69,8 +88,9 @@ func TestWales_Harvest(t *testing.T) {
 	ts := setupTestServer()
 	defer ts.Close()
 	s := scriptWales{
-		name: "wales",
-		url:  ts.URL,
+		name:    "wales",
+		url:     ts.URL,
+		options: optionsWales{Key: "__thekey__"},
 	}
 	actual, err := core.HarvestSlice(&s, core.StringSet{}, 0)
 	expected := core.Measurements{
