@@ -2,9 +2,7 @@ package riverzone
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
-	"net/http"
 	"os"
 
 	"github.com/whitewater-guide/gorge/core"
@@ -29,21 +27,19 @@ func (s *scriptRiverzone) fetchStations() (*stations, error) {
 	if key == "" {
 		return nil, fmt.Errorf("riverzone api key not found")
 	}
-	req, _ := http.NewRequest("GET", s.stationsEndpointURL+"?status=enabled", nil)
-	req.Header.Set("Cache-Control", "no-cache")
-	req.Header.Set("X-Key", key)
-	resp, err := core.Client.Do(req, nil)
+	var response stations
+	err := core.Client.GetAsJSON(
+		s.stationsEndpointURL+"?status=enabled",
+		&response,
+		&core.RequestOptions{
+			Headers: map[string]string{"X-Key": key},
+		},
+	)
 
 	if err != nil {
 		return nil, err
 	}
-	defer resp.Body.Close()
-	response := &stations{}
-	err = json.NewDecoder(resp.Body).Decode(response)
-	if err != nil {
-		return nil, err
-	}
-	return response, nil
+	return &response, nil
 }
 
 func (s *scriptRiverzone) ListGauges() (core.Gauges, error) {

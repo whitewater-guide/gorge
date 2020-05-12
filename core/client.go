@@ -38,6 +38,8 @@ type ClientOptions struct {
 type RequestOptions struct {
 	// When set to true, requests will be sent with random user-agent
 	FakeAgent bool
+	// Headers to set on request
+	Headers map[string]string
 }
 
 // Client is default client for scripts
@@ -114,6 +116,11 @@ func (client *HTTPClient) Do(req *http.Request, opts *RequestOptions) (*http.Res
 	}
 	req.Header.Set("User-Agent", ua)
 	req.Header.Set("Cache-Control", "no-cache")
+	if opts != nil {
+		for k, v := range opts.Headers {
+			req.Header.Set(k, v)
+		}
+	}
 
 	return client.Client.Do(req)
 }

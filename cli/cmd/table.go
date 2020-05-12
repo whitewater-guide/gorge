@@ -86,12 +86,19 @@ func printMeasurements(measurements []core.Measurement) {
 	table.SetHeader([]string{"Script", "Code", "Timestamp", "Flow", "Level"})
 	table.SetFooter([]string{fmt.Sprintf("%d measurements total", len(measurements)), "", "", "", ""})
 	for _, m := range measurements {
+		flow, level := "", ""
+		if m.Flow.Valid() {
+			flow = fmt.Sprintf("%.2f", m.Flow.Float64Value())
+		}
+		if m.Level.Valid() {
+			level = fmt.Sprintf("%.2f", m.Level.Float64Value())
+		}
 		table.Append([]string{
 			m.GaugeID.Script,
 			m.GaugeID.Code,
 			m.Timestamp.UTC().Format("02/01/2006 15:04 MST"),
-			fmt.Sprintf("%.2f", m.Flow.Float64Value()),
-			fmt.Sprintf("%.2f", m.Level.Float64Value()),
+			flow,
+			level,
 		})
 	}
 	table.Render()

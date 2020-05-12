@@ -21,24 +21,7 @@ func (s *scriptGeorgia) ListGauges() (core.Gauges, error) {
 		defer close(errCh)
 		s.parseTable(gaugesCh, nil, errCh)
 	}()
-	var gauges core.Gauges
-outer:
-	for {
-		select {
-		case err := <-errCh:
-			if err != nil {
-				return nil, err
-			}
-		case g, ok := <-gaugesCh:
-			if g != nil {
-				gauges = append(gauges, *g)
-			}
-			if !ok {
-				break outer
-			}
-		}
-	}
-	return gauges, nil
+	return core.GaugeSinkToSlice(gaugesCh, errCh)
 }
 
 func (s *scriptGeorgia) Harvest(ctx context.Context, recv chan<- *core.Measurement, errs chan<- error, codes core.StringSet, since int64) {

@@ -393,12 +393,13 @@ Here are some recommendations for writing scripts for new sources
   - Statuses
   - What happens when one component is broken?
 - Authorization
-- Pushing data downstream to peer projects
+- Pushing data downstream to peer projects (webhooks)
 - Subscriptions
 - Advanced scheduling, new harvest mode: batched
 - Scripts as Go plugins
 - Send logs to sentry
 - Per-script binaries for third-party consumption
+- GRAPHQL api with sources and local gauges
 
 ## License
 
