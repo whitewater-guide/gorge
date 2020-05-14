@@ -399,6 +399,7 @@ Here are some recommendations for writing scripts for new sources
 - Scripts as Go plugins
 - Send logs to sentry
 - Per-script binaries for third-party consumption
+- Add desription attribute to scripts (cause nzbop is ugly)
 - GRAPHQL api with sources and local gauges
 
 ## License
