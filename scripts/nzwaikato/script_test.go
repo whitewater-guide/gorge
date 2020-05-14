@@ -1,4 +1,4 @@
-package nz_waikato
+package nzwaikato
 
 import (
 	"io"
@@ -28,7 +28,7 @@ func TestWaikato_ListGauges(t *testing.T) {
 	ts := setupTestServer()
 	defer ts.Close()
 	s := scriptWaikato{
-		name:       "nz_waikato",
+		name:       "nzwaikato",
 		listURL:    ts.URL + "/list.html",
 		pageURL:    ts.URL + "/%s.html",
 		numWorkers: 2,
@@ -37,7 +37,7 @@ func TestWaikato_ListGauges(t *testing.T) {
 	expected := core.Gauges{
 		core.Gauge{
 			GaugeID: core.GaugeID{
-				Script: "nz_waikato",
+				Script: "nzwaikato",
 				Code:   "1065",
 			},
 			LevelUnit: "m",
@@ -51,7 +51,7 @@ func TestWaikato_ListGauges(t *testing.T) {
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
-				Script: "nz_waikato",
+				Script: "nzwaikato",
 				Code:   "68",
 			},
 			LevelUnit: "m",
@@ -64,7 +64,7 @@ func TestWaikato_ListGauges(t *testing.T) {
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
-				Script: "nz_waikato",
+				Script: "nzwaikato",
 				Code:   "158",
 			},
 			LevelUnit: "m",
@@ -86,7 +86,7 @@ func TestWaikato_Harvest(t *testing.T) {
 	ts := setupTestServer()
 	defer ts.Close()
 	s := scriptWaikato{
-		name:       "nz_waikato",
+		name:       "nzwaikato",
 		listURL:    ts.URL + "/list.html",
 		pageURL:    ts.URL + "/%s.html",
 		numWorkers: 2,
@@ -95,7 +95,7 @@ func TestWaikato_Harvest(t *testing.T) {
 	expected := core.Measurements{
 		&core.Measurement{
 			GaugeID: core.GaugeID{
-				Script: "nz_waikato",
+				Script: "nzwaikato",
 				Code:   "1065",
 			},
 			Timestamp: core.HTime{
@@ -106,7 +106,7 @@ func TestWaikato_Harvest(t *testing.T) {
 		},
 		&core.Measurement{
 			GaugeID: core.GaugeID{
-				Script: "nz_waikato",
+				Script: "nzwaikato",
 				Code:   "68",
 			},
 			Timestamp: core.HTime{
@@ -117,7 +117,7 @@ func TestWaikato_Harvest(t *testing.T) {
 		},
 		&core.Measurement{
 			GaugeID: core.GaugeID{
-				Script: "nz_waikato",
+				Script: "nzwaikato",
 				Code:   "158",
 			},
 			Timestamp: core.HTime{

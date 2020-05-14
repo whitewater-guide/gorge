@@ -1,4 +1,4 @@
-package nz_bop
+package nzbop
 
 import (
 	"fmt"
@@ -7,7 +7,7 @@ import (
 )
 
 var Descriptor = &core.ScriptDescriptor{
-	Name: "nz_bop",
+	Name: "nzbop",
 	Mode: core.OneByOne,
 	DefaultOptions: func() interface{} {
 		return &optionsBop{}

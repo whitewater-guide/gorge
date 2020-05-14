@@ -1,4 +1,4 @@
-package nz_bop
+package nzbop
 
 import (
 	"fmt"
@@ -66,12 +66,12 @@ func (s *scriptBop) parsePage(code string, gauges chan<- *core.Gauge, measuremen
 	}
 	if levelNode.Length() != 0 {
 		td := levelNode.ParentsUntil("tr")
-		level, levelUnit, t, err = parseRow(td)
+		level, levelUnit, t, _ = parseRow(td)
 	}
 	flowNode := doc.Find(`b:contains("Flow")`)
 	if flowNode.Length() != 0 {
 		td := flowNode.ParentsUntil("tr")
-		flow, flowUnit, t, err = parseRow(td)
+		flow, flowUnit, t, _ = parseRow(td)
 	}
 	if levelUnit == "" && flowUnit == "" {
 		return

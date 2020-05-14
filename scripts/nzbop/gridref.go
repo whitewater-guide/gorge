@@ -1,4 +1,4 @@
-package nz_bop
+package nzbop
 
 import (
 	"errors"

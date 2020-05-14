@@ -1,4 +1,4 @@
-package nz_waikato
+package nzwaikato
 
 import (
 	"net/url"

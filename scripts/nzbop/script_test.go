@@ -1,4 +1,4 @@
-package nz_bop
+package nzbop
 
 import (
 	"io"
@@ -34,7 +34,7 @@ func TestBop_ListGauges(t *testing.T) {
 	ts := setupTestServer()
 	defer ts.Close()
 	s := scriptBop{
-		name:       "nz_bop",
+		name:       "nzbop",
 		listURL:    ts.URL + "/list.html",
 		pageURL:    ts.URL + "/%s.html",
 		numWorkers: 2,
@@ -43,7 +43,7 @@ func TestBop_ListGauges(t *testing.T) {
 	expected := core.Gauges{
 		core.Gauge{
 			GaugeID: core.GaugeID{
-				Script: "nz_bop",
+				Script: "nzbop",
 				Code:   "9199",
 			},
 			LevelUnit: "m",
@@ -52,7 +52,7 @@ func TestBop_ListGauges(t *testing.T) {
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
-				Script: "nz_bop",
+				Script: "nzbop",
 				Code:   "220",
 			},
 			Name:      "Wairoa at above Ruahihi Power Station",
@@ -66,7 +66,7 @@ func TestBop_ListGauges(t *testing.T) {
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
-				Script: "nz_bop",
+				Script: "nzbop",
 				Code:   "202",
 			},
 			Name:      "Kopurererua at SH 29",
@@ -90,7 +90,7 @@ func TestBop_Harvest(t *testing.T) {
 	ts := setupTestServer()
 	defer ts.Close()
 	s := scriptBop{
-		name:       "nz_bop",
+		name:       "nzbop",
 		listURL:    ts.URL + "/list.html",
 		pageURL:    ts.URL + "/%s.html",
 		numWorkers: 2,
@@ -99,7 +99,7 @@ func TestBop_Harvest(t *testing.T) {
 	expected := core.Measurements{
 		&core.Measurement{
 			GaugeID: core.GaugeID{
-				Script: "nz_bop",
+				Script: "nzbop",
 				Code:   "202",
 			},
 			Timestamp: core.HTime{
@@ -118,7 +118,7 @@ func TestBop_ParseList(t *testing.T) {
 	ts := setupTestServer()
 	defer ts.Close()
 	s := scriptBop{
-		name:       "nz_bop",
+		name:       "nzbop",
 		listURL:    ts.URL + "/list.html",
 		pageURL:    ts.URL + "/%s.html",
 		numWorkers: 2,
