@@ -10,9 +10,9 @@ import (
 
 func (s *scriptUSGS) listStations(flow bool, gauges map[string]core.Gauge) error {
 	// Select parameter https://help.waterdata.usgs.gov/parameter_cd?group_cd=PHY
-	parameterCd, levelUnit, flowUnit := "00065", "ft", "" // Gage height, feet
+	parameterCd, levelUnit, flowUnit := paramLevel, "ft", "" // Gage height, feet
 	if flow {
-		parameterCd, levelUnit, flowUnit = "00060", "", "ft3/s" // Discharge, cubic feet per second
+		parameterCd, levelUnit, flowUnit = paramFlow, "", "ft3/s" // Discharge, cubic feet per second
 	}
 	return core.Client.StreamCSV(
 		fmt.Sprintf("%s/site/?format=rdb&stateCd=%s&siteType=ST&parameterCd=%s&siteStatus=all&hasDataTypeCd=iv", s.url, s.stateCd, parameterCd),

@@ -17,7 +17,7 @@ import (
 
 func setupTestServer() *httptest.Server {
 	return httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		filename := ""
+		filename := "./test_data/iv/data.json"
 		if strings.HasPrefix(r.URL.Path, "/site") {
 			stateCd := r.URL.Query().Get("stateCd")
 			parameterCd := r.URL.Query().Get("parameterCd")
@@ -99,18 +99,18 @@ func TestUSGS_Harvest(t *testing.T) {
 		url:     ts.URL,
 		stateCd: "wa",
 	}
-	actual, err := core.HarvestSlice(&s, core.StringSet{"202": {}}, 0)
+	actual, err := core.HarvestSlice(&s, core.StringSet{"12010000": {}, "12025100": {}}, 0)
 	expected := core.Measurements{
 		&core.Measurement{
 			GaugeID: core.GaugeID{
 				Script: "usgs",
-				Code:   "202",
+				Code:   "12010000",
 			},
 			Timestamp: core.HTime{
-				Time: time.Date(2020, time.May, 13, 18, 0, 0, 0, time.UTC),
+				Time: time.Date(2020, time.May, 14, 14, 30, 0, 0, time.UTC),
 			},
-			Level: nulltype.NullFloat64Of(0.684),
-			Flow:  nulltype.NullFloat64Of(1.654),
+			Flow:  nulltype.NullFloat64Of(316),
+			Level: nulltype.NullFloat64Of(5.26),
 		},
 	}
 	if assert.NoError(t, err) {

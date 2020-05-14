@@ -10,9 +10,11 @@ import (
 var Descriptor = &core.ScriptDescriptor{
 	Name:        "usgs",
 	Description: "U.S. Geological Survey National Water Information System",
-	Mode:        core.AllAtOnce,
+	Mode:        core.Batched,
 	DefaultOptions: func() interface{} {
-		return &optionsUSGS{}
+		return &optionsUSGS{
+			BatchSize: 200, // has to be tuned in production not to hit URL limits
+		}
 	},
 	Factory: func(name string, options interface{}) (core.Script, error) {
 		if opts, ok := options.(*optionsUSGS); ok {

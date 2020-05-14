@@ -2,12 +2,19 @@ package usgs
 
 import (
 	"context"
+	"strings"
 
 	"github.com/whitewater-guide/gorge/core"
 )
 
 type optionsUSGS struct {
-	StateCD string `desc:"State code"`
+	StateCD   string `desc:"State code"`
+	BatchSize int    `desc:"Number of gauges in batch"`
+}
+
+// GetBatchSize Implements core.BatchableOptions interface
+func (o optionsUSGS) GetBatchSize() int {
+	return o.BatchSize
 }
 
 type scriptUSGS struct {
@@ -40,4 +47,10 @@ func (s *scriptUSGS) ListGauges() (core.Gauges, error) {
 func (s *scriptUSGS) Harvest(ctx context.Context, recv chan<- *core.Measurement, errs chan<- error, codes core.StringSet, since int64) {
 	defer close(recv)
 	defer close(errs)
+	codez, i := make([]string, len(codes)), 0
+	for code := range codes {
+		codez[i] = code
+		i++
+	}
+	s.listInstantaneousValues(strings.Join(codez, ","), recv, errs)
 }
