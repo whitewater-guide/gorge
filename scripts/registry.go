@@ -20,6 +20,7 @@ import (
 	"github.com/whitewater-guide/gorge/scripts/testscripts"
 	"github.com/whitewater-guide/gorge/scripts/tirol"
 	"github.com/whitewater-guide/gorge/scripts/ukraine"
+	"github.com/whitewater-guide/gorge/scripts/waikato"
 	"github.com/whitewater-guide/gorge/scripts/wales"
 )
 
@@ -49,5 +50,6 @@ func init() {
 	Registry.Register(switzerland.Descriptor)
 	Registry.Register(tirol.Descriptor)
 	Registry.Register(ukraine.Descriptor)
+	Registry.Register(waikato.Descriptor)
 	Registry.Register(wales.Descriptor)
 }
