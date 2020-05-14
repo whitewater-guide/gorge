@@ -7,8 +7,9 @@ import (
 )
 
 var Descriptor = &core.ScriptDescriptor{
-	Name: "norway",
-	Mode: core.OneByOne,
+	Name:        "norway",
+	Description: "Norwegian Water Resources and Energy Directorate",
+	Mode:        core.OneByOne,
 	DefaultOptions: func() interface{} {
 		return &optionsNorway{
 			HTML:    false,

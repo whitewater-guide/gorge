@@ -48,8 +48,9 @@ func (s *scriptOneByOne) Harvest(ctx context.Context, recv chan<- *core.Measurem
 }
 
 var OneByOne = &core.ScriptDescriptor{
-	Name: "one_by_one",
-	Mode: core.OneByOne,
+	Name:        "one_by_one",
+	Description: "Test script for one by one harvesting mode",
+	Mode:        core.OneByOne,
 	DefaultOptions: func() interface{} {
 		return &OneByOneOptions{
 			Gauges: 10,

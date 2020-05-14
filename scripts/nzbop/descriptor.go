@@ -7,8 +7,9 @@ import (
 )
 
 var Descriptor = &core.ScriptDescriptor{
-	Name: "nzbop",
-	Mode: core.OneByOne,
+	Name:        "nzbop",
+	Description: "New Zealand: Bay of Plenty Regional Council",
+	Mode:        core.OneByOne,
 	DefaultOptions: func() interface{} {
 		return &optionsBop{}
 	},

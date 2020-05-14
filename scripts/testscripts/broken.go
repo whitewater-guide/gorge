@@ -29,8 +29,9 @@ func (s *scriptBroken) Harvest(ctx context.Context, recv chan<- *core.Measuremen
 }
 
 var Broken = &core.ScriptDescriptor{
-	Name: "broken",
-	Mode: core.AllAtOnce,
+	Name:        "broken",
+	Description: "Test script that always returns error",
+	Mode:        core.AllAtOnce,
 	DefaultOptions: func() interface{} {
 		return &optionsBroken{}
 	},

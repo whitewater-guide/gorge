@@ -7,8 +7,9 @@ import (
 )
 
 var Descriptor = &core.ScriptDescriptor{
-	Name: "ukraine",
-	Mode: core.AllAtOnce,
+	Name:        "ukraine",
+	Description: "Ukrainian Hydrometeorological Center",
+	Mode:        core.AllAtOnce,
 	DefaultOptions: func() interface{} {
 		return &optionsUkraine{}
 	},

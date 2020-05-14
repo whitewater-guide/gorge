@@ -7,17 +7,18 @@ import (
 )
 
 var Descriptor = &core.ScriptDescriptor{
-	Name: "wales",
-	Mode: core.AllAtOnce,
+	Name:        "wales",
+	Description: "Natural Resources Wales",
+	Mode:        core.AllAtOnce,
 	DefaultOptions: func() interface{} {
 		return &optionsWales{}
 	},
 	Factory: func(name string, options interface{}) (core.Script, error) {
 		if opts, ok := options.(*optionsWales); ok {
 			return &scriptWales{
-				name: name,
-				url:  "https://api.naturalresources.wales/riverlevels/v1",
-				options:             *opts,
+				name:    name,
+				url:     "https://api.naturalresources.wales/riverlevels/v1",
+				options: *opts,
 			}, nil
 		}
 		return nil, fmt.Errorf("failed to cast %T", optionsWales{})

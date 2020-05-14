@@ -7,8 +7,9 @@ import (
 )
 
 var Descriptor = &core.ScriptDescriptor{
-	Name: "cantabria",
-	Mode: core.AllAtOnce,
+	Name:        "cantabria",
+	Description: "Confederación Hidrográfica del Cantábrico",
+	Mode:        core.AllAtOnce,
 	DefaultOptions: func() interface{} {
 		return &optionsCantabria{}
 	},

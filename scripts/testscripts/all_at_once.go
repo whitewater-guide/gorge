@@ -51,8 +51,9 @@ func (s *scriptAllAtOnce) Harvest(ctx context.Context, recv chan<- *core.Measure
 }
 
 var AllAtOnce = &core.ScriptDescriptor{
-	Name: "all_at_once",
-	Mode: core.AllAtOnce,
+	Name:        "all_at_once",
+	Description: "Test script for all at once harvesting mode",
+	Mode:        core.AllAtOnce,
 	DefaultOptions: func() interface{} {
 		return &optionsAllAtOnce{
 			Gauges:     10,

@@ -21,12 +21,13 @@ func truncateString(str string, maxChars int) string {
 
 func printScriptsList(data []core.ScriptDescriptor) {
 	table := tablewriter.NewWriter(os.Stdout)
-	table.SetHeader([]string{"#", "Name", "Mode"})
+	table.SetHeader([]string{"#", "Name", "Mode", "Description"})
 	for i, s := range data {
 		table.Append([]string{
 			fmt.Sprintf("%d", i+1),
 			s.Name,
 			s.Mode.String(),
+			s.Description,
 		})
 	}
 	table.Render()

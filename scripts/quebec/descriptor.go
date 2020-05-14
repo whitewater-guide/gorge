@@ -7,8 +7,9 @@ import (
 )
 
 var Descriptor = &core.ScriptDescriptor{
-	Name: "quebec",
-	Mode: core.OneByOne,
+	Name:        "quebec",
+	Description: "Québec: Ministère de l'Environnement et de la Lutte contre les changements climatiques",
+	Mode:        core.OneByOne,
 	DefaultOptions: func() interface{} {
 		return &optionsQuebec{}
 	},

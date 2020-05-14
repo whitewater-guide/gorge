@@ -7,8 +7,9 @@ import (
 )
 
 var Descriptor = &core.ScriptDescriptor{
-	Name: "georgia",
-	Mode: core.AllAtOnce,
+	Name:        "georgia",
+	Description: "Georgia: The National Environmental Agency",
+	Mode:        core.AllAtOnce,
 	DefaultOptions: func() interface{} {
 		return &optionsGeorgia{}
 	},

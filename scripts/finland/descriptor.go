@@ -7,8 +7,9 @@ import (
 )
 
 var Descriptor = &core.ScriptDescriptor{
-	Name: "finland",
-	Mode: core.OneByOne,
+	Name:        "finland",
+	Description: "The Finnish Environment Institute (SYKE)",
+	Mode:        core.OneByOne,
 	DefaultOptions: func() interface{} {
 		return &optionsFinland{}
 	},

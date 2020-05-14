@@ -7,8 +7,9 @@ import (
 )
 
 var Descriptor = &core.ScriptDescriptor{
-	Name: "riverzone",
-	Mode: core.AllAtOnce,
+	Name:        "riverzone",
+	Description: "riverzone.eu",
+	Mode:        core.AllAtOnce,
 	DefaultOptions: func() interface{} {
 		return &optionsRiverzone{}
 	},

@@ -7,8 +7,9 @@ import (
 )
 
 var Descriptor = &core.ScriptDescriptor{
-	Name: "galicia2",
-	Mode: core.AllAtOnce,
+	Name:        "galicia2",
+	Description: "Spain: Confederación Hidrográfica del Miño-Sil",
+	Mode:        core.AllAtOnce,
 	DefaultOptions: func() interface{} {
 		return &optionsGalicia2{}
 	},

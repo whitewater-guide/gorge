@@ -107,9 +107,9 @@ func TestEndpoint(t *testing.T) {
 			name: "list scripts",
 			path: "/scripts",
 			resp: `[
-				{"name": "all_at_once", "mode": "allAtOnce"},
-				{"name": "broken", "mode": "allAtOnce"},
-				{"name": "one_by_one", "mode": "oneByOne"}
+				{"name": "all_at_once", "mode": "allAtOnce", "description": "Test script for all at once harvesting mode"},
+				{"name": "broken", "mode": "allAtOnce", "description": "Test script that always returns error"},
+				{"name": "one_by_one", "mode": "oneByOne", "description": "Test script for one by one harvesting mode"}
 			]`,
 		},
 		{

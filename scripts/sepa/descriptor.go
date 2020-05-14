@@ -7,8 +7,9 @@ import (
 )
 
 var Descriptor = &core.ScriptDescriptor{
-	Name: "sepa",
-	Mode: core.OneByOne,
+	Name:        "sepa",
+	Description: "Scottish Environment Protection Agency",
+	Mode:        core.OneByOne,
 	DefaultOptions: func() interface{} {
 		return &optionsSepa{}
 	},

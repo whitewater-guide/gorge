@@ -5,8 +5,9 @@ import (
 )
 
 var Descriptor = &core.ScriptDescriptor{
-	Name: "tirol",
-	Mode: core.AllAtOnce,
+	Name:        "tirol",
+	Description: "Tyrol Hydro Online",
+	Mode:        core.AllAtOnce,
 	DefaultOptions: func() interface{} {
 		return &optionsTirol{}
 	},

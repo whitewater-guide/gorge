@@ -7,8 +7,9 @@ import (
 )
 
 var Descriptor = &core.ScriptDescriptor{
-	Name: "ecuador",
-	Mode: core.OneByOne,
+	Name:        "ecuador",
+	Description: "Ecuador: Instituto Nacional de Meteorología e Hidrología",
+	Mode:        core.OneByOne,
 	DefaultOptions: func() interface{} {
 		return &optionsEcuador{}
 	},

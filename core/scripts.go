@@ -33,7 +33,9 @@ type ScriptFactory func(name string, options interface{}) (Script, error)
 
 // ScriptDescriptor represents a script registered in gorge
 type ScriptDescriptor struct {
-	Name           string             `json:"name"`
+	Name string `json:"name"`
+	// Description is human-readable name of data source, something that you can google
+	Description    string             `json:"description"`
 	Mode           HarvestMode        `json:"mode"`
 	DefaultOptions func() interface{} `json:"-"`
 	Factory        ScriptFactory      `json:"-"`

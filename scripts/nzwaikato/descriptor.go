@@ -7,8 +7,9 @@ import (
 )
 
 var Descriptor = &core.ScriptDescriptor{
-	Name: "nzwaikato",
-	Mode: core.AllAtOnce,
+	Name:        "nzwaikato",
+	Description: "New Zealand: Waikato Regional Council",
+	Mode:        core.AllAtOnce,
 	DefaultOptions: func() interface{} {
 		return &optionsWaikato{}
 	},
