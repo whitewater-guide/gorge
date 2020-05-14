@@ -33,6 +33,7 @@ var Registry = core.NewRegistry()
 func init() {
 	Registry.Register(testscripts.AllAtOnce)
 	Registry.Register(testscripts.OneByOne)
+	Registry.Register(testscripts.Batched)
 	Registry.Register(testscripts.Broken)
 	// Please sort scripts alphabetically
 	Registry.Register(canada.Descriptor)

@@ -11,7 +11,8 @@ import (
 
 func (s *scriptUSGS) listInstantaneousValues(codes string, recv chan<- *core.Measurement, errs chan<- error) {
 	var root ivRoot
-	err := core.Client.GetAsJSON(fmt.Sprintf("%s/iv/?format=rdb&sites=%s&modifiedSince=PT1H&parameterCd=%s,%s&siteType=ST&siteStatus=active", s.url, codes, paramFlow, paramLevel), &root, nil)
+	url := fmt.Sprintf("%s/iv/?format=json&sites=%s&modifiedSince=PT1H&parameterCd=%s,%s&siteType=ST&siteStatus=active", s.url, codes, paramFlow, paramLevel)
+	err := core.Client.GetAsJSON(url, &root, nil)
 	if err != nil {
 		errs <- err
 		return

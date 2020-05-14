@@ -1,0 +1,21 @@
+###
+# List gauges
+POST http://localhost:7080/upstream/usgs/gauges
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "stateCd": "WA"
+}
+
+###
+# Some measurements from WA
+POST http://localhost:7080/upstream/usgs/measurements?codes=12010000,12013500,12017000,12019310,12020000,12020525,12020800,12021800,12024000,12024400,12025000,12025100,12025310,12025700,12026150,12026400,12027500
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "stateCd": "WA"
+}
+
+###
