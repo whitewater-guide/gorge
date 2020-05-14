@@ -8,6 +8,17 @@ import (
 	"github.com/whitewater-guide/gorge/core"
 )
 
+func truncateString(str string, maxChars int) string {
+	short := str
+	if len(str) > maxChars {
+		if maxChars > 3 {
+			maxChars -= 3
+		}
+		short = str[0:maxChars] + "..."
+	}
+	return short
+}
+
 func printScriptsList(data []core.ScriptDescriptor) {
 	table := tablewriter.NewWriter(os.Stdout)
 	table.SetHeader([]string{"#", "Name", "Mode"})
@@ -55,7 +66,7 @@ func printGaugeStatuses(data map[string]core.Status) {
 	table.Render()
 }
 
-func printGauges(data []core.Gauge) {
+func printGauges(data []core.Gauge, truncURLs bool) {
 	table := tablewriter.NewWriter(os.Stdout)
 	header := []string{"#", "Code", "Name", "Flow unit", "Level unit", "Location", "URL"}
 	table.SetHeader(header)
@@ -67,6 +78,10 @@ func printGauges(data []core.Gauge) {
 				loc = fmt.Sprintf("%s (%.f)", loc, g.Location.Altitude)
 			}
 		}
+		url := g.URL
+		if truncURLs {
+			url = truncateString(url, 50)
+		}
 		row := []string{
 			fmt.Sprintf("%d", i),
 			g.Code,
@@ -74,7 +89,7 @@ func printGauges(data []core.Gauge) {
 			g.FlowUnit,
 			g.LevelUnit,
 			loc,
-			g.URL,
+			url,
 		}
 		table.Append(row)
 	}

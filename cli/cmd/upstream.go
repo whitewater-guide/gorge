@@ -33,6 +33,7 @@ func init() {
 
 func createGaugesCmd(descriptor core.ScriptDescriptor) *cobra.Command {
 	cfg := descriptor.DefaultOptions()
+	noTruncURLs := false
 	cmd := &cobra.Command{
 		Use:   "gauges [flags]",
 		Short: fmt.Sprintf("Lists all available gauges for script %s", descriptor.Name),
@@ -43,7 +44,7 @@ func createGaugesCmd(descriptor core.ScriptDescriptor) *cobra.Command {
 				fmt.Printf("Error: %v", err)
 				os.Exit(1)
 			} else {
-				printGauges(result)
+				printGauges(result, !noTruncURLs)
 			}
 		},
 	}
@@ -53,6 +54,7 @@ func createGaugesCmd(descriptor core.ScriptDescriptor) *cobra.Command {
 		os.Exit(1)
 	}
 	cmd.Flags().AddFlagSet(gFlags)
+	cmd.Flags().BoolVar(&noTruncURLs, "no-trunc", false, "Do not truncate URLs")
 	return cmd
 }
 
