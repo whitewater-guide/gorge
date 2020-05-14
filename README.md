@@ -395,7 +395,7 @@ Here are some recommendations for writing scripts for new sources
 - Authorization
 - Pushing data downstream to peer projects (webhooks)
 - Subscriptions
-- Advanced scheduling, new harvest mode: batched
+- Advanced scheduling with time affinity
 - Scripts as Go plugins
 - Send logs to sentry
 - Per-script binaries for third-party consumption
