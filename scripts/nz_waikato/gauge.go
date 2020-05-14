@@ -1,4 +1,4 @@
-package waikato
+package nz_waikato
 
 import (
 	"fmt"

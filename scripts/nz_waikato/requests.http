@@ -1,12 +1,12 @@
 ###
 # List gauges
-POST http://localhost:7080/upstream/waikato/gauges
+POST http://localhost:7080/upstream/nz_waikato/gauges
 Cache-Control: no-cache
 Content-Type: application/json
 
 ###
 # Harvest measurements
-POST http://localhost:7080/upstream/waikato/measurements
+POST http://localhost:7080/upstream/nz_waikato/measurements
 Cache-Control: no-cache
 Content-Type: application/json
 

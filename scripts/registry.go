@@ -12,6 +12,7 @@ import (
 	"github.com/whitewater-guide/gorge/scripts/galicia2"
 	"github.com/whitewater-guide/gorge/scripts/georgia"
 	"github.com/whitewater-guide/gorge/scripts/norway"
+	"github.com/whitewater-guide/gorge/scripts/nz_waikato"
 	"github.com/whitewater-guide/gorge/scripts/quebec"
 	"github.com/whitewater-guide/gorge/scripts/riverzone"
 	"github.com/whitewater-guide/gorge/scripts/russia1"
@@ -20,7 +21,6 @@ import (
 	"github.com/whitewater-guide/gorge/scripts/testscripts"
 	"github.com/whitewater-guide/gorge/scripts/tirol"
 	"github.com/whitewater-guide/gorge/scripts/ukraine"
-	"github.com/whitewater-guide/gorge/scripts/waikato"
 	"github.com/whitewater-guide/gorge/scripts/wales"
 )
 
@@ -43,6 +43,7 @@ func init() {
 	Registry.Register(galicia2.Descriptor)
 	Registry.Register(georgia.Descriptor)
 	Registry.Register(norway.Descriptor)
+	Registry.Register(nz_waikato.Descriptor)
 	Registry.Register(quebec.Descriptor)
 	Registry.Register(riverzone.Descriptor)
 	Registry.Register(russia1.Descriptor)
@@ -50,6 +51,5 @@ func init() {
 	Registry.Register(switzerland.Descriptor)
 	Registry.Register(tirol.Descriptor)
 	Registry.Register(ukraine.Descriptor)
-	Registry.Register(waikato.Descriptor)
 	Registry.Register(wales.Descriptor)
 }

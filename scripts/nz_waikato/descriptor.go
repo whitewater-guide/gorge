@@ -1,4 +1,4 @@
-package waikato
+package nz_waikato
 
 import (
 	"fmt"
@@ -7,7 +7,7 @@ import (
 )
 
 var Descriptor = &core.ScriptDescriptor{
-	Name: "waikato",
+	Name: "nz_waikato",
 	Mode: core.AllAtOnce,
 	DefaultOptions: func() interface{} {
 		return &optionsWaikato{}
