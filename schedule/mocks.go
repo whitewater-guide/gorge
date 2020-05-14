@@ -101,6 +101,7 @@ func newMockScheduler(t *testing.T) *mockScheduler {
 	registry := core.NewRegistry()
 	registry.Register(testscripts.AllAtOnce)
 	registry.Register(testscripts.OneByOne)
+	registry.Register(testscripts.Batched)
 	registry.Register(testscripts.Broken)
 	return &mockScheduler{
 		SimpleScheduler: &SimpleScheduler{

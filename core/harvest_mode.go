@@ -11,9 +11,12 @@ const (
 	// OneByOne scripts harvest only one gauge at a time.
 	// For such scripts a schedule will be generated so that all the gauges are uniformly harvested during period of 1 hour
 	OneByOne
+	// Batched scripts are like one by one, except that multiple codes are provided to Harvest function
+	// Options must implement BatchableOptions
+	Batched
 )
 
-var harvestModeStr = [...]string{`"allAtOnce"`, `"oneByOne"`}
+var harvestModeStr = [...]string{`"allAtOnce"`, `"oneByOne"`, `"batched"`}
 
 func (m HarvestMode) String() string {
 	quoted := harvestModeStr[m]
@@ -43,7 +46,14 @@ func (m HarvestMode) TSName() string {
 		return "AllAtOnce"
 	case OneByOne:
 		return "OneByOne"
+	case Batched:
+		return "Batched"
 	default:
 		return "???"
 	}
+}
+
+// BatchableOptions is an interface that options of batched script must implement
+type BatchableOptions interface {
+	GetBatchSize() int
 }

@@ -43,8 +43,21 @@ func (s *SimpleScheduler) AddJob(description core.JobDescription) error {
 		if err != nil {
 			return core.WrapErr(err, "failed to schedule harvest job").With("description", structs.Map(description))
 		}
-	} else if mode == core.OneByOne {
-		j, step := 0, 59.0/(float64(nGauges))
+	} else if mode == core.OneByOne || mode == core.Batched {
+		batchSize := 1
+		if mode == core.Batched {
+			opts, err := s.Registry.ParseJSONOptions(description.Script, description.Options)
+			if err != nil {
+				return core.WrapErr(err, "failed to parse options").With("description", structs.Map(description))
+			}
+			if bOpts, ok := opts.(core.BatchableOptions); ok {
+				batchSize = bOpts.GetBatchSize()
+			} else {
+				return core.WrapErr(err, "options are not batchable").With("description", structs.Map(description))
+			}
+		}
+		numBatches := math.Ceil(float64(nGauges) / float64(batchSize))
+		j, step := 0, 59.0/(float64(numBatches))
 		// sort codes first
 		codes := make([]string, nGauges)
 		for k := range description.Gauges {
@@ -56,15 +69,28 @@ func (s *SimpleScheduler) AddJob(description core.JobDescription) error {
 		// if we cannot add one gauge job, cancel the whol batch
 		var tErr error
 		var entryIDs []cron.EntryID
-		for i, code := range codes {
-			gaugeOpts := description.Gauges[code]
-			minute := int(math.Ceil(float64(float64(i) * step)))
+
+		for i, n := 0, 0; i < len(codes); i, n = i+batchSize, n+1 {
+			j := i + batchSize
+			if j > len(codes) {
+				j = len(codes)
+			}
+			minute := int(math.Ceil(float64(float64(n) * step)))
+			batch := core.StringSet{}
+			for b := i; b < j; b++ {
+				batch[codes[b]] = struct{}{}
+			}
+			// TODO: currently, for batched options it's impossible to use gauge options
+			// for every batch, first options of first gauge are applied to every gauge in batch
+			// the solution is to change harvestJob spec
+			gaugeOpts := description.Gauges[codes[i]]
 			spec := fmt.Sprintf("%d * * * *", minute)
 			options, err := s.Registry.ParseJSONOptions(description.Script, description.Options, gaugeOpts)
 			if err != nil {
 				tErr = core.WrapErr(err, "failed to parse options").With("description", structs.Map(description))
 				break
 			}
+
 			eid, err := s.Cron.AddJob(spec, &harvestJob{
 				database: s.Database,
 				cache:    s.Cache,
@@ -73,7 +99,7 @@ func (s *SimpleScheduler) AddJob(description core.JobDescription) error {
 				cron:     spec,
 				jobID:    description.ID,
 				script:   description.Script,
-				codes:    core.StringSet{code: {}},
+				codes:    batch,
 				options:  options,
 			})
 			if err != nil {
@@ -81,6 +107,7 @@ func (s *SimpleScheduler) AddJob(description core.JobDescription) error {
 			}
 			entryIDs = append(entryIDs, eid)
 		}
+
 		if tErr != nil {
 			// rollback already added jobs
 			for _, eid := range entryIDs {

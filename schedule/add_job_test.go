@@ -149,7 +149,7 @@ func TestAddJobOneByOne(t *testing.T) {
 	}
 }
 
-func TestAddJobMayGauges(t *testing.T) {
+func TestAddJobManyGauges(t *testing.T) {
 	// this tests schedule generation
 	scheduler, cron := setupScheduler(t)
 	defer scheduler.stop()
@@ -185,7 +185,7 @@ func TestAddJobOneByOneTransaction(t *testing.T) {
 		Script: "one_by_one",
 		Gauges: map[string]json.RawMessage{
 			"g001": []byte("{}"),
-			"g002": []byte(`{"sss`),
+			"g002": []byte(`{"sss`), // invalid json
 			"g003": []byte("{}"),
 		},
 		Cron: "",
@@ -193,4 +193,69 @@ func TestAddJobOneByOneTransaction(t *testing.T) {
 
 	assert.Error(t, err)
 	assert.Len(t, counter.entries, 0)
+}
+
+func TestAddJobBatched(t *testing.T) {
+	scheduler, cron := setupScheduler(t)
+	defer scheduler.stop()
+
+	err := scheduler.AddJob(core.JobDescription{
+		ID:     "7bf5a9c4-d406-46dd-b596-1cdfd343e121",
+		Script: "batched",
+		Gauges: map[string]json.RawMessage{
+			"g001": []byte("{}"),
+			"g002": []byte(`{"min": 100.0, "max": 300.0}`),
+			"g003": []byte("{}"),
+			"g004": []byte("{}"),
+			"g005": []byte("{}"),
+			"g006": []byte("{}"),
+			"g007": []byte("{}"),
+		},
+		Cron:    "",
+		Options: json.RawMessage(`{"min": 200.0, "batchSize": 3}`),
+	})
+
+	if assert.NoError(t, err) {
+		cron.AssertNumberOfCalls(t, "AddJob", 3)
+
+		assert.Equal(t, "0 * * * *", cron.Calls[0].Arguments[0])
+		assert.Equal(t, &harvestJob{
+			database: scheduler.Database,
+			cache:    scheduler.Cache,
+			logger:   scheduler.Logger,
+			registry: scheduler.Registry,
+			cron:     "0 * * * *",
+			jobID:    "7bf5a9c4-d406-46dd-b596-1cdfd343e121",
+			script:   "batched",
+			codes:    core.StringSet{"g001": {}, "g002": {}, "g003": {}},
+			options:  &testscripts.BatchedOptions{Gauges: 10, BatchSize: 3, Min: 200.0, Max: 20},
+		}, cron.Calls[0].Arguments[1])
+
+		assert.Equal(t, "20 * * * *", cron.Calls[1].Arguments[0])
+		assert.Equal(t, &harvestJob{
+			database: scheduler.Database,
+			cache:    scheduler.Cache,
+			logger:   scheduler.Logger,
+			registry: scheduler.Registry,
+			cron:     "20 * * * *",
+			script:   "batched",
+			jobID:    "7bf5a9c4-d406-46dd-b596-1cdfd343e121",
+			codes:    core.StringSet{"g004": {}, "g005": {}, "g006": {}},
+			options:  &testscripts.BatchedOptions{Gauges: 10, BatchSize: 3, Min: 200.0, Max: 20},
+		}, cron.Calls[1].Arguments[1])
+
+		assert.Equal(t, "40 * * * *", cron.Calls[2].Arguments[0])
+		assert.Equal(t, &harvestJob{
+			database: scheduler.Database,
+			cache:    scheduler.Cache,
+			logger:   scheduler.Logger,
+			registry: scheduler.Registry,
+			cron:     "40 * * * *",
+			script:   "batched",
+			jobID:    "7bf5a9c4-d406-46dd-b596-1cdfd343e121",
+			codes:    core.StringSet{"g007": {}},
+			options:  &testscripts.BatchedOptions{Gauges: 10, BatchSize: 3, Min: 200.0, Max: 20},
+		}, cron.Calls[2].Arguments[1])
+
+	}
 }
