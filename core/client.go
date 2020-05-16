@@ -14,6 +14,7 @@ import (
 	"time"
 
 	browser "github.com/EDDYCJY/fake-useragent"
+	"github.com/PuerkitoBio/goquery"
 	jar "github.com/juju/persistent-cookiejar"
 	log "github.com/sirupsen/logrus"
 	"golang.org/x/text/encoding"
@@ -159,6 +160,35 @@ func (client *HTTPClient) GetAsXML(url string, dest interface{}, opts *RequestOp
 	}
 	defer resp.Body.Close()
 	return xml.NewDecoder(resp.Body).Decode(dest)
+}
+
+// Doc extends goquery.Document with a Close() method
+type Doc struct {
+	*goquery.Document
+	resp *http.Response
+}
+
+// Close closes underlying resp body
+func (doc *Doc) Close() {
+	doc.resp.Body.Close()
+}
+
+// GetAsDoc is shortcut for http.Client.Get to get HTML docs for goquery.
+func (client *HTTPClient) GetAsDoc(url string, opts *RequestOptions) (*Doc, error) {
+	resp, err := client.Get(url, opts)
+	if err != nil {
+		return nil, err
+	}
+
+	// Sometimes this return document with empty body
+	qdoc, err := goquery.NewDocumentFromReader(resp.Body)
+	if err != nil {
+		return nil, err
+	}
+	return &Doc{
+		Document: qdoc,
+		resp:     resp,
+	}, nil
 }
 
 // PostForm is like http.Client.PostForm but wit extra options
