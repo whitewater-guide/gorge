@@ -1,33 +1,18 @@
 package riverzone
 
 import (
-	"io"
-	"net/http"
 	"net/http/httptest"
-	"os"
 	"testing"
 	"time"
 
 	"github.com/mattn/go-nulltype"
 	"github.com/stretchr/testify/assert"
 	"github.com/whitewater-guide/gorge/core"
+	"github.com/whitewater-guide/gorge/testutils"
 )
 
 func setupTestServer() *httptest.Server {
-	return httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		key := r.Header.Get("X-Key")
-		if key != "__thekey__" {
-			w.WriteHeader(http.StatusUnauthorized)
-			w.Write([]byte("Unauthorized.\n")) //nolint:errcheck
-			return
-		}
-		file, _ := os.Open("./test_data/data.json")
-		w.WriteHeader(http.StatusOK)
-		_, err := io.Copy(w, file)
-		if err != nil {
-			panic("failed to send test file")
-		}
-	}))
+	return testutils.SetupFileServer(nil, &testutils.HeaderAuthorizer{Key: "X-Key"})
 }
 
 func TestRiverzone_Auth(t *testing.T) {
@@ -35,7 +20,7 @@ func TestRiverzone_Auth(t *testing.T) {
 	defer ts.Close()
 	s := scriptRiverzone{
 		name:                "riverzone",
-		stationsEndpointURL: ts.URL,
+		stationsEndpointURL: ts.URL + "/data.json",
 		options:             optionsRiverzone{Key: "__bad__"},
 	}
 	_, err := s.ListGauges()
@@ -47,8 +32,8 @@ func TestRiverzone_ListGauges(t *testing.T) {
 	defer ts.Close()
 	s := scriptRiverzone{
 		name:                "riverzone",
-		stationsEndpointURL: ts.URL,
-		options:             optionsRiverzone{Key: "__thekey__"},
+		stationsEndpointURL: ts.URL + "/data.json",
+		options:             optionsRiverzone{Key: testutils.TestAuthKey},
 	}
 	actual, err := s.ListGauges()
 	expected := core.Gauges{
@@ -90,8 +75,8 @@ func TestRiverzone_Harvest(t *testing.T) {
 	defer ts.Close()
 	s := scriptRiverzone{
 		name:                "riverzone",
-		stationsEndpointURL: ts.URL,
-		options:             optionsRiverzone{Key: "__thekey__"},
+		stationsEndpointURL: ts.URL + "/data.json",
+		options:             optionsRiverzone{Key: testutils.TestAuthKey},
 	}
 	actual, err := core.HarvestSlice(&s, core.StringSet{}, 0)
 	expected := core.Measurements{

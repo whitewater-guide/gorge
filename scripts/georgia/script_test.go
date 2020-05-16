@@ -1,27 +1,18 @@
 package georgia
 
 import (
-	"io"
-	"net/http"
 	"net/http/httptest"
-	"os"
 	"testing"
 	"time"
 
 	"github.com/mattn/go-nulltype"
 	"github.com/stretchr/testify/assert"
 	"github.com/whitewater-guide/gorge/core"
+	"github.com/whitewater-guide/gorge/testutils"
 )
 
 func setupTestServer() *httptest.Server {
-	return httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		file, _ := os.Open("./test_data/page.html")
-		w.WriteHeader(http.StatusOK)
-		_, err := io.Copy(w, file)
-		if err != nil {
-			panic("failed to send test file")
-		}
-	}))
+	return testutils.SetupFileServer(nil, nil)
 }
 
 func TestGeorgia_ListGauges(t *testing.T) {
@@ -29,7 +20,7 @@ func TestGeorgia_ListGauges(t *testing.T) {
 	defer ts.Close()
 	s := scriptGeorgia{
 		name: "georgia",
-		url:  ts.URL,
+		url:  ts.URL + "/page.html",
 	}
 	actual, err := s.ListGauges()
 	expected := core.Gauge{
@@ -39,7 +30,7 @@ func TestGeorgia_ListGauges(t *testing.T) {
 		},
 		LevelUnit: "cm",
 		Name:      "Acharistskali - keda",
-		URL:       ts.URL,
+		URL:       ts.URL + "/page.html",
 	}
 	if assert.NoError(t, err) {
 		assert.Len(t, actual, 20)
@@ -52,7 +43,7 @@ func TestGeorgia_Harvest(t *testing.T) {
 	defer ts.Close()
 	s := scriptGeorgia{
 		name: "georgia",
-		url:  ts.URL,
+		url:  ts.URL + "/page.html",
 	}
 	now := time.Now().UTC().Truncate(time.Hour)
 	actual, err := core.HarvestSlice(&s, core.StringSet{}, 0)

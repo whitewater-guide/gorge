@@ -1,11 +1,12 @@
 package ukraine
 
 import (
-	"github.com/mattn/go-nulltype"
 	"regexp"
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/mattn/go-nulltype"
 
 	"github.com/PuerkitoBio/goquery"
 	"github.com/whitewater-guide/gorge/core"
@@ -17,10 +18,10 @@ var Client = core.NewClient(core.ClientOptions{
 	WithoutTLS: true,
 })
 
-var UserURL = "https://meteo.gov.ua/ua/33345/hydrostorm"
+var userURL = "https://meteo.gov.ua/ua/33345/hydrostorm"
 
 func (s *scriptUkraine) parseTable(gauges chan<- *core.Gauge, measurements chan<- *core.Measurement, errs chan<- error) {
-	resp, err := Client.Get(s.url, nil)
+	resp, err := Client.Get(s.url+"/kml_hydro_warn.kml", nil)
 	if err != nil {
 		errs <- err
 		return
@@ -57,7 +58,7 @@ func (s *scriptUkraine) parseTable(gauges chan<- *core.Gauge, measurements chan<
 					Longitude: core.TruncCoord(lng),
 				},
 				Name: name,
-				URL:  UserURL,
+				URL:  userURL,
 			}
 		}
 		if measurements != nil {

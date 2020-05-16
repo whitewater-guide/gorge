@@ -1,34 +1,22 @@
 package ecuador
 
 import (
-	"io"
-	"net/http"
 	"net/http/httptest"
-	"os"
 	"testing"
 	"time"
 
 	"github.com/mattn/go-nulltype"
 	"github.com/stretchr/testify/assert"
 	"github.com/whitewater-guide/gorge/core"
+	"github.com/whitewater-guide/gorge/testutils"
 )
 
 func setupTestServer() *httptest.Server {
-	return httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		path := "./test_data/H0064.json"
-		switch r.URL.Path {
-		case "/list1":
-			path = "./test_data/RTMCProject.js.jgz"
-		case "/list2":
-			path = "./test_data/list2.jsonp"
-		}
-		file, _ := os.Open(path)
-		w.WriteHeader(http.StatusOK)
-		_, err := io.Copy(w, file)
-		if err != nil {
-			panic("failed to send test file")
-		}
-	}))
+	return testutils.SetupFileServer(map[string]string{
+		"/list1": "RTMCProject.js.jgz",
+		"/list2": "list2.jsonp",
+		"":       "H0064.json",
+	}, nil)
 }
 
 func TestEcuador_ListGauges(t *testing.T) {

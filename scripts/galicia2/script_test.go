@@ -1,32 +1,21 @@
 package galicia2
 
 import (
-	"io"
-	"net/http"
 	"net/http/httptest"
-	"os"
-	"strings"
 	"testing"
 	"time"
 
 	"github.com/mattn/go-nulltype"
 	"github.com/stretchr/testify/assert"
 	"github.com/whitewater-guide/gorge/core"
+	"github.com/whitewater-guide/gorge/testutils"
 )
 
 func setupTestServer() *httptest.Server {
-	return httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		path := "." + r.URL.Path
-		if !strings.HasSuffix(path, "table.xls") {
-			path = "./test_data/A015.html"
-		}
-		file, _ := os.Open(path)
-		w.WriteHeader(http.StatusOK)
-		_, err := io.Copy(w, file)
-		if err != nil {
-			panic("failed to send test file")
-		}
-	}))
+	return testutils.SetupFileServer(map[string]string{
+		"/table": "table.xls",
+		"":       "A015.html",
+	}, nil)
 }
 
 func TestGalicia2_ListGauges(t *testing.T) {
@@ -34,8 +23,8 @@ func TestGalicia2_ListGauges(t *testing.T) {
 	defer ts.Close()
 	s := scriptGalicia2{
 		name:           "galicia2",
-		listURL:        ts.URL + "/test_data/table.xls",
-		gaugeURLFormat: ts.URL + "/test_data/%s.html",
+		listURL:        ts.URL + "/table.xls",
+		gaugeURLFormat: ts.URL + "/%s.html",
 	}
 	actual, err := s.ListGauges()
 	expected := core.Gauge{
@@ -50,7 +39,7 @@ func TestGalicia2_ListGauges(t *testing.T) {
 			Altitude:  348.65,
 		},
 		Name: "Río Neira en Páramo (o)",
-		URL:  ts.URL + "/test_data/A015.html",
+		URL:  ts.URL + "/A015.html",
 	}
 	if assert.NoError(t, err) {
 		assert.Len(t, actual, 58)
@@ -63,8 +52,8 @@ func TestGalicia2_Harvest(t *testing.T) {
 	defer ts.Close()
 	s := scriptGalicia2{
 		name:           "galicia2",
-		listURL:        ts.URL + "/test_data/table.xls",
-		gaugeURLFormat: ts.URL + "/test_data/%s.html",
+		listURL:        ts.URL + "/table.xls",
+		gaugeURLFormat: ts.URL + "/%s.html",
 	}
 	actual, err := core.HarvestSlice(&s, core.StringSet{}, 0)
 	expected := &core.Measurement{

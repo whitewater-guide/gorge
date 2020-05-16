@@ -1,34 +1,31 @@
 package switzerland
 
 import (
-	"io"
 	"net/http"
 	"net/http/httptest"
-	"os"
-	"strings"
 	"testing"
 	"time"
 
 	"github.com/mattn/go-nulltype"
 	"github.com/whitewater-guide/gorge/core"
+	"github.com/whitewater-guide/gorge/testutils"
 
 	"github.com/stretchr/testify/assert"
 )
 
+type BasicAuthorizer struct{}
+
+// Authorize implements Authorizer interface
+func (a *BasicAuthorizer) Authorize(req *http.Request) bool {
+	if req.URL.Path != "/gauges.xml" {
+		return true
+	}
+	user, pass, ok := req.BasicAuth()
+	return ok && user == "user" && pass == "password"
+}
+
 func setupTestServer() *httptest.Server {
-	return httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		if strings.HasSuffix(r.URL.String(), "xml") {
-			user, pass, ok := r.BasicAuth()
-			if !ok || user != "user" || pass != "password" {
-				w.WriteHeader(http.StatusUnauthorized)
-				w.Write([]byte("Unauthorized.\n")) //nolint:errcheck
-				return
-			}
-		}
-		file, _ := os.Open("./test_data" + r.URL.Path)
-		w.WriteHeader(http.StatusOK)
-		io.Copy(w, file) //nolint:errcheck
-	}))
+	return testutils.SetupFileServer(nil, &BasicAuthorizer{})
 }
 
 func TestSwitzerland_BasicAuth(t *testing.T) {

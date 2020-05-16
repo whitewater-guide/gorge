@@ -17,7 +17,7 @@ var Descriptor = &core.ScriptDescriptor{
 		if _, ok := options.(*optionsUkraine); ok {
 			return &scriptUkraine{
 				name: name,
-				url:  "http://meteo.gov.ua/kml/kml_hydro_warn.kml",
+				url:  "http://meteo.gov.ua/kml",
 			}, nil
 		}
 		return nil, fmt.Errorf("failed to cast %T", optionsUkraine{})

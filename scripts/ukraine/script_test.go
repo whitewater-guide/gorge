@@ -1,27 +1,18 @@
 package ukraine
 
 import (
-	"io"
-	"net/http"
 	"net/http/httptest"
-	"os"
 	"testing"
 	"time"
 
 	"github.com/mattn/go-nulltype"
 	"github.com/stretchr/testify/assert"
 	"github.com/whitewater-guide/gorge/core"
+	"github.com/whitewater-guide/gorge/testutils"
 )
 
 func setupTestServer() *httptest.Server {
-	return httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		file, _ := os.Open("./test_data/kml_hydro_warn.kml")
-		w.WriteHeader(http.StatusOK)
-		_, err := io.Copy(w, file)
-		if err != nil {
-			panic("failed to send test file")
-		}
-	}))
+	return testutils.SetupFileServer(nil, nil)
 }
 
 func TestUkraine_ListGauges(t *testing.T) {

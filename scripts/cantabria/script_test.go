@@ -1,32 +1,22 @@
 package cantabria
 
 import (
-	"io"
-	"net/http"
 	"net/http/httptest"
-	"os"
 	"testing"
 	"time"
 
 	"github.com/mattn/go-nulltype"
 	"github.com/whitewater-guide/gorge/core"
+	"github.com/whitewater-guide/gorge/testutils"
 
 	"github.com/stretchr/testify/assert"
 )
 
 func setupTestServer() *httptest.Server {
-	return httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		filename := "./test_data/list.html"
-		if r.URL.Path != "/list" {
-			filename = "./test_data/gauge.html"
-		}
-		file, _ := os.Open(filename)
-		w.WriteHeader(http.StatusOK)
-		_, err := io.Copy(w, file)
-		if err != nil {
-			panic("failed to send test file")
-		}
-	}))
+	return testutils.SetupFileServer(map[string]string{
+		"/list": "list.html",
+		"":      "gauge.html",
+	}, nil)
 }
 
 func TestCantabria_ListGauges(t *testing.T) {
@@ -34,8 +24,8 @@ func TestCantabria_ListGauges(t *testing.T) {
 	defer ts.Close()
 	s := scriptCantabria{
 		name:         "cantabria",
-		listURL:      ts.URL + "/list",
-		gaugeURLBase: ts.URL + "/gauge",
+		listURL:      ts.URL + "/list.html",
+		gaugeURLBase: ts.URL + "/",
 	}
 	actual, err := s.ListGauges()
 	expected := core.Gauge{
@@ -62,8 +52,8 @@ func TestCantabria_Harvest(t *testing.T) {
 	defer ts.Close()
 	s := scriptCantabria{
 		name:         "cantabria",
-		listURL:      ts.URL + "/list",
-		gaugeURLBase: ts.URL + "/gauge",
+		listURL:      ts.URL + "/list.html",
+		gaugeURLBase: ts.URL + "/",
 	}
 	actual, err := core.HarvestSlice(&s, core.StringSet{}, 0)
 	expected := &core.Measurement{

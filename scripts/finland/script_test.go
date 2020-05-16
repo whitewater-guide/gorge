@@ -1,37 +1,21 @@
 package finland
 
 import (
-	"fmt"
-	"io"
-	"net/http"
 	"net/http/httptest"
-	"os"
-	"strings"
 	"testing"
 	"time"
 
 	"github.com/mattn/go-nulltype"
 	"github.com/stretchr/testify/assert"
 	"github.com/whitewater-guide/gorge/core"
+	"github.com/whitewater-guide/gorge/testutils"
 )
 
 func setupTestServer() *httptest.Server {
-	return httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		isList := strings.HasSuffix(r.URL.Path, "Paikka")
-		var filename string
-		if isList {
-			skip := r.URL.Query().Get("$skip")
-			filename = fmt.Sprintf("./test_data/paikka_%s.json", skip)
-		} else {
-			filename = "./test_data/virtaama.json"
-		}
-		file, _ := os.Open(filename)
-		w.WriteHeader(http.StatusOK)
-		_, err := io.Copy(w, file)
-		if err != nil {
-			panic("failed to send test file")
-		}
-	}))
+	return testutils.SetupFileServer(map[string]string{
+		"/Paikka": "paikka_{{ .skip }}.json",
+		"":        "virtaama.json",
+	}, nil)
 }
 
 func TestFinland_ListGauges(t *testing.T) {

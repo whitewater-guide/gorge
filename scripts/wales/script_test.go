@@ -1,33 +1,20 @@
 package wales
 
 import (
-	"io"
-	"net/http"
 	"net/http/httptest"
-	"os"
 	"testing"
 	"time"
 
 	"github.com/mattn/go-nulltype"
 	"github.com/stretchr/testify/assert"
 	"github.com/whitewater-guide/gorge/core"
+	"github.com/whitewater-guide/gorge/testutils"
 )
 
 func setupTestServer() *httptest.Server {
-	return httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		key := r.Header.Get("Ocp-Apim-Subscription-Key")
-		if key != "__thekey__" {
-			w.WriteHeader(http.StatusUnauthorized)
-			w.Write([]byte("Unauthorized.\n")) //nolint:errcheck
-			return
-		}
-		file, _ := os.Open("./test_data/data.json")
-		w.WriteHeader(http.StatusOK)
-		_, err := io.Copy(w, file)
-		if err != nil {
-			panic("failed to send test file")
-		}
-	}))
+	return testutils.SetupFileServer(map[string]string{
+		"": "data.json",
+	}, &testutils.HeaderAuthorizer{Key: "Ocp-Apim-Subscription-Key"})
 }
 
 func TestWales_Auth(t *testing.T) {
@@ -35,7 +22,7 @@ func TestWales_Auth(t *testing.T) {
 	defer ts.Close()
 	s := scriptWales{
 		name:    "wales",
-		url:     ts.URL,
+		url:     ts.URL + "/data.json",
 		options: optionsWales{Key: "__bad__"},
 	}
 	_, err := s.ListGauges()
@@ -48,7 +35,7 @@ func TestWales_ListGauges(t *testing.T) {
 	s := scriptWales{
 		name:    "wales",
 		url:     ts.URL,
-		options: optionsWales{Key: "__thekey__"},
+		options: optionsWales{Key: testutils.TestAuthKey},
 	}
 	actual, err := s.ListGauges()
 	expected := core.Gauges{
@@ -90,7 +77,7 @@ func TestWales_Harvest(t *testing.T) {
 	s := scriptWales{
 		name:    "wales",
 		url:     ts.URL,
-		options: optionsWales{Key: "__thekey__"},
+		options: optionsWales{Key: testutils.TestAuthKey},
 	}
 	actual, err := core.HarvestSlice(&s, core.StringSet{}, 0)
 	expected := core.Measurements{

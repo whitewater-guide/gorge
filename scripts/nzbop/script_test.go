@@ -1,33 +1,18 @@
 package nzbop
 
 import (
-	"io"
-	"net/http"
 	"net/http/httptest"
-	"os"
 	"testing"
 	"time"
 
 	"github.com/mattn/go-nulltype"
 	"github.com/stretchr/testify/assert"
 	"github.com/whitewater-guide/gorge/core"
+	"github.com/whitewater-guide/gorge/testutils"
 )
 
 func setupTestServer() *httptest.Server {
-	return httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		filename := "./test_data" + r.URL.Path
-		_, err := os.Stat(filename)
-		if os.IsNotExist(err) {
-			w.WriteHeader(http.StatusNotFound)
-			return
-		}
-		file, _ := os.Open(filename)
-		w.WriteHeader(http.StatusOK)
-		_, err = io.Copy(w, file)
-		if err != nil {
-			panic("failed to send test file")
-		}
-	}))
+	return testutils.SetupFileServer(nil, nil)
 }
 
 func TestBop_ListGauges(t *testing.T) {

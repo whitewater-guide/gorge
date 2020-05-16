@@ -16,7 +16,7 @@ func setupTestServer() *httptest.Server {
 		"/RiverflowGeo/ALL":    "all.js",
 		"/RiverflowList/NORTH": "north.html",
 		"/RiverflowList/SOUTH": "south.html",
-	})
+	}, nil)
 }
 
 func TestNzcan_ListGauges(t *testing.T) {

@@ -1,16 +1,14 @@
 package quebec
 
 import (
-	"io"
-	"net/http"
 	"net/http/httptest"
-	"os"
 	"testing"
 	"time"
 
 	"github.com/mattn/go-nulltype"
 	"github.com/stretchr/testify/assert"
 	"github.com/whitewater-guide/gorge/core"
+	"github.com/whitewater-guide/gorge/testutils"
 )
 
 // 030247 m
@@ -18,11 +16,7 @@ import (
 // 050409 m3/s
 
 func setupTestServer() *httptest.Server {
-	return httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		file, _ := os.Open("./test_data" + r.URL.Path)
-		w.WriteHeader(http.StatusOK)
-		io.Copy(w, file) //nolint:errcheck
-	}))
+	return testutils.SetupFileServer(nil, nil)
 }
 
 func TestQuebec_ListGauges(t *testing.T) {

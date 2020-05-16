@@ -1,32 +1,22 @@
 package canada
 
 import (
-	"context"
-	"io"
-	"net/http"
 	"net/http/httptest"
-	"os"
 	"testing"
 	"time"
 
 	"github.com/mattn/go-nulltype"
 	"github.com/stretchr/testify/assert"
 	"github.com/whitewater-guide/gorge/core"
+	"github.com/whitewater-guide/gorge/testutils"
 )
 
-func setupTestServer(dir string) *httptest.Server {
-	if dir == "" {
-		dir = "test_data"
-	}
-	return httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		file, _ := os.Open("./" + dir + r.URL.Path)
-		w.WriteHeader(http.StatusOK)
-		io.Copy(w, file) // nolint:errcheck
-	}))
+func setupTestServer() *httptest.Server {
+	return testutils.SetupFileServer(nil, nil)
 }
 
 func TestCanada_ListGauges(t *testing.T) {
-	ts := setupTestServer("")
+	ts := setupTestServer()
 	defer ts.Close()
 	s := scriptCanada{
 		name:      "canada",
@@ -98,7 +88,7 @@ func TestCanada_ListGauges(t *testing.T) {
 }
 
 func TestCanada_HarvestRemap(t *testing.T) {
-	ts := setupTestServer("")
+	ts := setupTestServer()
 	defer ts.Close()
 	s := scriptCanada{
 		name:      "canada",
@@ -148,7 +138,7 @@ func TestCanada_HarvestRemap(t *testing.T) {
 }
 
 func TestCanada_HarvestProvinces(t *testing.T) {
-	ts := setupTestServer("")
+	ts := setupTestServer()
 	defer ts.Close()
 	s := scriptCanada{
 		name:      "canada",
@@ -159,24 +149,5 @@ func TestCanada_HarvestProvinces(t *testing.T) {
 	actual, err := core.HarvestSlice(&s, core.StringSet{}, 0)
 	if assert.NoError(t, err) {
 		assert.Len(t, actual, 11)
-	}
-}
-
-func BenchmarkCanadaHarvest(b *testing.B) {
-	ts := setupTestServer("bench_data")
-	defer ts.Close()
-	s := scriptCanada{
-		name:      "canada",
-		baseURL:   ts.URL,
-		provinces: getProvinces(""),
-	}
-	for i := 0; i < b.N; i++ {
-		ctx := context.Background()
-		in := make(chan *core.Measurement)
-		errCh := make(chan error, 1)
-		go s.Harvest(ctx, in, errCh, core.StringSet{}, 0)
-		for range in {
-			//do nothing
-		}
 	}
 }

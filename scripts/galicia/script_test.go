@@ -1,27 +1,18 @@
 package galicia
 
 import (
-	"io"
-	"net/http"
 	"net/http/httptest"
-	"os"
 	"testing"
 	"time"
 
 	"github.com/mattn/go-nulltype"
 	"github.com/stretchr/testify/assert"
 	"github.com/whitewater-guide/gorge/core"
+	"github.com/whitewater-guide/gorge/testutils"
 )
 
 func setupTestServer() *httptest.Server {
-	return httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		file, _ := os.Open("./test_data/galicia.json")
-		w.WriteHeader(http.StatusOK)
-		_, err := io.Copy(w, file)
-		if err != nil {
-			panic("failed to send test file")
-		}
-	}))
+	return testutils.SetupFileServer(nil, nil)
 }
 
 func TestGalicia_ListGauges(t *testing.T) {
@@ -29,7 +20,7 @@ func TestGalicia_ListGauges(t *testing.T) {
 	defer ts.Close()
 	s := scriptGalicia{
 		name: "galicia",
-		url:  ts.URL,
+		url:  ts.URL + "/galicia.json",
 	}
 	actual, err := s.ListGauges()
 	expected := core.Gauges{
@@ -72,7 +63,7 @@ func TestGalicia_Harvest(t *testing.T) {
 	defer ts.Close()
 	s := scriptGalicia{
 		name: "galicia",
-		url:  ts.URL,
+		url:  ts.URL + "/galicia.json",
 	}
 	actual, err := core.HarvestSlice(&s, core.StringSet{}, 0)
 	expected := core.Measurements{
