@@ -97,10 +97,10 @@ func (s *scriptNzcan) fetchList(suffix string, recv chan<- *core.Measurement) er
 		var level, flow nulltype.NullFloat64
 		levelStr, flowStr := tds.Eq(1).Text(), tds.Eq(2).Text()
 		if levelStr != "" {
-			level.Scan(levelStr)
+			level.Scan(levelStr) //nolint,errcheck
 		}
 		if flowStr != "" {
-			flow.Scan(flowStr)
+			flow.Scan(flowStr) //nolint,errcheck
 		}
 		recv <- &core.Measurement{
 			GaugeID: core.GaugeID{

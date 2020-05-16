@@ -38,17 +38,13 @@ func parseRow(td *goquery.Selection) (v nulltype.NullFloat64, m string, t time.T
 
 func (s *scriptBop) parsePage(code string, gauges chan<- *core.Gauge, measurements chan<- *core.Measurement) {
 	url := fmt.Sprintf(s.pageURL, code)
-	resp, err := core.Client.Get(url, nil)
+	doc, err := core.Client.GetAsDoc(url, nil)
 	if err != nil {
 		s.GetLogger().WithField("code", code).Error("failed to fetch page")
 		return
 	}
-	defer resp.Body.Close()
-	doc, err := goquery.NewDocumentFromReader(resp.Body)
-	if err != nil {
-		s.GetLogger().WithField("code", code).Error("failed to parse page")
-		return
-	}
+	defer doc.Close()
+
 	var level, flow nulltype.NullFloat64
 	var levelUnit, flowUnit string
 	var t time.Time

@@ -16,17 +16,13 @@ import (
 var nameRegex = regexp.MustCompile(`\W`)
 
 func (s *scriptGeorgia) parseTable(gauges chan<- *core.Gauge, measurements chan<- *core.Measurement, errs chan<- error) {
-	resp, err := core.Client.Get(s.url, nil)
+	doc, err := core.Client.GetAsDoc(s.url, nil)
 	if err != nil {
 		errs <- err
 		return
 	}
-	defer resp.Body.Close()
-	doc, err := goquery.NewDocumentFromReader(resp.Body)
-	if err != nil {
-		errs <- err
-		return
-	}
+	defer doc.Close()
+
 	doc.Find("td[background='images/hidro1.gif']").Each(func(i int, elem *goquery.Selection) {
 		table := elem.ParentsFiltered("table").First()
 		name := strings.TrimSpace(table.Find("b").First().Text())

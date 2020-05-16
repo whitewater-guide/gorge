@@ -44,6 +44,21 @@ func TestHttpClient_GetAsJSON(t *testing.T) {
 	}
 }
 
+func TestHttpClient_GetAsDoc(t *testing.T) {
+	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+		fmt.Fprint(w, `<foo><bar>baz</bar></foo>`)
+	}))
+	defer ts.Close()
+	doc, err := Client.GetAsDoc(ts.URL, nil)
+	if assert.NoError(t, err) {
+		assert.Equal(t, "baz", doc.Find("bar").Text())
+		doc.Close()
+		_, err = doc.resp.Body.Read(nil)
+		assert.True(t, err != nil && err.Error() == "http: read on closed response body")
+	}
+}
+
 func TestHttpClient_GetFakeAgent(t *testing.T) {
 	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)

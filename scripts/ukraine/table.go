@@ -12,7 +12,7 @@ import (
 	"github.com/whitewater-guide/gorge/core"
 )
 
-var Client = core.NewClient(core.ClientOptions{
+var client = core.NewClient(core.ClientOptions{
 	UserAgent:  "whitewater.guide robot",
 	Timeout:    60,
 	WithoutTLS: true,
@@ -21,17 +21,13 @@ var Client = core.NewClient(core.ClientOptions{
 var userURL = "https://meteo.gov.ua/ua/33345/hydrostorm"
 
 func (s *scriptUkraine) parseTable(gauges chan<- *core.Gauge, measurements chan<- *core.Measurement, errs chan<- error) {
-	resp, err := Client.Get(s.url+"/kml_hydro_warn.kml", nil)
+	doc, err := client.GetAsDoc(s.url+"/kml_hydro_warn.kml", nil)
 	if err != nil {
 		errs <- err
 		return
 	}
-	defer resp.Body.Close()
-	doc, err := goquery.NewDocumentFromReader(resp.Body)
-	if err != nil {
-		errs <- err
-		return
-	}
+	defer doc.Close()
+
 	doc.Find("Document Placemark").Each(func(i int, elem *goquery.Selection) {
 		code := elem.Find("name").First().Text()
 		description, _ := elem.Find("description").First().Html()

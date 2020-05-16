@@ -21,7 +21,7 @@ func (s *scriptNzcan) ListGauges() (core.Gauges, error) {
 	msmnts := make(chan *core.Measurement)
 	go func() {
 		defer close(msmnts)
-		err := s.fetchList("NORTH", msmnts)
+		err = s.fetchList("NORTH", msmnts)
 		if err != nil {
 			return
 		}

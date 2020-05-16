@@ -7,7 +7,6 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/PuerkitoBio/goquery"
 	"github.com/sirupsen/logrus"
 	"github.com/whitewater-guide/gorge/core"
 )
@@ -19,15 +18,11 @@ var spaces = regexp.MustCompile(`\s+`)
 
 func (s *scriptWaikato) parseGaugePage(code string, hasFlow, hasLevel bool) (*core.Gauge, error) {
 	url := fmt.Sprintf(s.pageURL, code)
-	resp, err := core.Client.Get(url, nil)
+	doc, err := core.Client.GetAsDoc(url, nil)
 	if err != nil {
 		return nil, err
 	}
-	defer resp.Body.Close()
-	doc, err := goquery.NewDocumentFromReader(resp.Body)
-	if err != nil {
-		return nil, err
-	}
+	defer doc.Close()
 	name := doc.Find(`td:contains("Site name:")`).Next().Text()
 	locStr := strings.TrimSpace(doc.Find(`td:contains("Map reference:")`).Next().Text())
 	var lat, lon float64
