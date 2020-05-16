@@ -13,16 +13,12 @@ import (
 var tz, _ = time.LoadLocation("Pacific/Auckland")
 
 func (s *scriptWaikato) parseMeasurements(measurements chan<- *core.Measurement) error {
-	resp, err := core.Client.Get(s.listURL, nil)
+	doc, err := core.Client.GetAsDoc(s.listURL, nil)
 	if err != nil {
 		return err
 	}
-	defer resp.Body.Close()
+	defer doc.Close()
 	// Sometimes this return document with empty body
-	doc, err := goquery.NewDocumentFromReader(resp.Body)
-	if err != nil {
-		return err
-	}
 
 	doc.Find("#RainfallTable tr").Each(func(i int, elem *goquery.Selection) {
 
