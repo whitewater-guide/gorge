@@ -1,0 +1,24 @@
+[
+  {
+    "SiteName": "Awatere River at Awapiri",
+    "LastUpdate": "17 May 2020 04:00",
+    "Flow": "3.38",
+    "PeakFlow": "4.32",
+    "PeakFlowDate": "11 May 2020 00:00",
+    "Stage": "1.408",
+    "StageChange": "1",
+    "PeakStage": "1.443",
+    "PeakStageDate": "11 May 2020 00:00"
+  },
+  {
+    "SiteName": "Grovetown Lagoon at Drain Y",
+    "LastUpdate": "17 May 2020 04:25",
+    "Flow": "Level only",
+    "PeakFlow": "Level only",
+    "PeakFlowDate": "Level only",
+    "Stage": "0.048",
+    "StageChange": "12",
+    "PeakStage": "0.115",
+    "PeakStageDate": "11 May 2020 01:35"
+  }
+]
