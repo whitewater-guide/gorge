@@ -72,7 +72,7 @@ gauges [json](http://aca-web.gencat.cat/sdim2/apirest/data/AFORAMENT-EST), value
 - **License**: CC-BY 4.0
 - **API Key Required**: 
 - **Script**: [link](finland)
-- **Issue:** #6
+- **Issue:** https://github.com/whitewater-guide/gorge/issues/6
 
 ## Galicia 1.
 
@@ -119,7 +119,7 @@ Mino bassin.
 - **License**: [Any usage permitted](https://envdata.boprc.govt.nz/Disclaimer?returnUrl=%2F)
 - **API Key Required**: 
 - **Script**: [link](nzbop)
-- **Issue:** #5
+- **Issue:** https://github.com/whitewater-guide/gorge/issues/5
 
 ## New Zealand: Environment Canterbury
 
@@ -128,7 +128,7 @@ Mino bassin.
 - **License**: [Non-commercial usage permitted](https://ecan.govt.nz/info/copyright/)
 - **API Key Required**: 
 - **Script**: [link](nzcan)
-- **Issue:** #5
+- **Issue:** https://github.com/whitewater-guide/gorge/issues/5
 
 ## New Zealand: National Institute of Water and Atmospheric Research
 
@@ -137,7 +137,7 @@ Mino bassin.
 - **License**: CC BY-NC 4.0
 - **API Key Required**: 
 - **Script**: [link](nzniwa)
-- **Issue:** #5
+- **Issue:** https://github.com/whitewater-guide/gorge/issues/5
 
 ## New Zealand: Waikato Regional Council
 
@@ -146,7 +146,7 @@ Mino bassin.
 - **License**: Inquiry sent, some gauges are not permitted, need to know which
 - **API Key Required**: 
 - **Script**: [link](nzwaikato)
-- **Issue:** #5
+- **Issue:** https://github.com/whitewater-guide/gorge/issues/5
 
 ## Quebec
 Source description one-liner
@@ -226,7 +226,7 @@ U.S. Geological Survey National Water Information System is biggest data source 
 - **License**: ❌ ???
 - **API Key Required**: 
 - **Script**: [link](usgs)
-- **Issue:** #9
+- **Issue:** https://github.com/whitewater-guide/gorge/issues/9
 
 ## Wales
 
@@ -235,4 +235,4 @@ U.S. Geological Survey National Water Information System is biggest data source 
 - **License**: [open license](https://naturalresources.wales/footer-links/copyright/?lang=en)
 - **API Key Required**: 🔑 yes
 - **Script**: [link](wales)
-- **Issue:** #7
+- **Issue:** https://github.com/whitewater-guide/gorge/issues/7

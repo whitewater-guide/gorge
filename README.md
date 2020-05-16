@@ -8,6 +8,7 @@ Harvested data is stored in database and can be queried later.
 ## Table of contents
 
 - [Why should I use it?](#why-should-i-use-it-)
+- [Data sources](#data-sources)
 - [Usage](#usage)
   - [Launching](#launching)
   - [Working with API](#working-with-api)
@@ -37,6 +38,10 @@ Gorge was designed with 2 more features in mind. These features are not implemen
 
 - standalone distribution. Gorge can be distibuted as standalone linux/mac/windows program, so you can execute it from cli and get harvested results in your stdout. In case you don't want docker and gorge server.
 - pushing data downstream. Instead of pulling data from gorge, we can make gorge push data to your project.
+
+## Data sources
+
+You can find the list of our data sources and thier statuses [here](scripts/README.md)
 
 ## Usage
 
