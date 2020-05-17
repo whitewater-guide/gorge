@@ -230,9 +230,9 @@ U.S. Geological Survey National Water Information System is biggest data source 
 
 ## Wales
 
-- **Status:** 🕙 Ready on production
-- **Terms of use**: ❌ on production
-- **License**: [open license](https://naturalresources.wales/footer-links/copyright/?lang=en)
+- **Status:**  ✅ Live on production
+- **Terms of use**:  ✅ Live on production
+- **License**:  [Open Government License](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/)
 - **API Key Required**: 🔑 yes
 - **Script**: [link](wales)
 - **Issue:** https://github.com/whitewater-guide/gorge/issues/7
