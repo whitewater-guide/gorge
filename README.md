@@ -406,6 +406,7 @@ Here are some recommendations for writing scripts for new sources
 - Per-script binaries for third-party consumption
 - Add desription attribute to scripts (cause nzbop is ugly)
 - GRAPHQL api with sources and local gauges
+- (DX) add git pre-push hooks to test and lint
 
 ## License
 
