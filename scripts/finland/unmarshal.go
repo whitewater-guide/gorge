@@ -22,13 +22,13 @@ type stationsList struct {
 }
 
 type station struct {
-	Lat       string `json:"KoordLat"`
-	Lng       string `json:"KoordLong"`
-	KuntaNimi string `json:"KuntaNimi"`
-	Nro       string `json:"Nro"`
-	PaikkaID  int    `json:"Paikka_Id"`
-	Nimi      string `json:"Nimi"`
-	SuureID   int    `json:"Suure_Id"`
+	X         float64 `json:"KoordErTmIta"`
+	Y         float64 `json:"KoordErTmPohj"`
+	KuntaNimi string  `json:"KuntaNimi"`
+	Nro       string  `json:"Nro"`
+	PaikkaID  int     `json:"Paikka_Id"`
+	Nimi      string  `json:"Nimi"`
+	SuureID   int     `json:"Suure_Id"`
 }
 
 type virtaamaList struct {

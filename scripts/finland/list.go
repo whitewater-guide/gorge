@@ -2,11 +2,12 @@ package finland
 
 import (
 	"fmt"
-	"strconv"
 	"strings"
 
 	"github.com/whitewater-guide/gorge/core"
 )
+
+const epsg3067 = "+proj=utm +zone=35 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"
 
 func (s *scriptFinland) fetchList(url string, gauges *core.Gauges) error {
 	var data stationsList
@@ -15,8 +16,10 @@ func (s *scriptFinland) fetchList(url string, gauges *core.Gauges) error {
 		return err
 	}
 	for _, st := range data.Value {
-		lat, _ := strconv.ParseFloat(st.Lat, 64)
-		lng, _ := strconv.ParseFloat(st.Lng, 64)
+		lon, lat, err := core.ToEPSG4326(st.X, st.Y, epsg3067)
+		if err != nil {
+			continue
+		}
 		var levelUnit, flowUnit, unit string
 		if st.SuureID == 2 {
 			flowUnit = "m3/s"
@@ -41,8 +44,8 @@ func (s *scriptFinland) fetchList(url string, gauges *core.Gauges) error {
 			LevelUnit: levelUnit,
 			FlowUnit:  flowUnit,
 			Location: &core.Location{
-				Latitude:  core.TruncCoord(lat / 10000),
-				Longitude: core.TruncCoord(lng / 10000),
+				Latitude:  core.TruncCoord(lat),
+				Longitude: core.TruncCoord(lon),
 			},
 		})
 	}

@@ -16,7 +16,7 @@ type scriptFinland struct {
 
 func (s *scriptFinland) ListGauges() (core.Gauges, error) {
 	result := core.Gauges{}
-	err := s.fetchList(fmt.Sprintf("%s/Paikka?$skip=0&$filter=Suure_Id%%20eq%%202%%20or%%20Suure_Id%%20eq%%201&$select=KoordLat,KoordLong,KuntaNimi,Nro,Paikka_Id,Nimi,Suure_Id", s.url), &result)
+	err := s.fetchList(fmt.Sprintf("%s/Paikka?$skip=0&$filter=Suure_Id%%20eq%%202%%20or%%20Suure_Id%%20eq%%201&$select=KoordErTmIta,KoordErTmPohj,KuntaNimi,Nro,Paikka_Id,Nimi,Suure_Id", s.url), &result)
 	if err != nil {
 		return nil, err
 	}

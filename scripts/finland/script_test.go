@@ -34,8 +34,8 @@ func TestFinland_ListGauges(t *testing.T) {
 			},
 			LevelUnit: "cm",
 			Location: &core.Location{
-				Latitude:  63.0041,
-				Longitude: 26.4053,
+				Latitude:  62.28418,
+				Longitude: 27.89071,
 			},
 			Name: "Tervo - Nilakka, Äyskoski - 1402710 (level)",
 			URL:  "https://wwwi2.ymparisto.fi/i2/14/q1402710y/wqfi.html",
@@ -47,8 +47,8 @@ func TestFinland_ListGauges(t *testing.T) {
 			},
 			FlowUnit: "m3/s",
 			Location: &core.Location{
-				Latitude:  67.0814,
-				Longitude: 25.4450,
+				Latitude:  61.2717,
+				Longitude: 27.7022,
 			},
 			Name: "Sodankylä - Unari, Sodankylä - 65501 (discharge)",
 			URL:  "",
