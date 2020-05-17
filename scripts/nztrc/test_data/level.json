@@ -1,0 +1,30 @@
+[
+    {
+        "siteID": 6,
+        "title": "Kaikura below 7346",
+        "lat": "-39.72498159",
+        "lng": "174.43136500",
+        "measureType": "normal",
+        "measure": "0.28",
+        "unit": "m",
+        "fillColour": "6c961d",
+        "description": "<span class='gmap-popup-bold'>River level 05:30am</span>Steady, 0.28m",
+        "icon": null,
+        "canSwim": "",
+        "link": "https://www.trc.govt.nz/environment/maps-and-data/site-details/?siteID=6&measureID=7"
+    },
+    {
+        "siteID": 8,
+        "title": "Kapoaiaia at Cape Egmont",
+        "lat": "-39.27430471",
+        "lng": "173.75802613",
+        "measureType": "normal",
+        "measure": "0.52",
+        "unit": "m",
+        "fillColour": "6c961d",
+        "description": "<span class='gmap-popup-bold'>River level 05:30am</span>Steady, 0.52m",
+        "icon": null,
+        "canSwim": "",
+        "link": "https://www.trc.govt.nz/environment/maps-and-data/site-details/?siteID=8&measureID=7"
+    }
+]

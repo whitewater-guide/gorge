@@ -1,0 +1,30 @@
+[
+    {
+        "siteID": 8,
+        "title": "Kapoaiaia at Cape Egmont",
+        "lat": "-39.27430471",
+        "lng": "173.75802613",
+        "measureType": "normal",
+        "measure": "0.41",
+        "unit": "m3/sec",
+        "fillColour": "6c961d",
+        "description": "<span class='gmap-popup-bold'>River flow 05:30am</span>Steady, 0.41m3/sec",
+        "icon": null,
+        "canSwim": "",
+        "link": "https://www.trc.govt.nz/environment/maps-and-data/site-details/?siteID=8&measureID=9"
+    },
+    {
+        "siteID": 12,
+        "title": "Mangaehu at Huinga",
+        "lat": "-39.38840786",
+        "lng": "174.46663554",
+        "measureType": "normal",
+        "measure": "2.27",
+        "unit": "m3/sec",
+        "fillColour": "f68e13",
+        "description": "<span class='gmap-popup-bold'>River flow 05:45am</span>Increasing, 2.27m3/sec",
+        "icon": null,
+        "canSwim": "",
+        "link": "https://www.trc.govt.nz/environment/maps-and-data/site-details/?siteID=12&measureID=9"
+    }
+]

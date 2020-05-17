@@ -1,0 +1,13 @@
+###
+# List gauges
+POST http://localhost:7080/upstream/nztrc/gauges
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+# Harvest measurements
+POST http://localhost:7080/upstream/nztrc/measurements
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
