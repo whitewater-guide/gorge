@@ -3,22 +3,11 @@ package nzmbh
 import (
 	"encoding/xml"
 	"net/http"
-	"regexp"
 	"strconv"
 	"strings"
 
-	"github.com/google/uuid"
 	"github.com/whitewater-guide/gorge/core"
 )
-
-var nameRegex = regexp.MustCompile(`\W`)
-var space = uuid.MustParse("344d640b-2569-4b47-ab4e-1541b23b864f")
-
-func codeFromName(name string) string {
-	code := nameRegex.ReplaceAllString(strings.TrimSpace(name), "")
-	code = strings.ToLower(code)
-	return uuid.NewMD5(space, []byte(code)).String()
-}
 
 type site struct {
 	loc  core.Location
@@ -53,7 +42,7 @@ func (s *scriptNzmbh) fetchSiteList() (map[string]site, error) {
 		if err != nil {
 			continue
 		}
-		result[codeFromName(m.SiteList.Site)] = site{
+		result[core.CodeFromName(m.SiteList.Site)] = site{
 			loc: core.Location{
 				Latitude:  core.TruncCoord(lat),
 				Longitude: core.TruncCoord(lng),

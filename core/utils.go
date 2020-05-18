@@ -4,8 +4,11 @@ import (
 	"context"
 	"encoding/json"
 	"math"
+	"regexp"
+	"strings"
 	"time"
 
+	"github.com/google/uuid"
 	"github.com/mattn/go-nulltype"
 )
 
@@ -126,4 +129,14 @@ func HarvestSlice(script Script, codes StringSet, since int64) (Measurements, er
 	out := SinkToSlice(ctx, in)
 	script.Harvest(ctx, in, errCh, codes, since)
 	return <-out, <-errCh
+}
+
+var space = uuid.MustParse("344d640b-2569-4b47-ab4e-1541b23b864f")
+var nameRegex = regexp.MustCompile(`\W`)
+
+// CodeFromName is used to generate stable ids for gauges that only have name
+func CodeFromName(name string) string {
+	code := nameRegex.ReplaceAllString(strings.TrimSpace(name), "")
+	code = strings.ToLower(code)
+	return uuid.NewMD5(space, []byte(code)).String()
 }

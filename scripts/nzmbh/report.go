@@ -25,7 +25,7 @@ func (s *scriptNzmbh) fetchReport(recv chan<- *core.Measurement, errs chan<- err
 		recv <- &core.Measurement{
 			GaugeID: core.GaugeID{
 				Script: s.name,
-				Code:   codeFromName(e.SiteName),
+				Code:   core.CodeFromName(e.SiteName),
 			},
 			Timestamp: core.HTime{
 				Time: e.LastUpdate.Time,

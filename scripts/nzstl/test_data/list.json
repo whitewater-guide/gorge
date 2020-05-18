@@ -1,0 +1,63 @@
+{
+    "catchments": [
+        "Aparima",
+        "Kingswell",
+        "Mataura",
+        "Oreti",
+        "Otepuni",
+        "Waiau",
+        "Waihopai",
+        "Waikawa",
+        "Waimatuku",
+        "Waimeamea",
+        "Waituna"
+    ],
+    "sort": [],
+    "sites": [
+        {
+            "Site": "Aparima River at Dunrobin",
+            "DataTo": "19/05/2020 5:00:00 a.m.",
+            "WaterLevel": {
+                "Value": "0.511",
+                "Measurement": "Water Level"
+            },
+            "Broadcast": "1.58",
+            "AboveNormal": "-0.089",
+            "Change": "0",
+            "MaxLevel": "0.006",
+            "MaxDate": "12/05/2020 5:00:00 a.m.",
+            "Flow": {
+                "Value": "2.45",
+                "Measurement": "Flow"
+            },
+            "MaxFlow": "4.51",
+            "MaxDate": "12/05/2020 5:00:00 a.m.",
+            "Northing": "4923512",
+            "Easting": "1220049",
+            "Catchment": "Aparima",
+            "DataOwnership": "0",
+            "MetresBelowBroadcast": "1.589"
+        },
+        {
+            "Site": "Aparima River at Etalvale",
+            "DataTo": "19/05/2020 4:30:00 a.m.",
+            "WaterLevel": {
+                "Value": "0.691",
+                "Measurement": "Water Level"
+            },
+            "Broadcast": "1.75",
+            "AboveNormal": "-0.209",
+            "Change": "-1",
+            "MaxLevel": "-0.114",
+            "MaxDate": "12/05/2020 5:10:00 a.m.",
+            "Flow": "",
+            "MaxFlow": "",
+            "MaxDate": "12/05/2020 5:10:00 a.m.",
+            "Northing": "4910704",
+            "Easting": "1221858",
+            "Catchment": "Aparima",
+            "DataOwnership": "0",
+            "MetresBelowBroadcast": "1.759"
+        }
+    ]
+}
