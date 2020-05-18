@@ -32,8 +32,8 @@ func TestNzstl_ListGauges(t *testing.T) {
 			FlowUnit:  "m3/s",
 			LevelUnit: "m",
 			Location: &core.Location{
-				Latitude:  -49.59786,
-				Longitude: 155.21402,
+				Latitude:  -45.73744,
+				Longitude: 168.11601,
 			},
 			Name: "Aparima River at Dunrobin",
 			URL:  "http://envdata.es.govt.nz/",
@@ -45,8 +45,8 @@ func TestNzstl_ListGauges(t *testing.T) {
 			},
 			LevelUnit: "m",
 			Location: &core.Location{
-				Latitude:  -49.70853,
-				Longitude: 155.20419,
+				Latitude:  -45.8533,
+				Longitude: 168.12916,
 			},
 			Name: "Aparima River at Etalvale",
 			URL:  "http://envdata.es.govt.nz/",
