@@ -1,23 +1,23 @@
 package nzmbh
 
 import (
-	"crypto/md5"
 	"encoding/xml"
-	"fmt"
 	"net/http"
 	"regexp"
 	"strconv"
 	"strings"
 
+	"github.com/google/uuid"
 	"github.com/whitewater-guide/gorge/core"
 )
 
 var nameRegex = regexp.MustCompile(`\W`)
+var space = uuid.MustParse("344d640b-2569-4b47-ab4e-1541b23b864f")
 
 func codeFromName(name string) string {
 	code := nameRegex.ReplaceAllString(strings.TrimSpace(name), "")
 	code = strings.ToLower(code)
-	return fmt.Sprintf("%x", md5.Sum([]byte(code)))
+	return uuid.NewMD5(space, []byte(code)).String()
 }
 
 type site struct {

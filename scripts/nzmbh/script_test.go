@@ -28,7 +28,7 @@ func TestNzmbh_ListGauges(t *testing.T) {
 		core.Gauge{
 			GaugeID: core.GaugeID{
 				Script: "nzmbh",
-				Code:   "fea319af4a13cc2f45e76f85e393d471",
+				Code:   "fa1e028d-743e-3210-99e8-e0757dce8959",
 			},
 			FlowUnit:  "m3/s",
 			LevelUnit: "m",
@@ -42,7 +42,7 @@ func TestNzmbh_ListGauges(t *testing.T) {
 		core.Gauge{
 			GaugeID: core.GaugeID{
 				Script: "nzmbh",
-				Code:   "c48b02423dacdee2f9a74341b8a7846e",
+				Code:   "a4976a69-9c0b-3965-9766-a1494bfbe9ec",
 			},
 			LevelUnit: "m",
 			Location: &core.Location{
@@ -71,7 +71,7 @@ func TestNzmbh_Harvest(t *testing.T) {
 		&core.Measurement{
 			GaugeID: core.GaugeID{
 				Script: "nzmbh",
-				Code:   "fea319af4a13cc2f45e76f85e393d471",
+				Code:   "fa1e028d-743e-3210-99e8-e0757dce8959",
 			},
 			Flow:  nulltype.NullFloat64Of(3.38),
 			Level: nulltype.NullFloat64Of(1.408),
@@ -82,7 +82,7 @@ func TestNzmbh_Harvest(t *testing.T) {
 		&core.Measurement{
 			GaugeID: core.GaugeID{
 				Script: "nzmbh",
-				Code:   "c48b02423dacdee2f9a74341b8a7846e",
+				Code:   "a4976a69-9c0b-3965-9766-a1494bfbe9ec",
 			},
 			Level: nulltype.NullFloat64Of(0.048),
 			Timestamp: core.HTime{
