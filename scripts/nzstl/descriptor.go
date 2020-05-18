@@ -8,7 +8,7 @@ import (
 
 var Descriptor = &core.ScriptDescriptor{
 	Name:        "nzstl",
-	Description: "New Zealand: Environment Canterbury",
+	Description: "New Zealand: Environment Southland",
 	Mode:        core.AllAtOnce,
 	DefaultOptions: func() interface{} {
 		return &optionsNzstl{}
