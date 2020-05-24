@@ -1,0 +1,1277 @@
+<?xml version="1.0" ?>
+<Hilltop>
+    <Agency>GWRC</Agency>
+    <Measurement SiteName="Boggy Pond Outlet Drain at Parera Rd">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>10636</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Booths Creek at Andersons Line">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>332</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Burlings Stream at Western Lake Road">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>749</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Dock Creek at U/S Otakura Junction">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>870</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Horokiri Stream at Snodgrass">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>266</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Huangarua at Hautotara">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>1079</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Hutt River at Kaitoke">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>1225</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Kopuaranga River at Stuarts">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>788</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Mangatarere River at Gorge">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>304</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Mangatarere River at State Highway 2">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>77</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Mangatarere at Belvedere Bridge">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>1028</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Orongorongo River at Truss Bridge">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>999</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Otaki River at Pukehinau">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>1143</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Otakura Stream at Upstream JKD Weir">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>10558</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Otakura Stream at Weir">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>279</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Owhiro Bay Stream at Mouth">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>113</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Pahaoa River at Hinakura">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>2120</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Parkvale Stream at Renalls Weir">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>273</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Parkvale tributary at Lowes Reserve">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>97</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Pauatahanui Stream at Gorge">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>539</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Porirua Stream at Town Centre">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>278</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Ruakokopatuna at Iraia">
+        <DataSource Name="Water Level for Small Streams" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>356</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Ruamahanga River at Gladstone Bridge">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>-297</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Ruamahanga River at Mt Bruce">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>171</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Ruamahanga River at Wardells">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>1137</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Ruamahanga River at Wardells">
+        <DataSource Name="Water Level 2" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage 2</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>1138</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Taueru River at Te Weraiti">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>2669</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Tauherenikau at Gorge">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>384</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Taupo Stream at Flax Swamp">
+        <DataSource Name="Water Level for Small Streams" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>753</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Waiohine River at Gorge">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>-241</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Waiohine River at Gorge">
+        <DataSource Name="Water Level 2" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage 2</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>-746</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Waipoua River at Mikimiki Bridge">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>66</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Wairio Diversion at Parera Rd">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>10723</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Whangaehu River at Waihi">
+        <DataSource Name="Water Level for Small Streams" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>478</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Booths Creek at Andersons Line">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Flow</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>m&#179;/sec</Units>
+                <Format>#.###</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>0.0241733</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Burlings Stream at Western Lake Road">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Flow</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>m&#179;/sec</Units>
+                <Format>#.###</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>0.0735817</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Horokiri Stream at Snodgrass">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Flow</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>m&#179;/sec</Units>
+                <Format>#.###</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>0.155288</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Huangarua at Hautotara">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Flow</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>m&#179;/sec</Units>
+                <Format>#.###</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>0.4758237</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Hutt River at Kaitoke">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Flow</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>m&#179;/sec</Units>
+                <Format>#.###</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>1.422875</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Kopuaranga River at Stuarts">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Flow</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>m&#179;/sec</Units>
+                <Format>#.###</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>0.676535</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Mangatarere River at Gorge">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Flow</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>m&#179;/sec</Units>
+                <Format>#.###</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>0.2315804</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Mangatarere River at State Highway 2">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Flow</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>m&#179;/sec</Units>
+                <Format>#.###</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>0.6790204</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Mangatarere at Belvedere Bridge">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Flow</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>m&#179;/sec</Units>
+                <Format>#.###</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>0.3837623</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Orongorongo River at Truss Bridge">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Flow</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>m&#179;/sec</Units>
+                <Format>#.###</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>0.177455</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Otaki River at Pukehinau">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Flow</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>m&#179;/sec</Units>
+                <Format>#.###</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>6.853501</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Otakura Stream at Weir">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Flow</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>m&#179;/sec</Units>
+                <Format>#.###</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>0.184392</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Owhiro Bay Stream at Mouth">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Flow</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>m&#179;/sec</Units>
+                <Format>#.###</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>0.022471</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Pahaoa River at Hinakura">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Flow</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>m&#179;/sec</Units>
+                <Format>#.###</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>0.808896</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Parkvale Stream at Renalls Weir">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Flow</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>m&#179;/sec</Units>
+                <Format>#.###</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>0.2140226</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Parkvale tributary at Lowes Reserve">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Flow</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>m&#179;/sec</Units>
+                <Format>#.###</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>0.0048725</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Pauatahanui Stream at Gorge">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Flow</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>m&#179;/sec</Units>
+                <Format>#.###</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>0.2810872</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Porirua Stream at Town Centre">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Flow</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>m&#179;/sec</Units>
+                <Format>#.###</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>0.1806372</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Ruakokopatuna at Iraia">
+        <DataSource Name="Water Level for Small Streams" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Flow</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>l/s</Units>
+                <Format>#.###</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>60.42002</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Ruamahanga River at Mt Bruce">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Flow</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>m&#179;/sec</Units>
+                <Format>#.###</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>1.2206106</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Ruamahanga River at Wardells">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Flow</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>m&#179;/sec</Units>
+                <Format>#.###</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>2.893117</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Taueru River at Te Weraiti">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Flow</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>m&#179;/sec</Units>
+                <Format>#.###</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>0.1070013</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Tauherenikau at Gorge">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Flow</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>m&#179;/sec</Units>
+                <Format>#.###</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>1.9901176</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Taupo Stream at Flax Swamp">
+        <DataSource Name="Water Level for Small Streams" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Flow</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>l/s</Units>
+                <Format>#.###</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>26.621217</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Waiohine River at Gorge">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Flow</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>m&#179;/sec</Units>
+                <Format>#.###</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>4.0270961</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Waipoua River at Mikimiki Bridge">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Flow</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>m&#179;/sec</Units>
+                <Format>#.###</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>0.4898394</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Whangaehu River at Waihi">
+        <DataSource Name="Water Level for Small Streams" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Flow</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>l/s</Units>
+                <Format>#.###</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>48.088366</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Burlings Stream at Western Lake Road">
+        <DataSource Name="Water Temperature" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Water Temperature</ItemName>
+                <ItemFormat>F</ItemFormat>
+                <Units>&#176;C</Units>
+                <Format>#.#</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>10.2</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Waipoua River at Mikimiki Bridge">
+        <DataSource Name="Water Temperature" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Water Temperature</ItemName>
+                <ItemFormat>F</ItemFormat>
+                <Units>&#176;C</Units>
+                <Format>#.#</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>9.3</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Hutt River at Birchville">
+        <DataSource Name="Dissolved Oxygen" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Dissolved Oxygen</ItemName>
+                <ItemFormat>F</ItemFormat>
+                <Units>ppm</Units>
+                <Format>$$$</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>11.6</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Hutt River at Birchville">
+        <DataSource Name="Dissolved Oxygen % Sat" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Dissolved Oxygen % Sat</ItemName>
+                <ItemFormat>F</ItemFormat>
+                <Units>% satn.</Units>
+                <Format>#.#</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>101.9</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Hutt River at Kaitoke Weir">
+        <DataSource Name="Dissolved Oxygen" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Dissolved Oxygen</ItemName>
+                <ItemFormat>F</ItemFormat>
+                <Units>ppm</Units>
+                <Format>$$$</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>7.58</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Hutt River at Kaitoke Weir">
+        <DataSource Name="Dissolved Oxygen % Sat" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Dissolved Oxygen % Sat</ItemName>
+                <ItemFormat>F</ItemFormat>
+                <Units>% satn.</Units>
+                <Format>#.#</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>64.5</I1>
+            </E>
+        </Data>
+    </Measurement>
+</Hilltop>

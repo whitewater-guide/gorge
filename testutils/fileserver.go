@@ -2,6 +2,7 @@ package testutils
 
 import (
 	"bytes"
+	"fmt"
 	"io"
 	"net/http"
 	"net/http/httptest"
@@ -43,6 +44,7 @@ func SetupFileServer(paths map[string]string, auth Authorizer) *httptest.Server 
 				return
 			}
 		}
+		fmt.Println("filename", r.URL)
 		filename := "./test_data" + r.URL.Path
 		fileTemp := ""
 		if paths != nil {

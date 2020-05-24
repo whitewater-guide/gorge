@@ -1,0 +1,306 @@
+<?xml version="1.0" ?>
+<HilltopServer>
+<Agency>GWRC</Agency>
+<Site Name="Boggy Pond Outlet Drain at Parera Rd">
+<Latitude>-41.24507617</Latitude>
+<Longitude>175.27399557</Longitude>
+</Site>
+<Site Name="Booths Creek at Andersons Line">
+<Latitude>-41.01501351</Latitude>
+<Longitude>175.53607293</Longitude>
+</Site>
+<Site Name="Burlings Stream at Western Lake Road">
+<Latitude>-41.23869924</Latitude>
+<Longitude>175.16470073</Longitude>
+</Site>
+<Site Name="Clarks Creek at Birchville Dam">
+<Latitude>-41.08956507</Latitude>
+<Longitude>175.08680434</Longitude>
+</Site>
+<Site Name="Dock Creek at U/S Otakura Junction">
+<Latitude>-41.18902618</Latitude>
+<Longitude>175.34668159</Longitude>
+</Site>
+<Site Name="Floodway at Hikinui Sill">
+<Latitude>-41.21763103</Latitude>
+<Longitude>175.38529051</Longitude>
+</Site>
+<Site Name="Floodway at Jenkins Dip">
+<Latitude>-41.19153295</Latitude>
+<Longitude>175.43628148</Longitude>
+</Site>
+<Site Name="Floodway at Oporua">
+<Latitude>-41.26197716</Latitude>
+<Longitude>175.28334347</Longitude>
+</Site>
+<Site Name="Horokiri Stream at Snodgrass">
+<Latitude>-41.07930266</Latitude>
+<Longitude>174.92617299</Longitude>
+</Site>
+<Site Name="Akatarawa River at Cemetery">
+<Latitude>-41.08584512</Latitude>
+<Longitude>175.09869850</Longitude>
+</Site>
+<Site Name="Huangarua at Hautotara">
+<Latitude>-41.29641222</Latitude>
+<Longitude>175.47489946</Longitude>
+</Site>
+<Site Name="Hutt River at Te Marua">
+<Latitude>-41.07757164</Latitude>
+<Longitude>175.14395315</Longitude>
+</Site>
+<Site Name="Hutt River at Birchville">
+<Latitude>-41.10017595</Latitude>
+<Longitude>175.09076014</Longitude>
+</Site>
+<Site Name="Hutt River at Estuary Bridge">
+<Latitude>-41.23314239</Latitude>
+<Longitude>174.90100936</Longitude>
+</Site>
+<Site Name="Hutt River at Kaitoke">
+<Latitude>-41.05101129</Latitude>
+<Longitude>175.19123118</Longitude>
+</Site>
+<Site Name="Hutt River at Taita Gorge">
+<Latitude>-41.15660826</Latitude>
+<Longitude>174.98478200</Longitude>
+</Site>
+<Site Name="Kaiwharawhara Stream 700m u/s of Mouth">
+<Latitude>-41.25802710</Latitude>
+<Longitude>174.78469607</Longitude>
+</Site>
+<Site Name="Kopuaranga at Palmers Bridge">
+<Latitude>-40.81893375</Latitude>
+<Longitude>175.67185573</Longitude>
+</Site>
+<Site Name="Kopuaranga River at Stuarts">
+<Latitude>-40.89357041</Latitude>
+<Longitude>175.69179599</Longitude>
+</Site>
+<Site Name="Korokoro Stream at Mill Weir">
+<Latitude>-41.21239844</Latitude>
+<Longitude>174.86078400</Longitude>
+</Site>
+<Site Name="Mangaone Stream at Ratanui">
+<Latitude>-40.82742334</Latitude>
+<Longitude>175.15669569</Longitude>
+</Site>
+<Site Name="Mangaroa River at Te Marua">
+<Latitude>-41.09432204</Latitude>
+<Longitude>175.12809110</Longitude>
+</Site>
+<Site Name="Mangatarere River at Gorge">
+<Latitude>-40.93499383</Latitude>
+<Longitude>175.51186713</Longitude>
+</Site>
+<Site Name="Mangatarere River at State Highway 2">
+<Latitude>-41.05477704</Latitude>
+<Longitude>175.49618121</Longitude>
+</Site>
+<Site Name="Mangatarere at Belvedere Bridge">
+<Latitude>-41.01270695</Latitude>
+<Longitude>175.50978843</Longitude>
+</Site>
+<Site Name="Matthews Lagoon Outlet at Parera Rd">
+<Latitude>-41.24568445</Latitude>
+<Longitude>175.27420760</Longitude>
+</Site>
+<Site Name="Mikimiki Stream at Upper Mikimiki Valley">
+<Latitude>-40.84160547</Latitude>
+<Longitude>175.55011992</Longitude>
+</Site>
+<Site Name="Mill Creek at Papanui">
+<Latitude>-41.17779600</Latitude>
+<Longitude>174.77498131</Longitude>
+</Site>
+<Site Name="Orongorongo River at Truss Bridge">
+<Latitude>-41.29704076</Latitude>
+<Longitude>175.03266340</Longitude>
+</Site>
+<Site Name="Otaki River at Pukehinau">
+<Latitude>-40.82204660</Latitude>
+<Longitude>175.19957526</Longitude>
+</Site>
+<Site Name="Otakura Stream at Upstream JKD Weir">
+<Latitude>-41.19328788</Latitude>
+<Longitude>175.32039842</Longitude>
+</Site>
+<Site Name="Otakura Stream at Weir">
+<Latitude>-41.18728715</Latitude>
+<Longitude>175.36738907</Longitude>
+</Site>
+<Site Name="Owhiro Bay Stream at Mouth">
+<Latitude>-41.34411269</Latitude>
+<Longitude>174.75812135</Longitude>
+</Site>
+<Site Name="Pahaoa River at Hinakura">
+<Latitude>-41.29805044</Latitude>
+<Longitude>175.64767819</Longitude>
+</Site>
+<Site Name="Pakuratahi River at Truss Bridge">
+<Latitude>-41.12413612</Latitude>
+<Longitude>175.18957731</Longitude>
+</Site>
+<Site Name="Papawai Stream at Fabians Road">
+<Latitude>-41.09518572</Latitude>
+<Longitude>175.47431592</Longitude>
+</Site>
+<Site Name="Parkvale Stream at Renalls Weir">
+<Latitude>-41.07801993</Latitude>
+<Longitude>175.54166084</Longitude>
+</Site>
+<Site Name="Parkvale tributary at Lowes Reserve">
+<Latitude>-40.99686768</Latitude>
+<Longitude>175.59297497</Longitude>
+</Site>
+<Site Name="Pauatahanui Stream at Gorge">
+<Latitude>-41.11687356</Latitude>
+<Longitude>174.92341227</Longitude>
+</Site>
+<Site Name="Porirua Stream at Town Centre">
+<Latitude>-41.14093271</Latitude>
+<Longitude>174.84296268</Longitude>
+</Site>
+<Site Name="Ruakokopatuna at Iraia">
+<Latitude>-41.37917204</Latitude>
+<Longitude>175.37242479</Longitude>
+</Site>
+<Site Name="Ruamahanga River at Barrage South">
+<Latitude>-41.31458711</Latitude>
+<Longitude>175.19395826</Longitude>
+</Site>
+<Site Name="Ruamahanga River at Gladstone Bridge">
+<Latitude>-41.07237221</Latitude>
+<Longitude>175.62913522</Longitude>
+</Site>
+<Site Name="Ruamahanga River at Mt Bruce">
+<Latitude>-40.75458017</Latitude>
+<Longitude>175.59803009</Longitude>
+</Site>
+<Site Name="Ruamahanga River at Waihenga Bridge">
+<Latitude>-41.19685836</Latitude>
+<Longitude>175.43999678</Longitude>
+</Site>
+<Site Name="Ruamahanga River at Wardells">
+<Latitude>-41.00481677</Latitude>
+<Longitude>175.67236373</Longitude>
+</Site>
+<Site Name="Tauanui River at Gorge">
+<Latitude>-41.40279286</Latitude>
+<Longitude>175.25669983</Longitude>
+</Site>
+<Site Name="Tauanui River at Lake Ferry Road">
+<Latitude>-41.34332486</Latitude>
+<Longitude>175.20871503</Longitude>
+</Site>
+<Site Name="Taueru River at Te Weraiti">
+<Latitude>-40.99380965</Latitude>
+<Longitude>175.75949331</Longitude>
+</Site>
+<Site Name="Taueru River at Te Whiti Rd Bridge">
+<Latitude>-41.06337984</Latitude>
+<Longitude>175.66805882</Longitude>
+</Site>
+<Site Name="Tauherenikau at Gorge">
+<Latitude>-41.06814004</Latitude>
+<Longitude>175.35741926</Longitude>
+</Site>
+<Site Name="Taupo Stream at Flax Swamp">
+<Latitude>-41.07658384</Latitude>
+<Longitude>174.86977920</Longitude>
+</Site>
+<Site Name="Te Mara Stream at Kiriwhakapapa">
+<Latitude>-40.80703868</Latitude>
+<Longitude>175.60120239</Longitude>
+</Site>
+<Site Name="Tilsons Creek at Scott Culvert">
+<Latitude>-41.09377674</Latitude>
+<Longitude>175.49245499</Longitude>
+</Site>
+<Site Name="Turanganui at Whakatomotomo Road End">
+<Latitude>-41.40938672</Latitude>
+<Longitude>175.24745298</Longitude>
+</Site>
+<Site Name="Waikanae River at Water Treatment Plant">
+<Latitude>-40.88809773</Latitude>
+<Longitude>175.07274447</Longitude>
+</Site>
+<Site Name="Waingawa River at Kaituna">
+<Latitude>-40.88669021</Latitude>
+<Longitude>175.52292770</Longitude>
+</Site>
+<Site Name="Wainuiomata River at Leonard Wood Park">
+<Latitude>-41.28400515</Latitude>
+<Longitude>174.94738309</Longitude>
+</Site>
+<Site Name="Wainuiomata River at Manuka Track">
+<Latitude>-41.25677265</Latitude>
+<Longitude>175.00892684</Longitude>
+</Site>
+<Site Name="Waiohine River at Gorge">
+<Latitude>-41.01636817</Latitude>
+<Longitude>175.40011859</Longitude>
+</Site>
+<Site Name="Waipoua River at Mikimiki Bridge">
+<Latitude>-40.84517651</Latitude>
+<Longitude>175.61744894</Longitude>
+</Site>
+<Site Name="Wairio Diversion at Parera Rd">
+<Latitude>-41.24486114</Latitude>
+<Longitude>175.27439384</Longitude>
+</Site>
+<Site Name="Waitohu Stream at Water Supply Intake">
+<Latitude>-40.76666669</Latitude>
+<Longitude>175.21423898</Longitude>
+</Site>
+<Site Name="Waiwhetu Stream at Whites Line East">
+<Latitude>-41.22479224</Latitude>
+<Longitude>174.92057144</Longitude>
+</Site>
+<Site Name="Whakatikei River at Dude Ranch">
+<Latitude>-41.08184895</Latitude>
+<Longitude>175.03018248</Longitude>
+</Site>
+<Site Name="Whangaehu River at Waihi">
+<Latitude>-40.83286002</Latitude>
+<Longitude>175.77661587</Longitude>
+</Site>
+<Site Name="Wharemauku Stream at Coastlands">
+<Latitude>-40.91784897</Latitude>
+<Longitude>175.00505075</Longitude>
+</Site>
+<Site Name="Whakamoekau at Majors">
+<Latitude>-40.86759407</Latitude>
+<Longitude>175.57510822</Longitude>
+</Site>
+<Site Name="Whareama River at Waiteko">
+<Latitude>-40.95978164</Latitude>
+<Longitude>176.04275526</Longitude>
+</Site>
+<Site Name="Booths Creek at Golf Club Pond">
+<Latitude>-41.00390702</Latitude>
+<Longitude>175.54020049</Longitude>
+</Site>
+<Site Name="Makahakaha at Gladstone Rd East Culv">
+<Latitude>-41.08454698</Latitude>
+<Longitude>175.63908432</Longitude>
+</Site>
+<Site Name="Makoura Stream at Colombo Rd">
+<Latitude>-40.96086126</Latitude>
+<Longitude>175.66038251</Longitude>
+</Site>
+<Site Name="Waipipi Stream at Waipipi Road Culvert">
+<Latitude>-40.89320437</Latitude>
+<Longitude>175.66101572</Longitude>
+</Site>
+<Site Name="Waipoua River at Mikimiki bridge Keep">
+</Site>
+<Site Name="Hutt River at Kaitoke Weir">
+<Latitude>-41.05198789</Latitude>
+<Longitude>175.19197751</Longitude>
+</Site>
+<Site Name="Papawai Stream at U/S Oxi Pond Confl">
+<Latitude>-41.10309313</Latitude>
+<Longitude>175.49064027</Longitude>
+</Site>
+</HilltopServer>
