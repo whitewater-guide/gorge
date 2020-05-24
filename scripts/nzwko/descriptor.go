@@ -1,4 +1,4 @@
-package nzwaikato
+package nzwko
 
 import (
 	"fmt"
@@ -7,7 +7,7 @@ import (
 )
 
 var Descriptor = &core.ScriptDescriptor{
-	Name:        "nzwaikato",
+	Name:        "nzwko",
 	Description: "New Zealand: Waikato Regional Council",
 	Mode:        core.AllAtOnce,
 	DefaultOptions: func() interface{} {

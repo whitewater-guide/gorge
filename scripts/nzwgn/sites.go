@@ -9,11 +9,6 @@ import (
 	"github.com/whitewater-guide/gorge/core"
 )
 
-type site struct {
-	loc  core.Location
-	name string
-}
-
 type dataItem struct {
 	core.Measurement
 	levelUnit string

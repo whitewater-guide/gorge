@@ -145,7 +145,7 @@ Mino bassin.
 - **Terms of use**: ❌  
 - **License**: Inquiry sent, some gauges are not permitted, need to know which
 - **API Key Required**: 
-- **Script**: [link](nzwaikato)
+- **Script**: [link](nzwko)
 - **Issue:** https://github.com/whitewater-guide/gorge/issues/5
 
 ## Quebec
