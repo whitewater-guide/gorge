@@ -19,6 +19,7 @@ import (
 	"github.com/whitewater-guide/gorge/scripts/nzstl"
 	"github.com/whitewater-guide/gorge/scripts/nztrc"
 	"github.com/whitewater-guide/gorge/scripts/nzwaikato"
+	"github.com/whitewater-guide/gorge/scripts/nzwgn"
 	"github.com/whitewater-guide/gorge/scripts/quebec"
 	"github.com/whitewater-guide/gorge/scripts/riverzone"
 	"github.com/whitewater-guide/gorge/scripts/russia1"
@@ -58,6 +59,7 @@ func init() {
 	Registry.Register(nzstl.Descriptor)
 	Registry.Register(nztrc.Descriptor)
 	Registry.Register(nzwaikato.Descriptor)
+	Registry.Register(nzwgn.Descriptor)
 	Registry.Register(quebec.Descriptor)
 	Registry.Register(riverzone.Descriptor)
 	Registry.Register(russia1.Descriptor)

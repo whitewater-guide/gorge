@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<Hilltop>
+    <Agency>GWRC</Agency>
+    <Measurement SiteName="Booths Creek at Andersons Line">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>332</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Kopuaranga River at Stuarts">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Stage</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>mm</Units>
+                <Format>####</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>788</I1>
+            </E>
+        </Data>
+    </Measurement>
+    <Measurement SiteName="Kopuaranga River at Stuarts">
+        <DataSource Name="Water Level" NumItems="1">
+            <TSType>StdSeries</TSType>
+            <DataType>SimpleTimeSeries</DataType>
+            <Interpolation>Instant</Interpolation>
+            <ItemInfo ItemNumber="1">
+                <ItemName>Flow</ItemName>
+                <ItemFormat>I</ItemFormat>
+                <Units>m&#179;/sec</Units>
+                <Format>#.###</Format>
+            </ItemInfo>
+        </DataSource>
+        <Data DateFormat="Calendar" NumItems="1">
+            <E>
+                <T>2020-05-24T17:00:00</T>
+                <I1>0.676535</I1>
+            </E>
+        </Data>
+    </Measurement>
+</Hilltop>

@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<HilltopServer>
+    <Agency>GWRC</Agency>
+    <Site Name="Booths Creek at Andersons Line">
+        <Latitude>-41.01501351</Latitude>
+        <Longitude>175.53607293</Longitude>
+    </Site>
+    <Site Name="Kopuaranga River at Stuarts">
+        <Latitude>-40.89357041</Latitude>
+        <Longitude>175.69179599</Longitude>
+    </Site>
+</HilltopServer>
