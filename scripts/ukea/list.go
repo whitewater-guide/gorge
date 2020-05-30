@@ -8,9 +8,8 @@ import (
 )
 
 const (
-	rloiAll = iota
-	rloiWith
-	rloiWithout
+	rloiWith    = 1
+	rloiWithout = 2
 )
 
 func getName(st station) string {

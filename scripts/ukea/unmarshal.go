@@ -1,21 +1,5 @@
 package ukea
 
-import (
-	"time"
-)
-
-type fTime struct {
-	time.Time
-}
-
-var finTz, _ = time.LoadLocation("Europe/Helsinki")
-
-func (ft *fTime) UnmarshalJSON(b []byte) (err error) {
-	t, err := time.ParseInLocation(`"2006-01-02T15:04:05"`, string(b), finTz)
-	ft.Time = t.UTC()
-	return
-}
-
 type stationsList struct {
 	Stations []station `json:"items"`
 }

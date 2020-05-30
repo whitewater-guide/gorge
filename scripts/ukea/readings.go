@@ -17,7 +17,7 @@ type reading struct {
 
 func (s *scriptUkea) getReadings(recv chan<- *core.Measurement, errs chan<- error) {
 	readings := map[string]reading{}
-	core.Client.StreamCSV(s.url+"/data/readings.csv?latest&_limit=10000", func(row []string) error {
+	err := core.Client.StreamCSV(s.url+"/data/readings.csv?latest&_limit=10000", func(row []string) error {
 		t, err := time.ParseInLocation("2006-01-02T15:04:05Z", row[0], time.UTC)
 		if err != nil {
 			return nil
@@ -46,6 +46,10 @@ func (s *scriptUkea) getReadings(recv chan<- *core.Measurement, errs chan<- erro
 		HeaderHeight: 1,
 		NumColumns:   3,
 	})
+	if err != nil {
+		errs <- err
+		return
+	}
 
 	for k, v := range readings {
 		if v.level.Valid() || v.flow.Valid() {
@@ -60,5 +64,4 @@ func (s *scriptUkea) getReadings(recv chan<- *core.Measurement, errs chan<- erro
 			}
 		}
 	}
-	return
 }
