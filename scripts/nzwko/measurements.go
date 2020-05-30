@@ -1,4 +1,4 @@
-package nzwaikato
+package nzwko
 
 import (
 	"net/url"
