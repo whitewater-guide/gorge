@@ -1,0 +1,232 @@
+{
+  "@context": "http://environment.data.gov.uk/flood-monitoring/meta/context.jsonld",
+  "meta": {
+    "publisher": "Environment Agency",
+    "licence": "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+    "documentation": "http://environment.data.gov.uk/flood-monitoring/doc/reference",
+    "version": "0.9",
+    "comment": "Status: Beta service",
+    "hasFormat": [
+      "http://environment.data.gov.uk/flood-monitoring/id/stations.csv?_limit=10000",
+      "http://environment.data.gov.uk/flood-monitoring/id/stations.rdf?_limit=10000",
+      "http://environment.data.gov.uk/flood-monitoring/id/stations.ttl?_limit=10000",
+      "http://environment.data.gov.uk/flood-monitoring/id/stations.html?_limit=10000"
+    ],
+    "limit": 10000
+  },
+  "items": [
+    {
+      "@id": "http://environment.data.gov.uk/flood-monitoring/id/stations/4173TH",
+      "easting": 526455,
+      "gridReference": "TQ26456815",
+      "label": "River Wandle at Ravensbury Mill ",
+      "lat": 51.398338,
+      "long": -0.183625,
+      "measures": [
+        {
+          "@id": "http://environment.data.gov.uk/flood-monitoring/id/measures/4173TH-level-downstage-i-15_min-mASD",
+          "parameter": "level",
+          "parameterName": "Water Level",
+          "period": 900,
+          "qualifier": "Downstream Stage",
+          "unitName": "mASD"
+        },
+        {
+          "@id": "http://environment.data.gov.uk/flood-monitoring/id/measures/4173TH-level-stage-i-15_min-mASD",
+          "parameter": "level",
+          "parameterName": "Water Level",
+          "period": 900,
+          "qualifier": "Stage",
+          "unitName": "mASD"
+        }
+      ],
+      "northing": 168155,
+      "notation": "4173TH",
+      "stationReference": "4173TH"
+    },
+    {
+      "@id": "http://environment.data.gov.uk/flood-monitoring/id/stations/1029TH",
+      "RLOIid": "7041",
+      "catchmentName": "Cotswolds",
+      "dateOpened": "1994-01-01",
+      "easting": 417990,
+      "label": "Bourton Dickler",
+      "lat": 51.874767,
+      "long": -1.740083,
+      "measures": [
+        {
+          "@id": "http://environment.data.gov.uk/flood-monitoring/id/measures/1029TH-level-downstage-i-15_min-mASD",
+          "parameter": "level",
+          "parameterName": "Water Level",
+          "period": 900,
+          "qualifier": "Downstream Stage",
+          "unitName": "mASD"
+        },
+        {
+          "@id": "http://environment.data.gov.uk/flood-monitoring/id/measures/1029TH-level-stage-i-15_min-mASD",
+          "parameter": "level",
+          "parameterName": "Water Level",
+          "period": 900,
+          "qualifier": "Stage",
+          "unitName": "mASD"
+        }
+      ],
+      "northing": 219610,
+      "notation": "1029TH",
+      "riverName": "River Dikler",
+      "stageScale": "http://environment.data.gov.uk/flood-monitoring/id/stations/1029TH/stageScale",
+      "stationReference": "1029TH",
+      "status": "http://environment.data.gov.uk/flood-monitoring/def/core/statusActive",
+      "town": "Little Rissington",
+      "wiskiID": "1029TH"
+    },
+    {
+      "@id": "http://environment.data.gov.uk/flood-monitoring/id/stations/F1906",
+      "RLOIid": "8276",
+      "catchmentName": "Wharfe and Lower Ouse",
+      "dateOpened": "2001-07-11",
+      "easting": 398476,
+      "gridReference": "SD9847664978",
+      "label": "Netherside Hall",
+      "lat": 54.080705,
+      "long": -2.024779,
+      "measures": [
+        {
+          "@id": "http://environment.data.gov.uk/flood-monitoring/id/measures/F1906-flow-logged-i-15_min-m3_s",
+          "parameter": "flow",
+          "parameterName": "Flow",
+          "period": 900,
+          "qualifier": "Logged",
+          "unitName": "m3/s"
+        },
+        {
+          "@id": "http://environment.data.gov.uk/flood-monitoring/id/measures/F1906-level-stage-i-15_min-m",
+          "parameter": "level",
+          "parameterName": "Water Level",
+          "period": 900,
+          "qualifier": "Stage",
+          "unitName": "m"
+        }
+      ],
+      "northing": 464978,
+      "notation": "F1906",
+      "riverName": "River Wharfe",
+      "stageScale": "http://environment.data.gov.uk/flood-monitoring/id/stations/F1906/stageScale",
+      "stationReference": "F1906",
+      "status": "http://environment.data.gov.uk/flood-monitoring/def/core/statusActive",
+      "town": "Netherside Hall",
+      "wiskiID": "F1906"
+    },
+    {
+      "@id": "http://environment.data.gov.uk/flood-monitoring/id/stations/1301TH",
+      "RLOIid": "7055",
+      "catchmentName": "Vale of White Horse",
+      "dateOpened": "2000-01-01",
+      "downstageScale": "http://environment.data.gov.uk/flood-monitoring/id/stations/1301TH/downstageScale",
+      "easting": 447900,
+      "label": "Kings Lock",
+      "lat": 51.789307,
+      "long": -1.306931,
+      "measures": [
+        {
+          "@id": "http://environment.data.gov.uk/flood-monitoring/id/measures/1301TH-level-downstage-i-15_min----",
+          "parameter": "level",
+          "parameterName": "Water Level",
+          "period": 900,
+          "qualifier": "Downstream Stage",
+          "unitName": "---"
+        },
+        {
+          "@id": "http://environment.data.gov.uk/flood-monitoring/id/measures/1301TH-level-downstage-i-15_min-mASD",
+          "parameter": "level",
+          "parameterName": "Water Level",
+          "period": 900,
+          "qualifier": "Downstream Stage",
+          "unitName": "mASD"
+        },
+        {
+          "@id": "http://environment.data.gov.uk/flood-monitoring/id/measures/1301TH-level-stage-i-15_min----",
+          "parameter": "level",
+          "parameterName": "Water Level",
+          "period": 900,
+          "qualifier": "Stage",
+          "unitName": "---"
+        },
+        {
+          "@id": "http://environment.data.gov.uk/flood-monitoring/id/measures/1301TH-level-stage-i-15_min-mASD",
+          "parameter": "level",
+          "parameterName": "Water Level",
+          "period": 900,
+          "qualifier": "Stage",
+          "unitName": "mASD"
+        }
+      ],
+      "northing": 210300,
+      "notation": "1301TH",
+      "riverName": "River Thames",
+      "stageScale": "http://environment.data.gov.uk/flood-monitoring/id/stations/1301TH/stageScale",
+      "stationReference": "1301TH",
+      "status": "http://environment.data.gov.uk/flood-monitoring/def/core/statusActive",
+      "town": "Wolvercote",
+      "wiskiID": "1301TH"
+    },
+    {
+      "@id": "http://environment.data.gov.uk/flood-monitoring/id/stations/3680",
+      "easting": 467950,
+      "gridReference": "SK679153",
+      "label": "Rainfall station",
+      "lat": 52.73152,
+      "long": -0.995167,
+      "measures": [
+        {
+          "@id": "http://environment.data.gov.uk/flood-monitoring/id/measures/3680-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+          "parameter": "rainfall",
+          "parameterName": "Rainfall",
+          "period": 900,
+          "qualifier": "Tipping Bucket Raingauge",
+          "unitName": "mm"
+        },
+        {
+          "@id": "http://environment.data.gov.uk/flood-monitoring/id/measures/3680-temperature-dry_bulb-i-15_min-deg_C",
+          "parameter": "temperature",
+          "parameterName": "Temperature",
+          "period": 900,
+          "qualifier": "Dry Bulb",
+          "unitName": "deg C"
+        }
+      ],
+      "northing": 315350,
+      "notation": "3680",
+      "stationReference": "3680"
+    },
+    {
+      "@id": "http://environment.data.gov.uk/flood-monitoring/id/stations/431100",
+      "RLOIid": "9272",
+      "catchmentName": "Hampshire Avon",
+      "dateOpened": "2003-02-11",
+      "easting": 408260,
+      "gridReference": "SU0826028130",
+      "label": "Windwhistle",
+      "lat": 51.052454,
+      "long": -1.883525,
+      "measures": [
+        {
+          "@id": "http://environment.data.gov.uk/flood-monitoring/id/measures/431100-level-groundwater-i-15_min-m",
+          "parameter": "level",
+          "parameterName": "Water Level",
+          "period": 900,
+          "qualifier": "Groundwater",
+          "unitName": "m"
+        }
+      ],
+      "northing": 128130,
+      "notation": "431100",
+      "riverName": "Groundwater Level",
+      "stageScale": "http://environment.data.gov.uk/flood-monitoring/id/stations/431100/stageScale",
+      "stationReference": "431100",
+      "status": "http://environment.data.gov.uk/flood-monitoring/def/core/statusActive",
+      "town": "Bishopstone",
+      "wiskiID": "90102300"
+    }
+  ]
+}

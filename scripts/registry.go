@@ -26,6 +26,7 @@ import (
 	"github.com/whitewater-guide/gorge/scripts/switzerland"
 	"github.com/whitewater-guide/gorge/scripts/testscripts"
 	"github.com/whitewater-guide/gorge/scripts/tirol"
+	"github.com/whitewater-guide/gorge/scripts/ukea"
 	"github.com/whitewater-guide/gorge/scripts/ukraine"
 	"github.com/whitewater-guide/gorge/scripts/usgs"
 	"github.com/whitewater-guide/gorge/scripts/wales"
@@ -64,6 +65,7 @@ func init() {
 	Registry.Register(sepa.Descriptor)
 	Registry.Register(switzerland.Descriptor)
 	Registry.Register(tirol.Descriptor)
+	Registry.Register(ukea.Descriptor)
 	Registry.Register(ukraine.Descriptor)
 	Registry.Register(usgs.Descriptor)
 	Registry.Register(wales.Descriptor)
