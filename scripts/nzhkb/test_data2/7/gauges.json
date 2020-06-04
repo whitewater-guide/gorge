@@ -1,0 +1,461 @@
+{
+    "displayFieldName": "Hydrotel_PointName",
+    "fieldAliases": {
+        "ObjectID": "ObjectID",
+        "Hilltop_Site": "Hilltop_Site",
+        "Hydrotel_Units": "Hydrotel_Units",
+        "URL": "URL"
+    },
+    "geometryType": "esriGeometryPoint",
+    "spatialReference": {
+        "wkid": 4326,
+        "latestWkid": 4326
+    },
+    "fields": [
+        {
+            "name": "ObjectID",
+            "type": "esriFieldTypeOID",
+            "alias": "ObjectID"
+        },
+        {
+            "name": "Hilltop_Site",
+            "type": "esriFieldTypeString",
+            "alias": "Hilltop_Site",
+            "length": 100
+        },
+        {
+            "name": "Hydrotel_Units",
+            "type": "esriFieldTypeString",
+            "alias": "Hydrotel_Units",
+            "length": 20
+        },
+        {
+            "name": "URL",
+            "type": "esriFieldTypeString",
+            "alias": "URL",
+            "length": 255
+        }
+    ],
+    "features": [
+        {
+            "attributes": {
+                "ObjectID": 24,
+                "Hilltop_Site": "Aniwaniwa Stream at Aniwaniwa",
+                "Hydrotel_Units": "m³/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=3612"
+            },
+            "geometry": {
+                "x": 177.17031423697392,
+                "y": -38.740138364204462
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1265,
+                "Hilltop_Site": "Te Kumi Stream at State Highway 38",
+                "Hydrotel_Units": "m³/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=3613"
+            },
+            "geometry": {
+                "x": 177.15481722442445,
+                "y": -38.743479621963964
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1523,
+                "Hilltop_Site": "Waikaretaheke River at Terapatiki",
+                "Hydrotel_Units": "m³/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=242"
+            },
+            "geometry": {
+                "x": 177.19163640477524,
+                "y": -38.85615517058875
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 674,
+                "Hilltop_Site": "Mangateretere Stream at Napier Road",
+                "Hydrotel_Units": "l/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=2797"
+            },
+            "geometry": {
+                "x": 176.88946828328929,
+                "y": -39.646514625943283
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1452,
+                "Hilltop_Site": "Tutaekuri Waimate Stm at Goods Bridge",
+                "Hydrotel_Units": "m³/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=3174"
+            },
+            "geometry": {
+                "x": 176.82298630844824,
+                "y": -39.56562048113264
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 704,
+                "Hilltop_Site": "Maraekakaho Stream D/S Tait Rd",
+                "Hydrotel_Units": "l/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=2213"
+            },
+            "geometry": {
+                "x": 176.57850437075527,
+                "y": -39.648305996934702
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1909,
+                "Hilltop_Site": "Paritua Stream at Water Wheel",
+                "Hydrotel_Units": "l/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=3464"
+            },
+            "geometry": {
+                "x": 176.66121330790321,
+                "y": -39.680257008679838
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 441,
+                "Hilltop_Site": "Kopuawhara Stream at Railway Bridge",
+                "Hydrotel_Units": "m³/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=4082"
+            },
+            "geometry": {
+                "x": 177.8582503560977,
+                "y": -39.014363788828518
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1641,
+                "Hilltop_Site": "Wairoa River at Marumaru",
+                "Hydrotel_Units": "m³/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=158"
+            },
+            "geometry": {
+                "x": 177.45307568672692,
+                "y": -38.892801725421286
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1500,
+                "Hilltop_Site": "Waiau River at Otoi",
+                "Hydrotel_Units": "m³/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=160"
+            },
+            "geometry": {
+                "x": 177.06161762470214,
+                "y": -38.947913765524738
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 3649,
+                "Hilltop_Site": "Ruakituri River at Tauwharetoi Climate",
+                "Hydrotel_Units": "m³/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=3732"
+            },
+            "geometry": {
+                "x": 177.47985259227244,
+                "y": -38.803589118993571
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1932,
+                "Hilltop_Site": "Taharua Stream at Henrys Bridge",
+                "Hydrotel_Units": "l/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=3072"
+            },
+            "geometry": {
+                "x": 176.28075876241738,
+                "y": -39.00064055341533
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 3462,
+                "Hilltop_Site": "Mohaka River at McVicars Bridge",
+                "Hydrotel_Units": "m³/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=4092"
+            },
+            "geometry": {
+                "x": 176.61364290504861,
+                "y": -39.193744461627745
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 5499,
+                "Hilltop_Site": "Mohaka River at Poronui Station",
+                "Hydrotel_Units": "m³/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=3874"
+            },
+            "geometry": {
+                "x": 176.28998174971912,
+                "y": -39.082188478066712
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 904,
+                "Hilltop_Site": "Pakuratahi Stream at Forest Glade",
+                "Hydrotel_Units": "l/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=2986"
+            },
+            "geometry": {
+                "x": 176.87334765120082,
+                "y": -39.342149314827992
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 182,
+                "Hilltop_Site": "Esk River at Waipunga Bridge",
+                "Hydrotel_Units": "m³/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=223"
+            },
+            "geometry": {
+                "x": 176.82115932530255,
+                "y": -39.385370149147597
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 176,
+                "Hilltop_Site": "Esk River at Berry Road",
+                "Hydrotel_Units": "m³/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=164"
+            },
+            "geometry": {
+                "x": 176.79676254793372,
+                "y": -39.229471768625643
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 569,
+                "Hilltop_Site": "Mangaone River at Rissington",
+                "Hydrotel_Units": "m³/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=166"
+            },
+            "geometry": {
+                "x": 176.71909993167921,
+                "y": -39.440350814659851
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1433,
+                "Hilltop_Site": "Tutaekuri River at Puketapu HBRC Site",
+                "Hydrotel_Units": "m³/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=225"
+            },
+            "geometry": {
+                "x": 176.78857898418696,
+                "y": -39.511765156033675
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 815,
+                "Hilltop_Site": "Ngaruroro River at Whanawhana",
+                "Hydrotel_Units": "m³/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=422"
+            },
+            "geometry": {
+                "x": 176.39836659520225,
+                "y": -39.558364440591362
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 803,
+                "Hilltop_Site": "Ngaruroro River at Kuripapango",
+                "Hydrotel_Units": "m³/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=167"
+            },
+            "geometry": {
+                "x": 176.33271928528225,
+                "y": -39.380137270254949
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1039,
+                "Hilltop_Site": "Poukawa Stream at Douglas Road",
+                "Hydrotel_Units": "l/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=444"
+            },
+            "geometry": {
+                "x": 176.73531880048409,
+                "y": -39.765507609970854
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 342,
+                "Hilltop_Site": "Irongate Stream at Clarkes Weir",
+                "Hydrotel_Units": "l/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=386"
+            },
+            "geometry": {
+                "x": 176.80743507673023,
+                "y": -39.642169331544757
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1082,
+                "Hilltop_Site": "Raupare Stream at Ormond Road",
+                "Hydrotel_Units": "l/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=3400"
+            },
+            "geometry": {
+                "x": 176.84116750974692,
+                "y": -39.59927318596187
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1382,
+                "Hilltop_Site": "Tukituki River at Red Bridge",
+                "Hydrotel_Units": "m³/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=176"
+            },
+            "geometry": {
+                "x": 176.92789555659192,
+                "y": -39.715466430515505
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1398,
+                "Hilltop_Site": "Tukituki River at Tapairu Rd",
+                "Hydrotel_Units": "m³/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=172"
+            },
+            "geometry": {
+                "x": 176.60999499234833,
+                "y": -39.968221675671863
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1349,
+                "Hilltop_Site": "Tukipo River at State Highway 50",
+                "Hydrotel_Units": "m³/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=174"
+            },
+            "geometry": {
+                "x": 176.3342029877347,
+                "y": -39.96589084857073
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1588,
+                "Hilltop_Site": "Waipawa River at RDS/SH2",
+                "Hydrotel_Units": "m³/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=224"
+            },
+            "geometry": {
+                "x": 176.57363779144995,
+                "y": -39.945017079283836
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 360,
+                "Hilltop_Site": "Kahahakuri Stream at Ongaonga Rd Br.",
+                "Hydrotel_Units": "m³/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=3064"
+            },
+            "geometry": {
+                "x": 176.506384070895,
+                "y": -39.931073752753676
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 715,
+                "Hilltop_Site": "Maraetotara River at Waimarama Road",
+                "Hydrotel_Units": "m³/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=3754"
+            },
+            "geometry": {
+                "x": 176.95300133722341,
+                "y": -39.732674877718928
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1552,
+                "Hilltop_Site": "Waingongoro Stream at Waimarama Road",
+                "Hydrotel_Units": "m³/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=2862"
+            },
+            "geometry": {
+                "x": 176.97914355839245,
+                "y": -39.801056643548144
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 997,
+                "Hilltop_Site": "Porangahau River at Saleyards",
+                "Hydrotel_Units": "m³/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=677"
+            },
+            "geometry": {
+                "x": 176.5702916792263,
+                "y": -40.28400767998162
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 623,
+                "Hilltop_Site": "Mangaorapa Stream at Mangaorapa Road",
+                "Hydrotel_Units": "m³/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=3469"
+            },
+            "geometry": {
+                "x": 176.55584955704313,
+                "y": -40.294501313583716
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1237,
+                "Hilltop_Site": "Taurekaitai Stream at Wallingford",
+                "Hydrotel_Units": "m³/s",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=233"
+            },
+            "geometry": {
+                "x": 176.59112133176419,
+                "y": -40.206630268213381
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 746,
+                "Hilltop_Site": "Mohaka River at Glenfalls",
+                "Hydrotel_Units": "",
+                "URL": "http://neon.niwa.co.nz/logon.aspx?u=edenz&p=edenzuser"
+            },
+            "geometry": {
+                "x": 176.63481878503063,
+                "y": -39.177747627621628
+            }
+        }
+    ]
+}

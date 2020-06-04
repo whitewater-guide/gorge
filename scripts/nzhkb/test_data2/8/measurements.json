@@ -1,0 +1,357 @@
+{
+    "displayFieldName": "Hydrotel_PointName",
+    "fieldAliases": {
+        "ObjectID": "ObjectID",
+        "Hydrotel_LastSampleTime": "Hydrotel_LastSampleTime",
+        "Hydrotel_CurrentValue": "Hydrotel_CurrentValue"
+    },
+    "fields": [
+        {
+            "name": "ObjectID",
+            "type": "esriFieldTypeOID",
+            "alias": "ObjectID"
+        },
+        {
+            "name": "Hydrotel_LastSampleTime",
+            "type": "esriFieldTypeDate",
+            "alias": "Hydrotel_LastSampleTime",
+            "length": 8
+        },
+        {
+            "name": "Hydrotel_CurrentValue",
+            "type": "esriFieldTypeDouble",
+            "alias": "Hydrotel_CurrentValue"
+        }
+    ],
+    "features": [
+        {
+            "attributes": {
+                "ObjectID": 4,
+                "Hydrotel_LastSampleTime": 1591315500000,
+                "Hydrotel_CurrentValue": 10447
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 48,
+                "Hydrotel_LastSampleTime": 1591315200000,
+                "Hydrotel_CurrentValue": 16036
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 176,
+                "Hydrotel_LastSampleTime": 1591315200000,
+                "Hydrotel_CurrentValue": 9255
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 182,
+                "Hydrotel_LastSampleTime": 1591315200000,
+                "Hydrotel_CurrentValue": -192
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 279,
+                "Hydrotel_LastSampleTime": 1591315200000,
+                "Hydrotel_CurrentValue": 739
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 342,
+                "Hydrotel_LastSampleTime": 1591315200000,
+                "Hydrotel_CurrentValue": 19163
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 360,
+                "Hydrotel_LastSampleTime": 1591315800000,
+                "Hydrotel_CurrentValue": 934
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 387,
+                "Hydrotel_LastSampleTime": 1580079600000,
+                "Hydrotel_CurrentValue": 11463
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 441,
+                "Hydrotel_LastSampleTime": 1591315200000,
+                "Hydrotel_CurrentValue": 2953
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 3648,
+                "Hydrotel_LastSampleTime": 1591315200000,
+                "Hydrotel_CurrentValue": 119
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 533,
+                "Hydrotel_LastSampleTime": 1591315800000,
+                "Hydrotel_CurrentValue": 3802
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 569,
+                "Hydrotel_LastSampleTime": 1591315800000,
+                "Hydrotel_CurrentValue": 3167
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 569,
+                "Hydrotel_LastSampleTime": 1591304400000,
+                "Hydrotel_CurrentValue": 3195
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 623,
+                "Hydrotel_LastSampleTime": 1591315200000,
+                "Hydrotel_CurrentValue": 234
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 633,
+                "Hydrotel_LastSampleTime": 1591315500000,
+                "Hydrotel_CurrentValue": 1086
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 674,
+                "Hydrotel_LastSampleTime": 1591315800000,
+                "Hydrotel_CurrentValue": 949
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 704,
+                "Hydrotel_LastSampleTime": 1591315800000,
+                "Hydrotel_CurrentValue": 2941
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 715,
+                "Hydrotel_LastSampleTime": 1591315800000,
+                "Hydrotel_CurrentValue": 3412
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 5499,
+                "Hydrotel_LastSampleTime": 1591315200000,
+                "Hydrotel_CurrentValue": 725
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 749,
+                "Hydrotel_LastSampleTime": 1591315200000,
+                "Hydrotel_CurrentValue": 1915
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 799,
+                "Hydrotel_LastSampleTime": 1591315800000,
+                "Hydrotel_CurrentValue": 2658
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 803,
+                "Hydrotel_LastSampleTime": 1591316100000,
+                "Hydrotel_CurrentValue": 1039
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 807,
+                "Hydrotel_LastSampleTime": 1591315200000,
+                "Hydrotel_CurrentValue": 515
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 815,
+                "Hydrotel_LastSampleTime": 1591316400000,
+                "Hydrotel_CurrentValue": 1508
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 815,
+                "Hydrotel_LastSampleTime": 1591315200000,
+                "Hydrotel_CurrentValue": 1509
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 915,
+                "Hydrotel_LastSampleTime": 1591315200000,
+                "Hydrotel_CurrentValue": 78162
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 991,
+                "Hydrotel_LastSampleTime": 1591316100000,
+                "Hydrotel_CurrentValue": 4101
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 997,
+                "Hydrotel_LastSampleTime": 1591316100000,
+                "Hydrotel_CurrentValue": 483
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1039,
+                "Hydrotel_LastSampleTime": 1591316100000,
+                "Hydrotel_CurrentValue": 29082
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 3649,
+                "Hydrotel_LastSampleTime": 1591315500000,
+                "Hydrotel_CurrentValue": 1202
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1932,
+                "Hydrotel_LastSampleTime": 1591315200000,
+                "Hydrotel_CurrentValue": 3221
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1237,
+                "Hydrotel_LastSampleTime": 1591316400000,
+                "Hydrotel_CurrentValue": 11071
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1349,
+                "Hydrotel_LastSampleTime": 1591316100000,
+                "Hydrotel_CurrentValue": 1845
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1373,
+                "Hydrotel_LastSampleTime": 1591315500000,
+                "Hydrotel_CurrentValue": 8000
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1378,
+                "Hydrotel_LastSampleTime": 1591315800000,
+                "Hydrotel_CurrentValue": 734
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1384,
+                "Hydrotel_LastSampleTime": 1591316100000,
+                "Hydrotel_CurrentValue": 3214
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1398,
+                "Hydrotel_LastSampleTime": 1591316100000,
+                "Hydrotel_CurrentValue": 1578
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1431,
+                "Hydrotel_LastSampleTime": 1591315800000,
+                "Hydrotel_CurrentValue": 1517
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1433,
+                "Hydrotel_LastSampleTime": 1591316100000,
+                "Hydrotel_CurrentValue": 1009
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1447,
+                "Hydrotel_LastSampleTime": 1591316100000,
+                "Hydrotel_CurrentValue": 841
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1500,
+                "Hydrotel_LastSampleTime": 1591308000000,
+                "Hydrotel_CurrentValue": 1032
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1523,
+                "Hydrotel_LastSampleTime": 1591315500000,
+                "Hydrotel_CurrentValue": 2376
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1552,
+                "Hydrotel_LastSampleTime": 1591315200000,
+                "Hydrotel_CurrentValue": 1222
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1582,
+                "Hydrotel_LastSampleTime": 1591315800000,
+                "Hydrotel_CurrentValue": 1127
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1588,
+                "Hydrotel_LastSampleTime": 1591316100000,
+                "Hydrotel_CurrentValue": 1835
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 1641,
+                "Hydrotel_LastSampleTime": 1591315500000,
+                "Hydrotel_CurrentValue": 833
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 5232,
+                "Hydrotel_LastSampleTime": 1591315500000,
+                "Hydrotel_CurrentValue": 10077
+            }
+        }
+    ]
+}

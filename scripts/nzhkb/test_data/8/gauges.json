@@ -1,0 +1,65 @@
+{
+    "displayFieldName": "Hydrotel_PointName",
+    "fieldAliases": {
+        "ObjectID": "ObjectID",
+        "Hilltop_Site": "Hilltop_Site",
+        "Hydrotel_Units": "Hydrotel_Units",
+        "URL": "URL"
+    },
+    "geometryType": "esriGeometryPoint",
+    "spatialReference": {
+        "wkid": 4326,
+        "latestWkid": 4326
+    },
+    "fields": [
+        {
+            "name": "ObjectID",
+            "type": "esriFieldTypeOID",
+            "alias": "ObjectID"
+        },
+        {
+            "name": "Hilltop_Site",
+            "type": "esriFieldTypeString",
+            "alias": "Hilltop_Site",
+            "length": 100
+        },
+        {
+            "name": "Hydrotel_Units",
+            "type": "esriFieldTypeString",
+            "alias": "Hydrotel_Units",
+            "length": 20
+        },
+        {
+            "name": "URL",
+            "type": "esriFieldTypeString",
+            "alias": "URL",
+            "length": 255
+        }
+    ],
+    "features": [
+        {
+            "attributes": {
+                "ObjectID": 4,
+                "Hilltop_Site": "Ahuriri Lagoon at Causeway",
+                "Hydrotel_Units": "mm",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=274"
+            },
+            "geometry": {
+                "x": 176.85914889738513,
+                "y": -39.48327435741372
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 3649,
+                "Hilltop_Site": "Ruakituri River at Tauwharetoi Climate",
+                "Hydrotel_Units": "mm",
+                "URL": "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=3717"
+            },
+            "geometry": {
+                "x": 177.47985259227244,
+                "y": -38.803589118993571
+            }
+        }
+    ]
+}

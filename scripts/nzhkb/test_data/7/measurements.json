@@ -1,0 +1,51 @@
+{
+    "displayFieldName": "Hydrotel_PointName",
+    "fieldAliases": {
+        "ObjectID": "ObjectID",
+        "Hydrotel_LastSampleTime": "Hydrotel_LastSampleTime",
+        "Hydrotel_CurrentValue": "Hydrotel_CurrentValue",
+        "Hydrotel_Units": "Hydrotel_Units"
+    },
+    "fields": [
+        {
+            "name": "ObjectID",
+            "type": "esriFieldTypeOID",
+            "alias": "ObjectID"
+        },
+        {
+            "name": "Hydrotel_LastSampleTime",
+            "type": "esriFieldTypeDate",
+            "alias": "Hydrotel_LastSampleTime",
+            "length": 8
+        },
+        {
+            "name": "Hydrotel_CurrentValue",
+            "type": "esriFieldTypeDouble",
+            "alias": "Hydrotel_CurrentValue"
+        },
+        {
+            "name": "Hydrotel_Units",
+            "type": "esriFieldTypeString",
+            "alias": "Hydrotel_Units",
+            "length": 20
+        }
+    ],
+    "features": [
+        {
+            "attributes": {
+                "ObjectID": 24,
+                "Hydrotel_LastSampleTime": 1591293600000,
+                "Hydrotel_CurrentValue": 3.0099999999999998,
+                "Hydrotel_Units": "m³/s"
+            }
+        },
+        {
+            "attributes": {
+                "ObjectID": 3649,
+                "Hydrotel_LastSampleTime": 1591315500000,
+                "Hydrotel_CurrentValue": 28.718,
+                "Hydrotel_Units": "m³/s"
+            }
+        }
+    ]
+}
