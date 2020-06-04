@@ -208,6 +208,15 @@ http://www.emercit.com/map/overall.php
 - **Script**: [link](tirol)
 - **Issue:**
 
+## UK: Environment Agency 
+
+- **Status:**  ✅ Live on production
+- **Terms of use**:  ✅ Live on production
+- **License**:  [Open Government License](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/)
+- **API Key Required**:
+- **Script**: [link](ukea)
+- **Issue:** https://github.com/whitewater-guide/gorge/issues/8
+
 ## Ukraine
 
 - **Status:** ✅ Live on production
