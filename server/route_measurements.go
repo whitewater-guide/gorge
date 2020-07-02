@@ -2,7 +2,9 @@ package main
 
 import (
 	"net/http"
+	"strconv"
 	"strings"
+	"time"
 
 	"github.com/go-chi/chi"
 	"github.com/go-chi/render"
@@ -32,6 +34,29 @@ func (s *server) handleGetMeasurements() http.HandlerFunc {
 		}
 
 		render.JSON(w, r, measurements)
+	}
+}
+
+func (s *server) handleGetNearest() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		script := chi.URLParam(r, "script")
+		code := chi.URLParam(r, "code")
+		q := r.URL.Query()
+
+		toI, err := strconv.ParseInt(q.Get("to"), 10, 64)
+		if err != nil {
+			s.renderError(w, r, err, "failed to get nearest measurement", http.StatusInternalServerError)
+			return
+		}
+
+		measurement, err := s.database.GetNearestMeasurement(script, code, time.Unix(toI, 0), time.Hour)
+
+		if err != nil {
+			s.renderError(w, r, err, "failed to get nearest measurement", http.StatusInternalServerError)
+			return
+		}
+
+		render.JSON(w, r, measurement)
 	}
 }
 

@@ -55,6 +55,7 @@ func (s *server) routes() {
 		r.Get("/measurements/{script}", s.handleGetMeasurements())
 		r.Get("/measurements/{script}/{code}", s.handleGetMeasurements())
 		r.Get("/measurements/{script}/{code}/latest", s.handleGetLatest())
+		r.Get("/measurements/{script}/{code}/nearest", s.handleGetNearest())
 		r.Get("/measurements/latest", s.handleGetLatest())
 	})
 	if s.debug {

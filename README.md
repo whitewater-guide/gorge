@@ -323,6 +323,16 @@ Below is the list of endpoints exposed by gorge server. You can use `request.htt
 
   Returns array of measurements for given script or gauge. For each gauge, only latest measurement will be returned. Resulting JSON is same as in `/upstream/{script}/measurements`
 
+- `GET /measurements/{script}/{code}/nearest?to=[to]`
+
+  URL parameters:
+
+  - `script` - script name, required
+  - `code` - gauge code, optional
+  - `to` - required unix timstamp indicating
+
+  For given script and code, returns one measurement that is nearest to timestamp provided via `to` query string. If no measurements +- 1 hour of given timestamps are found, returns null
+
 - `GET /measurements/latest?scripts=[scripts]`
 
   URL parameters:
@@ -353,7 +363,7 @@ Some tests require postgres. You cannot run them inside docker container (unless
 
 If you want to develop on host machine, you'll need following libraries installed on it (they're installed in docker image, see Dockerfile for more info):
 
-- [libproj](https://proj.org/) shared library, to convert coordinate systems. Currently version 6.3.0 is required.
+- [libproj](https://proj.org/) shared library, to convert coordinate systems. Currently version 5.2.0 is required. (to match version from debian buster). On MacOS this can be installed via brew `brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/122f2a2a2c44462823360fc5a1becec968b9abf7/Formula/proj.rb`
 
 Also you'll need following go tools:
 

@@ -17,6 +17,8 @@ import (
 // DbManager implements DatabaseManager using sql database
 type DbManager struct {
 	db *sqlx.DB
+	// nearest day order by clasue
+	nearestDayClause string
 	// defaultStart is sql expression for starting period of measurements slice
 	defaultStart string
 	// saveChunkSize indicates how many measurements will be written in on query
@@ -121,6 +123,23 @@ func (mgr DbManager) GetMeasurements(query MeasurementsQuery) ([]core.Measuremen
 	}
 
 	return result, nil
+}
+
+// GetNearestMeasurement implements DatabaseManager interface
+func (mgr DbManager) GetNearestMeasurement(script, code string, to time.Time, tolerance time.Duration) (*core.Measurement, error) {
+	q := "SELECT * FROM measurements WHERE script = $1 AND code = $2 ORDER BY " + fmt.Sprintf(mgr.nearestDayClause, "$3") + " LIMIT 1"
+	var m core.Measurement
+	err := mgr.db.QueryRowx(q, script, code, to).StructScan(&m)
+	if err != nil {
+		if err == sql.ErrNoRows {
+			return nil, nil
+		}
+		return nil, core.WrapErr(err, "failed to query nearest measurement")
+	}
+	if tolerance != 0 && (m.Timestamp.After(to.Add(tolerance)) || m.Timestamp.Before(to.Add(-tolerance))) {
+		return nil, nil
+	}
+	return &m, nil
 }
 
 // ListJobs implements DatabaseManager interface

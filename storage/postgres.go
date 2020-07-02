@@ -21,8 +21,9 @@ type PostgresManager struct {
 func NewPostgresManager(pgConnStr string, chunkSize int) (*PostgresManager, error) {
 	manager := &PostgresManager{
 		DbManager{
-			defaultStart:  "NOW() - interval '30 days'",
-			saveChunkSize: chunkSize,
+			defaultStart:     "NOW() - interval '30 days'",
+			nearestDayClause: "abs(extract(epoch from timestamp - %s::timestamptz))",
+			saveChunkSize:    chunkSize,
 		},
 	}
 

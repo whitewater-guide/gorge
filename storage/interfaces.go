@@ -2,6 +2,7 @@ package storage
 
 import (
 	"context"
+	"time"
 
 	"github.com/whitewater-guide/gorge/core"
 )
@@ -26,6 +27,9 @@ type DatabaseManager interface {
 	SaveMeasurements(ctx context.Context, in <-chan *core.Measurement) (<-chan int, <-chan error)
 	// GetMeasurements returns measurements stored in db
 	GetMeasurements(query MeasurementsQuery) ([]core.Measurement, error)
+	// GetNearestMeasurement returns nearest measurement to timestamp (without interpolation)
+	GetNearestMeasurement(script, code string, to time.Time, tolerance time.Duration) (*core.Measurement, error)
+
 	// Close is called when db should be shut down
 	Close()
 }

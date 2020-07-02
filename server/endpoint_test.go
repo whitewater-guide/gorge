@@ -508,6 +508,16 @@ func TestEndpoint(t *testing.T) {
 			code: http.StatusBadRequest,
 			resp: `{ "error": "<<PRESENCE>>", "status": "<<PRESENCE>>", "request_id": "<<PRESENCE>>" }`,
 		},
+		{
+			name: "measurements/nearest success",
+			path: fmt.Sprintf("/measurements/broken/g000/nearest?to=%d", time.Now().Add(-15*time.Minute).UTC().Unix()),
+			resp: `{"script": "broken", "code": "g000", "timestamp": "<<PRESENCE>>", "flow": -100, "level": -100}`,
+		},
+		{
+			name: "measurements/nearest fail",
+			path: fmt.Sprintf("/measurements/broken/g000/nearest?to=%d", time.Now().Add(333*time.Minute).UTC().Unix()),
+			resp: `null`,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

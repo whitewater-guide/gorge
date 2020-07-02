@@ -559,3 +559,61 @@ func (s *DbTestSuite) TestAddJobCallbackError() {
 		assert.Equal(t, 2, cnt)
 	}
 }
+
+func (s *DbTestSuite) TestGetNearestMeasurement() {
+	t := s.T()
+
+	tests := []struct {
+		name      string
+		code      string
+		to        time.Time
+		expected  *time.Time
+		tolerance time.Duration
+	}{
+		{
+			name:     "any date",
+			to:       time.Date(2000, time.January, 2, 12, 30, 0, 0, time.UTC),
+			expected: date(2018, time.January, 2),
+		},
+		{
+			name:      "very close",
+			tolerance: time.Hour,
+			to:        time.Date(2018, time.January, 2, 12, 30, 0, 0, time.UTC),
+			expected:  date(2018, time.January, 2),
+		},
+		{
+			name:      "too early",
+			tolerance: 15 * time.Minute,
+			to:        time.Date(2018, time.January, 2, 12, 30, 0, 0, time.UTC),
+		},
+		{
+			name:      "too late",
+			tolerance: 15 * time.Minute,
+			to:        time.Date(2018, time.January, 2, 12, 30, 0, 0, time.UTC),
+		},
+		{
+			name: "empty select result",
+			code: "a077",
+			to:   time.Date(2018, time.January, 2, 12, 30, 0, 0, time.UTC),
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			s.SetupTest()
+			code := tt.code
+			if code == "" {
+				code = "a002"
+			}
+			m, err := s.mgr.GetNearestMeasurement("all_at_once", code, tt.to, tt.tolerance)
+			var actual *time.Time
+			if m != nil {
+				actual = &m.Timestamp.Time
+			}
+			if assert.NoError(t, err) {
+				assert.Equal(t, tt.expected, actual)
+			}
+		})
+	}
+
+}

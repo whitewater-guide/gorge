@@ -24,8 +24,9 @@ type SqliteManager struct {
 func NewSqliteDb(chunkSize int) (*SqliteManager, error) {
 	manager := &SqliteManager{
 		DbManager{
-			defaultStart:  "datetime('now', '-30 days')",
-			saveChunkSize: chunkSize,
+			defaultStart:     "datetime('now', '-30 days')",
+			nearestDayClause: "ABS(julianday(timestamp) - julianday(%s))",
+			saveChunkSize:    chunkSize,
 		},
 	}
 
