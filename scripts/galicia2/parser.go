@@ -66,9 +66,11 @@ func prettyName(name string) string {
 
 func (s *scriptGalicia2) parseTable() ([]item, error) {
 	var result []item
-	err := core.Client.EnsureCookie("http://saih.chminosil.es", false)
-	if err != nil {
-		return result, err
+	if !s.skipCookies {
+		err := core.Client.EnsureCookie("http://saih.chminosil.es", false)
+		if err != nil {
+			return result, err
+		}
 	}
 	resp, err := core.Client.Get(s.listURL, nil)
 	if err != nil {

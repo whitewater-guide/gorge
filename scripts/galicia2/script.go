@@ -12,6 +12,7 @@ type scriptGalicia2 struct {
 	name           string
 	listURL        string
 	gaugeURLFormat string
+	skipCookies    bool
 	core.LoggingScript
 }
 

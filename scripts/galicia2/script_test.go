@@ -25,6 +25,7 @@ func TestGalicia2_ListGauges(t *testing.T) {
 		name:           "galicia2",
 		listURL:        ts.URL + "/table.xls",
 		gaugeURLFormat: ts.URL + "/%s.html",
+		skipCookies:    true,
 	}
 	actual, err := s.ListGauges()
 	expected := core.Gauge{
@@ -54,6 +55,7 @@ func TestGalicia2_Harvest(t *testing.T) {
 		name:           "galicia2",
 		listURL:        ts.URL + "/table.xls",
 		gaugeURLFormat: ts.URL + "/%s.html",
+		skipCookies:    true,
 	}
 	actual, err := core.HarvestSlice(&s, core.StringSet{}, 0)
 	expected := &core.Measurement{

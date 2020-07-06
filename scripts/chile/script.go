@@ -14,6 +14,7 @@ type scriptChile struct {
 	webmapIDPageURL string
 	webmapURLFormat string
 	xlsURL          string
+	skipCookies     bool
 	core.LoggingScript
 }
 

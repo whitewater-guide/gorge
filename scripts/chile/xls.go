@@ -21,9 +21,12 @@ func (s *scriptChile) loadXLS(code string, since int64, retry bool) (string, err
 		period = "3m"
 	}
 	t := time.Now().In(tz)
-	cookieErr := core.Client.EnsureCookie("http://dgasatel.mop.cl", !retry)
-	if cookieErr != nil {
-		s.GetLogger().Warn("cookie error", cookieErr)
+	var cookieErr error
+	if !s.skipCookies {
+		cookieErr = core.Client.EnsureCookie("http://dgasatel.mop.cl", !retry)
+		if cookieErr != nil {
+			s.GetLogger().Warn("cookie error", cookieErr)
+		}
 	}
 	values := url.Values{
 		"accion":         {"refresca"},
