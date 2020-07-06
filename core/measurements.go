@@ -57,9 +57,9 @@ type Measurement struct {
 	GaugeID
 	Timestamp HTime `json:"timestamp" ts_type:"string"`
 	// Level is null when gauge doesn't provide it or is temporary broken
-	Level nulltype.NullFloat64 `json:"level" ts_type:"number"`
+	Level nulltype.NullFloat64 `json:"level" ts_type:"number | null"`
 	// Flow is null when gauge doesn't provide it or is temporary broken
-	Flow nulltype.NullFloat64 `json:"flow" ts_type:"number"`
+	Flow nulltype.NullFloat64 `json:"flow" ts_type:"number | null"`
 }
 
 // Measurements is helper for sorting
