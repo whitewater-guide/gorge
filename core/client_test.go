@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/http/httptest"
+	"net/url"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -28,6 +29,23 @@ func TestHttpClient_Get(t *testing.T) {
 	}))
 	defer ts.Close()
 	_, _ = Client.Get(ts.URL, nil)
+}
+
+func TestHttpClient_SkipCookies(t *testing.T) {
+	// TODO: This test is actually broken, because IP cookies are broken
+	// https://github.com/golang/go/issues/12610
+	t.Skip()
+
+	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		http.SetCookie(w, &http.Cookie{Name: "no", Value: "thanks"})
+		w.WriteHeader(http.StatusOK)
+	}))
+	defer ts.Close()
+	u, _ := url.Parse(ts.URL)
+
+	_, _ = Client.Get(u.String(), &RequestOptions{SkipCookies: true})
+	cookies := Client.Jar.Cookies(u)
+	assert.Len(t, cookies, 0)
 }
 
 func TestHttpClient_GetAsJSON(t *testing.T) {

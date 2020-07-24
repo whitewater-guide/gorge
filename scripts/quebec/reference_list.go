@@ -9,7 +9,7 @@ import (
 )
 
 func (s *scriptQuebec) getReferenceList() (map[string]core.Gauge, error) {
-	resp, err := core.Client.Get(s.referenceListURL, nil)
+	resp, err := core.Client.Get(s.referenceListURL, &core.RequestOptions{SkipCookies: true})
 	if err != nil {
 		return nil, err
 	}

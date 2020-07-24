@@ -19,7 +19,7 @@ type stationInfo struct {
 }
 
 func (s *scriptQuebec) parsePage(code string) (*stationInfo, error) {
-	resp, err := core.Client.Get(fmt.Sprintf(s.stationURLFormat, code), nil)
+	resp, err := core.Client.Get(fmt.Sprintf(s.stationURLFormat, code), &core.RequestOptions{SkipCookies: true})
 	if err != nil {
 		return nil, err
 	}

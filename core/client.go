@@ -41,6 +41,8 @@ type RequestOptions struct {
 	FakeAgent bool
 	// Headers to set on request
 	Headers map[string]string
+	// Request will not save cookies
+	SkipCookies bool
 }
 
 // Client is default client for scripts
@@ -99,16 +101,6 @@ func (client *HTTPClient) SaveCookies() {
 	client.PersistentJar.Save() //nolint:errcheck
 }
 
-// Get is same as http.Client.Get, but sets extra headers and is cached in development environment
-func (client *HTTPClient) Get(url string, opts *RequestOptions) (resp *http.Response, err error) {
-	req, err := http.NewRequest("GET", url, nil)
-	if err != nil {
-		return
-	}
-	resp, err = client.Do(req, opts)
-	return
-}
-
 // Do is same as http.Client.Get, but sets extra headers
 func (client *HTTPClient) Do(req *http.Request, opts *RequestOptions) (*http.Response, error) {
 	ua := client.UserAgent
@@ -123,7 +115,25 @@ func (client *HTTPClient) Do(req *http.Request, opts *RequestOptions) (*http.Res
 		}
 	}
 
-	return client.Client.Do(req)
+	resp, err := client.Client.Do(req)
+	if opts != nil && resp != nil && opts.SkipCookies {
+		cookies := resp.Cookies()
+		for _, rc := range cookies {
+			client.PersistentJar.RemoveCookie(rc)
+		}
+	}
+
+	return resp, err
+}
+
+// Get is same as http.Client.Get, but sets extra headers and is cached in development environment
+func (client *HTTPClient) Get(url string, opts *RequestOptions) (resp *http.Response, err error) {
+	req, err := http.NewRequest("GET", url, nil)
+	if err != nil {
+		return
+	}
+	resp, err = client.Do(req, opts)
+	return
 }
 
 // GetAsString is shortcut for http.Client.Get to get response as string

@@ -92,7 +92,7 @@ func (s *scriptQuebec) getReadings(recv chan<- *core.Measurement, errs chan<- er
 		errs <- err
 		return
 	}
-	resp, err := core.Client.Get(fmt.Sprintf(s.readingsURLFormat, code), nil)
+	resp, err := core.Client.Get(fmt.Sprintf(s.readingsURLFormat, code), &core.RequestOptions{SkipCookies: true})
 	if err != nil {
 		errs <- err
 		return

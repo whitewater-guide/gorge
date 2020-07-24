@@ -8,7 +8,7 @@ import (
 )
 
 func (s *scriptQuebec) getCodes() ([]string, error) {
-	resp, err := core.Client.Get(s.codesURL, nil)
+	resp, err := core.Client.Get(s.codesURL, &core.RequestOptions{SkipCookies: true})
 	if err != nil {
 		return nil, err
 	}
