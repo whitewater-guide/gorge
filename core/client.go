@@ -126,7 +126,7 @@ func (client *HTTPClient) Do(req *http.Request, opts *RequestOptions) (*http.Res
 	return resp, err
 }
 
-// Get is same as http.Client.Get, but sets extra headers and is cached in development environment
+// Get is same as http.Client.Get, but sets extra headers
 func (client *HTTPClient) Get(url string, opts *RequestOptions) (resp *http.Response, err error) {
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {

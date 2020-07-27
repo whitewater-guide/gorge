@@ -35,7 +35,7 @@ func (s *scriptQuebec) parseReadings(recv chan<- *core.Measurement, errs chan<- 
 		} else if e, ok := err.(*csv.ParseError); ok && e.Err == csv.ErrFieldCount {
 			continue
 		} else if err != nil {
-			logger.Errorf("csv lin error: %v", err)
+			logger.Errorf("csv line error: %v", err)
 			continue
 		}
 		if len(line) < 3 || len(line) > 5 {
@@ -98,6 +98,13 @@ func (s *scriptQuebec) getReadings(recv chan<- *core.Measurement, errs chan<- er
 		return
 	}
 	defer resp.Body.Close()
+	if resp.StatusCode != 200 {
+		s.GetLogger().
+			WithField("statusCode", resp.StatusCode).
+			WithField("requestHeaders", resp.Request.Header).
+			WithField("requestHeaders", resp.Header).
+			Error("request failed")
+	}
 	reader := transform.NewReader(resp.Body, charmap.Windows1252.NewDecoder())
 	s.parseReadings(recv, errs, reader, est, code)
 }
