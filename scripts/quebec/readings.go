@@ -92,7 +92,8 @@ func (s *scriptQuebec) getReadings(recv chan<- *core.Measurement, errs chan<- er
 		errs <- err
 		return
 	}
-	resp, err := core.Client.Get(fmt.Sprintf(s.readingsURLFormat, code), &core.RequestOptions{SkipCookies: true})
+	// resp, err := core.Client.Get(fmt.Sprintf(s.readingsURLFormat, code), &core.RequestOptions{SkipCookies: true})
+	resp, err := core.Client.Get(fmt.Sprintf(s.readingsURLFormat, code), nil)
 	if err != nil {
 		errs <- err
 		return
@@ -102,7 +103,7 @@ func (s *scriptQuebec) getReadings(recv chan<- *core.Measurement, errs chan<- er
 		s.GetLogger().
 			WithField("statusCode", resp.StatusCode).
 			WithField("requestHeaders", resp.Request.Header).
-			WithField("requestHeaders", resp.Header).
+			WithField("responseHeaders", resp.Header).
 			Error("request failed")
 	}
 	reader := transform.NewReader(resp.Body, charmap.Windows1252.NewDecoder())

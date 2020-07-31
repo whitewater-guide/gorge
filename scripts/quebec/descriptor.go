@@ -19,8 +19,8 @@ var Descriptor = &core.ScriptDescriptor{
 				name:              name,
 				codesURL:          "https://www.cehq.gouv.qc.ca/suivihydro/default.asp#region",
 				referenceListURL:  "https://wateroffice.ec.gc.ca/station_metadata/reference_index_download_e.html",
-				stationURLFormat:  "https://www.cehq.gouv.qc.ca/suivihydro/graphique.asp?NoStation=%s",
-				readingsURLFormat: "https://www.cehq.gouv.qc.ca/suivihydro/fichier_donnees.asp?NoStation=%s",
+				stationURLFormat:  "http://www.cehq.gouv.qc.ca/suivihydro/graphique.asp?NoStation=%s",
+				readingsURLFormat: "http://www.cehq.gouv.qc.ca/suivihydro/fichier_donnees.asp?NoStation=%s",
 			}, nil
 		}
 		return nil, fmt.Errorf("failed to cast %T", optionsQuebec{})
