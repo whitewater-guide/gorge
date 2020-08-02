@@ -34,7 +34,7 @@ func (s *server) routes() {
 		render.SetContentType(render.ContentTypeJSON),
 		middleware.RequestID,
 		middleware.RedirectSlashes,
-		middleware.DefaultCompress,
+		middleware.Compress(5),
 		middleware.NoCache,
 		middleware.Recoverer,
 		middleware.Heartbeat("/healthcheck"),
