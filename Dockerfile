@@ -12,6 +12,9 @@ RUN apt-get update && \
     # Graphviz is needed for pprof
     graphviz 
 
+# Symlink this, so it's available under same path both here and on Mac when installed via brew
+RUN ln -s /usr/lib/x86_64-linux-gnu/libproj.a /usr/local/lib/libproj.a
+
 WORKDIR /workspace
 
 ################################
