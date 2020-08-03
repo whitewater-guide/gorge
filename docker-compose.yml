@@ -17,4 +17,20 @@ services:
       - seccomp:unconfined
     volumes:
       - .:/workspace:cached
+      - mitmcerts:/usr/share/ca-certificates/mitmproxy
     command: /bin/sh -c "while sleep 1000; do :; done"
+
+  mitm:
+    image: mitmproxy/mitmproxy
+    container_name: mitm
+    command: mitmweb --web-host 0.0.0.0 --showhost
+    ports:
+      - 8080:8080
+      - 8081:8081
+    tty: true
+    stdin_open: true
+    volumes:
+      - mitmcerts:/home/mitmproxy/.mitmproxy
+
+volumes:
+  mitmcerts:

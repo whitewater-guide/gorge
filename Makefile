@@ -28,7 +28,12 @@ lint: tools
 typescript: tools
 	go run ./typescriptify
 
-run: tools
+# Installs custom certificate from mitmproxy for development purposes
+mitmcerts:
+	openssl x509 -inform PEM -in /usr/share/ca-certificates/mitmproxy/mitmproxy-ca-cert.cer -out /usr/local/share/ca-certificates/mitmproxy-ca-cert.crt
+	update-ca-certificates
+
+run: tools mitmcerts
 	modd
 
 ######################################################

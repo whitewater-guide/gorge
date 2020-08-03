@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http/pprof"
-	"time"
 
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
@@ -170,8 +169,7 @@ func newServer(cfg *config, registry *core.ScriptRegistry) *server {
 		Cron:     cron.New(),
 	}
 
-	core.Client.UserAgent = cfg.HTTP.UserAgent
-	core.Client.Timeout = time.Duration(cfg.HTTP.Timeout) * time.Second
+	core.Client = core.NewClient(cfg.HTTP)
 
 	return result
 }

@@ -33,6 +33,7 @@ type ClientOptions struct {
 	UserAgent  string `desc:"User agent for requests sent from scripts. Leave empty to use fake browser agent"`
 	Timeout    int64  `desc:"Request timeout in seconds"`
 	WithoutTLS bool   `desc:"Disable TLS for some gauges"`
+	Proxy      string `desc:"HTTP client proxy (for example, you can use mitm for local development)"`
 }
 
 // RequestOptions are additional per-request options
@@ -46,10 +47,13 @@ type RequestOptions struct {
 }
 
 // Client is default client for scripts
+// It will be reinitialized during server creation
+// This default value will be used in tests
 var Client = NewClient(ClientOptions{
 	UserAgent:  "whitewater.guide robot",
 	Timeout:    60,
 	WithoutTLS: false,
+	Proxy:      "",
 })
 
 // NewClient constructs new HTTPClient with options
@@ -64,6 +68,11 @@ func NewClient(opts ClientOptions) *HTTPClient {
 	}
 	transport := http.DefaultTransport.(*http.Transport).Clone()
 	transport.DisableKeepAlives = true
+	if proxy, perr := url.Parse(opts.Proxy); perr == nil && opts.Proxy != "" {
+		transport.Proxy = func(req *http.Request) (*url.URL, error) {
+			return proxy, nil
+		}
+	}
 	if opts.WithoutTLS {
 		transport.TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
 	}

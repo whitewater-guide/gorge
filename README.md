@@ -75,8 +75,10 @@ Here is the list of available flags:
 --db-chunk-size int        Measurements will be saved to db in chunks of this size. When set to 0, they will be saved in one chunk, which can cause errors
 --debug                    Enables debug mode, sets log level to debug
 --endpoint string          Endpoint path (default "/")
+--http-proxy string        HTTP client proxy (for example, you can use mitm for local development)
 --http-timeout int         Request timeout in seconds (default 60)
 --http-user-agent string   User agent for requests sent from scripts. Leave empty to use fake browser agent (default "whitewater.guide robot")
+--http-without-tls         Disable TLS for some gauges
 --log-format string        Set this to 'json' to output log in json (default "json")
 --log-level string         Log level. Leave empty to discard logs (default "warn")
 --pg-db string             Postgres database (default "postgres")
@@ -358,6 +360,8 @@ Preferred way of development is to develop inside docker container. I do this in
 If you use `docker-compose.yml` you need `.env.development` file where you can put env variables with secrets for scripts. The app will work without those variables, but docker-compose requires `.env.development` file to be present. If you use VS Code, `.devcontainer` takes care of this.
 
 Some tests require postgres. You cannot run them inside docker container (unless you want to mess with docker-inside-docker). They're excluded from main test set, I run them using `make test-nodocker` from host machine or CI environment.
+
+Docker-compose stack comes with [mitmproxy](https://mitmproxy.org/). You can monitor your development server request at `http://localhost:8081` on host machine.
 
 ### On host machine
 
