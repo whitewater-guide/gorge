@@ -128,7 +128,8 @@ func (client *HTTPClient) Do(req *http.Request, opts *RequestOptions) (*http.Res
 	if opts != nil && resp != nil && opts.SkipCookies {
 		cookies := resp.Cookies()
 		for _, rc := range cookies {
-			client.PersistentJar.RemoveCookie(rc)
+			rc.MaxAge = -1
+			client.Jar.SetCookies(resp.Request.URL, []*http.Cookie{rc})
 		}
 	}
 

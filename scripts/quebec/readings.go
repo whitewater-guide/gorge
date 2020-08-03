@@ -92,8 +92,9 @@ func (s *scriptQuebec) getReadings(recv chan<- *core.Measurement, errs chan<- er
 		errs <- err
 		return
 	}
-	// resp, err := core.Client.Get(fmt.Sprintf(s.readingsURLFormat, code), &core.RequestOptions{SkipCookies: true})
-	resp, err := core.Client.Get(fmt.Sprintf(s.readingsURLFormat, code), nil)
+	// will set-cookies every time, until max headers length overflows
+	// the workaround is to ignore cookies entirely
+	resp, err := core.Client.Get(fmt.Sprintf(s.readingsURLFormat, code), &core.RequestOptions{SkipCookies: true})
 	if err != nil {
 		errs <- err
 		return
