@@ -1,9 +1,9 @@
 module github.com/whitewater-guide/gorge
 
-go 1.14
+go 1.15
 
 require (
-	github.com/AlecAivazis/survey/v2 v2.0.8
+	github.com/AlecAivazis/survey/v2 v2.1.1
 	github.com/EDDYCJY/fake-useragent v0.2.0
 	github.com/Nvveen/Gotty v0.0.0-20120604004816-cd527374f1e5 // indirect
 	github.com/PuerkitoBio/goquery v1.5.1
@@ -20,7 +20,7 @@ require (
 	github.com/go-bindata/go-bindata v3.1.2+incompatible
 	github.com/go-chi/chi v4.1.2+incompatible
 	github.com/go-chi/render v1.0.1
-	github.com/golang-migrate/migrate/v4 v4.12.1
+	github.com/golang-migrate/migrate/v4 v4.12.2
 	github.com/golangci/golangci-lint v1.29.0
 	github.com/gomodule/redigo v2.0.0+incompatible
 	github.com/google/uuid v1.1.1
@@ -45,11 +45,11 @@ require (
 	github.com/spf13/cobra v1.0.0
 	github.com/stretchr/objx v0.3.0 // indirect
 	github.com/stretchr/testify v1.6.1
-	github.com/tkrajina/typescriptify-golang-structs v0.0.10
-	github.com/yuin/gopher-lua v0.0.0-20200603152657-dc2b0ca8b37e // indirect
+	github.com/tkrajina/typescriptify-golang-structs v0.0.11
+	github.com/yuin/gopher-lua v0.0.0-20200807101526-d70801a73ebe // indirect
 	golang.org/x/crypto v0.0.0-20200728195943-123391ffb6de // indirect
-	golang.org/x/net v0.0.0-20200707034311-ab3426394381
-	golang.org/x/sys v0.0.0-20200802091954-4b90ce9b60b3 // indirect
+	golang.org/x/net v0.0.0-20200813134508-3edf25e44fcc
+	golang.org/x/sys v0.0.0-20200814200057-3d37ad5750ed // indirect
 	golang.org/x/text v0.3.3
 	gopkg.in/errgo.v1 v1.0.1 // indirect
 	gopkg.in/retry.v1 v1.0.3 // indirect
