@@ -18,8 +18,6 @@ CREATE UNIQUE INDEX measurements_idx
 CREATE INDEX measurements_timestamp_idx
     ON measurements (timestamp desc);
 
-SELECT create_hypertable('measurements', 'timestamp');
-
 CREATE TABLE IF NOT EXISTS jobs 
 (
     id TEXT PRIMARY KEY,

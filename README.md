@@ -85,6 +85,7 @@ Here is the list of available flags:
 --pg-host string           Postgres host (default "db")
 --pg-password string       Postgres password
 --pg-user string           Postgres user (default "postgres")
+--pg-without-timescale     During initialization, measurements table will not be transformed into TimescaleDB hypertable
 --port string              Port (default "7080")
 --redis-host string        Redis host (default "redis")
 --redis-port string        Redis port (default "6379")
