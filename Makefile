@@ -56,6 +56,6 @@ prepare:
 	docker build --build-arg VERSION=$(VERSION) -t ghcr.io/whitewater-guide/gorge:latest .
 	docker tag ghcr.io/whitewater-guide/gorge:latest ghcr.io/whitewater-guide/gorge:$(VERSION)
 publish:
-	docker login docker.pkg.github.com -u $(GITHUB_USER) -p $(CR_PAT)
+	docker login ghcr.io -u $(GITHUB_USER) -p $(CR_PAT)
 	docker push ghcr.io/whitewater-guide/gorge:latest
 	docker push ghcr.io/whitewater-guide/gorge:$(VERSION)
