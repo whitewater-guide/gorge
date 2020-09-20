@@ -45,5 +45,6 @@ jobs:
         env:
           GITHUB_EVENT: ${{ github.event_name }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CR_PAT: ${{ secrets.CR_PAT }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
