@@ -54,6 +54,7 @@ func init() {
 			// Listen in goroutine for graceful shutdown
 			go func() {
 				srv.logger.Fatal(httpSrv.ListenAndServe())
+				srv.logger.Infof("listening at %s", srv.port)
 			}()
 
 			// Graceful shutdown

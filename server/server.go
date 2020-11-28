@@ -83,6 +83,7 @@ func (s *server) start() {
 		}
 		s.logger.WithFields(logrus.Fields{"script": job.Script, "jobID": job.ID}).Info("started job")
 	}
+	s.logger.Info("server started")
 }
 
 func (s *server) shutdown() {
