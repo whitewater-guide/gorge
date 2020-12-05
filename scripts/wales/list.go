@@ -8,7 +8,7 @@ import (
 	"github.com/whitewater-guide/gorge/core"
 )
 
-func (s *scriptWales) fetchList(path string, gauges chan<- *core.Gauge, measurements chan<- *core.Measurement, errs chan<- error) {
+func (s *scriptWales) fetchList(gauges chan<- *core.Gauge, measurements chan<- *core.Measurement, errs chan<- error) {
 	key := s.options.Key
 	if key == "" {
 		key = os.Getenv("WALES_KEY")
@@ -19,7 +19,7 @@ func (s *scriptWales) fetchList(path string, gauges chan<- *core.Gauge, measurem
 	}
 	var data []stationData
 	err := core.Client.GetAsJSON(
-		s.url+path,
+		s.url,
 		&data,
 		&core.RequestOptions{
 			Headers: map[string]string{"Ocp-Apim-Subscription-Key": key},
