@@ -46,11 +46,11 @@ func TestWales_ListGauges(t *testing.T) {
 			},
 			LevelUnit: "m",
 			Location: &core.Location{
-				Latitude:  51.70875,
-				Longitude: -3.34592,
+				Latitude:  51.70874,
+				Longitude: -3.34591,
 			},
 			Name: "Taff at Troedyrhiw",
-			URL:  "https://rloi.naturalresources.wales/ViewDetails?station=4064",
+			URL:  "https://rivers-and-seas.naturalresources.wales/station/4064",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -60,10 +60,10 @@ func TestWales_ListGauges(t *testing.T) {
 			LevelUnit: "m",
 			Location: &core.Location{
 				Latitude:  51.4973,
-				Longitude: -3.20988,
+				Longitude: -3.20987,
 			},
 			Name: "Taff at Western Avenue",
-			URL:  "https://rloi.naturalresources.wales/ViewDetails?station=4067",
+			URL:  "https://rivers-and-seas.naturalresources.wales/station/4067",
 		},
 	}
 	if assert.NoError(t, err) {
@@ -87,9 +87,9 @@ func TestWales_Harvest(t *testing.T) {
 				Code:   "4064",
 			},
 			Timestamp: core.HTime{
-				Time: time.Date(2016, time.June, 13, 14, 0, 0, 0, time.UTC),
+				Time: time.Date(2020, time.December, 5, 10, 45, 0, 0, time.UTC),
 			},
-			Level: nulltype.NullFloat64Of(0.275),
+			Level: nulltype.NullFloat64Of(0.529),
 		},
 		&core.Measurement{
 			GaugeID: core.GaugeID{
@@ -97,9 +97,9 @@ func TestWales_Harvest(t *testing.T) {
 				Code:   "4067",
 			},
 			Timestamp: core.HTime{
-				Time: time.Date(2016, time.June, 13, 14, 0, 0, 0, time.UTC),
+				Time: time.Date(2020, time.December, 5, 10, 0, 0, 0, time.UTC),
 			},
-			Level: nulltype.NullFloat64Of(0.633),
+			Level: nulltype.NullFloat64Of(1.003),
 		},
 	}
 	if assert.NoError(t, err) {

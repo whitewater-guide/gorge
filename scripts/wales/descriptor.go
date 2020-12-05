@@ -17,7 +17,7 @@ var Descriptor = &core.ScriptDescriptor{
 		if opts, ok := options.(*optionsWales); ok {
 			return &scriptWales{
 				name:    name,
-				url:     "https://api.naturalresources.wales/riverlevels/v1",
+				url:     "https://api.naturalresources.wales/rivers-and-seas/v1/api/StationData",
 				options: *opts,
 			}, nil
 		}
