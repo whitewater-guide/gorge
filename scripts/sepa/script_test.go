@@ -13,15 +13,20 @@ import (
 )
 
 func setupTestServer() *httptest.Server {
-	return testutils.SetupFileServer(nil, nil)
+	// return testutils.SetupFileServer(nil, nil)
+	return testutils.SetupFileServer(map[string]string{
+		"/10048":                     "10048.csv",
+		"/SEPA_River_Levels_Web.csv": "SEPA_River_Levels_Web.csv",
+	}, nil)
 }
 
 func TestSepa_ListGauges(t *testing.T) {
 	ts := setupTestServer()
 	defer ts.Close()
 	s := scriptSepa{
-		name:    "sepa",
-		baseURL: ts.URL,
+		name:         "sepa",
+		listURL:      ts.URL,
+		gaugeURLBase: ts.URL,
 	}
 	actual, err := s.ListGauges()
 	expected := core.Gauges{
@@ -64,8 +69,9 @@ func TestSepa_Harvest(t *testing.T) {
 	ts := setupTestServer()
 	defer ts.Close()
 	s := scriptSepa{
-		name:    "sepa",
-		baseURL: ts.URL,
+		name:         "sepa",
+		listURL:      ts.URL,
+		gaugeURLBase: ts.URL,
 	}
 	expected := core.Measurements{
 		&core.Measurement{

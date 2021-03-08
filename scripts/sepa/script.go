@@ -9,14 +9,16 @@ import (
 
 type optionsSepa struct{}
 type scriptSepa struct {
-	name    string
-	baseURL string
+	name         string
+	listURL      string
+	gaugeURLBase string
+
 	core.LoggingScript
 }
 
 func (s *scriptSepa) ListGauges() (result core.Gauges, err error) {
 	err = core.Client.StreamCSV(
-		s.baseURL+"/SEPA_River_Levels_Web.csv",
+		s.listURL+"/SEPA_River_Levels_Web.csv",
 		func(row []string) error {
 			if row[3] == "---" {
 				return nil
@@ -48,7 +50,7 @@ func (s *scriptSepa) Harvest(ctx context.Context, recv chan<- *core.Measurement,
 	}
 
 	err = core.Client.StreamCSV(
-		s.baseURL+"/"+code+"-SG.csv",
+		s.gaugeURLBase+"/"+code+"?csv=true",
 		func(row []string) error {
 			m, err := measurementFromRow(row)
 			if err == nil {
