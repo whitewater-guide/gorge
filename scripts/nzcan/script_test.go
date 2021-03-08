@@ -23,6 +23,7 @@ func TestNzcan_ListGauges(t *testing.T) {
 	ts := setupTestServer()
 	defer ts.Close()
 	s := scriptNzcan{
+		year: 2020,
 		name: "nzcan",
 		url:  ts.URL,
 	}
@@ -79,6 +80,7 @@ func TestNzcan_Harvest(t *testing.T) {
 	ts := setupTestServer()
 	defer ts.Close()
 	s := scriptNzcan{
+		year: 2020,
 		name: "nzcan",
 		url:  ts.URL,
 	}

@@ -10,6 +10,8 @@ type optionsNzcan struct{}
 type scriptNzcan struct {
 	name string
 	url  string
+	// upstream assumes current year, but for stable tests we have to parametrize it
+	year int
 	core.LoggingScript
 }
 
