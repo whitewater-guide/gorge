@@ -16,8 +16,10 @@ var Descriptor = &core.ScriptDescriptor{
 	Factory: func(name string, options interface{}) (core.Script, error) {
 		if _, ok := options.(*optionsSepa); ok {
 			return &scriptSepa{
-				name:    name,
-				baseURL: "https://www2.sepa.org.uk/waterlevels/CSVs",
+				name: name,
+				// Currently list URL is not working
+				listURL:      "https://www2.sepa.org.uk/waterlevels/CSVs",
+				gaugeURLBase: "https://www2.sepa.org.uk/HydroData/api/Level15",
 			}, nil
 		}
 		return nil, fmt.Errorf("failed to cast %T", optionsSepa{})

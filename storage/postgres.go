@@ -18,7 +18,7 @@ type PostgresManager struct {
 }
 
 // NewPostgresManager creates new PostgresManager with connection string and chunk size
-func NewPostgresManager(pgConnStr string, chunkSize int) (*PostgresManager, error) {
+func NewPostgresManager(pgConnStr string, chunkSize int, withoutTimescale bool) (*PostgresManager, error) {
 	manager := &PostgresManager{
 		DbManager{
 			defaultStart:     "NOW() - interval '30 days'",
@@ -54,9 +54,18 @@ func NewPostgresManager(pgConnStr string, chunkSize int) (*PostgresManager, erro
 		return nil, fmt.Errorf("failed to create migration: %w", err)
 	}
 
+	_, _, err = migrations.Version()
+	shouldCreateHypertable := err == migrate.ErrNilVersion && !withoutTimescale
+
 	err = migrations.Up()
 	if err != nil && err != migrate.ErrNoChange {
 		return nil, fmt.Errorf("failed to run migrations: %w", err)
+	}
+	if shouldCreateHypertable {
+		_, err = pg.Exec(`SELECT create_hypertable('measurements', 'timestamp');`)
+		if err != nil {
+			return nil, err
+		}
 	}
 
 	return manager, nil

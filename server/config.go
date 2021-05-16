@@ -12,10 +12,11 @@ type logConfig struct {
 }
 
 type pgConfig struct {
-	Host     string `desc:"Postgres host"`
-	Password string `desc:"Postgres password"`
-	User     string `desc:"Postgres user"`
-	Db       string `desc:"Postgres database"`
+	Host             string `desc:"Postgres host"`
+	Password         string `desc:"Postgres password"`
+	User             string `desc:"Postgres user"`
+	Db               string `desc:"Postgres database"`
+	WithoutTimescale bool   `desc:"During initialization, measurements table will not be transformed into TimescaleDB hypertable"`
 }
 
 type redisConfig struct {

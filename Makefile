@@ -53,9 +53,9 @@ verify:
 	docker run --rm --entrypoint "/bin/sh" \
            -v $(shell pwd):/extract gorge_tester -c "cp index.d.ts /extract"
 prepare:
-	docker build --build-arg VERSION=$(VERSION) -t docker.pkg.github.com/whitewater-guide/gorge/gorge:latest .
-	docker tag docker.pkg.github.com/whitewater-guide/gorge/gorge:latest docker.pkg.github.com/whitewater-guide/gorge/gorge:$(VERSION)
+	docker build --build-arg VERSION=$(VERSION) -t ghcr.io/whitewater-guide/gorge:latest .
+	docker tag ghcr.io/whitewater-guide/gorge:latest ghcr.io/whitewater-guide/gorge:$(VERSION)
 publish:
-	docker login docker.pkg.github.com -u $(GITHUB_USER) -p $(GITHUB_TOKEN)
-	docker push docker.pkg.github.com/whitewater-guide/gorge/gorge:latest
-	docker push docker.pkg.github.com/whitewater-guide/gorge/gorge:$(VERSION)
+	docker login ghcr.io -u $(GITHUB_USER) -p $(CR_PAT)
+	docker push ghcr.io/whitewater-guide/gorge:latest
+	docker push ghcr.io/whitewater-guide/gorge:$(VERSION)

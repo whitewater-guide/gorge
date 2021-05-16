@@ -36,12 +36,12 @@ If you prefer option 2, you can run gorge server in docker container and use our
 
 Gorge was designed with 2 more features in mind. These features are not implemented yet, but they should not take long for us to implement in case someone would like to use them:
 
-- standalone distribution. Gorge can be distibuted as standalone linux/mac/windows program, so you can execute it from cli and get harvested results in your stdout. In case you don't want docker and gorge server.
+- standalone distribution. Gorge can be distributed as standalone linux/mac/windows program, so you can execute it from cli and get harvested results in your stdout. In case you don't want docker and gorge server.
 - pushing data downstream. Instead of pulling data from gorge, we can make gorge push data to your project.
 
 ## Data sources
 
-You can find the list of our data sources and thier statuses [here](scripts/README.md)
+You can find the list of our data sources and their statuses [here](scripts/README.md)
 
 ## Usage
 
@@ -85,12 +85,13 @@ Here is the list of available flags:
 --pg-host string           Postgres host (default "db")
 --pg-password string       Postgres password
 --pg-user string           Postgres user (default "postgres")
+--pg-without-timescale     During initialization, measurements table will not be transformed into TimescaleDB hypertable
 --port string              Port (default "7080")
 --redis-host string        Redis host (default "redis")
 --redis-port string        Redis port (default "6379")
 ```
 
-Postgres and redis can also be configured using folowing environment variables:
+Postgres and redis can also be configured using following environment variables:
 
 - POSTGRES_HOST
 - POSTGRES_DB
@@ -140,11 +141,11 @@ Below is the list of endpoints exposed by gorge server. You can use `request.htt
 
 - `POST /upstream/{script}/gauges`
 
-  Lists gauges available for harvest in an upsteam source.
+  Lists gauges available for harvest in an upstream source.
 
   URL parameters:
 
-  - `script` - script name for usptream source
+  - `script` - script name for upstream source
 
   POST body contains JSON that contains script-specific parameters. For example, it can contain authentication credentials for protected sources. Another example is `all_at_once` test script, which accepts `gauges` JSON parameter to specify number of gauges to return.
 
@@ -175,9 +176,9 @@ Below is the list of endpoints exposed by gorge server. You can use `request.htt
 
   URL parameters:
 
-  - `script` - script name for usptream source
-  - `codes` - comma-separated list of gauge codes to return. This paramter is required for one-by-one scripts. For all-at-once scripts it's optional, and without it all gauges will be returned.
-  - `since` - optional unix timstamp indicating start of the period you want to get measurements from. This is passed directly to upstream, if it support such parameter (very few actually do)
+  - `script` - script name for upstream source
+  - `codes` - comma-separated list of gauge codes to return. This parameter is required for one-by-one scripts. For all-at-once scripts it's optional, and without it all gauges will be returned.
+  - `since` - optional unix timestamp indicating start of the period you want to get measurements from. This is passed directly to upstream, if it support such parameter (very few actually do)
 
   POST body contains JSON that contains script-specific parameters. For example, it can contain authentication credentials for protected sources. Another example is `all_at_once` test script, which accepts `min`, `max` and `value` JSON parameters to control produced values.
 
@@ -311,8 +312,8 @@ Below is the list of endpoints exposed by gorge server. You can use `request.htt
 
   - `script` - script name
   - `code` - optional, gauge code
-  - `from` - optional unix timstamp indicating start of the period you want to get measurements from. Default to 30 days from now.
-  - `to` - optional unix timstamp indicating end of the period you want to get measurements from. Defaults to now.
+  - `from` - optional unix timestamp indicating start of the period you want to get measurements from. Default to 30 days from now.
+  - `to` - optional unix timestamp indicating end of the period you want to get measurements from. Defaults to now.
 
   Returns array of measurements that were harvested and stored in gorge database for given script (and gauge). Resulting JSON is same as in `/upstream/{script}/measurements`
 
@@ -418,7 +419,7 @@ Here are some recommendations for writing scripts for new sources
 - Scripts as Go plugins
 - Send logs to sentry
 - Per-script binaries for third-party consumption
-- Add desription attribute to scripts (cause nzbop is ugly)
+- Add description attribute to scripts (cause nzbop is ugly)
 - GRAPHQL api with sources and local gauges
 - (DX) add git pre-push hooks to test and lint
 

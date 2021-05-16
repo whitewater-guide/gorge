@@ -24,8 +24,11 @@ type geoloc struct {
 	name     string
 }
 
-func getTime(str string) (*core.HTime, error) {
-	year := time.Now().In(tz).Year()
+func getTime(year int, str string) (*core.HTime, error) {
+	// upstream assumes current year, but for stable tests we have to parametrize it
+	if year == 0 {
+		year = time.Now().In(tz).Year()
+	}
 	ext := fmt.Sprintf("%d %s:00", year, str)
 	ts, err := time.ParseInLocation("2006 02-January 15:04:05", ext, tz)
 	if err != nil {
@@ -90,7 +93,7 @@ func (s *scriptNzcan) fetchList(suffix string, recv chan<- *core.Measurement) er
 		// name := strings.TrimSpace(link.Text())
 		href, _ := link.Attr("href")
 		code := href[strings.LastIndex(href, "/")+1:]
-		ts, err := getTime(tds.Eq(0).Text())
+		ts, err := getTime(s.year, tds.Eq(0).Text())
 		if err != nil {
 			return
 		}

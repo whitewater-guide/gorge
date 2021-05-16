@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http/pprof"
+	"net/url"
 
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
@@ -82,6 +83,7 @@ func (s *server) start() {
 		}
 		s.logger.WithFields(logrus.Fields{"script": job.Script, "jobID": job.ID}).Info("started job")
 	}
+	s.logger.Info("server started")
 }
 
 func (s *server) shutdown() {
@@ -138,11 +140,11 @@ func newServer(cfg *config, registry *core.ScriptRegistry) *server {
 		pgConnStr := fmt.Sprintf(
 			"postgres://%s:%s@%s/%s?sslmode=disable",
 			cfg.Pg.User,
-			cfg.Pg.Password,
+			url.QueryEscape(cfg.Pg.Password),
 			cfg.Pg.Host,
 			cfg.Pg.Db,
 		)
-		db, err := storage.NewPostgresManager(pgConnStr, cfg.DbChunkSize)
+		db, err := storage.NewPostgresManager(pgConnStr, cfg.DbChunkSize, cfg.Pg.WithoutTimescale)
 		if err != nil {
 			result.logger.Fatal(err)
 		}
