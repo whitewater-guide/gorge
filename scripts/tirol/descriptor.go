@@ -12,6 +12,6 @@ var Descriptor = &core.ScriptDescriptor{
 		return &optionsTirol{}
 	},
 	Factory: func(name string, options interface{}) (core.Script, error) {
-		return &scriptTirol{name: name, csvURL: "https://apps.tirol.gv.at/hydro/ogd/OGD_W.csv"}, nil
+		return &scriptTirol{name: name, csvURL: "https://wiski.tirol.gv.at/hydro/ogd/OGD_W.csv"}, nil
 	},
 }

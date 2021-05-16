@@ -11,3 +11,5 @@ Cache-Control: no-cache
 Content-Type: application/json
 
 ###
+# Get original CSV
+GET https://wiski.tirol.gv.at/hydro/ogd/OGD_W.csv
