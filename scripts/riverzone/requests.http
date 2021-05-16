@@ -10,3 +10,16 @@ Cache-Control: no-cache
 Content-Type: application/json
 
 ###
+# Original V1 endpoint
+GET https://api.riverzone.eu/v1/stations?status=enabled
+X-Key: {{$processEnv %RIVERZONE_KEY}}
+
+###
+# Stations V2 endpoint
+GET https://api.riverzone.eu/v2/stations
+X-Key: {{$processEnv %RIVERZONE_KEY}}
+
+###
+# Readings V2 endpoint
+GET https://api.riverzone.eu/v2/stations/readings?from=60&to=60
+X-Key: {{$processEnv %RIVERZONE_KEY}}

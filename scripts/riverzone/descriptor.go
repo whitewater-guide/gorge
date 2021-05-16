@@ -18,7 +18,7 @@ var Descriptor = &core.ScriptDescriptor{
 			return &scriptRiverzone{
 				name:                name,
 				options:             *opts,
-				stationsEndpointURL: "https://api.riverzone.eu/v1/stations",
+				stationsEndpointURL: "https://api.riverzone.eu/v2/stations",
 			}, nil
 		}
 		return nil, fmt.Errorf("failed to cast %T", optionsRiverzone{})

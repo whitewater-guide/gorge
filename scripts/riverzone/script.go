@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/whitewater-guide/gorge/core"
 )
@@ -19,27 +20,48 @@ type scriptRiverzone struct {
 	core.LoggingScript
 }
 
-func (s *scriptRiverzone) fetchStations() (*stations, error) {
+func containsStr(s []string, str string) bool {
+	for _, v := range s {
+		if v == str {
+			return true
+		}
+	}
+
+	return false
+}
+
+func (s *scriptRiverzone) fetch(path string, dest interface{}) error {
 	key := s.options.Key
 	if key == "" {
 		key = os.Getenv("RIVERZONE_KEY")
 	}
 	if key == "" {
-		return nil, fmt.Errorf("riverzone api key not found")
+		return fmt.Errorf("riverzone api key not found")
 	}
-	var response stations
 	err := core.Client.GetAsJSON(
-		s.stationsEndpointURL+"?status=enabled",
-		&response,
+		s.stationsEndpointURL+path,
+		&dest,
 		&core.RequestOptions{
 			Headers: map[string]string{"X-Key": key},
 		},
 	)
 
 	if err != nil {
-		return nil, err
+		return err
 	}
-	return &response, nil
+	return nil
+}
+
+func (s *scriptRiverzone) fetchStations() (*stationsResp, error) {
+	var response *stationsResp
+	err := s.fetch("", &response)
+	return response, err
+}
+
+func (s *scriptRiverzone) fetchReadings() (*readingsResp, error) {
+	var response *readingsResp
+	err := s.fetch("/readings?from=60&to=60", &response)
+	return response, err
 }
 
 func (s *scriptRiverzone) ListGauges() (core.Gauges, error) {
@@ -50,14 +72,14 @@ func (s *scriptRiverzone) ListGauges() (core.Gauges, error) {
 	var result []core.Gauge
 
 	for _, station := range stations.Stations {
-		if !station.Enabled {
+		if !station.IsActive {
 			continue
 		}
 		var flowUnit, levelUnit string
-		if station.Readings.Cm != nil {
+		if containsStr(station.Sensors, "level") {
 			levelUnit = "cm"
 		}
-		if station.Readings.M3s != nil {
+		if containsStr(station.Sensors, "flow") {
 			flowUnit = "m3s"
 		}
 		g := core.Gauge{
@@ -65,7 +87,7 @@ func (s *scriptRiverzone) ListGauges() (core.Gauges, error) {
 				Script: s.name,
 				Code:   station.ID,
 			},
-			Name: fmt.Sprintf("%s - %s - %s - %s", station.CountryCode, station.State, station.RiverName, station.StationName),
+			Name: strings.ReplaceAll(fmt.Sprintf("%s - %s - %s - %s", station.CountryCode, station.State, station.River.value, station.Name), "-  -", "-"),
 			Location: &core.Location{
 				Latitude:  core.TruncCoord(station.Latlng.Lat),
 				Longitude: core.TruncCoord(station.Latlng.Lng),
@@ -73,7 +95,7 @@ func (s *scriptRiverzone) ListGauges() (core.Gauges, error) {
 			},
 			FlowUnit:  flowUnit,
 			LevelUnit: levelUnit,
-			URL:       station.SourceLink,
+			URL:       station.SourceLinks.value,
 		}
 		result = append(result, g)
 	}
@@ -84,27 +106,21 @@ func (s *scriptRiverzone) ListGauges() (core.Gauges, error) {
 func (s *scriptRiverzone) Harvest(ctx context.Context, recv chan<- *core.Measurement, errs chan<- error, codes core.StringSet, since int64) {
 	defer close(recv)
 	defer close(errs)
-	stations, err := s.fetchStations()
+	readings, err := s.fetchReadings()
 	if err != nil {
 		errs <- err
 		return
 	}
-	for _, station := range stations.Stations {
-		if !station.Enabled {
-			continue
-		}
+	for id, reading := range readings.Readings {
 
 		flowValues := make(map[core.HTime]*core.Measurement)
-		if station.Readings.M3s != nil {
-			for _, reading := range station.Readings.M3s {
-				if reading.Value.Float64Value() == 0.0 {
-					continue
-				}
+		if reading.M3s != nil {
+			for _, reading := range reading.M3s {
 				t := core.HTime{Time: reading.Timestamp.Time}
 				flowValues[t] = &core.Measurement{
 					GaugeID: core.GaugeID{
 						Script: s.name,
-						Code:   station.ID,
+						Code:   id,
 					},
 					Flow:      reading.Value,
 					Timestamp: t,
@@ -112,11 +128,8 @@ func (s *scriptRiverzone) Harvest(ctx context.Context, recv chan<- *core.Measure
 			}
 		}
 
-		if station.Readings.Cm != nil {
-			for _, reading := range station.Readings.Cm {
-				if reading.Value.Float64Value() == 0.0 {
-					continue
-				}
+		if reading.Cm != nil {
+			for _, reading := range reading.Cm {
 				t := core.HTime{Time: reading.Timestamp.Time}
 				// Trying to find corresponding flow value:
 				if flowValue, ok := flowValues[t]; ok {
@@ -125,7 +138,7 @@ func (s *scriptRiverzone) Harvest(ctx context.Context, recv chan<- *core.Measure
 					recv <- &core.Measurement{
 						GaugeID: core.GaugeID{
 							Script: s.name,
-							Code:   station.ID,
+							Code:   id,
 						},
 						Level:     reading.Value,
 						Timestamp: t,

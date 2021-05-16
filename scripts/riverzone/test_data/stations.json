@@ -1,0 +1,117 @@
+{
+  "elapsedMs": 99,
+  "stations": [
+    {
+      "id": "d5a4cf14-e62c-4fcd-b963-3cd6a1c075de",
+      "type": "online",
+      "revision": 0,
+      "revisionTs": 1553248568,
+      "sensors": [
+        "level",
+        "flow"
+      ],
+      "isActive": true,
+      "name": "Suhr",
+      "river": {
+        "de": "Suhre"
+      },
+      "countryCode": "CH",
+      "state": "Aargau",
+      "latlng": [
+        47368145,
+        8062239
+      ],
+      "dataSourceId": "27b694f7-a9ea-4d0a-b85c-b2f30c3f3fd6",
+      "sourceLinks": {
+        "de": {
+          "level": "https://www.ag.ch/app/hydrometrie/station/?id=11560",
+          "flow": "https://www.ag.ch/app/hydrometrie/station/?id=11560"
+        }
+      },
+      "parserConfigs": "11560,FG_0333,60829042,60834042",
+      "observationFreqMins": 10,
+      "publishingFreqMins": -1,
+      "note": {}
+    },
+    {
+      "id": "19ac0462-2c0c-454b-ac7b-5a053db3efab",
+      "type": "online",
+      "revision": 1,
+      "revisionTs": 1553248592,
+      "sensors": [
+        "level"
+      ],
+      "isActive": true,
+      "name": "Molina (AQ)",
+      "river": {
+        "it": "Aterno"
+      },
+      "countryCode": "IT",
+      "state": "Abruzzo",
+      "latlng": [
+        42137213,
+        13752998
+      ],
+      "dataSourceId": "8e89901a-8c9a-46b5-a41c-06d30ee66c8d",
+      "sourceLinks": {
+        "it": {
+          "level": "http://www.himet.it/cgi-bin/meteo/gmaps/new_idrope.cgi",
+          "flow": null
+        }
+      },
+      "parserConfigs": "15137",
+      "observationFreqMins": 15,
+      "publishingFreqMins": 15,
+      "note": {}
+    },
+    {
+      "id": "0d1135e2-d33d-544f-8227-0ee1a1f0e411",
+      "type": "online",
+      "revision": 0,
+      "revisionTs": 1585588519,
+      "sensors": [
+        "level",
+        "flow"
+      ],
+      "isActive": true,
+      "name": "Grensehølen",
+      "river": {
+        "no": "Driva"
+      },
+      "countryCode": "NO",
+      "state": "",
+      "latlng": [
+        62572090,
+        9159030
+      ],
+      "dataSourceId": "b0f14e08-2ece-4076-86e2-005fee088fbd",
+      "sourceLinks": {
+        "no": {
+          "level": "http://www2.nve.no/h/hd/plotreal/Q/0109.00020.000/index.html",
+          "flow": "http://www2.nve.no/h/hd/plotreal/Q/0109.00020.000/index.html"
+        }
+      },
+      "parserConfigs": "0109.00020.000,HQ",
+      "observationFreqMins": 5,
+      "publishingFreqMins": 60,
+      "note": {}
+    }
+  ],
+  "sources": [
+    {
+      "id": "27b694f7-a9ea-4d0a-b85c-b2f30c3f3fd6",
+      "name": "Kanton Aargau",
+      "licensingTerms": "Data is not validated. We are not aware of a formal license. Please publicly credit the station data and observations to the source organisation",
+      "website": "https://www.ag.ch",
+      "countryCode": "CH"
+    },
+    {
+      "id": "8e89901a-8c9a-46b5-a41c-06d30ee66c8d",
+      "name": "Protezione Civile Regione Abruzzo",
+      "licensingTerms": "Data is not validated. We are not aware of a formal license. Please publicly credit the station data and observations to the source organisation",
+      "website": "https://protezionecivile.regione.abruzzo.it/",
+      "countryCode": "IT"
+    }
+  ],
+  "license": "https://api.rivermap.org/doc/v2/#license"
+}

@@ -12,7 +12,10 @@ import (
 )
 
 func setupTestServer() *httptest.Server {
-	return testutils.SetupFileServer(nil, &testutils.HeaderAuthorizer{Key: "X-Key"})
+	return testutils.SetupFileServer(map[string]string{
+		"/readings": "readings.json",
+		"/":         "stations.json",
+	}, &testutils.HeaderAuthorizer{Key: "X-Key"})
 }
 
 func TestRiverzone_Auth(t *testing.T) {
@@ -20,7 +23,7 @@ func TestRiverzone_Auth(t *testing.T) {
 	defer ts.Close()
 	s := scriptRiverzone{
 		name:                "riverzone",
-		stationsEndpointURL: ts.URL + "/data.json",
+		stationsEndpointURL: ts.URL,
 		options:             optionsRiverzone{Key: "__bad__"},
 	}
 	_, err := s.ListGauges()
@@ -32,7 +35,7 @@ func TestRiverzone_ListGauges(t *testing.T) {
 	defer ts.Close()
 	s := scriptRiverzone{
 		name:                "riverzone",
-		stationsEndpointURL: ts.URL + "/data.json",
+		stationsEndpointURL: ts.URL,
 		options:             optionsRiverzone{Key: testutils.TestAuthKey},
 	}
 	actual, err := s.ListGauges()
@@ -64,6 +67,20 @@ func TestRiverzone_ListGauges(t *testing.T) {
 			Name: "IT - Abruzzo - Aterno - Molina (AQ)",
 			URL:  "http://www.himet.it/cgi-bin/meteo/gmaps/new_idrope.cgi",
 		},
+		core.Gauge{
+			GaugeID: core.GaugeID{
+				Script: "riverzone",
+				Code:   "0d1135e2-d33d-544f-8227-0ee1a1f0e411",
+			},
+			LevelUnit: "cm",
+			FlowUnit:  "m3s",
+			Location: &core.Location{
+				Latitude:  62.57209,
+				Longitude: 9.15903,
+			},
+			Name: "NO - Driva - Grensehølen",
+			URL:  "http://www2.nve.no/h/hd/plotreal/Q/0109.00020.000/index.html",
+		},
 	}
 	if assert.NoError(t, err) {
 		assert.Equal(t, expected, actual)
@@ -75,7 +92,7 @@ func TestRiverzone_Harvest(t *testing.T) {
 	defer ts.Close()
 	s := scriptRiverzone{
 		name:                "riverzone",
-		stationsEndpointURL: ts.URL + "/data.json",
+		stationsEndpointURL: ts.URL,
 		options:             optionsRiverzone{Key: testutils.TestAuthKey},
 	}
 	actual, err := core.HarvestSlice(&s, core.StringSet{}, 0)
@@ -86,10 +103,10 @@ func TestRiverzone_Harvest(t *testing.T) {
 				Code:   "d5a4cf14-e62c-4fcd-b963-3cd6a1c075de",
 			},
 			Timestamp: core.HTime{
-				Time: time.Date(2020, time.January, 19, 5, 20, 0, 0, time.UTC),
+				Time: time.Date(2021, time.May, 16, 9, 40, 0, 0, time.UTC),
 			},
-			Level: nulltype.NullFloat64Of(26.3),
-			Flow:  nulltype.NullFloat64Of(1.793),
+			Level: nulltype.NullFloat64Of(34.2),
+			Flow:  nulltype.NullFloat64Of(2.89),
 		},
 		&core.Measurement{
 			GaugeID: core.GaugeID{
@@ -97,10 +114,10 @@ func TestRiverzone_Harvest(t *testing.T) {
 				Code:   "d5a4cf14-e62c-4fcd-b963-3cd6a1c075de",
 			},
 			Timestamp: core.HTime{
-				Time: time.Date(2020, time.January, 19, 5, 30, 0, 0, time.UTC),
+				Time: time.Date(2021, time.May, 16, 9, 50, 0, 0, time.UTC),
 			},
-			Level: nulltype.NullFloat64Of(26.4),
-			Flow:  nulltype.NullFloat64Of(1.805),
+			Level: nulltype.NullFloat64Of(34.2),
+			Flow:  nulltype.NullFloat64Of(2.89),
 		},
 		&core.Measurement{
 			GaugeID: core.GaugeID{
@@ -108,9 +125,9 @@ func TestRiverzone_Harvest(t *testing.T) {
 				Code:   "19ac0462-2c0c-454b-ac7b-5a053db3efab",
 			},
 			Timestamp: core.HTime{
-				Time: time.Date(2020, time.January, 19, 5, 30, 0, 0, time.UTC),
+				Time: time.Date(2021, time.May, 16, 9, 45, 0, 0, time.UTC),
 			},
-			Level: nulltype.NullFloat64Of(30.0),
+			Level: nulltype.NullFloat64Of(25.0),
 		},
 		&core.Measurement{
 			GaugeID: core.GaugeID{
@@ -118,9 +135,9 @@ func TestRiverzone_Harvest(t *testing.T) {
 				Code:   "19ac0462-2c0c-454b-ac7b-5a053db3efab",
 			},
 			Timestamp: core.HTime{
-				Time: time.Date(2020, time.January, 19, 5, 45, 0, 0, time.UTC),
+				Time: time.Date(2021, time.May, 16, 10, 0, 0, 0, time.UTC),
 			},
-			Level: nulltype.NullFloat64Of(30.0),
+			Level: nulltype.NullFloat64Of(26.0),
 		},
 	}
 	if assert.NoError(t, err) {
