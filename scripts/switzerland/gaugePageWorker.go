@@ -13,7 +13,7 @@ const td = "<td class=\"text-right\">"
 
 func parseAltitude(baseURL string, gauge *core.Gauge) {
 	raw, err := core.Client.GetAsString(baseURL+gauge.GaugeID.Code+".html", nil)
-	if err != nil {
+	if err != nil || raw == "" {
 		return
 	}
 	altStart := strings.Index(raw, altOpen)
