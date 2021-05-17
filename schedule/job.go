@@ -75,7 +75,13 @@ func (job harvestJob) Run() {
 	defer cancel()
 
 	go script.Harvest(ctx, in, errCh, job.codes, getSince(&job, cache))
-	filteredCh := core.FilterMeasurements(ctx, in, core.NewCodesFilter(job.codes), core.NewLatestFilter(cache, 30*24))
+	filteredCh := core.FilterMeasurements(
+		ctx,
+		in,
+		logger,
+		core.CodesFilter{Codes: job.codes},
+		core.LatestFilter{Latest: cache, After: time.Now().Add(time.Duration(-30*24) * time.Hour)},
+	)
 	cacheIn, dbIn := core.Split(ctx, filteredCh)
 	savedCh, savedErrCh := job.database.SaveMeasurements(ctx, dbIn)
 	cachedErrCh := job.cache.SaveLatestMeasurements(ctx, cacheIn)

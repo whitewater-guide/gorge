@@ -44,12 +44,14 @@ func (s *server) handleUpstreamMeasurements() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		errorMsg := "failed to harvest measurements from upstream"
 		name := chi.URLParam(r, "script")
+		logger := s.logger.WithField("script", name)
 		codes := core.StringSet{}
 		for _, s := range strings.Split(r.URL.Query().Get("codes"), ",") {
 			if s != "" {
 				codes[s] = struct{}{}
 			}
 		}
+		logger.WithField("codes", codes).Debug("harvesting measurements")
 		sinceS := r.URL.Query().Get("since")
 		var since int64
 		var err error
@@ -75,6 +77,7 @@ func (s *server) handleUpstreamMeasurements() http.HandlerFunc {
 			s.renderError(w, r, errors.New("exactly one code must be provided for one-by-one scripts"), errorMsg, http.StatusMethodNotAllowed)
 			return
 		}
+		script.SetLogger(logger)
 
 		in := make(chan *core.Measurement)
 		errCh := make(chan error, 1)
@@ -84,7 +87,7 @@ func (s *server) handleUpstreamMeasurements() http.HandlerFunc {
 
 		go script.Harvest(ctx, in, errCh, codes, since)
 		if len(codes) >= 1 {
-			out = core.FilterMeasurements(ctx, in, core.NewCodesFilter(codes))
+			out = core.FilterMeasurements(ctx, in, logger, core.CodesFilter{Codes: codes})
 		}
 		resultCh := core.SinkToSlice(context.Background(), out)
 		var result core.Measurements = <-resultCh

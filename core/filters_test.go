@@ -10,14 +10,17 @@ import (
 )
 
 func TestNewLatestFilter(t *testing.T) {
-	f := newLatestFilter(map[GaugeID]Measurement{
-		GaugeID{"all_at_once", "a000"}: {
-			GaugeID:   GaugeID{"all_at_once", "a000"},
-			Timestamp: unixHTime(10000),
-			Level:     nulltype.NullFloat64Of(100),
-			Flow:      nulltype.NullFloat64Of(100),
+	f := LatestFilter{
+		Latest: map[GaugeID]Measurement{
+			GaugeID{"all_at_once", "a000"}: {
+				GaugeID:   GaugeID{"all_at_once", "a000"},
+				Timestamp: unixHTime(10000),
+				Level:     nulltype.NullFloat64Of(100),
+				Flow:      nulltype.NullFloat64Of(100),
+			},
 		},
-	}, time.Unix(5000, 0))
+		After: time.Unix(5000, 0),
+	}
 
 	tests := []struct {
 		name     string
@@ -77,13 +80,13 @@ func TestNewLatestFilter(t *testing.T) {
 		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel() // marks each test case as capable of running in parallel with each other
-			assert.Equal(t, tt.expected, f(tt.input))
+			assert.Equal(t, tt.expected, f.filter(tt.input))
 		})
 	}
 }
 
 func TestNewCodesFilter(t *testing.T) {
-	f := NewCodesFilter(StringSet{"a000": {}, "a001": {}})
+	f := CodesFilter{Codes: StringSet{"a000": {}, "a001": {}}}
 
 	tests := []struct {
 		name     string
@@ -109,7 +112,7 @@ func TestNewCodesFilter(t *testing.T) {
 		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel() // marks each test case as capable of running in parallel with each other
-			assert.Equal(t, tt.expected, f(tt.input))
+			assert.Equal(t, tt.expected, f.filter(tt.input))
 		})
 	}
 }
@@ -144,20 +147,23 @@ func TestFilterMeasurements(t *testing.T) {
 			Timestamp: unixHTime(12000),
 		},
 	}
-	fCodes := NewCodesFilter(StringSet{"a000": {}, "a001": {}})
-	fLatest := newLatestFilter(map[GaugeID]Measurement{
-		GaugeID{"all_at_once", "a000"}: {
-			GaugeID:   GaugeID{"all_at_once", "a000"},
-			Timestamp: unixHTime(10000),
-			Level:     nulltype.NullFloat64Of(100),
-			Flow:      nulltype.NullFloat64Of(100),
+	fCodes := CodesFilter{Codes: StringSet{"a000": {}, "a001": {}}}
+	fLatest := LatestFilter{
+		Latest: map[GaugeID]Measurement{
+			GaugeID{"all_at_once", "a000"}: {
+				GaugeID:   GaugeID{"all_at_once", "a000"},
+				Timestamp: unixHTime(10000),
+				Level:     nulltype.NullFloat64Of(100),
+				Flow:      nulltype.NullFloat64Of(100),
+			},
 		},
-	}, time.Unix(5000, 0))
+		After: time.Unix(5000, 0),
+	}
 
 	t.Run("success", func(t *testing.T) {
 		ctx := context.Background()
 		gen := GenFromSlice(ctx, input)
-		out := FilterMeasurements(ctx, gen, fCodes, fLatest)
+		out := FilterMeasurements(ctx, gen, nil, fCodes, fLatest)
 		resCh := SinkToSlice(ctx, out)
 		actual := <-resCh
 		assert.Equal(t, expected, actual)
@@ -165,7 +171,7 @@ func TestFilterMeasurements(t *testing.T) {
 	t.Run("canceled", func(t *testing.T) {
 		ctx, cancel := context.WithCancel(context.Background())
 		gen := GenFromSlice(ctx, input)
-		out := FilterMeasurements(ctx, gen, fCodes, fLatest)
+		out := FilterMeasurements(ctx, gen, nil, fCodes, fLatest)
 		resCh := SinkToSlice(ctx, out)
 		cancel()
 		actual, ok := <-resCh
@@ -197,19 +203,22 @@ func BenchmarkFilterMeasurements(b *testing.B) {
 			Timestamp: unixHTime(12000),
 		},
 	}
-	fCodes := NewCodesFilter(StringSet{"a000": {}, "a001": {}})
-	fLatest := newLatestFilter(map[GaugeID]Measurement{
-		GaugeID{"all_at_once", "a000"}: {
-			GaugeID:   GaugeID{"all_at_once", "a000"},
-			Timestamp: unixHTime(10000),
-			Level:     nulltype.NullFloat64Of(100),
-			Flow:      nulltype.NullFloat64Of(100),
+	fCodes := CodesFilter{Codes: StringSet{"a000": {}, "a001": {}}}
+	fLatest := LatestFilter{
+		Latest: map[GaugeID]Measurement{
+			GaugeID{"all_at_once", "a000"}: {
+				GaugeID:   GaugeID{"all_at_once", "a000"},
+				Timestamp: unixHTime(10000),
+				Level:     nulltype.NullFloat64Of(100),
+				Flow:      nulltype.NullFloat64Of(100),
+			},
 		},
-	}, time.Unix(5000, 0))
+		After: time.Unix(5000, 0),
+	}
 	for i := 0; i < b.N; i++ {
 		ctx := context.Background()
 		gen := GenFromSlice(ctx, input)
-		out := FilterMeasurements(ctx, gen, fCodes, fLatest)
+		out := FilterMeasurements(ctx, gen, nil, fCodes, fLatest)
 		resCh := SinkToSlice(ctx, out)
 		<-resCh
 	}
