@@ -13,9 +13,12 @@ import (
 	"strings"
 	"time"
 
+	"moul.io/http2curl"
+
 	browser "github.com/EDDYCJY/fake-useragent"
 	"github.com/PuerkitoBio/goquery"
 	jar "github.com/juju/persistent-cookiejar"
+	"github.com/sirupsen/logrus"
 	log "github.com/sirupsen/logrus"
 	"golang.org/x/text/encoding"
 	"golang.org/x/text/transform"
@@ -26,6 +29,7 @@ type HTTPClient struct {
 	*http.Client
 	PersistentJar *jar.Jar
 	UserAgent     string
+	logger        *logrus.Entry
 }
 
 // ClientOptions are HTTPClient that can be passed as args at startup
@@ -54,10 +58,10 @@ var Client = NewClient(ClientOptions{
 	Timeout:    60,
 	WithoutTLS: false,
 	Proxy:      "",
-})
+}, nil)
 
 // NewClient constructs new HTTPClient with options
-func NewClient(opts ClientOptions) *HTTPClient {
+func NewClient(opts ClientOptions, logger *logrus.Entry) *HTTPClient {
 	jarOpts := jar.Options{
 		Filename: "/tmp/cookies/gorge.cookies",
 	}
@@ -79,6 +83,7 @@ func NewClient(opts ClientOptions) *HTTPClient {
 	client := &HTTPClient{
 		Client:        &http.Client{Jar: persJar, Transport: transport},
 		PersistentJar: persJar,
+		logger:        logger,
 	}
 
 	client.Timeout = time.Duration(opts.Timeout) * time.Second
@@ -124,7 +129,12 @@ func (client *HTTPClient) Do(req *http.Request, opts *RequestOptions) (*http.Res
 		}
 	}
 
+	if client.logger != nil {
+		client.logger.Debug(http2curl.GetCurlCommand(req))
+	}
+
 	resp, err := client.Client.Do(req)
+
 	if opts != nil && resp != nil && opts.SkipCookies {
 		cookies := resp.Cookies()
 		for _, rc := range cookies {

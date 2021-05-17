@@ -56,11 +56,13 @@ func FilterMeasurements(ctx context.Context, in <-chan *Measurement, logger *log
 				for _, f := range filters {
 					fStats := stats[f.name()]
 					fStats.incoming()
+					stats[f.name()] = fStats
 					if !f.filter(*m) {
 						accept = false
 						break
 					} else {
 						fStats.outgoing()
+						stats[f.name()] = fStats
 					}
 				}
 				if accept {

@@ -16,7 +16,7 @@ var client = core.NewClient(core.ClientOptions{
 	UserAgent:  "whitewater.guide robot",
 	Timeout:    60,
 	WithoutTLS: true,
-})
+}, nil)
 
 var userURL = "https://meteo.gov.ua/ua/33345/hydrostorm"
 

@@ -171,7 +171,7 @@ func newServer(cfg *config, registry *core.ScriptRegistry) *server {
 		Cron:     cron.New(),
 	}
 
-	core.Client = core.NewClient(cfg.HTTP)
+	core.Client = core.NewClient(cfg.HTTP, result.logger.WithField("client", "http"))
 
 	return result
 }
