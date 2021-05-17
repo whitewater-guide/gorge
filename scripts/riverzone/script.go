@@ -111,6 +111,8 @@ func (s *scriptRiverzone) Harvest(ctx context.Context, recv chan<- *core.Measure
 		errs <- err
 		return
 	}
+	count := 0
+	s.GetLogger().Debugf("Harvested %d readings", len(readings.Readings))
 	for id, reading := range readings.Readings {
 
 		flowValues := make(map[core.HTime]*core.Measurement)
@@ -148,7 +150,9 @@ func (s *scriptRiverzone) Harvest(ctx context.Context, recv chan<- *core.Measure
 		}
 
 		for _, v := range flowValues {
+			count += 1
 			recv <- v
 		}
 	}
+	s.GetLogger().Debugf("Sent %d readings", count)
 }
