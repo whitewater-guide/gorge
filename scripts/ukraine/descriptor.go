@@ -2,7 +2,6 @@ package ukraine
 
 import (
 	"fmt"
-
 	"github.com/whitewater-guide/gorge/core"
 )
 
@@ -16,8 +15,11 @@ var Descriptor = &core.ScriptDescriptor{
 	Factory: func(name string, options interface{}) (core.Script, error) {
 		if _, ok := options.(*optionsUkraine); ok {
 			return &scriptUkraine{
-				name: name,
-				url:  "http://meteo.gov.ua/kml",
+				name:         name,
+				urlDaily:     "http://meteo.gov.ua/kml",
+				urlHourly:    "http://hydro.meteo.gov.ua",
+				timezone:     getTimezone(),
+				station2code: station2code,
 			}, nil
 		}
 		return nil, fmt.Errorf("failed to cast %T", optionsUkraine{})
