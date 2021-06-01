@@ -99,48 +99,76 @@ func (s *scriptUkraine) getAllRivers() (map[string]riverData, error) {
 }
 
 func (s *scriptUkraine) harvest(measurements chan<- *core.Measurement, errs chan<- error) {
-	rivers, err := s.getAllRivers()
-	if err != nil {
-		errs <- err
-		return
+	var wg sync.WaitGroup
+	waitHourlyData := map[string]bool{}
+	for _, code := range s.station2code {
+		waitHourlyData[code] = true
 	}
 
-	var wg sync.WaitGroup
-	lastMeasurements := map[core.GaugeID]time.Time{}
-	var lastMeasurementsLock sync.Mutex
+	var rivers map[string]riverData
+	riversReady := make(chan struct{})
 
-	for station, code := range s.station2code {
-		river, ok := rivers[code]
-		if !ok {
+	//load daily-updated measurements for all rivers
+	//save measurements if it have no hourly-updated source
+	wg.Add(1)
+	go func() {
+		defer func() {
+			close(riversReady)
+			wg.Done()
+		}()
+		var err error
+		rivers, err = s.getAllRivers()
+		if err != nil {
+			errs <- err
 			return
 		}
-		wg.Add(1)
-		go func(station string) {
-			ts := s.harvestSingle(river, station, measurements, errs)
-
-			lastMeasurementsLock.Lock()
-			lastMeasurements[river.GaugeID] = ts
-			lastMeasurementsLock.Unlock()
-
-			wg.Done()
-		}(station)
-
-	}
-	wg.Wait()
-
-	for _, river := range rivers {
-		if river.Timestamp.After(lastMeasurements[river.GaugeID]) {
-			measurements <- &core.Measurement{
-				GaugeID:   river.GaugeID,
-				Timestamp: core.HTime{Time: river.Timestamp},
-				Level:     river.Level,
+		for _, river := range rivers {
+			if !waitHourlyData[river.Code] {
+				s.saveDailyMeasurements(measurements, river)
 			}
 		}
+	}()
+
+	//load&save hourly-updated measurements
+	for station, code := range s.station2code {
+		wg.Add(1)
+		go func(code, station string) {
+			defer wg.Done()
+			ts := s.harvestSingle(code, station, measurements, errs)
+			//wait loading daily-updated measurements
+			//save as daily-updated if hourly-updated source 6 hours behind of daily-updated
+			<-riversReady
+			if rivers == nil {
+				return
+			}
+			river, ok := rivers[code]
+			if !ok {
+				return
+			}
+			if ts.Add(6 * time.Hour).Before(river.Timestamp) {
+				s.saveDailyMeasurements(measurements, river)
+			}
+		}(code, station)
+
 	}
 
+	wg.Wait()
 }
 
-func (s *scriptUkraine) harvestSingle(riverInfo riverData, station string, measurements chan<- *core.Measurement, errs chan<- error) (lastTs time.Time) {
+func (s *scriptUkraine) saveDailyMeasurements(measurements chan<- *core.Measurement, data riverData) {
+	measurements <- &core.Measurement{
+		GaugeID:   data.GaugeID,
+		Timestamp: core.HTime{Time: data.Timestamp},
+		Level:     data.Level,
+	}
+	measurements <- &core.Measurement{
+		GaugeID:   data.GaugeID,
+		Timestamp: core.HTime{Time: data.Timestamp.Add(time.Hour)},
+		Level:     data.Level,
+	}
+}
+
+func (s *scriptUkraine) harvestSingle(code string, station string, measurements chan<- *core.Measurement, errs chan<- error) (lastTs time.Time) {
 	doc, err := s.getMeasurementsAsDoc(station)
 	if err != nil {
 		errs <- err
@@ -168,7 +196,10 @@ func (s *scriptUkraine) harvestSingle(riverInfo riverData, station string, measu
 				return
 			}
 			measurements <- &core.Measurement{
-				GaugeID:   riverInfo.GaugeID,
+				GaugeID: core.GaugeID{
+					Script: s.name,
+					Code:   code,
+				},
 				Timestamp: core.HTime{Time: t},
 				Level:     nulltype.NullFloat64Of(level),
 			}
