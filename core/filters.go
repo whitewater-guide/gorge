@@ -2,6 +2,7 @@ package core
 
 import (
 	"context"
+	"fmt"
 	"time"
 
 	"github.com/sirupsen/logrus"
@@ -18,6 +19,14 @@ func (stats *filterStats) incoming() {
 
 func (stats *filterStats) outgoing() {
 	stats.outCnt += 1
+}
+
+func formatStats(m map[string]filterStats) string {
+	result := ""
+	for f, s := range m {
+		result += fmt.Sprintf("[%s: %d -> %d]", f, s.inCnt, s.outCnt)
+	}
+	return result
 }
 
 // MeasurementsFilter is used to skip unwanted measurements based on code, timestamp, etc...
@@ -41,7 +50,7 @@ func FilterMeasurements(ctx context.Context, in <-chan *Measurement, logger *log
 		defer close(out)
 		defer func() {
 			if logger != nil {
-				logger.WithField("stats", stats).Debug("filter stats")
+				logger.Debugf("filter stats %s", formatStats(stats))
 			}
 		}()
 		for {
