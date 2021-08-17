@@ -24,7 +24,7 @@ func (stats *filterStats) outgoing() {
 func formatStats(m map[string]filterStats) string {
 	result := ""
 	for f, s := range m {
-		result += fmt.Sprintf("[%s: %d -> %d]", f, s.inCnt, s.outCnt)
+		result += fmt.Sprintf("[%s: %d/%d]", f, s.outCnt, s.inCnt)
 	}
 	return result
 }
