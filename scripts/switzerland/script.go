@@ -53,10 +53,14 @@ func (s *scriptSwitzerland) Harvest(ctx context.Context, recv chan<- *core.Measu
 		errs <- err
 		return
 	}
+	s.GetLogger().Debugf("fetched %d stations", len(dataRoot.Stations))
+	cnt := 0
 	for _, station := range dataRoot.Stations {
 		m := s.stationToMeasurement(&station)
 		if m != nil {
+			cnt += 1
 			recv <- m
 		}
 	}
+	s.GetLogger().Debugf("pushed %d measurements", cnt)
 }
