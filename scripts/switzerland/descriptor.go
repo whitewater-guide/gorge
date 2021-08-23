@@ -17,7 +17,7 @@ var Descriptor = &core.ScriptDescriptor{
 		if opts, ok := options.(*optionsSwitzerland); ok {
 			return &scriptSwitzerland{
 				name:             name,
-				xmlURL:           "https://www.hydrodaten.admin.ch/lhg/az/xml/hydroweb.xml",
+				xmlURL:           "https://www.hydrodata.ch/data/xml/hydroweb.xml",
 				gaugePageURLBase: "https://www.hydrodaten.admin.ch/en/",
 				options:          *opts,
 			}, nil

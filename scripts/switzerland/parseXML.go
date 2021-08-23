@@ -11,7 +11,7 @@ import (
 
 const epsg21781 = "+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=600000 +y_0=200000 +ellps=bessel +towgs84=674.4,15.1,405.3,0,0,0,0 +units=m +no_defs"
 
-func (s *scriptSwitzerland) fetchStations() (*swissDataRoot, error) {
+func (s *scriptSwitzerland) fetchStations() (*locations, error) {
 	usr, pwd := s.options.Username, s.options.Password
 	if usr == "" {
 		usr = os.Getenv("SWITZERLAND_USER")
@@ -34,7 +34,7 @@ func (s *scriptSwitzerland) fetchStations() (*swissDataRoot, error) {
 	if resp.StatusCode == http.StatusUnauthorized {
 		return nil, errors.New("unauthorized")
 	}
-	response := &swissDataRoot{}
+	response := &locations{}
 	err = xml.NewDecoder(resp.Body).Decode(response)
 	if err != nil {
 		return nil, err
@@ -42,7 +42,7 @@ func (s *scriptSwitzerland) fetchStations() (*swissDataRoot, error) {
 	return response, nil
 }
 
-func getLocation(station swissStation) (*core.Location, error) {
+func getLocation(station station) (*core.Location, error) {
 	x, y, err := core.ToEPSG4326(float64(station.Easting), float64(station.Northing), epsg21781)
 	if err != nil {
 		return nil, err
@@ -50,14 +50,14 @@ func getLocation(station swissStation) (*core.Location, error) {
 	return &core.Location{Longitude: x, Latitude: y}, nil
 }
 
-func getParameters(station *swissStation) (flow *swissParameter, level *swissParameter) {
+func getParameters(station *station) (flow *parameter, level *parameter) {
 	// there will be at most one param for flow, and at most one for flow
-	for _, param := range station.Parameters {
-		switch param.Type {
-		case 10, 22:
+	for _, param := range station.Parameter {
+		switch param.Name {
+		case "Abfluss m3/s", "Abfluss l/s":
 			scoped := param
 			flow = &scoped
-		case 1, 2, 28:
+		case "Pegel m ü. M.", "Pegel m":
 			scoped := param
 			level = &scoped
 		}
@@ -65,7 +65,7 @@ func getParameters(station *swissStation) (flow *swissParameter, level *swissPar
 	return
 }
 
-func (s *scriptSwitzerland) stationToGauge(station *swissStation) (*core.Gauge, error) {
+func (s *scriptSwitzerland) stationToGauge(station *station) (*core.Gauge, error) {
 	name := station.WaterBodyName + " - " + station.Name
 	if station.WaterBodyType != "river" {
 		name += " (" + station.WaterBodyType + ")"
@@ -80,11 +80,11 @@ func (s *scriptSwitzerland) stationToGauge(station *swissStation) (*core.Gauge, 
 
 	gauge := &core.Gauge{
 		GaugeID: core.GaugeID{
-			Code:   station.Code,
+			Code:   station.Number,
 			Script: s.name,
 		},
 		Name:     name,
-		URL:      "https://www.hydrodaten.admin.ch/en/" + station.Code + ".html",
+		URL:      "https://www.hydrodaten.admin.ch/en/" + station.Number + ".html",
 		Location: loc,
 	}
 
@@ -98,7 +98,7 @@ func (s *scriptSwitzerland) stationToGauge(station *swissStation) (*core.Gauge, 
 	return gauge, nil
 }
 
-func (s *scriptSwitzerland) stationToMeasurement(station *swissStation) *core.Measurement {
+func (s *scriptSwitzerland) stationToMeasurement(station *station) *core.Measurement {
 	flowP, levelP := getParameters(station)
 	if levelP == nil && flowP == nil {
 		return nil
@@ -106,15 +106,19 @@ func (s *scriptSwitzerland) stationToMeasurement(station *swissStation) *core.Me
 	result := &core.Measurement{
 		GaugeID: core.GaugeID{
 			Script: s.name,
-			Code:   station.Code,
+			Code:   station.Number,
 		},
 	}
 	if flowP != nil {
-		result.Flow = flowP.Value
+		if flowP.Value.Text != "NaN" {
+			result.Flow.UnmarshalJSON([]byte(flowP.Value.Text)) //nolint:errcheck
+		}
 		result.Timestamp = core.HTime{Time: flowP.Datetime.Time}
 	}
 	if levelP != nil {
-		result.Level = levelP.Value
+		if levelP.Value.Text != "NaN" {
+			result.Level.UnmarshalJSON([]byte(levelP.Value.Text)) //nolint:errcheck
+		}
 		// it's safe to overwrite. Timestamps are equal for all the params
 		result.Timestamp = core.HTime{Time: levelP.Datetime.Time}
 	}
@@ -126,7 +130,7 @@ func (s *scriptSwitzerland) parseXMLGauges() (result core.Gauges, err error) {
 	if err != nil {
 		return
 	}
-	for _, station := range dataRoot.Stations {
+	for _, station := range dataRoot.Station {
 		var gauge *core.Gauge
 		gauge, err = s.stationToGauge(&station)
 		if err != nil {

@@ -53,7 +53,7 @@ func (s *scriptSwitzerland) Harvest(ctx context.Context, recv chan<- *core.Measu
 		errs <- err
 		return
 	}
-	for _, station := range dataRoot.Stations {
+	for _, station := range dataRoot.Station {
 		m := s.stationToMeasurement(&station)
 		if m != nil {
 			recv <- m
