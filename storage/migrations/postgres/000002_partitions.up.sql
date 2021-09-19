@@ -3,6 +3,10 @@
 CREATE SCHEMA IF NOT EXISTS partman;
 CREATE EXTENSION IF NOT EXISTS pg_partman SCHEMA partman;
 
+
+-- Schema where archived tables will be placed
+CREATE SCHEMA IF NOT EXISTS archive;
+
 -- First, the original table should be renamed so the partitioned table can be made with the original table's name.
 ALTER TABLE measurements RENAME to old_measurements;
 
@@ -39,5 +43,6 @@ DROP TABLE IF EXISTS old_measurements;
 UPDATE partman.part_config 
 SET infinite_time_partitions = true,
     retention = '13 months', 
+    retention_schema = 'archive',
     retention_keep_table = true 
 WHERE parent_table = 'public.measurements';
