@@ -26,7 +26,7 @@ CREATE INDEX msmnts_timestamp_idx
     ON measurements (timestamp desc);
 
 -- Make partman handle this table
-SELECT partman.create_parent('public.measurements', 'timestamp', 'native', 'quarterly');
+SELECT partman.create_parent('public.measurements', 'timestamp', 'native', 'monthly');
 
 -- Migrate data
 CALL partman.partition_data_proc('public.measurements', p_interval := '1 day', p_batch := 500, p_source_table := 'public.old_measurements');
@@ -38,6 +38,6 @@ DROP TABLE IF EXISTS old_measurements;
 -- See https://github.com/pgpartman/pg_partman/blob/master/doc/pg_partman.md#tables
 UPDATE partman.part_config 
 SET infinite_time_partitions = true,
-    retention = '15 months', 
+    retention = '13 months', 
     retention_keep_table = true 
 WHERE parent_table = 'public.measurements';
