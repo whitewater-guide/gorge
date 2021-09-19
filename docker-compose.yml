@@ -8,7 +8,7 @@ services:
     image: gorge-dev
     container_name: gorge-dev
     ports:
-      - "7080:7080"
+      - "5080:7080"
     env_file: .env.development
     # [Optional] Required for ptrace-based debuggers like C++, Go, and Rust
     cap_add:
@@ -25,8 +25,8 @@ services:
     container_name: mitm
     command: mitmweb --web-host 0.0.0.0 --showhost
     ports:
-      - 8080:8080
-      - 8081:8081
+      - 6080:8080
+      - 6081:8081
     tty: true
     stdin_open: true
     volumes:

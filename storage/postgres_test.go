@@ -1,3 +1,4 @@
+//go:build nodocker
 // +build nodocker
 
 package storage
@@ -9,7 +10,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/ory/dockertest"
+	"github.com/ory/dockertest/v3"
 	"github.com/stretchr/testify/suite"
 )
 
