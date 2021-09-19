@@ -2,7 +2,6 @@
 
 CREATE SCHEMA IF NOT EXISTS partman;
 CREATE EXTENSION IF NOT EXISTS pg_partman SCHEMA partman;
-CREATE EXTENSION IF NOT EXISTS pg_cron;
 
 -- First, the original table should be renamed so the partitioned table can be made with the original table's name.
 ALTER TABLE measurements RENAME to old_measurements;
@@ -42,6 +41,3 @@ SET infinite_time_partitions = true,
     retention = '15 months', 
     retention_keep_table = true 
 WHERE parent_table = 'public.measurements';
-
--- Schedule maintetance
-SELECT cron.schedule('@daily', $$CALL partman.run_maintenance_proc()$$);
