@@ -1,16 +1,19 @@
 package storage
 
 import (
+	"embed"
 	"fmt"
 
 	"github.com/golang-migrate/migrate/v4"
 	"github.com/golang-migrate/migrate/v4/database/postgres"
-	bindata "github.com/golang-migrate/migrate/v4/source/go_bindata"
+	"github.com/golang-migrate/migrate/v4/source/iofs"
 
 	// postgres
 	_ "github.com/lib/pq"
-	postgres_migrations "github.com/whitewater-guide/gorge/storage/migrations/postgres"
 )
+
+//go:embed migrations/postgres/*.sql
+var pgFS embed.FS
 
 // PostgresManager implements DatabaseManager interface
 type PostgresManager struct {
@@ -39,17 +42,12 @@ func NewPostgresManager(pgConnStr string, chunkSize int, withoutTimescale bool) 
 		return nil, fmt.Errorf("failed to create migration db driver: %w", err)
 	}
 
-	src := bindata.Resource(postgres_migrations.AssetNames(),
-		func(name string) ([]byte, error) {
-			return postgres_migrations.Asset(name)
-		})
-
-	d, err := bindata.WithInstance(src)
+	d, err := iofs.New(pgFS, "migrations/postgres")
 	if err != nil {
-		return nil, fmt.Errorf("failed to create migration bindata source: %w", err)
+		return nil, fmt.Errorf("failed to create migration iofs source: %w", err)
 	}
 
-	migrations, err := migrate.NewWithInstance("go-bindata", d, "postgres", driver)
+	migrations, err := migrate.NewWithInstance("iofs", d, "postgres", driver)
 	if err != nil {
 		return nil, fmt.Errorf("failed to create migration: %w", err)
 	}

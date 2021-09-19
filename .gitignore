@@ -9,6 +9,7 @@
 /pkg/
 /storage/migrations/**/*.go
 **/bench_data/
+.bin/
 
 .vscode
 node_modules

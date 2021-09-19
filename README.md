@@ -362,17 +362,22 @@ If you use `docker-compose.yml` you need `.env.development` file where you can p
 
 Some tests require postgres. You cannot run them inside docker container (unless you want to mess with docker-inside-docker). They're excluded from main test set, I run them using `make test-nodocker` from host machine or CI environment.
 
-Docker-compose stack comes with [mitmproxy](https://mitmproxy.org/). You can monitor your development server request at `http://localhost:8081` on host machine.
+Docker-compose stack comes with [mitmproxy](https://mitmproxy.org/). You can monitor your development server requests at `http://localhost:6081` on host machine.
 
 ### On host machine
 
 If you want to develop on host machine, you'll need following libraries installed on it (they're installed in docker image, see Dockerfile for more info):
 
-- [libproj](https://proj.org/) shared library, to convert coordinate systems. Currently version 5.2.0 is required. (to match version from debian buster). On MacOS this can be installed via brew `brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/122f2a2a2c44462823360fc5a1becec968b9abf7/Formula/proj.rb`
+- [libproj](https://proj.org/) shared library, to convert coordinate systems. Currently version 5.2.0 is required. (to match version from debian buster). On MacOS this can be installed via brew:
+
+```
+brew tap-new $USER/local-tap
+brew extract --version='5.2.0' proj $USER/local-tap
+brew install proj@5.2.0
+```
 
 Also you'll need following go tools:
 
-- [go-bindata](https://github.com/go-bindata/go-bindata) - required for database schemas
 - [modd](https://github.com/cortesi/modd) - live reloading tool, not really required, but some might prefer such workflow
 - [golangci-lint](github.com/golangci/golangci-lint) - not a requirement, but this is the linter of choice and CI uses it
 

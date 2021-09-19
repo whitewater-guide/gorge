@@ -139,6 +139,7 @@ func (mgr DbManager) GetNearestMeasurement(script, code string, to time.Time, to
 	if tolerance != 0 && (m.Timestamp.After(to.Add(tolerance)) || m.Timestamp.Before(to.Add(-tolerance))) {
 		return nil, nil
 	}
+	m.Timestamp = core.HTime{Time: m.Timestamp.Time.UTC()}
 	return &m, nil
 }
 
