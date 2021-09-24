@@ -5,7 +5,7 @@ BEGIN;
 CREATE SCHEMA IF NOT EXISTS partman;
 CREATE EXTENSION IF NOT EXISTS pg_partman SCHEMA partman;
 
-CREATE ROLE IF NOT EXISTS partman WITH LOGIN;
+CREATE ROLE partman WITH LOGIN;
 GRANT ALL ON SCHEMA partman TO partman;
 GRANT ALL ON ALL TABLES IN SCHEMA partman TO partman;
 GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA partman TO partman;
@@ -43,20 +43,5 @@ CREATE INDEX msmnts_timestamp_idx
 
 -- Make partman handle this table
 SELECT partman.create_parent('public.measurements', 'timestamp', 'native', 'monthly');
-
--- Migrate data
-CALL partman.partition_data_proc('public.measurements', p_interval := '1 day', p_batch := 500, p_source_table := 'public.old_measurements');
-
--- Delete old table
-DROP TABLE IF EXISTS old_measurements;
-
--- Configure partman maintetance
--- See https://github.com/pgpartman/pg_partman/blob/master/doc/pg_partman.md#tables
-UPDATE partman.part_config 
-SET infinite_time_partitions = true,
-    retention = '13 months', 
-    retention_schema = 'archive',
-    retention_keep_table = true 
-WHERE parent_table = 'public.measurements';
 
 COMMIT;

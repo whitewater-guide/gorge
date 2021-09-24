@@ -18,10 +18,5 @@ CREATE UNIQUE INDEX measurements_idx
 CREATE INDEX measurements_timestamp_idx
     ON new_measurements (timestamp desc);
 
-CALL partman.undo_partition_proc('public.measurements', p_interval := 'daily'::text, p_batch := 500, p_target_table := 'public.new_measurements', p_keep_table := false);
-
-DROP TABLE IF EXISTS measurements;
-
-ALTER TABLE new_measurements RENAME TO measurements;
-
 COMMIT;
+
