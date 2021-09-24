@@ -1,3 +1,5 @@
+BEGIN;
+
 CREATE TABLE new_measurements
 (
     timestamp timestamp with time zone not null,
@@ -22,3 +24,4 @@ DROP TABLE IF EXISTS measurements;
 
 ALTER TABLE new_measurements RENAME TO measurements;
 
+COMMIT;

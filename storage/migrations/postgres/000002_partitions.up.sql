@@ -1,11 +1,23 @@
--- Prerequisites: setup partman and cron
+BEGIN;
+
+-- Prerequisites: setup partman
 
 CREATE SCHEMA IF NOT EXISTS partman;
 CREATE EXTENSION IF NOT EXISTS pg_partman SCHEMA partman;
 
+CREATE ROLE IF NOT EXISTS partman WITH LOGIN;
+GRANT ALL ON SCHEMA partman TO partman;
+GRANT ALL ON ALL TABLES IN SCHEMA partman TO partman;
+GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA partman TO partman;
+GRANT EXECUTE ON ALL PROCEDURES IN SCHEMA partman TO partman;
+GRANT ALL ON SCHEMA public TO partman;
 
 -- Schema where archived tables will be placed
 CREATE SCHEMA IF NOT EXISTS archive;
+GRANT ALL ON SCHEMA archive TO partman;
+
+-- End of partman setup
+-- Beginning of migration
 
 -- First, the original table should be renamed so the partitioned table can be made with the original table's name.
 ALTER TABLE measurements RENAME to old_measurements;
@@ -46,3 +58,5 @@ SET infinite_time_partitions = true,
     retention_schema = 'archive',
     retention_keep_table = true 
 WHERE parent_table = 'public.measurements';
+
+COMMIT;
