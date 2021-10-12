@@ -2,7 +2,7 @@
 # Base dev image             #
 ##############################
 
-FROM golang:1.16.4-buster as development
+FROM golang:1.17.1-buster as development
 
 ENV GO111MODULE=on
 

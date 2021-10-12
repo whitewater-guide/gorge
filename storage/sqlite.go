@@ -1,18 +1,21 @@
 package storage
 
 import (
+	"embed"
 	"fmt"
+	"log"
 	"math"
 	"time"
 
 	"github.com/golang-migrate/migrate/v4"
 	"github.com/golang-migrate/migrate/v4/database/sqlite3"
-	bindata "github.com/golang-migrate/migrate/v4/source/go_bindata"
+	"github.com/golang-migrate/migrate/v4/source/iofs"
 
-	//
 	_ "github.com/mattn/go-sqlite3"
-	sqlite_migrations "github.com/whitewater-guide/gorge/storage/migrations/sqlite"
 )
+
+//go:embed migrations/sqlite/*.sql
+var sqliteFS embed.FS
 
 // SqliteManager implements DatabaseManager interface for Sqlite datbase https://github.com/mattn/go-sqlite3
 type SqliteManager struct {
@@ -44,17 +47,12 @@ func NewSqliteDb(chunkSize int) (*SqliteManager, error) {
 		return nil, fmt.Errorf("failed to create migration db driver: %w", err)
 	}
 
-	src := bindata.Resource(sqlite_migrations.AssetNames(),
-		func(name string) ([]byte, error) {
-			return sqlite_migrations.Asset(name)
-		})
-
-	d, err := bindata.WithInstance(src)
+	d, err := iofs.New(sqliteFS, "migrations/sqlite")
 	if err != nil {
-		return nil, fmt.Errorf("failed to create migration bindata source: %w", err)
+		log.Fatal(err)
 	}
 
-	migrations, err := migrate.NewWithInstance("go-bindata", d, "postgres", driver)
+	migrations, err := migrate.NewWithInstance("iofs", d, "postgres", driver)
 	if err != nil {
 		return nil, fmt.Errorf("failed to create migration: %w", err)
 	}

@@ -33,7 +33,6 @@
   // Add the IDs of extensions you want installed when the container is created in the array below.
   "extensions": [
     "golang.go",
-    "premparihar.gotestexplorer",
     "yokoe.vscode-postfix-go",
     "humao.rest-client"
   ]

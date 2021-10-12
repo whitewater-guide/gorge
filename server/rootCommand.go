@@ -12,7 +12,7 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/go-chi/chi"
+	"github.com/go-chi/chi/v5"
 	"github.com/octago/sflags/gen/gpflag"
 	"github.com/spf13/cobra"
 	"github.com/whitewater-guide/gorge/scripts"

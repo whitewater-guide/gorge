@@ -1,3 +1,4 @@
+//go:build nodocker
 // +build nodocker
 
 package storage
@@ -9,7 +10,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/ory/dockertest"
+	"github.com/ory/dockertest/v3"
 	"github.com/stretchr/testify/suite"
 )
 
@@ -22,7 +23,7 @@ func TestMain(m *testing.M) {
 		log.Fatalf("Could not create dockertest pool: %s", err)
 	}
 	// pulls an image, creates a container based on it and runs it
-	resource, err := pool.Run("timescale/timescaledb", "1.5.1-pg11", []string{"POSTGRES_PASSWORD=postgres"})
+	resource, err := pool.Run("whitewaterguide/db-docker", "1.0.4", []string{"POSTGRES_PASSWORD=postgres"})
 	if err != nil {
 		log.Fatalf("Could not start resource: %s", err)
 	}
@@ -51,7 +52,7 @@ func TestMain(m *testing.M) {
 }
 
 func TestPostgres(t *testing.T) {
-	pgMgr, err := NewPostgresManager(pgConnStr, 0)
+	pgMgr, err := NewPostgresManager(pgConnStr, 0, true)
 	if err != nil {
 		log.Fatalf("failed to init sqlite manager: %v", err)
 	}

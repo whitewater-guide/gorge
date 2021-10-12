@@ -6,8 +6,8 @@ import (
 	"net/http/pprof"
 	"net/url"
 
-	"github.com/go-chi/chi"
-	"github.com/go-chi/chi/middleware"
+	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/chi/v5/middleware"
 	"github.com/go-chi/render"
 	"github.com/robfig/cron/v3"
 	"github.com/sirupsen/logrus"
