@@ -52,18 +52,9 @@ func NewPostgresManager(pgConnStr string, chunkSize int, withoutTimescale bool) 
 		return nil, fmt.Errorf("failed to create migration: %w", err)
 	}
 
-	_, _, err = migrations.Version()
-	shouldCreateHypertable := err == migrate.ErrNilVersion && !withoutTimescale
-
 	err = migrations.Up()
 	if err != nil && err != migrate.ErrNoChange {
 		return nil, fmt.Errorf("failed to run migrations: %w", err)
-	}
-	if shouldCreateHypertable {
-		_, err = pg.Exec(`SELECT create_hypertable('measurements', 'timestamp');`)
-		if err != nil {
-			return nil, err
-		}
 	}
 
 	return manager, nil

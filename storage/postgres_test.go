@@ -23,7 +23,7 @@ func TestMain(m *testing.M) {
 		log.Fatalf("Could not create dockertest pool: %s", err)
 	}
 	// pulls an image, creates a container based on it and runs it
-	resource, err := pool.Run("whitewaterguide/db-docker", "1.0.4", []string{"POSTGRES_PASSWORD=postgres"})
+	resource, err := pool.Run("whitewaterguide/db-docker", "1.1.2", []string{"POSTGRES_PASSWORD=postgres"})
 	if err != nil {
 		log.Fatalf("Could not start resource: %s", err)
 	}
