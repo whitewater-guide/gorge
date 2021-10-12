@@ -23,7 +23,7 @@ func TestMain(m *testing.M) {
 		log.Fatalf("Could not create dockertest pool: %s", err)
 	}
 	// pulls an image, creates a container based on it and runs it
-	resource, err := pool.Run("whitewaterguide/db-docker", "1.1.2", []string{"POSTGRES_PASSWORD=postgres"})
+	resource, err := pool.Run("whitewaterguide/postgres", "1.0.1", []string{"POSTGRES_PASSWORD=postgres"})
 	if err != nil {
 		log.Fatalf("Could not start resource: %s", err)
 	}
@@ -52,7 +52,7 @@ func TestMain(m *testing.M) {
 }
 
 func TestPostgres(t *testing.T) {
-	pgMgr, err := NewPostgresManager(pgConnStr, 0, true)
+	pgMgr, err := NewPostgresManager(pgConnStr, 0)
 	if err != nil {
 		log.Fatalf("failed to init sqlite manager: %v", err)
 	}
