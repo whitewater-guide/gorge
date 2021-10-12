@@ -21,7 +21,7 @@ type PostgresManager struct {
 }
 
 // NewPostgresManager creates new PostgresManager with connection string and chunk size
-func NewPostgresManager(pgConnStr string, chunkSize int, withoutTimescale bool) (*PostgresManager, error) {
+func NewPostgresManager(pgConnStr string, chunkSize int) (*PostgresManager, error) {
 	manager := &PostgresManager{
 		DbManager{
 			defaultStart:     "NOW() - interval '30 days'",

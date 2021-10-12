@@ -144,7 +144,7 @@ func newServer(cfg *config, registry *core.ScriptRegistry) *server {
 			cfg.Pg.Host,
 			cfg.Pg.Db,
 		)
-		db, err := storage.NewPostgresManager(pgConnStr, cfg.DbChunkSize, cfg.Pg.WithoutTimescale)
+		db, err := storage.NewPostgresManager(pgConnStr, cfg.DbChunkSize)
 		if err != nil {
 			result.logger.Fatal(err)
 		}
