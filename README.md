@@ -45,10 +45,22 @@ You can find the list of our data sources and their statuses [here](scripts/READ
 
 ## Usage
 
-Gorge is distributed as a ~50Mb [docker image](https://github.com/whitewater-guide/gorge/packages/113546) with two binary files:
+Gorge is distributed as a ~50Mb [docker image](https://github.com/whitewater-guide/gorge/pkgs/container/gorge) with two binary files:
 
 - `gorge-server` (_entrypoint_) - web server with REST API
 - `gorge-cli` - command-line client for this server. Since image is distroless, use `docker exec gorge gorge-cli` to call it
+
+### Setting up database
+
+Gorge database schemas for postgres and sqlite can be found [here](./storage/migrations/).
+
+Gorge is compatible with [TimescaleDB extension](https://www.timescale.com/). To use it, run following query while `measurements` table is still empty.
+
+```sql
+SELECT create_hypertable('measurements', 'timestamp');
+```
+
+You can also partition `measurements` table (we do). But managing partitions is your responsibility.
 
 ### Launching
 
@@ -85,7 +97,6 @@ Here is the list of available flags:
 --pg-host string           Postgres host (default "db")
 --pg-password string       Postgres password
 --pg-user string           Postgres user (default "postgres")
---pg-without-timescale     During initialization, measurements table will not be transformed into TimescaleDB hypertable
 --port string              Port (default "7080")
 --redis-host string        Redis host (default "redis")
 --redis-port string        Redis port (default "6379")
@@ -102,7 +113,7 @@ Postgres and redis can also be configured using following environment variables:
 
 Environment variables have lower priority than cli flags.
 
-Gorge uses database to store harvested measurements and scheduled jobs. It comes with postgres and sqlite drivers. Postgres with timescaledb extension is recommended for production. Gorge will initialize all the required tables. Check out sql migration file if you're curious about db schema.
+Gorge uses database to store harvested measurements and scheduled jobs. It comes with postgres and sqlite drivers. Gorge will initialize all the required tables. Check out sql migration file if you're curious about db schema.
 
 Gorge uses cache to store safe-to-lose data: latest measurement from each gauge and harvest statuses. It comes with redis (recommended) and embedded redis drivers.
 
