@@ -119,3 +119,18 @@ func (f CodesFilter) filter(m Measurement) bool {
 func (f CodesFilter) name() string {
 	return "codes"
 }
+
+// PartitionRangeFilter filters old measurements from partitions that should already be archived (see 'retention' column of partman.part_config table)
+// It also filters garbage measurements from the future (see 'premake' column of partman.part_config table)
+// If any of such measurements gets saved, partman will throw constraint violation during maintetance (see https://github.com/pgpartman/pg_partman/issues/247)
+type PartitionRangeFilter struct {
+	Now time.Time
+}
+
+func (f PartitionRangeFilter) filter(m Measurement) bool {
+	return m.Timestamp.Time.After(f.Now.AddDate(0, -12, 0)) && m.Timestamp.Before(f.Now.AddDate(0, 5, 0))
+}
+
+func (f PartitionRangeFilter) name() string {
+	return "codes"
+}

@@ -79,6 +79,7 @@ func (job harvestJob) Run() {
 		ctx,
 		in,
 		logger,
+		core.PartitionRangeFilter{Now: time.Now()},
 		core.CodesFilter{Codes: job.codes},
 		core.LatestFilter{Latest: cache, After: time.Now().Add(time.Duration(-30*24) * time.Hour)},
 	)

@@ -117,6 +117,56 @@ func TestNewCodesFilter(t *testing.T) {
 	}
 }
 
+func TestPartitionRangeFilter(t *testing.T) {
+	f := PartitionRangeFilter{Now: time.Date(2000, time.January, 1, 0, 0, 0, 0, time.UTC)}
+
+	tests := []struct {
+		name     string
+		input    Measurement
+		expected bool
+	}{
+		{
+			name: "too old",
+			input: Measurement{
+				Timestamp: HTime{Time: time.Date(1998, time.November, 1, 0, 0, 0, 0, time.UTC)},
+				GaugeID:   GaugeID{"all_at_once", "a000"},
+			},
+			expected: false,
+		},
+		{
+			name: "from the future",
+			input: Measurement{
+				Timestamp: HTime{Time: time.Date(2000, time.August, 1, 0, 0, 0, 0, time.UTC)},
+				GaugeID:   GaugeID{"all_at_once", "a001"},
+			},
+			expected: false,
+		},
+		{
+			name: "old but good",
+			input: Measurement{
+				Timestamp: HTime{Time: time.Date(1999, time.December, 1, 0, 0, 0, 0, time.UTC)},
+				GaugeID:   GaugeID{"all_at_once", "a002"},
+			},
+			expected: true,
+		},
+		{
+			name: "from the future but good",
+			input: Measurement{
+				Timestamp: HTime{Time: time.Date(2000, time.February, 1, 0, 0, 0, 0, time.UTC)},
+				GaugeID:   GaugeID{"all_at_once", "a002"},
+			},
+			expected: true,
+		},
+	}
+	for _, tt := range tests {
+		tt := tt
+		t.Run(tt.name, func(t *testing.T) {
+			t.Parallel() // marks each test case as capable of running in parallel with each other
+			assert.Equal(t, tt.expected, f.filter(tt.input))
+		})
+	}
+}
+
 func TestFilterMeasurements(t *testing.T) {
 	input := []Measurement{
 		{
