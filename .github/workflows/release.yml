@@ -14,37 +14,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v1
+      - name: Semantic release
+        uses: cycjimmy/semantic-release-action@v2
         with:
-          node-version: 12
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Cache node_modules
-        uses: actions/cache@v1
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-
-        # Semantic-release is configured in a way that it'll fail prepare step when event is not 'push'
-        # This ensures that:
-        # - When commit-analyzer says that no release should be made, then test and build phase do not run
-        # - On pull requests build phase doesn't run, but test phase does
-      - name: Release
+          extra_plugins: |
+            @semantic-release/git
+            @semantic-release/exec
         env:
           GITHUB_EVENT: ${{ github.event_name }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CR_PAT: ${{ secrets.CR_PAT }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release
