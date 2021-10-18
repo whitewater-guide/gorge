@@ -33,7 +33,8 @@ func TestKuban_ListGauges(t *testing.T) {
 				Latitude:  43.47,
 				Longitude: 42.24,
 			},
-			Name: "р.Кубань - с. им.Коста Хетагурова",
+			Name:     "р.Кубань - с. им.Коста Хетагурова",
+			Timezone: "Europe/Moscow",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -45,7 +46,8 @@ func TestKuban_ListGauges(t *testing.T) {
 				Latitude:  44.38,
 				Longitude: 39.06,
 			},
-			Name: "р.Псекупс - г. Горячий ключ",
+			Name:     "р.Псекупс - г. Горячий ключ",
+			Timezone: "Europe/Moscow",
 		},
 	}
 	actual, err := s.ListGauges()

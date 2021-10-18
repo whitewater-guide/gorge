@@ -37,6 +37,7 @@ func TestEcuador_ListGauges(t *testing.T) {
 			},
 			LevelUnit: "m",
 			Name:      "Napo En Ahuano",
+			Timezone:  "America/Guayaquil",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -49,7 +50,8 @@ func TestEcuador_ListGauges(t *testing.T) {
 				Longitude: -77.775,
 				Altitude:  1490,
 			},
-			Name: "Quijos Dj Oyacachi",
+			Name:     "Quijos Dj Oyacachi",
+			Timezone: "America/Guayaquil",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -62,7 +64,8 @@ func TestEcuador_ListGauges(t *testing.T) {
 				Longitude: -77.008,
 				Altitude:  265,
 			},
-			Name: "Payamino Aj Napo",
+			Name:     "Payamino Aj Napo",
+			Timezone: "America/Guayaquil",
 		},
 	}
 	if assert.NoError(t, err) {

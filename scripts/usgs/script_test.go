@@ -42,6 +42,7 @@ func TestUSGS_ListGauges(t *testing.T) {
 				Longitude: -123.74348,
 				Altitude:  24,
 			},
+			Timezone: "America/Los_Angeles",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -55,6 +56,7 @@ func TestUSGS_ListGauges(t *testing.T) {
 				Latitude:  46.66093,
 				Longitude: -122.98401,
 			},
+			Timezone: "America/Los_Angeles",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -69,6 +71,7 @@ func TestUSGS_ListGauges(t *testing.T) {
 				Longitude: -123.85072,
 				Altitude:  7.39,
 			},
+			Timezone: "America/Los_Angeles",
 		},
 	}
 

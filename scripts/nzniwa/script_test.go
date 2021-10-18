@@ -39,8 +39,9 @@ func TestNzniwa_ListGauges(t *testing.T) {
 				Latitude:  174.733,
 				Longitude: -38.62335,
 			},
-			Name: "Awakino at Gorge",
-			URL:  "https://hydrowebportal.niwa.co.nz/Data/Location/Summary/Location/40810/Interval/Latest",
+			Name:     "Awakino at Gorge",
+			URL:      "https://hydrowebportal.niwa.co.nz/Data/Location/Summary/Location/40810/Interval/Latest",
+			Timezone: "Pacific/Auckland",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -52,8 +53,9 @@ func TestNzniwa_ListGauges(t *testing.T) {
 				Latitude:  172.38639,
 				Longitude: -41.76348,
 			},
-			Name: "Buller at Longford",
-			URL:  "https://hydrowebportal.niwa.co.nz/Data/Location/Summary/Location/93202/Interval/Latest",
+			Name:     "Buller at Longford",
+			URL:      "https://hydrowebportal.niwa.co.nz/Data/Location/Summary/Location/93202/Interval/Latest",
+			Timezone: "Pacific/Auckland",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -65,8 +67,9 @@ func TestNzniwa_ListGauges(t *testing.T) {
 				Latitude:  172.96479,
 				Longitude: -42.37541,
 			},
-			Name: "Acheron at Clarence",
-			URL:  "https://hydrowebportal.niwa.co.nz/Data/Location/Summary/Location/62103/Interval/Latest",
+			Name:     "Acheron at Clarence",
+			URL:      "https://hydrowebportal.niwa.co.nz/Data/Location/Summary/Location/62103/Interval/Latest",
+			Timezone: "Pacific/Auckland",
 		},
 	}
 	if assert.NoError(t, err) {

@@ -58,6 +58,7 @@ func TestSwitzerland_ListGauges(t *testing.T) {
 			Name:      "Murtensee - Murten (lake)",
 			URL:       "https://www.hydrodaten.admin.ch/en/2004.html",
 			Location:  &core.Location{Latitude: 46.93074, Longitude: 7.11691, Altitude: 0},
+			Timezone:  "Europe/Zurich",
 		},
 		core.Gauge{
 			GaugeID:   core.GaugeID{Script: "switzerland", Code: "2007"},
@@ -65,6 +66,7 @@ func TestSwitzerland_ListGauges(t *testing.T) {
 			Name:      "Lac de Joux - Le Pont (lake)",
 			URL:       "https://www.hydrodaten.admin.ch/en/2007.html",
 			Location:  &core.Location{Latitude: 46.66532, Longitude: 6.32402, Altitude: 1004},
+			Timezone:  "Europe/Zurich",
 		},
 		core.Gauge{
 			GaugeID:   core.GaugeID{Script: "switzerland", Code: "2009"},
@@ -73,6 +75,7 @@ func TestSwitzerland_ListGauges(t *testing.T) {
 			Name:      "Rhône - Porte du Scex",
 			URL:       "https://www.hydrodaten.admin.ch/en/2009.html",
 			Location:  &core.Location{Latitude: 46.34956, Longitude: 6.88861, Altitude: 377},
+			Timezone:  "Europe/Zurich",
 		},
 		core.Gauge{
 			GaugeID:   core.GaugeID{Script: "switzerland", Code: "2011"},
@@ -81,6 +84,7 @@ func TestSwitzerland_ListGauges(t *testing.T) {
 			Name:      "Rhône - Sion",
 			URL:       "https://www.hydrodaten.admin.ch/en/2011.html",
 			Location:  &core.Location{Latitude: 46.21908, Longitude: 7.3579, Altitude: 484},
+			Timezone:  "Europe/Zurich",
 		},
 	}
 	if assert.NoError(t, err) {

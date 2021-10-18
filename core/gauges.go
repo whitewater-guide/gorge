@@ -36,6 +36,8 @@ type Gauge struct {
 	FlowUnit string `json:"flowUnit,omitempty"`
 	// Station location, if known
 	Location *Location `json:"location,omitempty"`
+	// IANA time zone identifier, one of listed in https://github.com/evansiroky/timezone-boundary-builder in timezone-names.json
+	Timezone string `json:"timezone,omitempty"`
 }
 
 // Gauges is slice of Gauge with helper methods for sorting

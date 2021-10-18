@@ -128,7 +128,8 @@ func TestEndpoint(t *testing.T) {
 					"altitude": "<<PRESENCE>>",
 					"latitude": "<<PRESENCE>>",
 					"longitude": "<<PRESENCE>>"
-				}
+				},
+				"timezone": "UTC"
 			}]`,
 		},
 		{
@@ -142,7 +143,8 @@ func TestEndpoint(t *testing.T) {
 				"code": "g000",
 				"url": "http://whitewater.guide/gauges/0",
 				"flowUnit": "m3/s",
-				"levelUnit": "m"
+				"levelUnit": "m",
+				"timezone": "UTC"
 			}]`,
 		},
 		{
@@ -160,7 +162,8 @@ func TestEndpoint(t *testing.T) {
 				"location": {
 					"latitude": "<<PRESENCE>>",
 					"longitude": "<<PRESENCE>>"
-				}
+				},
+				"timezone": "UTC"
 			}]`,
 		},
 		{

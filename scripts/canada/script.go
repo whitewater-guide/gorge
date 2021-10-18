@@ -8,6 +8,7 @@ import (
 	"sync"
 
 	"github.com/whitewater-guide/gorge/core"
+	"github.com/whitewater-guide/gorge/tz"
 	"golang.org/x/text/encoding/charmap"
 )
 
@@ -42,6 +43,7 @@ func (s *scriptCanada) ListGauges() (result core.Gauges, err error) {
 			Decoder:      charmap.Windows1252.NewDecoder(),
 		},
 	)
+	tz.CloseTimezoneDb()
 	return
 }
 

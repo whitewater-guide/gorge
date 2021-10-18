@@ -48,6 +48,7 @@ func (s *scriptGalicia) fetchList() ([]item, error) {
 			FlowUnit:  flowUnit,
 			LevelUnit: levelUnit,
 			URL:       "http://www2.meteogalicia.gal/servizos/AugasdeGalicia/estacionsinfo.asp?Nest=" + fmt.Sprintf("%d", entry.Ide),
+			Timezone:  "Europe/Madrid",
 		}
 		measurement := &core.Measurement{
 			GaugeID: core.GaugeID{

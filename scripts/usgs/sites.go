@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	"github.com/whitewater-guide/gorge/core"
+	"github.com/whitewater-guide/gorge/tz"
 )
 
 func (s *scriptUSGS) listStations(flow bool, gauges map[string]core.Gauge) error {
@@ -34,6 +35,10 @@ func (s *scriptUSGS) listStations(flow bool, gauges map[string]core.Gauge) error
 				if err != nil {
 					return nil
 				}
+				zone, err := tz.CoordinateToTimezone(lat, lng)
+				if err != nil {
+					zone = "UTC"
+				}
 				alt, _ := strconv.ParseFloat(strings.TrimSpace(row[8]), 64)
 				g = core.Gauge{
 					GaugeID: core.GaugeID{
@@ -49,6 +54,7 @@ func (s *scriptUSGS) listStations(flow bool, gauges map[string]core.Gauge) error
 						Longitude: core.TruncCoord(lng),
 						Altitude:  alt,
 					},
+					Timezone: zone,
 				}
 			}
 			gauges[row[1]] = g

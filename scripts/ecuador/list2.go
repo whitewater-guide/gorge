@@ -37,6 +37,7 @@ func (s *scriptEcuador) parseList2() (map[string]core.Gauge, error) {
 				Altitude:  math.Trunc(item.Alt),
 			},
 			LevelUnit: "m",
+			Timezone:  "America/Guayaquil",
 		}
 	}
 

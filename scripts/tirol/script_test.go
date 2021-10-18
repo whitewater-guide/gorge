@@ -35,6 +35,7 @@ Wattens;201657;Wattenbach;W;2019-12-28T14:00:00+0100;-777;cm;550.86;245119.15;24
 					URL:       "https://apps.tirol.gv.at/hydro/#/Wasserstand/?station=201012",
 					LevelUnit: "cm",
 					Location:  &core.Location{Latitude: 47.24192, Longitude: 10.2935, Altitude: 1109},
+					Timezone:  "Europe/Vienna",
 				},
 				{
 					GaugeID:   core.GaugeID{Script: "tirol", Code: "201657"},
@@ -42,6 +43,7 @@ Wattens;201657;Wattenbach;W;2019-12-28T14:00:00+0100;-777;cm;550.86;245119.15;24
 					URL:       "https://apps.tirol.gv.at/hydro/#/Wasserstand/?station=201657",
 					LevelUnit: "cm",
 					Location:  &core.Location{Latitude: 47.29604, Longitude: 11.59062, Altitude: 550},
+					Timezone:  "Europe/Vienna",
 				},
 			},
 			gauges,

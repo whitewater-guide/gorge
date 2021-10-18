@@ -12,10 +12,17 @@ build:
 	go build -o /go/bin/gorge-server -ldflags="-s -w -X 'github.com/whitewater-guide/gorge/version.Version=$(VERSION)'" github.com/whitewater-guide/gorge/server
 	go build -o /go/bin/gorge-cli -ldflags="-s -w -X 'github.com/whitewater-guide/gorge/version.Version=$(VERSION)'" github.com/whitewater-guide/gorge/cli
 
-test:
+# Downloads and builds timezones polygons database
+timezonedb: tools
+	curl -L "https://github.com/evansiroky/timezone-boundary-builder/releases/download/2020d/timezones.geojson.zip" -o ./timezonedb/timezones.geojson.zip
+	unzip -o ./timezonedb/timezones.geojson.zip -d ./timezonedb
+	rm ./timezonedb/timezones.geojson.zip
+	go run ./timezonedb -json "./timezonedb/combined.json" -db=timezone -type=boltdb
+
+test: timezonedb
 	go test -count=1 ./... 
 
-test-nodocker:
+test-nodocker: timezonedb
 	go test -count=1 -v -tags=nodocker ./...
 
 lint: tools
@@ -29,7 +36,7 @@ mitmcerts:
 	openssl x509 -inform PEM -in /usr/share/ca-certificates/mitmproxy/mitmproxy-ca-cert.cer -out /usr/local/share/ca-certificates/mitmproxy-ca-cert.crt
 	update-ca-certificates
 
-run: tools mitmcerts
+run: tools mitmcerts timezonedb
 	modd
 
 ######################################################

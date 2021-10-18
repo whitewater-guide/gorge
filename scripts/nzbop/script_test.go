@@ -34,6 +34,7 @@ func TestBop_ListGauges(t *testing.T) {
 			LevelUnit: "m",
 			Name:      "Mangaone at Braemar Rd",
 			URL:       ts.URL + "/9199.html",
+			Timezone:  "Pacific/Auckland",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -48,6 +49,7 @@ func TestBop_ListGauges(t *testing.T) {
 				Longitude: 176.05292,
 				Altitude:  15,
 			},
+			Timezone: "Pacific/Auckland",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -63,6 +65,7 @@ func TestBop_ListGauges(t *testing.T) {
 				Longitude: 176.1101,
 				Altitude:  10,
 			},
+			Timezone: "Pacific/Auckland",
 		},
 	}
 

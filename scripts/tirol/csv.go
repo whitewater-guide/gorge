@@ -70,6 +70,7 @@ func (s *scriptTirol) getGauge(raw csvRaw) (result core.Gauge, err error) {
 			Latitude:  y,
 			Altitude:  math.Trunc(z),
 		},
+		Timezone: "Europe/Vienna",
 	}
 	return
 }

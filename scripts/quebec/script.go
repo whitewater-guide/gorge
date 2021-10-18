@@ -70,6 +70,7 @@ func (s *scriptQuebec) ListGauges() (result core.Gauges, err error) {
 				FlowUnit:  "m3/s",
 				LevelUnit: "m",
 				URL:       "https://www.cehq.gouv.qc.ca/suivihydro/graphique.asp?NoStation=" + gauge.code,
+				Timezone:  "America/Toronto",
 			}
 		}
 		result = append(result, gauges)

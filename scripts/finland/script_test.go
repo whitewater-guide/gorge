@@ -37,8 +37,9 @@ func TestFinland_ListGauges(t *testing.T) {
 				Latitude:  62.28418,
 				Longitude: 27.89071,
 			},
-			Name: "Tervo - Nilakka, Äyskoski - 1402710 (level)",
-			URL:  "https://wwwi2.ymparisto.fi/i2/14/q1402710y/wqfi.html",
+			Name:     "Tervo - Nilakka, Äyskoski - 1402710 (level)",
+			URL:      "https://wwwi2.ymparisto.fi/i2/14/q1402710y/wqfi.html",
+			Timezone: "Europe/Helsinki",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -50,8 +51,9 @@ func TestFinland_ListGauges(t *testing.T) {
 				Latitude:  61.2717,
 				Longitude: 27.7022,
 			},
-			Name: "Sodankylä - Unari, Sodankylä - 65501 (discharge)",
-			URL:  "",
+			Name:     "Sodankylä - Unari, Sodankylä - 65501 (discharge)",
+			URL:      "",
+			Timezone: "Europe/Helsinki",
 		},
 	}
 	if assert.NoError(t, err) {

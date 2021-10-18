@@ -85,6 +85,7 @@ func (s *scriptCantabria) gaugePageWorker(gauges <-chan *core.Gauge, results cha
 	for gauge := range gauges {
 		loc := s.parseGaugeLocation((*gauge).Code)
 		(*gauge).Location = &loc
+		(*gauge).Timezone = "Europe/Madrid"
 		results <- gauge
 	}
 }

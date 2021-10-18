@@ -43,7 +43,8 @@ func TestSepa_ListGauges(t *testing.T) {
 				Longitude: -3.4342,
 				Altitude:  2,
 			},
-			URL: "http://apps.sepa.org.uk/waterlevels/default.aspx?sd=t&lc=10048",
+			URL:      "http://apps.sepa.org.uk/waterlevels/default.aspx?sd=t&lc=10048",
+			Timezone: "Europe/London",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -58,6 +59,7 @@ func TestSepa_ListGauges(t *testing.T) {
 				Longitude: -3.71467,
 				Altitude:  294,
 			},
+			Timezone: "Europe/London",
 		},
 	}
 	if assert.NoError(t, err) {

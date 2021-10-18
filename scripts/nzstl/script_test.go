@@ -35,8 +35,9 @@ func TestNzstl_ListGauges(t *testing.T) {
 				Latitude:  -45.73744,
 				Longitude: 168.11601,
 			},
-			Name: "Aparima River at Dunrobin",
-			URL:  "http://envdata.es.govt.nz/",
+			Name:     "Aparima River at Dunrobin",
+			URL:      "http://envdata.es.govt.nz/",
+			Timezone: "Pacific/Auckland",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -48,8 +49,9 @@ func TestNzstl_ListGauges(t *testing.T) {
 				Latitude:  -45.8533,
 				Longitude: 168.12916,
 			},
-			Name: "Aparima River at Etalvale",
-			URL:  "http://envdata.es.govt.nz/",
+			Name:     "Aparima River at Etalvale",
+			URL:      "http://envdata.es.govt.nz/",
+			Timezone: "Pacific/Auckland",
 		},
 	}
 	if assert.NoError(t, err) {

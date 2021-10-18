@@ -49,6 +49,7 @@ func (s *scriptNzcan) ListGauges() (core.Gauges, error) {
 			LevelUnit: levelUnit,
 			FlowUnit:  flowUnit,
 			Location:  loc.location,
+			Timezone:  "Pacific/Auckland",
 		})
 	}
 	return result, err

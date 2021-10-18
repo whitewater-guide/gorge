@@ -47,6 +47,7 @@ func (s *scriptFinland) fetchList(url string, gauges *core.Gauges) error {
 				Latitude:  core.TruncCoord(lat),
 				Longitude: core.TruncCoord(lon),
 			},
+			Timezone: "Europe/Helsinki",
 		})
 	}
 	if data.Next != "" {

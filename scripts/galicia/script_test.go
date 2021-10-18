@@ -35,8 +35,9 @@ func TestGalicia_ListGauges(t *testing.T) {
 				Latitude:  43.47774,
 				Longitude: -7.33423,
 			},
-			Name: "Masma",
-			URL:  "http://www2.meteogalicia.gal/servizos/AugasdeGalicia/estacionsinfo.asp?Nest=30431",
+			Name:     "Masma",
+			URL:      "http://www2.meteogalicia.gal/servizos/AugasdeGalicia/estacionsinfo.asp?Nest=30431",
+			Timezone: "Europe/Madrid",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -49,8 +50,9 @@ func TestGalicia_ListGauges(t *testing.T) {
 				Latitude:  43.55815,
 				Longitude: -7.37617,
 			},
-			Name: "Ouro",
-			URL:  "http://www2.meteogalicia.gal/servizos/AugasdeGalicia/estacionsinfo.asp?Nest=30433",
+			Name:     "Ouro",
+			URL:      "http://www2.meteogalicia.gal/servizos/AugasdeGalicia/estacionsinfo.asp?Nest=30433",
+			Timezone: "Europe/Madrid",
 		},
 	}
 	if assert.NoError(t, err) {

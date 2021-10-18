@@ -34,8 +34,9 @@ func TestUkea_ListGauges(t *testing.T) {
 				Latitude:  51.39833,
 				Longitude: -0.18362,
 			},
-			Name: "River Wandle at Ravensbury Mill",
-			URL:  "https://environment.data.gov.uk/flood-monitoring/id/stations/4173TH.html",
+			Name:     "River Wandle at Ravensbury Mill",
+			URL:      "https://environment.data.gov.uk/flood-monitoring/id/stations/4173TH.html",
+			Timezone: "Europe/London",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -47,8 +48,9 @@ func TestUkea_ListGauges(t *testing.T) {
 				Latitude:  51.87476,
 				Longitude: -1.74008,
 			},
-			Name: "7041 - River Dikler - Bourton Dickler",
-			URL:  "https://environment.data.gov.uk/flood-monitoring/id/stations/1029TH.html",
+			Name:     "7041 - River Dikler - Bourton Dickler",
+			URL:      "https://environment.data.gov.uk/flood-monitoring/id/stations/1029TH.html",
+			Timezone: "Europe/London",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -61,8 +63,9 @@ func TestUkea_ListGauges(t *testing.T) {
 				Latitude:  54.08070,
 				Longitude: -2.02477,
 			},
-			Name: "8276 - River Wharfe - Netherside Hall",
-			URL:  "https://environment.data.gov.uk/flood-monitoring/id/stations/F1906.html",
+			Name:     "8276 - River Wharfe - Netherside Hall",
+			URL:      "https://environment.data.gov.uk/flood-monitoring/id/stations/F1906.html",
+			Timezone: "Europe/London",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -74,8 +77,9 @@ func TestUkea_ListGauges(t *testing.T) {
 				Latitude:  51.78930,
 				Longitude: -1.30693,
 			},
-			Name: "7055 - River Thames - Kings Lock",
-			URL:  "https://environment.data.gov.uk/flood-monitoring/id/stations/1301TH.html",
+			Name:     "7055 - River Thames - Kings Lock",
+			URL:      "https://environment.data.gov.uk/flood-monitoring/id/stations/1301TH.html",
+			Timezone: "Europe/London",
 		},
 	}
 	if assert.NoError(t, err) {

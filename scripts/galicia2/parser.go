@@ -105,7 +105,7 @@ func (s *scriptGalicia2) parseTable() ([]item, error) {
 		// There are 7 columns in a row
 		switch ind {
 		case 0:
-			gauge = core.Gauge{LevelUnit: "m"}
+			gauge = core.Gauge{LevelUnit: "m", Timezone: "Europe/Madrid"}
 		case 1: // River name and code
 			station := scanner.Text()
 			parts := stationExp.FindStringSubmatch(station)

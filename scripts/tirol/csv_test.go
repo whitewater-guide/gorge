@@ -36,6 +36,7 @@ func TestTirol_GetGauge(t *testing.T) {
 				LevelUnit: "cm",
 				FlowUnit:  "",
 				Location:  &core.Location{Latitude: 47.24192, Longitude: 10.2935, Altitude: 1109},
+				Timezone:  "Europe/Vienna",
 			},
 			gauge,
 		)

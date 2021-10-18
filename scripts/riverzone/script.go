@@ -96,6 +96,7 @@ func (s *scriptRiverzone) ListGauges() (core.Gauges, error) {
 			FlowUnit:  flowUnit,
 			LevelUnit: levelUnit,
 			URL:       station.SourceLinks.value,
+			Timezone:  rzTz[station.CountryCode],
 		}
 		result = append(result, g)
 	}

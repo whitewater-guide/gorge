@@ -12,3 +12,4 @@ node_modules
 package.json
 yarn.lock
 index.d.ts
+timezone.snap.db

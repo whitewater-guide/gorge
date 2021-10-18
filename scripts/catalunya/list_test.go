@@ -61,6 +61,7 @@ func TestCatalunya_Convert(t *testing.T) {
 				Latitude:  41.23396,
 				Longitude: 1.33729,
 			},
+			Timezone: "Europe/Madrid",
 		}, *actual)
 	}
 }

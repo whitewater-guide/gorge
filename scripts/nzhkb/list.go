@@ -47,6 +47,7 @@ func (s *scriptNzhkb) fetchGauges() (core.Gauges, error) {
 				Latitude:  core.TruncCoord(item.Geometry.X),
 				Longitude: core.TruncCoord(item.Geometry.Y),
 			},
+			Timezone: "Pacific/Auckland",
 		}
 	}
 	for _, i := range levels {

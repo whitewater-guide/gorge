@@ -75,5 +75,6 @@ func (s *scriptNzmbh) genGauge(sites map[string]site, m *core.Measurement) *core
 		LevelUnit: lu,
 		FlowUnit:  fu,
 		Location:  &site.loc,
+		Timezone:  "Pacific/Auckland",
 	}
 }

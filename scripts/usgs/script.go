@@ -5,6 +5,7 @@ import (
 	"strings"
 
 	"github.com/whitewater-guide/gorge/core"
+	"github.com/whitewater-guide/gorge/tz"
 )
 
 type optionsUSGS struct {
@@ -41,16 +42,23 @@ func (s *scriptUSGS) ListGauges() (core.Gauges, error) {
 		result[i] = v
 		i++
 	}
+	tz.CloseTimezoneDb()
 	return result, nil
 }
 
 func (s *scriptUSGS) Harvest(ctx context.Context, recv chan<- *core.Measurement, errs chan<- error, codes core.StringSet, since int64) {
 	defer close(recv)
 	defer close(errs)
-	codez, i := make([]string, len(codes)), 0
+	codez := []string{}
+	// send in chunks of 100
 	for code := range codes {
-		codez[i] = code
-		i++
+		codez = append(codez, code)
+		if len(codez) >= 100 {
+			s.listInstantaneousValues(strings.Join(codez, ","), recv, errs)
+			codez = []string{}
+		}
 	}
-	s.listInstantaneousValues(strings.Join(codez, ","), recv, errs)
+	if len(codez) >= 0 {
+		s.listInstantaneousValues(strings.Join(codez, ","), recv, errs)
+	}
 }

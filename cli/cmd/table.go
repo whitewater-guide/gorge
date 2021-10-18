@@ -69,7 +69,7 @@ func printGaugeStatuses(data map[string]core.Status) {
 
 func printGauges(data []core.Gauge, truncURLs bool) {
 	table := tablewriter.NewWriter(os.Stdout)
-	header := []string{"#", "Code", "Name", "Flow unit", "Level unit", "Location", "URL"}
+	header := []string{"#", "Code", "Name", "Flow unit", "Level unit", "Timezone", "Location", "URL"}
 	table.SetHeader(header)
 	for i, g := range data {
 		loc := ""
@@ -89,6 +89,7 @@ func printGauges(data []core.Gauge, truncURLs bool) {
 			g.Name,
 			g.FlowUnit,
 			g.LevelUnit,
+			g.Timezone,
 			loc,
 			url,
 		}

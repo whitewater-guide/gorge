@@ -10,7 +10,9 @@ RUN apt-get update && \
     # Install Proj - C library for coordinate system conversion and its requirements 
     apt-get install -y libproj-dev \
     # Graphviz is needed for pprof
-    graphviz 
+    graphviz \
+    # unzip os needed for timezones
+    unzip
 
 # Symlink this, so it's available under same path both here and on Mac when installed via brew
 RUN ln -s /usr/lib/x86_64-linux-gnu/libproj.a /usr/local/lib/libproj.a
@@ -28,6 +30,9 @@ COPY go.mod go.sum ./
 RUN go mod download
 
 COPY . .
+
+# Required for tests that involve timezone db
+ENV TIMEZONE_DB_DIR="/workspace/"
 
 RUN make test && \
     make lint && \
@@ -48,7 +53,8 @@ RUN make build
 ################################
 FROM gcr.io/distroless/base-debian10 as production
 
-COPY --from=builder /go/bin/gorge-server /go/bin/gorge-cli /usr/local/bin/
+ENV TIMEZONE_DB_DIR="/usr/local/bin/"
+COPY --from=builder /go/bin/gorge-server /go/bin/gorge-cli /workspace/timezone.snap.db /usr/local/bin/
 
 EXPOSE 7080
 

@@ -2,15 +2,16 @@ package ukraine
 
 import (
 	"fmt"
-	"github.com/PuerkitoBio/goquery"
-	"github.com/mattn/go-nulltype"
-	"github.com/whitewater-guide/gorge/core"
 	"net/url"
 	"regexp"
 	"strconv"
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/PuerkitoBio/goquery"
+	"github.com/mattn/go-nulltype"
+	"github.com/whitewater-guide/gorge/core"
 )
 
 const userURL = "https://meteo.gov.ua/ua/33345/hydrostorm"
@@ -87,8 +88,9 @@ func (s *scriptUkraine) getAllRivers() (map[string]riverData, error) {
 					Latitude:  core.TruncCoord(lat),
 					Longitude: core.TruncCoord(lng),
 				},
-				Name: name,
-				URL:  userURL,
+				Name:     name,
+				URL:      userURL,
+				Timezone: "Europe/Kiev",
 			},
 			Timestamp: date.UTC(),
 			Level:     nulltype.NullFloat64Of(level),

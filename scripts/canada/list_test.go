@@ -30,6 +30,7 @@ func TestCanada_GaugeFromRow(t *testing.T) {
 			Latitude:  51.44922,
 			Longitude: -55.64125,
 		},
+		Timezone: "America/St_Johns",
 	}
 	if assert.NoError(t, err) {
 		assert.Equal(t, expected, actual)

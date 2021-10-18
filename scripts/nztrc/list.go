@@ -92,6 +92,7 @@ func (s *scriptNztrc) parseList(gauges chan<- *core.Gauge, measurements chan<- *
 					Latitude:  core.TruncCoord(lat),
 					Longitude: core.TruncCoord(lng),
 				},
+				Timezone: "Pacific/Auckland",
 			}
 		}
 		if measurements != nil {

@@ -99,6 +99,7 @@ func (s *scriptBop) parsePage(code string, gauges chan<- *core.Gauge, measuremen
 			LevelUnit: levelUnit,
 			FlowUnit:  flowUnit,
 			Location:  location,
+			Timezone:  "Pacific/Auckland",
 		}
 	} else {
 		measurements <- &core.Measurement{

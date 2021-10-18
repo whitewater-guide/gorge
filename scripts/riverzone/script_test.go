@@ -51,8 +51,9 @@ func TestRiverzone_ListGauges(t *testing.T) {
 				Latitude:  47.36814,
 				Longitude: 8.06223,
 			},
-			Name: "CH - Aargau - Suhre - Suhr",
-			URL:  "https://www.ag.ch/app/hydrometrie/station/?id=11560",
+			Name:     "CH - Aargau - Suhre - Suhr",
+			URL:      "https://www.ag.ch/app/hydrometrie/station/?id=11560",
+			Timezone: "Europe/Zurich",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -64,8 +65,9 @@ func TestRiverzone_ListGauges(t *testing.T) {
 				Latitude:  42.13721,
 				Longitude: 13.75299,
 			},
-			Name: "IT - Abruzzo - Aterno - Molina (AQ)",
-			URL:  "http://www.himet.it/cgi-bin/meteo/gmaps/new_idrope.cgi",
+			Name:     "IT - Abruzzo - Aterno - Molina (AQ)",
+			URL:      "http://www.himet.it/cgi-bin/meteo/gmaps/new_idrope.cgi",
+			Timezone: "Europe/Rome",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -78,8 +80,9 @@ func TestRiverzone_ListGauges(t *testing.T) {
 				Latitude:  62.57209,
 				Longitude: 9.15903,
 			},
-			Name: "NO - Driva - Grensehølen",
-			URL:  "http://www2.nve.no/h/hd/plotreal/Q/0109.00020.000/index.html",
+			Name:     "NO - Driva - Grensehølen",
+			URL:      "http://www2.nve.no/h/hd/plotreal/Q/0109.00020.000/index.html",
+			Timezone: "Europe/Oslo",
 		},
 	}
 	if assert.NoError(t, err) {

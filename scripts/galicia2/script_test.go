@@ -39,8 +39,9 @@ func TestGalicia2_ListGauges(t *testing.T) {
 			Longitude: -7.52761,
 			Altitude:  348.65,
 		},
-		Name: "Río Neira en Páramo (o)",
-		URL:  ts.URL + "/A015.html",
+		Name:     "Río Neira en Páramo (o)",
+		URL:      ts.URL + "/A015.html",
+		Timezone: "Europe/Madrid",
 	}
 	if assert.NoError(t, err) {
 		assert.Len(t, actual, 58)

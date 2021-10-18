@@ -56,6 +56,7 @@ func (s *scriptChile) getWebGauges() (map[string]core.Gauge, error) {
 					Longitude: x,
 					Latitude:  y,
 				},
+				Timezone: "America/Santiago",
 			}
 		} else {
 			// gauge is not present on webmap, so we cannot get it's Location and nice name
@@ -67,6 +68,7 @@ func (s *scriptChile) getWebGauges() (map[string]core.Gauge, error) {
 				Name:      listedGauges[id],
 				FlowUnit:  "m3/s",
 				LevelUnit: "m",
+				Timezone:  "America/Santiago",
 			}
 		}
 	}

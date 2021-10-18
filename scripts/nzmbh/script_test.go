@@ -36,8 +36,9 @@ func TestNzmbh_ListGauges(t *testing.T) {
 				Latitude:  -41.83477,
 				Longitude: 173.73081,
 			},
-			Name: "Awatere River at Awapiri",
-			URL:  "http://hydro.marlborough.govt.nz/reports/riverreport.html",
+			Name:     "Awatere River at Awapiri",
+			URL:      "http://hydro.marlborough.govt.nz/reports/riverreport.html",
+			Timezone: "Pacific/Auckland",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -49,8 +50,9 @@ func TestNzmbh_ListGauges(t *testing.T) {
 				Latitude:  -41.46991,
 				Longitude: 173.97576,
 			},
-			Name: "Grovetown Lagoon at Drain Y",
-			URL:  "http://hydro.marlborough.govt.nz/reports/riverreport.html",
+			Name:     "Grovetown Lagoon at Drain Y",
+			URL:      "http://hydro.marlborough.govt.nz/reports/riverreport.html",
+			Timezone: "Pacific/Auckland",
 		},
 	}
 	if assert.NoError(t, err) {

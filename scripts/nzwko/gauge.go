@@ -62,6 +62,7 @@ func (s *scriptWaikato) parseGaugePage(code string, hasFlow, hasLevel bool) (*co
 			Latitude:  lat,
 			Longitude: lon,
 		},
+		Timezone: "Pacific/Auckland",
 	}, nil
 }
 

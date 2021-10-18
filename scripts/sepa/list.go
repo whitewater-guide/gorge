@@ -87,6 +87,7 @@ func (s *scriptSepa) getGauge(raw csvRaw) (result core.Gauge, err error) {
 			Latitude:  y,
 			Altitude:  math.Trunc(alt),
 		},
+		Timezone: "Europe/London",
 	}
 	return
 }

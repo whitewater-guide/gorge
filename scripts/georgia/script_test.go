@@ -31,6 +31,7 @@ func TestGeorgia_ListGauges(t *testing.T) {
 		LevelUnit: "cm",
 		Name:      "Acharistskali - keda",
 		URL:       ts.URL + "/page.html",
+		Timezone:  "Asia/Tbilisi",
 	}
 	if assert.NoError(t, err) {
 		assert.Len(t, actual, 20)

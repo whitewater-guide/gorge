@@ -38,8 +38,9 @@ func TestNztrc_ListGauges(t *testing.T) {
 				Latitude:  -39.2743,
 				Longitude: 173.75802,
 			},
-			Name: "Kapoaiaia at Cape Egmont",
-			URL:  "https://www.trc.govt.nz/environment/maps-and-data/site-details/?siteID=8&measureID=9",
+			Name:     "Kapoaiaia at Cape Egmont",
+			URL:      "https://www.trc.govt.nz/environment/maps-and-data/site-details/?siteID=8&measureID=9",
+			Timezone: "Pacific/Auckland",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -51,8 +52,9 @@ func TestNztrc_ListGauges(t *testing.T) {
 				Latitude:  -39.3884,
 				Longitude: 174.46663,
 			},
-			Name: "Mangaehu at Huinga",
-			URL:  "https://www.trc.govt.nz/environment/maps-and-data/site-details/?siteID=12&measureID=9",
+			Name:     "Mangaehu at Huinga",
+			URL:      "https://www.trc.govt.nz/environment/maps-and-data/site-details/?siteID=12&measureID=9",
+			Timezone: "Pacific/Auckland",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -64,8 +66,9 @@ func TestNztrc_ListGauges(t *testing.T) {
 				Latitude:  -39.72498,
 				Longitude: 174.43136,
 			},
-			Name: "Kaikura below 7346",
-			URL:  "https://www.trc.govt.nz/environment/maps-and-data/site-details/?siteID=6&measureID=7",
+			Name:     "Kaikura below 7346",
+			URL:      "https://www.trc.govt.nz/environment/maps-and-data/site-details/?siteID=6&measureID=7",
+			Timezone: "Pacific/Auckland",
 		},
 	}
 	if assert.NoError(t, err) {

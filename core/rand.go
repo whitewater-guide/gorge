@@ -26,6 +26,7 @@ func GenerateRandGauge(script string, index int) Gauge {
 			Latitude:  r.Float64()*180.0 - 90.0,
 			Altitude:  r.Float64() * 3000.0,
 		},
+		Timezone: "UTC",
 	}
 }
 

@@ -52,6 +52,7 @@ func (s *scriptNzniwa) fetchGauges(gauges chan<- *core.Gauge) error {
 				},
 				FlowUnit: "m3/s",
 				URL:      fmt.Sprintf("https://hydrowebportal.niwa.co.nz/Data/Location/Summary/Location/%s/Interval/Latest", el.LocationIdentifier),
+				Timezone: "Pacific/Auckland",
 			}
 		}
 		if gauges != nil {

@@ -55,6 +55,7 @@ func (s *scriptWales) fetchList(gauges chan<- *core.Gauge, measurements chan<- *
 				},
 				LevelUnit: param.Units,
 				URL:       "https://" + feat.URL,
+				Timezone:  "Europe/London",
 			}
 		}
 		if measurements != nil {

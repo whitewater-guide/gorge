@@ -85,6 +85,7 @@ func (s *scriptKuban) parseTable(gauges chan<- *core.Gauge, measurements chan<- 
 					Latitude:  lat,
 					Longitude: lng,
 				},
+				Timezone: "Europe/Moscow",
 			}
 		}
 		return true

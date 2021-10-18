@@ -41,6 +41,7 @@ func TestCantabria_ListGauges(t *testing.T) {
 			Latitude:  43.17956,
 			Longitude: -7.19921,
 		},
+		Timezone: "Europe/Madrid",
 	}
 	if assert.NoError(t, err) && assert.Len(t, actual, 76) {
 		assert.Equal(t, expected, actual[0])

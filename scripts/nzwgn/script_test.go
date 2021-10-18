@@ -36,8 +36,9 @@ func TestNzwgn_ListGauges(t *testing.T) {
 				Latitude:  -41.01501,
 				Longitude: 175.53607,
 			},
-			Name: "Booths Creek at Andersons Line",
-			URL:  "https://graphs.gw.govt.nz/",
+			Name:     "Booths Creek at Andersons Line",
+			URL:      "https://graphs.gw.govt.nz/",
+			Timezone: "Pacific/Auckland",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -50,8 +51,9 @@ func TestNzwgn_ListGauges(t *testing.T) {
 				Latitude:  -40.89357,
 				Longitude: 175.69179,
 			},
-			Name: "Kopuaranga River at Stuarts",
-			URL:  "https://graphs.gw.govt.nz/",
+			Name:     "Kopuaranga River at Stuarts",
+			URL:      "https://graphs.gw.govt.nz/",
+			Timezone: "Pacific/Auckland",
 		},
 	}
 	if assert.NoError(t, err) {

@@ -37,8 +37,9 @@ func TestNzhkb_ListGauges(t *testing.T) {
 				Latitude:  177.17031,
 				Longitude: -38.74013,
 			},
-			Name: "Aniwaniwa Stream at Aniwaniwa",
-			URL:  "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=3612",
+			Name:     "Aniwaniwa Stream at Aniwaniwa",
+			URL:      "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=3612",
+			Timezone: "Pacific/Auckland",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -51,8 +52,9 @@ func TestNzhkb_ListGauges(t *testing.T) {
 				Latitude:  177.47985,
 				Longitude: -38.80358,
 			},
-			Name: "Ruakituri River at Tauwharetoi Climate",
-			URL:  "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=3717",
+			Name:     "Ruakituri River at Tauwharetoi Climate",
+			URL:      "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=3717",
+			Timezone: "Pacific/Auckland",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -64,8 +66,9 @@ func TestNzhkb_ListGauges(t *testing.T) {
 				Latitude:  176.85914,
 				Longitude: -39.48327,
 			},
-			Name: "Ahuriri Lagoon at Causeway",
-			URL:  "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=274",
+			Name:     "Ahuriri Lagoon at Causeway",
+			URL:      "http://data.hbrc.govt.nz/hydrotel/cgi-bin/hydwebserver.cgi/points/details?point=274",
+			Timezone: "Pacific/Auckland",
 		},
 	}
 	if assert.NoError(t, err) {

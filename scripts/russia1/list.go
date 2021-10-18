@@ -25,6 +25,7 @@ func (s *scriptRussia1) fetchList(gauges chan<- *core.Gauge, measurements chan<-
 					Latitude:  f.Geometry.Coordinates[1],
 					Longitude: f.Geometry.Coordinates[0],
 				},
+				Timezone: "Europe/Moscow",
 			}
 		}
 		if measurements != nil && !f.Properties.Data.RiverLevel.Time.IsZero() {

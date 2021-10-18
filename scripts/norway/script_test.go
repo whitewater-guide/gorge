@@ -37,7 +37,8 @@ func TestNorway_ListGauges(t *testing.T) {
 				Longitude: 10.22212,
 				Altitude:  701,
 			},
-			URL: ts.URL + "/0002.00032.000/index.html",
+			URL:      ts.URL + "/0002.00032.000/index.html",
+			Timezone: "Europe/Oslo",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -51,7 +52,8 @@ func TestNorway_ListGauges(t *testing.T) {
 				Longitude: 8.82766,
 				Altitude:  230,
 			},
-			URL: ts.URL + "/0016.00128.000/index.html",
+			URL:      ts.URL + "/0016.00128.000/index.html",
+			Timezone: "Europe/Oslo",
 		},
 	}
 	if assert.NoError(t, err) {

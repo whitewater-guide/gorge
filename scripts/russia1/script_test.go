@@ -37,6 +37,7 @@ func TestRussia1_ListGauges(t *testing.T) {
 				Longitude: 33.803694,
 				Altitude:  0.0,
 			},
+			Timezone: "Europe/Moscow",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -51,6 +52,7 @@ func TestRussia1_ListGauges(t *testing.T) {
 				Longitude: 38.70207,
 				Altitude:  0.0,
 			},
+			Timezone: "Europe/Moscow",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -65,6 +67,7 @@ func TestRussia1_ListGauges(t *testing.T) {
 				Longitude: 38.997167,
 				Altitude:  0.0,
 			},
+			Timezone: "Europe/Moscow",
 		},
 	}
 	actual, err := s.ListGauges()

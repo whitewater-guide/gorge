@@ -181,6 +181,7 @@ func (s *scriptChile) getKMLGauges() (map[string]core.Gauge, error) {
 				Longitude: pm.Point.Coordinates.Longitude,
 				Altitude:  pm.Description.altitud,
 			},
+			Timezone: "America/Santiago",
 		}
 	}
 	return result, nil

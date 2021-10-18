@@ -37,7 +37,8 @@ func TestCanada_ListGauges(t *testing.T) {
 				Latitude:  47.20661,
 				Longitude: -68.95694,
 			},
-			URL: "https://wateroffice.ec.gc.ca/report/real_time_e.html?stn=01AD003",
+			URL:      "https://wateroffice.ec.gc.ca/report/real_time_e.html?stn=01AD003",
+			Timezone: "America/Moncton",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -51,7 +52,8 @@ func TestCanada_ListGauges(t *testing.T) {
 				Latitude:  51.44922,
 				Longitude: -55.64125,
 			},
-			URL: "https://wateroffice.ec.gc.ca/report/real_time_e.html?stn=02YA002",
+			URL:      "https://wateroffice.ec.gc.ca/report/real_time_e.html?stn=02YA002",
+			Timezone: "America/St_Johns",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -65,7 +67,8 @@ func TestCanada_ListGauges(t *testing.T) {
 				Latitude:  50.60747,
 				Longitude: -57.15161,
 			},
-			URL: "https://wateroffice.ec.gc.ca/report/real_time_e.html?stn=02YC001",
+			URL:      "https://wateroffice.ec.gc.ca/report/real_time_e.html?stn=02YC001",
+			Timezone: "America/St_Johns",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -79,7 +82,8 @@ func TestCanada_ListGauges(t *testing.T) {
 				Latitude:  49.81603,
 				Longitude: -123.15008,
 			},
-			URL: "https://wateroffice.ec.gc.ca/report/real_time_e.html?stn=08GA043",
+			URL:      "https://wateroffice.ec.gc.ca/report/real_time_e.html?stn=08GA043",
+			Timezone: "America/Vancouver",
 		},
 	}
 	if assert.NoError(t, err) {

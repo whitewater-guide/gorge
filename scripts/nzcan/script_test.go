@@ -40,8 +40,9 @@ func TestNzcan_ListGauges(t *testing.T) {
 				Latitude:  -42.45731,
 				Longitude: 172.90635,
 			},
-			Name: "Waiau Toa~Clarence River at Jollies (NIWA)",
-			URL:  "https://ecan.govt.nz/data/riverflow/sitedetails/62105",
+			Name:     "Waiau Toa~Clarence River at Jollies (NIWA)",
+			URL:      "https://ecan.govt.nz/data/riverflow/sitedetails/62105",
+			Timezone: "Pacific/Auckland",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -53,8 +54,9 @@ func TestNzcan_ListGauges(t *testing.T) {
 				Latitude:  -42.11062,
 				Longitude: 173.84193,
 			},
-			Name: "Waiau Toa~Clarence River at Clarence Valley Road Bridge",
-			URL:  "https://ecan.govt.nz/data/riverflow/sitedetails/62107",
+			Name:     "Waiau Toa~Clarence River at Clarence Valley Road Bridge",
+			URL:      "https://ecan.govt.nz/data/riverflow/sitedetails/62107",
+			Timezone: "Pacific/Auckland",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -67,8 +69,9 @@ func TestNzcan_ListGauges(t *testing.T) {
 				Latitude:  -42.36892,
 				Longitude: 173.67984,
 			},
-			Name: "Ashburton SH1",
-			URL:  "https://ecan.govt.nz/data/riverflow/sitedetails/68801",
+			Name:     "Ashburton SH1",
+			URL:      "https://ecan.govt.nz/data/riverflow/sitedetails/68801",
+			Timezone: "Pacific/Auckland",
 		},
 	}
 	if assert.NoError(t, err) {

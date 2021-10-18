@@ -49,8 +49,9 @@ func TestWales_ListGauges(t *testing.T) {
 				Latitude:  51.70874,
 				Longitude: -3.34591,
 			},
-			Name: "Taff at Troedyrhiw",
-			URL:  "https://rivers-and-seas.naturalresources.wales/station/4064",
+			Name:     "Taff at Troedyrhiw",
+			URL:      "https://rivers-and-seas.naturalresources.wales/station/4064",
+			Timezone: "Europe/London",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -62,8 +63,9 @@ func TestWales_ListGauges(t *testing.T) {
 				Latitude:  51.4973,
 				Longitude: -3.20987,
 			},
-			Name: "Taff at Western Avenue",
-			URL:  "https://rivers-and-seas.naturalresources.wales/station/4067",
+			Name:     "Taff at Western Avenue",
+			URL:      "https://rivers-and-seas.naturalresources.wales/station/4067",
+			Timezone: "Europe/London",
 		},
 	}
 	if assert.NoError(t, err) {

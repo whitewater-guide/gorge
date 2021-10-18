@@ -86,6 +86,7 @@ func (s *scriptSwitzerland) stationToGauge(station *station) (*core.Gauge, error
 		Name:     name,
 		URL:      "https://www.hydrodaten.admin.ch/en/" + station.Number + ".html",
 		Location: loc,
+		Timezone: "Europe/Zurich",
 	}
 
 	if flowP != nil {

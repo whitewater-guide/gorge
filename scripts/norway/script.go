@@ -222,6 +222,7 @@ func (s *scriptNorway) gaugePageWorker(gauges <-chan listItem, results chan<- co
 			Location: &core.Location{
 				Altitude: gauge.altitude,
 			},
+			Timezone: "Europe/Oslo",
 		}
 		if err != nil {
 			results <- core.Gauge{}

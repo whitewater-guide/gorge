@@ -53,6 +53,7 @@ func (s *scriptCatalunya) convert(sensor *sensor) (*core.Gauge, error) {
 			Latitude:  core.TruncCoord(lat),
 			Longitude: core.TruncCoord(lng),
 		},
+		Timezone: "Europe/Madrid",
 	}, nil
 }
 

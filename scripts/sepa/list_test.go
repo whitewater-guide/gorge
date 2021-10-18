@@ -49,7 +49,8 @@ func TestSepa_GetGauge(t *testing.T) {
 				Longitude: -3.4342,
 				Altitude:  2,
 			},
-			URL: "http://apps.sepa.org.uk/waterlevels/default.aspx?sd=t&lc=10048",
+			URL:      "http://apps.sepa.org.uk/waterlevels/default.aspx?sd=t&lc=10048",
+			Timezone: "Europe/London",
 		},
 			result,
 		)

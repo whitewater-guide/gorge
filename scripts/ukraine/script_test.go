@@ -1,12 +1,13 @@
 package ukraine
 
 import (
+	"testing"
+	"time"
+
 	"github.com/mattn/go-nulltype"
 	"github.com/stretchr/testify/assert"
 	"github.com/whitewater-guide/gorge/core"
 	"github.com/whitewater-guide/gorge/testutils"
-	"testing"
-	"time"
 )
 
 func setupScript(extPaths map[string]string) (script core.Script, cls func()) {
@@ -50,8 +51,9 @@ func TestUkraine_ListGauges(t *testing.T) {
 			Latitude:  48.36876,
 			Longitude: 24.55166,
 		},
-		Name: "Прут Татарів",
-		URL:  "https://meteo.gov.ua/ua/33345/hydrostorm",
+		Name:     "Прут Татарів",
+		URL:      "https://meteo.gov.ua/ua/33345/hydrostorm",
+		Timezone: "Europe/Kiev",
 	}
 	if assert.NoError(t, err) {
 		assert.Len(t, actual, 192)
@@ -121,7 +123,7 @@ func TestUkraine_Harvest(t *testing.T) {
 		assert.Contains(t, actual, expected4)
 		assert.Contains(t, actual, expected5)
 	}
-	
+
 	s, cls = setupScript(map[string]string{"/kml_hydro_warn.kml": "kml_hydro_warn_empty.kml"})
 	defer cls()
 	actual, err = core.HarvestSlice(s, core.StringSet{}, 0)

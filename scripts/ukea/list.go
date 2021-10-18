@@ -79,6 +79,7 @@ func (s *scriptUkea) fetchList() (core.Gauges, error) {
 				Latitude:  core.TruncCoord(st.Lat),
 				Longitude: core.TruncCoord(st.Long),
 			},
+			Timezone: "Europe/London",
 		}
 		g.LevelUnit, g.FlowUnit = selectMeasures(st.Measures)
 		if g.LevelUnit != "" || g.FlowUnit != "" {

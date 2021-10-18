@@ -38,6 +38,7 @@ func (s *scriptGeorgia) parseTable(gauges chan<- *core.Gauge, measurements chan<
 				LevelUnit: "cm",
 				Name:      name,
 				URL:       s.url,
+				Timezone:  "Asia/Tbilisi",
 			}
 		}
 		if measurements != nil {

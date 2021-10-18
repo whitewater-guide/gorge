@@ -37,8 +37,9 @@ func TestWaikato_ListGauges(t *testing.T) {
 				Latitude:  -38.60393,
 				Longitude: 174.76472,
 			},
-			Name: "Rauroa Farm Bridge on Awakino",
-			URL:  ts.URL + "/1065.html",
+			Name:     "Rauroa Farm Bridge on Awakino",
+			URL:      ts.URL + "/1065.html",
+			Timezone: "Pacific/Auckland",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -50,8 +51,9 @@ func TestWaikato_ListGauges(t *testing.T) {
 				Latitude:  -37.29369,
 				Longitude: 175.063,
 			},
-			Name: "Whangamarino Control Structure on the Waikato River",
-			URL:  ts.URL + "/68.html",
+			Name:     "Whangamarino Control Structure on the Waikato River",
+			URL:      ts.URL + "/68.html",
+			Timezone: "Pacific/Auckland",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
@@ -63,8 +65,9 @@ func TestWaikato_ListGauges(t *testing.T) {
 				Latitude:  -37.3445,
 				Longitude: 175.1853,
 			},
-			Name: "Upstream of Falls Road on the Whangamarino Wetland",
-			URL:  ts.URL + "/158.html",
+			Name:     "Upstream of Falls Road on the Whangamarino Wetland",
+			URL:      ts.URL + "/158.html",
+			Timezone: "Pacific/Auckland",
 		},
 	}
 

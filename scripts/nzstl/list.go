@@ -42,6 +42,7 @@ func (s *scriptNzstl) fetchList(gauges chan<- *core.Gauge, measurements chan<- *
 					Latitude:  lat,
 					Longitude: lng,
 				},
+				Timezone: "Pacific/Auckland",
 			}
 		}
 		if measurements != nil {

@@ -26,6 +26,7 @@ func (s *scriptEcuador) parseList() (map[string]core.Gauge, error) {
 				},
 				LevelUnit: "m",
 				Name:      name,
+				Timezone:  "America/Guayaquil",
 			}
 		}
 	}
