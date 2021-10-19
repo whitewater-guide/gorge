@@ -54,13 +54,15 @@ Gorge is distributed as a ~50Mb [docker image](https://github.com/whitewater-gui
 
 Gorge database schemas for postgres and sqlite can be found [here](./storage/migrations/).
 
+In postgres table `measurements` is partitioned. Make sure you have `pg_partman` extension installed.
+Managing partitions is your responsibility. We use run `partman.run_maintenance_proc` with `pg_cron` (because AWS RDS doesn't yet support `partman_bgw` yet);
+Also we use `dump_partitions.py` script from `partman`.
+
 Gorge is compatible with [TimescaleDB extension](https://www.timescale.com/). To use it, run following query while `measurements` table is still empty.
 
 ```sql
 SELECT create_hypertable('measurements', 'timestamp');
 ```
-
-You can also partition `measurements` table (we do). But managing partitions is your responsibility.
 
 ### Launching
 
@@ -379,12 +381,12 @@ Docker-compose stack comes with [mitmproxy](https://mitmproxy.org/). You can mon
 
 If you want to develop on host machine, you'll need following libraries installed on it (they're installed in docker image, see Dockerfile for more info):
 
-- [libproj](https://proj.org/) shared library, to convert coordinate systems. Currently version 5.2.0 is required. (to match version from debian buster). On MacOS this can be installed via brew:
+- [libproj](https://proj.org/) shared library, to convert coordinate systems. Currently version 7.2.1 is required. (to match version from debian bullseye). On MacOS this can be installed via brew:
 
 ```
-brew tap-new $USER/local-tap
-brew extract --version='5.2.0' proj $USER/local-tap
-brew install proj@5.2.0
+# Make sure to uninstall other proj versions before
+brew install proj@7
+brew link proj@7
 ```
 
 Also you'll need following go tools:
@@ -424,7 +426,6 @@ Here are some recommendations for writing scripts for new sources
 ## TODO
 
 - Notify when some script seem to be broken
-- Build this using github actions _without_ docker. Problem: ubuntu 18.04 has old version of libproj-dev
 - Virtual gauges
   - Statuses
   - What happens when one component is broken?
@@ -432,10 +433,8 @@ Here are some recommendations for writing scripts for new sources
 - Pushing data downstream to peer projects (webhooks)
 - Subscriptions
 - Advanced scheduling with time affinity
-- Scripts as Go plugins
 - Send logs to sentry
 - Per-script binaries for third-party consumption
-- Add description attribute to scripts (cause nzbop is ugly)
 - GRAPHQL api with sources and local gauges
 - (DX) add git pre-push hooks to test and lint
 

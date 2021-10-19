@@ -9,9 +9,9 @@
 /pkg/
 /storage/migrations/**/*.go
 **/bench_data/
-timezonedb/*.json
 .bin/
-timezone.snap.db
+timezone.msgpack.snap.db
+*.log
 
 .vscode
 node_modules

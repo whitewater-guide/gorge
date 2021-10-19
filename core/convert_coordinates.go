@@ -1,8 +1,6 @@
 package core
 
-import "github.com/whitewater-guide/gorge/proj"
-
-const epsg4326Def = "+proj=longlat +datum=WGS84 +no_defs"
+import "github.com/everystreet/go-proj/v6/proj"
 
 // ToEPSG4326 converts coordinate from given coordinate system definition to EPSG4326
 // Definition can be obtained using following url https://epsg.io/<EPSG_CODE>.proj4
@@ -10,25 +8,19 @@ const epsg4326Def = "+proj=longlat +datum=WGS84 +no_defs"
 // Human-friendly page is https://epsg.io/31257
 // Coordinates are rounded to 5-digits precision (~1 meter) (https://en.wikipedia.org/wiki/Decimal_degrees)
 func ToEPSG4326(x, y float64, projDefinition string) (float64, float64, error) {
-	ctx := proj.NewContext()
-	defer ctx.Close()
+	coord := proj.XY{X: x, Y: y}
 
-	fromProj, err := ctx.Create(projDefinition)
+	err := proj.CRSToCRS(
+		projDefinition,
+		"EPSG:4326",
+		func(pj proj.Projection) {
+			proj.TransformForward(pj, &coord)
+			// transform more coordinates
+		},
+	)
+
 	if err != nil {
 		return 0, 0, err
 	}
-	defer fromProj.Close()
-
-	epsg4326, err := ctx.Create(epsg4326Def)
-	if err != nil {
-		return 0, 0, err
-	}
-	defer epsg4326.Close()
-
-	xFrom, yFrom, _, _, err := fromProj.Trans(proj.Inv, x, y, 0, 0)
-	if err != nil {
-		return 0, 0, err
-	}
-	xTo, yTo, _, _, err := epsg4326.Trans(proj.Fwd, xFrom, yFrom, 0, 0)
-	return TruncCoord(proj.RadToDeg(xTo)), TruncCoord(proj.RadToDeg(yTo)), err
+	return TruncCoord(coord.X), TruncCoord(coord.Y), nil
 }

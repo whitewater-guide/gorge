@@ -5,7 +5,6 @@ import (
 	"strings"
 
 	"github.com/whitewater-guide/gorge/core"
-	"github.com/whitewater-guide/gorge/tz"
 )
 
 type optionsUSGS struct {
@@ -42,7 +41,7 @@ func (s *scriptUSGS) ListGauges() (core.Gauges, error) {
 		result[i] = v
 		i++
 	}
-	tz.CloseTimezoneDb()
+	core.CloseTimezoneDb()
 	return result, nil
 }
 

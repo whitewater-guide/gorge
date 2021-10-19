@@ -9,8 +9,6 @@ import (
 	"github.com/whitewater-guide/gorge/core"
 )
 
-const epsg21781 = "+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=600000 +y_0=200000 +ellps=bessel +towgs84=674.4,15.1,405.3,0,0,0,0 +units=m +no_defs"
-
 func (s *scriptSwitzerland) fetchStations() (*locations, error) {
 	usr, pwd := s.options.Username, s.options.Password
 	if usr == "" {
@@ -43,7 +41,7 @@ func (s *scriptSwitzerland) fetchStations() (*locations, error) {
 }
 
 func getLocation(station station) (*core.Location, error) {
-	x, y, err := core.ToEPSG4326(float64(station.Easting), float64(station.Northing), epsg21781)
+	x, y, err := core.ToEPSG4326(float64(station.Easting), float64(station.Northing), "EPSG:21781")
 	if err != nil {
 		return nil, err
 	}

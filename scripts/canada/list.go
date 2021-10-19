@@ -6,7 +6,6 @@ import (
 	"strings"
 
 	"github.com/whitewater-guide/gorge/core"
-	"github.com/whitewater-guide/gorge/tz"
 )
 
 // Sometimes coordinate to timezone returns error (lakes, boundaries, dunno).
@@ -72,7 +71,7 @@ func (s *scriptCanada) gaugeFromRow(line []string) (*core.Gauge, error) {
 	if err != nil {
 		return nil, fmt.Errorf("failed to parse longtitude '%s'", line[3])
 	}
-	zone, err := tz.CoordinateToTimezone(lat, lon)
+	zone, err := core.CoordinateToTimezone(lat, lon)
 	if err != nil {
 		// fall back to manually picked timezone
 		// in practice, this happens to few gauges in Ontario

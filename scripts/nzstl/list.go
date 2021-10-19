@@ -7,9 +7,6 @@ import (
 	"github.com/whitewater-guide/gorge/core"
 )
 
-// EPSG:2193 NZGD2000, http://epsg.io/2193
-const epsg2193 = "+proj=tmerc +lat_0=0 +lon_0=173 +k=0.9996 +x_0=1600000 +y_0=10000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"
-
 func (s *scriptNzstl) fetchList(gauges chan<- *core.Gauge, measurements chan<- *core.Measurement, errs chan<- error) {
 	var data list
 	err := core.Client.GetAsJSON(s.url, &data, nil)
@@ -21,7 +18,7 @@ func (s *scriptNzstl) fetchList(gauges chan<- *core.Gauge, measurements chan<- *
 		if gauges != nil {
 			x, _ := strconv.ParseFloat(site.Easting, 64)
 			y, _ := strconv.ParseFloat(site.Northing, 64)
-			lng, lat, _ := core.ToEPSG4326(x, y, epsg2193)
+			lng, lat, _ := core.ToEPSG4326(x, y, "EPSG:2193")
 			var flowUnit, levelUnit string
 			if site.Flow.Measurement != "" {
 				flowUnit = "m3/s"

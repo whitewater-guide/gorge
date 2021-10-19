@@ -7,8 +7,6 @@ import (
 	"github.com/whitewater-guide/gorge/core"
 )
 
-const epsg3067 = "+proj=utm +zone=35 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"
-
 func (s *scriptFinland) fetchList(url string, gauges *core.Gauges) error {
 	var data stationsList
 	err := core.Client.GetAsJSON(url, &data, nil)
@@ -16,7 +14,7 @@ func (s *scriptFinland) fetchList(url string, gauges *core.Gauges) error {
 		return err
 	}
 	for _, st := range data.Value {
-		lon, lat, err := core.ToEPSG4326(st.X, st.Y, epsg3067)
+		lon, lat, err := core.ToEPSG4326(st.X, st.Y, "EPSG:3067")
 		if err != nil {
 			continue
 		}

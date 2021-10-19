@@ -1,4 +1,4 @@
-package tz
+package core
 
 import (
 	"os"
@@ -16,7 +16,7 @@ func load() (*timezone.TimezoneInterface, error) {
 			DatabaseType: "boltdb",             // memory or boltdb
 			DatabaseName: tzDbDir + "timezone", // Name without suffix
 			Snappy:       true,
-			Encoding:     "msgpack", // json or msgpack
+			Encoding:     timezone.EncMsgPack,
 		})
 		tz = &zones
 		if err != nil {

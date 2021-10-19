@@ -1,28 +1,38 @@
 ######################################################
 # ⭣ Commands below run inside docker container      #
 ######################################################
+EXTLDFLAGS=-Wl,--start-group -lm -pthread -ldl -lstdc++ -lsqlite3 -lproj -Wl,-end-group -static
+# This is required becuase go tests run in tested package's directory, and therefore we need to use timezonedb's absolute path
+TIMEZONE_DB_DIR=$(CURDIR)/
+export TIMEZONE_DB_DIR
+
 download:
 	go mod download
 
+# timezone lookup tool has binary named "cmd" so we crate symlink
 tools: download
 	cat tools.go | grep _ | awk -F'"' '{print $$2}' | xargs -tI % go install %
+	ln -sf ${GOPATH}/bin/cmd ${GOPATH}/bin/timezone
 
 build: GOOS=linux 
 build:
-	go build -o /go/bin/gorge-server -ldflags="-s -w -X 'github.com/whitewater-guide/gorge/version.Version=$(VERSION)'" github.com/whitewater-guide/gorge/server
-	go build -o /go/bin/gorge-cli -ldflags="-s -w -X 'github.com/whitewater-guide/gorge/version.Version=$(VERSION)'" github.com/whitewater-guide/gorge/cli
+	go build -o /go/bin/gorge-cli \
+		-ldflags="-extldflags '${EXTLDFLAGS}' -s -w -X 'github.com/whitewater-guide/gorge/version.Version=$(VERSION)'" \
+		-tags sqlite_omit_load_extension \
+		github.com/whitewater-guide/gorge/cli
+	go build -o /go/bin/gorge-server \
+		-ldflags="-extldflags '${EXTLDFLAGS}' -s -w -X 'github.com/whitewater-guide/gorge/version.Version=$(VERSION)'" \
+		-tags sqlite_omit_load_extension \
+		github.com/whitewater-guide/gorge/server
 
 # Downloads and builds timezones polygons database
 timezonedb: tools
-	curl -L "https://github.com/evansiroky/timezone-boundary-builder/releases/download/2020d/timezones.geojson.zip" -o ./timezonedb/timezones.geojson.zip
-	unzip -o ./timezonedb/timezones.geojson.zip -d ./timezonedb
-	rm ./timezonedb/timezones.geojson.zip
-	go run ./timezonedb -json "./timezonedb/combined.json" -db=timezone -type=boltdb
+	test -f timezone.msgpack.snap.db || timezone
 
 test: timezonedb
 	go test -count=1 ./... 
 
-test-nodocker: timezonedb
+test-nodocker: timezonedb 
 	go test -count=1 -v -tags=nodocker ./...
 
 lint: tools

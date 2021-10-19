@@ -64,7 +64,7 @@ func defaultConfig() *config {
 		Cache:    "redis",
 		Db:       "postgres",
 		Log: logConfig{
-			Level:  "warn",
+			Level:  "info",
 			Format: "json",
 		},
 		Pg: pgConfig{

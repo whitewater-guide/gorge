@@ -9,9 +9,6 @@ import (
 	"github.com/whitewater-guide/gorge/core"
 )
 
-// NZMG, http://epsg.io/27200
-const epsg27200 = "+proj=nzmg +lat_0=-41 +lon_0=173 +x_0=2510000 +y_0=6023150 +ellps=intl +towgs84=59.47,-5.04,187.44,0.47,-0.1,1.024,-4.5993 +units=m +no_defs"
-
 var gridRegExp = regexp.MustCompile(`^\s*([A-Z]{1,2})(\d\d):?\s*(?:(\d\d)\s*(\d\d)|(\d\d\d)\s*(\d\d\d)|(\d\d\d\d)\s*(\d\d\d\d))\s*$`)
 var errInvalidRef = errors.New("is not valid NZMS260 grid refrence")
 
@@ -61,7 +58,7 @@ func convertNZMS260(val string) (*core.Location, error) {
 	mape = mape + math.Round((mapCentreE-mape)/100000.0)*100000.0
 	mapn = mapn + math.Round((mapCentreN-mapn)/100000.0)*100000.0
 
-	lon, lat, err := core.ToEPSG4326(mape, mapn, epsg27200)
+	lon, lat, err := core.ToEPSG4326(mape, mapn, "EPSG:27200")
 	if err != nil {
 		return nil, err
 	}

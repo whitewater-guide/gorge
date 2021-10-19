@@ -7,7 +7,7 @@ import (
 	"github.com/whitewater-guide/gorge/core"
 )
 
-const wgs84 = "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs"
+// const wgs84 = "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs"
 
 func (s *scriptChile) getWebGauges() (map[string]core.Gauge, error) {
 	webmap, err := s.parseWebmap()
@@ -40,7 +40,7 @@ func (s *scriptChile) getWebGauges() (map[string]core.Gauge, error) {
 			continue
 		}
 		if feature, ok := webmap[id]; ok {
-			x, y, err := core.ToEPSG4326(feature.Geometry.X, feature.Geometry.Y, wgs84)
+			x, y, err := core.ToEPSG4326(feature.Geometry.X, feature.Geometry.Y, "WGS84")
 			if err != nil {
 				return nil, fmt.Errorf("failed to convert coordinates from mercator: %w", err)
 			}
