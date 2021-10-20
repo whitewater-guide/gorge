@@ -16,6 +16,9 @@ jobs:
     steps:
       - name: Check out
         uses: actions/checkout@v2
+      
+      - name: Install libproj
+        run: apt-get install -y libproj-dev
 
       - name: Setup go
         uses: actions/setup-go@v2
