@@ -4,7 +4,7 @@ services:
   app:
     build:
       context: .
-      target: development
+      dockerfile: Dockerfile.development
     image: gorge-dev
     container_name: gorge-dev
     ports:

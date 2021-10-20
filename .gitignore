@@ -12,6 +12,7 @@
 .bin/
 timezone.msgpack.snap.db
 *.log
+/build/
 
 .vscode
 node_modules

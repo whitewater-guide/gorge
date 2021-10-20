@@ -5,14 +5,6 @@
     "@semantic-release/release-notes-generator",
     "@semantic-release/npm",
     "@semantic-release/git",
-    [
-      "@semantic-release/exec",
-      {
-        "verifyReleaseCmd": "make verify",
-        "prepareCmd": "[ \"$GITHUB_EVENT\" = \"push\" ] && make prepare VERSION=${nextRelease.version}",
-        "publishCmd": "make publish VERSION=${nextRelease.version}"
-      }
-    ],
     "@semantic-release/github"
   ]
 }
