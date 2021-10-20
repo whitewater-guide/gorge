@@ -70,13 +70,12 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push docker image
-        if: $${{ env.SHOULD_RELEASE == true && steps.semantic.outputs.new_release_published == 'true' }}
+        if: ${{ env.SHOULD_RELEASE == true && steps.semantic.outputs.new_release_published == 'true' }}
         uses: docker/build-push-action@v2
         with:
           push: true
-          # invalid tag "ghcr.io/whitewater-guide/gorge:": invalid reference format
           tags: |
             ghcr.io/${{ github.repository }}:latest
-            ghcr.io/${{ github.repository }}:${{ steps.semantic.outputs.new_release_version || 'latest' }}
+            ghcr.io/${{ github.repository }}:${{ steps.semantic.outputs.new_release_version}}
           cache-from: type=registry,ref=ghcr.io/${{ github.repository }}:latest
           cache-to: type=inline
