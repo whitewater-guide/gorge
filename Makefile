@@ -9,9 +9,7 @@ download:
 tools: download
 	cat tools.go | grep _ | awk -F'"' '{print $$2}' | xargs -tI % go install %
 # timezone lookup tool has binary named "cmd" so we crate symlink
-	ln -sf ${GOPATH}/bin/cmd ${GOPATH}/bin/timezone
-# downloads and builds timezones polygons database
-	test -f timezone.msgpack.snap.db || timezone
+	test -f timezone.msgpack.snap.db || cmd
 
 build: tools
 build: GOOS=linux 
