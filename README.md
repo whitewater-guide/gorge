@@ -381,13 +381,15 @@ Docker-compose stack comes with [mitmproxy](https://mitmproxy.org/). You can mon
 
 If you want to develop on host machine, you'll need following libraries installed on it (they're installed in docker image, see Dockerfile for more info):
 
-- [libproj](https://proj.org/) shared library, to convert coordinate systems. Currently version 7.2.1 is required. (to match version from debian bullseye). On MacOS this can be installed via brew:
+- [libproj](https://proj.org/) shared library, to convert coordinate systems. Currently version 6.3.1 is required. (to match version from ubuntu 20.04, which is used by github actions). On MacOS this can be installed via brew:
 
 ```
-# Make sure to uninstall other proj versions before
-brew install proj@7
-brew link proj@7
+brew tap-new $USER/local-tap
+brew extract --version='6.3.1' proj $USER/local-tap
+brew install proj@6.3.1
 ```
+
+It's also possible to build it using version 7.2.1 (see Dockerfile.bullseye). It's just more complicated since proj has optional libtiff and libcurl dependencies since 7.0.
 
 Also you'll need following go tools:
 

@@ -1,0 +1,38 @@
+FROM ubuntu:20.04 as ubuntu-go
+
+ENV PATH /usr/local/go/bin:$PATH
+ENV GOLANG_VERSION 1.17.2
+
+RUN apt-get update -y && \
+    apt-get install -y --no-install-recommends \
+    curl ca-certificates git \
+    # install cgo-related dependencies
+    g++ gcc libc6-dev make pkg-config
+
+RUN curl -OL https://golang.org/dl/go${GOLANG_VERSION}.linux-amd64.tar.gz && \
+    tar -C /usr/local -xvf go${GOLANG_VERSION}.linux-amd64.tar.gz
+
+ENV GOPATH /go
+ENV PATH $GOPATH/bin:$PATH
+RUN mkdir -p "${GOPATH}/src" "${GOPATH}/bin" && chmod -R 777 "${GOPATH}"
+
+RUN go version
+
+
+##############################
+# Base dev image             #
+##############################
+
+FROM ubuntu-go
+
+RUN apt-get install -y \
+    # Install libproj 6.3.1
+    libproj-dev \
+    # Graphviz is needed for pprof
+    graphviz
+
+# Although it's set in Makefile, still set it here
+# This way we can use vscode debug, which doesn't use make
+ENV TIMEZONE_DB_DIR="/workspace/"
+
+WORKDIR /workspace

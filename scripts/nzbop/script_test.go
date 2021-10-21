@@ -46,7 +46,7 @@ func TestBop_ListGauges(t *testing.T) {
 			LevelUnit: "m",
 			Location: &core.Location{
 				Latitude:  -37.77573,
-				Longitude: 176.05292,
+				Longitude: 176.05294,
 				Altitude:  15,
 			},
 			Timezone: "Pacific/Auckland",
@@ -62,7 +62,7 @@ func TestBop_ListGauges(t *testing.T) {
 			FlowUnit:  "m3/s",
 			Location: &core.Location{
 				Latitude:  -37.73268,
-				Longitude: 176.1101,
+				Longitude: 176.11012,
 				Altitude:  10,
 			},
 			Timezone: "Pacific/Auckland",
