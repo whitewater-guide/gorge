@@ -48,7 +48,7 @@ jobs:
 
       - name: Semantic release
         id: semantic
-        if: env.SHOULD_RELEASE == true
+        if: ${{ env.SHOULD_RELEASE == true }}
         uses: cycjimmy/semantic-release-action@v2
         with:
           extra_plugins: |
