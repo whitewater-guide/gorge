@@ -8,7 +8,7 @@ download:
 
 tools: download
 	cat tools.go | grep _ | awk -F'"' '{print $$2}' | xargs -tI % go install %
-# timezone lookup tool has binary named "cmd" so we crate symlink
+# timezone lookup tool has binary named "cmd"
 	test -f timezone.msgpack.snap.db || cmd
 
 build: tools
