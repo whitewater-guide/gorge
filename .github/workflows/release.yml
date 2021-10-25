@@ -10,7 +10,8 @@ env:
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-latest
+    # it's important to use this version of ubuntu, because it matches development docker image and has correct veriosn of libproj
+    runs-on: ubuntu-20.04
     env:
       PUBLISH_RELEASE: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
     steps:
