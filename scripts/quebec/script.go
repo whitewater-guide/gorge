@@ -98,7 +98,8 @@ func (s *scriptQuebec) stationWorker(codes <-chan string, results chan<- station
 				"command": "harvest",
 				"code":    code,
 			}).Error(err)
+		} else {
+			results <- *gauge
 		}
-		results <- *gauge
 	}
 }
