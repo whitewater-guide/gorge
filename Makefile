@@ -11,16 +11,23 @@ tools: download
 # timezone lookup tool has binary named "cmd"
 	test -f timezone.msgpack.snap.db || cmd
 
+# netgo flag is required because we want to use db address `postgres.local`
+# See https://pkg.go.dev/net#hdr-Name_Resolution
+# Specifically: `
+#   When cgo is available, the cgo-based resolver is used instead under a variety of conditions:
+#   ... 
+#   and when the name being looked up ends in .local or is an mDNS name.
+# `
 build: tools
 build: GOOS=linux 
 build:
 	go build -o build/gorge-cli \
 		-ldflags="-extldflags '${EXTLDFLAGS}' -s -w -X 'github.com/whitewater-guide/gorge/version.Version=$(VERSION)'" \
-		-tags sqlite_omit_load_extension \
+		-tags sqlite_omit_load_extension,netgo \
 		github.com/whitewater-guide/gorge/cli
 	go build -o build/gorge-server \
 		-ldflags="-extldflags '${EXTLDFLAGS}' -s -w -X 'github.com/whitewater-guide/gorge/version.Version=$(VERSION)'" \
-		-tags sqlite_omit_load_extension \
+		-tags sqlite_omit_load_extension,netgo \
 		github.com/whitewater-guide/gorge/server
 
 test: tools
