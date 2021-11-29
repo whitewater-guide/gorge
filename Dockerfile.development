@@ -26,6 +26,7 @@ RUN go version
 FROM ubuntu-go
 
 RUN apt-get install -y \
+    git \
     # Install libproj 6.3.1
     libproj-dev \
     # Graphviz is needed for pprof
