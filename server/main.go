@@ -18,8 +18,6 @@ import (
 )
 
 func start(cfg *config.Config, srv *Server) error {
-	// values that are not set by flags fall back to environment variables
-	cfg.ReadFromEnv()
 	srv.routes()
 
 	httpSrv := &http.Server{
