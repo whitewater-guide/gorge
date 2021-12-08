@@ -14,7 +14,7 @@ import (
 	"github.com/whitewater-guide/gorge/core"
 )
 
-func (s *server) handleUpstreamGauges() http.HandlerFunc {
+func (s *Server) handleUpstreamGauges() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		name := chi.URLParam(r, "script")
 
@@ -40,7 +40,7 @@ func (s *server) handleUpstreamGauges() http.HandlerFunc {
 	}
 }
 
-func (s *server) handleUpstreamMeasurements() http.HandlerFunc {
+func (s *Server) handleUpstreamMeasurements() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		errorMsg := "failed to harvest measurements from upstream"
 		name := chi.URLParam(r, "script")

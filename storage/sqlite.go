@@ -3,7 +3,6 @@ package storage
 import (
 	"embed"
 	"fmt"
-	"log"
 	"math"
 	"time"
 
@@ -24,8 +23,8 @@ type SqliteManager struct {
 
 // NewSqliteDb creates SqliteManager with given chunkSize
 // SqliteManager cannot be used for write access concurrently. Test usage only
-func NewSqliteDb(chunkSize int) (*SqliteManager, error) {
-	manager := &SqliteManager{
+func NewSqliteDb(chunkSize int) *SqliteManager {
+	return &SqliteManager{
 		DbManager{
 			defaultStart:     "datetime('now', '-30 days')",
 			nearestDayClause: "ABS(julianday(timestamp) - julianday(%s))",
@@ -33,34 +32,38 @@ func NewSqliteDb(chunkSize int) (*SqliteManager, error) {
 		},
 	}
 
+}
+
+// Start implements DatabaseManager interface
+func (mgr *SqliteManager) Start() error {
 	db, err := obtainConnection("sqlite3", "file::memory:?cache=shared", 2, 60)
 	if err != nil {
-		return nil, fmt.Errorf("failed to obtain sqlite connection: %w", err)
+		return fmt.Errorf("failed to obtain sqlite connection: %w", err)
 	}
 	// See SQLite FAQ: https://github.com/mattn/go-sqlite3#faq
 	db.SetConnMaxLifetime(time.Duration(math.MaxInt64))
-	manager.db = db
+	mgr.db = db
 
 	// Run migrations
 	driver, err := sqlite3.WithInstance(db.DB, &sqlite3.Config{})
 	if err != nil {
-		return nil, fmt.Errorf("failed to create migration db driver: %w", err)
+		return fmt.Errorf("failed to create migration db driver: %w", err)
 	}
 
 	d, err := iofs.New(sqliteFS, "migrations/sqlite")
 	if err != nil {
-		log.Fatal(err)
+		return fmt.Errorf("failed to create migration iofs source: %w", err)
 	}
 
 	migrations, err := migrate.NewWithInstance("iofs", d, "postgres", driver)
 	if err != nil {
-		return nil, fmt.Errorf("failed to create migration: %w", err)
+		return fmt.Errorf("failed to create migration: %w", err)
 	}
 
 	err = migrations.Up()
 	if err != nil && err != migrate.ErrNoChange {
-		return nil, fmt.Errorf("failed to run migrations: %w", err)
+		return fmt.Errorf("failed to run migrations: %w", err)
 	}
 
-	return manager, nil
+	return nil
 }

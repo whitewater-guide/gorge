@@ -218,10 +218,8 @@ func (s *csTestSuite) TestSaveStatus() {
 }
 
 func TestCacheStatuses(t *testing.T) {
-	mgr, err := NewEmbeddedCacheManager()
-	if err != nil {
-		t.Fatalf("failed to init embedded redis cache manager: %v", err)
-	}
-	sqliteSuite := &csTestSuite{mgr: mgr}
-	suite.Run(t, sqliteSuite)
+	mgr := &EmbeddedCacheManager{}
+	mgr.Start()
+	tests := &csTestSuite{mgr: mgr}
+	suite.Run(t, tests)
 }

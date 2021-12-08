@@ -1,44 +1,61 @@
 package main
 
 import (
+	"context"
 	"encoding/json"
 	"testing"
 	"time"
 
 	"github.com/kinbiko/jsonassert"
 	"github.com/stretchr/testify/assert"
+	"github.com/whitewater-guide/gorge/config"
 	"github.com/whitewater-guide/gorge/core"
 	"github.com/whitewater-guide/gorge/schedule"
-	"github.com/whitewater-guide/gorge/scripts/testscripts"
+	"github.com/whitewater-guide/gorge/scripts"
+	"github.com/whitewater-guide/gorge/storage"
+	"go.uber.org/fx"
 )
 
-func TestStartup(t *testing.T) {
-	ja := jsonassert.New(t)
-	registry := core.NewRegistry()
-	registry.Register(testscripts.AllAtOnce)
-	registry.Register(testscripts.Broken)
-	registry.Register(testscripts.OneByOne)
-	srv := newServer(testConfig(), registry)
-	srv.scheduler = &schedule.SimpleScheduler{
-		Database: srv.database,
-		Cache:    srv.cache,
-		Registry: srv.registry,
-		Cron:     &schedule.ImmediateCron{},
-		Logger:   srv.logger,
-	}
-	err := srv.database.AddJob(core.JobDescription{
+func seedStartupTest(db storage.DatabaseManager) error {
+	return db.AddJob(core.JobDescription{
 		ID:     "24e45a47-7ae2-453a-afa3-153392e2460b",
 		Script: "all_at_once",
 		Gauges: map[string]json.RawMessage{"g000": []byte("{}")},
 		Cron:   "* * * * *",
 	}, func(job core.JobDescription) error { return nil })
-	if err != nil {
-		t.Fatalf("failed to seed startup jobs %v", err)
-	}
+}
 
-	srv.routes()
-	srv.start()
-	defer srv.shutdown()
+func TestStartup(t *testing.T) {
+	ja := jsonassert.New(t)
+
+	var srv *Server
+	app := fx.New(
+		fx.Invoke(func(lc fx.Lifecycle, db storage.DatabaseManager) {
+			// First startup hook: seed database
+			lc.Append(fx.Hook{
+				OnStart: func(c context.Context) error {
+					return seedStartupTest(db)
+				},
+			})
+		}),
+		fx.Options(
+			config.TestModule,
+			fx.Provide(testLogger),
+			scripts.TestModule,
+			storage.Module,
+			schedule.Module,
+			fx.Provide(newServer),
+		),
+		fx.Invoke(func(s *Server) {
+			srv = s
+			srv.scheduler.(*schedule.SimpleScheduler).Cron = &schedule.ImmediateCron{}
+			srv.routes()
+		}),
+	)
+	if err := app.Start(context.Background()); err != nil {
+		t.Fatal(err)
+	}
+	defer app.Stop(context.Background())
 
 	resp, _ := runCase(t, srv, test{
 		method: "GET",
@@ -91,7 +108,7 @@ func TestStartup(t *testing.T) {
 	})
 
 	var data []core.Measurement
-	err = json.Unmarshal([]byte(resp), &data)
+	err := json.Unmarshal([]byte(resp), &data)
 	if assert.NoError(t, err) && assert.GreaterOrEqual(t, len(data), 1) {
 		assert.Equal(t, "all_at_once", data[0].Script)
 		assert.Equal(t, "g000", data[0].Code)

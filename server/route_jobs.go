@@ -9,7 +9,7 @@ import (
 	"github.com/whitewater-guide/gorge/core"
 )
 
-func (s *server) handleAddJob() http.HandlerFunc {
+func (s *Server) handleAddJob() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		var description core.JobDescription
 		err := render.Bind(r, &description)
@@ -33,7 +33,7 @@ func (s *server) handleAddJob() http.HandlerFunc {
 	}
 }
 
-func (s *server) handleDeleteJob() http.HandlerFunc {
+func (s *Server) handleDeleteJob() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		jobID := chi.URLParam(r, "jobId")
 		err := s.database.DeleteJob(jobID, s.scheduler.DeleteJob)
@@ -46,7 +46,7 @@ func (s *server) handleDeleteJob() http.HandlerFunc {
 	}
 }
 
-func (s *server) handleGetJob() http.HandlerFunc {
+func (s *Server) handleGetJob() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		jobID := chi.URLParam(r, "jobId")
 		job, err := s.database.GetJob(jobID)
@@ -62,7 +62,7 @@ func (s *server) handleGetJob() http.HandlerFunc {
 	}
 }
 
-func (s *server) handleGetJobGauges() http.HandlerFunc {
+func (s *Server) handleGetJobGauges() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		jobID := chi.URLParam(r, "jobId")
 		statuses, err := s.cache.LoadGaugeStatuses(jobID)
@@ -84,7 +84,7 @@ func (s *server) handleGetJobGauges() http.HandlerFunc {
 	}
 }
 
-func (s *server) handleListJobs() http.HandlerFunc {
+func (s *Server) handleListJobs() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		jobs, err := s.database.ListJobs()
 		if err != nil {

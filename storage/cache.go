@@ -14,7 +14,8 @@ import (
 
 // RedisCacheManager is cache manager that uses real redis
 type RedisCacheManager struct {
-	pool *redis.Pool
+	pool    *redis.Pool
+	address string
 }
 
 // EmbeddedCacheManager is cache manager that uses embedded redis https://github.com/alicebob/miniredis
@@ -30,40 +31,7 @@ const (
 	NSLatest = "latest"
 )
 
-func newCacheManager(address string) (*RedisCacheManager, error) {
-	manager := &RedisCacheManager{
-		pool: &redis.Pool{
-			MaxIdle:     3,
-			IdleTimeout: 240 * time.Second,
-			Dial: func() (redis.Conn, error) {
-				return redis.Dial("tcp", address)
-			},
-		},
-	}
-
-	return manager, nil
-}
-
-// NewRedisCacheManager creates new redis cache manager
-func NewRedisCacheManager(host, port string) (*RedisCacheManager, error) {
-	return newCacheManager(fmt.Sprintf("%s:%s", host, port))
-}
-
-// NewEmbeddedCacheManager creates new miniredis cache manager
-func NewEmbeddedCacheManager() (*EmbeddedCacheManager, error) {
-	srv, err := miniredis.Run()
-	if err != nil {
-		return nil, core.WrapErr(err, "failed to start embedded redis")
-	}
-	manager, err := newCacheManager(srv.Addr())
-
-	return &EmbeddedCacheManager{
-		srv:               srv,
-		RedisCacheManager: *manager,
-	}, err
-}
-
-func (cache RedisCacheManager) loadStatuses(jobID string) (map[string]core.Status, error) {
+func (cache *RedisCacheManager) loadStatuses(jobID string) (map[string]core.Status, error) {
 	conn := cache.pool.Get()
 	defer conn.Close()
 	key := NSStatus // get jobids statuses
@@ -88,16 +56,16 @@ func (cache RedisCacheManager) loadStatuses(jobID string) (map[string]core.Statu
 }
 
 // LoadJobStatuses implements CacheManager interface
-func (cache RedisCacheManager) LoadJobStatuses() (map[string]core.Status, error) {
+func (cache *RedisCacheManager) LoadJobStatuses() (map[string]core.Status, error) {
 	return cache.loadStatuses("")
 }
 
 // LoadGaugeStatuses implements CacheManager interface
-func (cache RedisCacheManager) LoadGaugeStatuses(jobID string) (map[string]core.Status, error) {
+func (cache *RedisCacheManager) LoadGaugeStatuses(jobID string) (map[string]core.Status, error) {
 	return cache.loadStatuses(jobID)
 }
 
-func (cache RedisCacheManager) saveStatusWithTime(jobID, code string, err error, count int, ts time.Time) error {
+func (cache *RedisCacheManager) saveStatusWithTime(jobID, code string, err error, count int, ts time.Time) error {
 	conn := cache.pool.Get()
 	defer conn.Close()
 	success, errStr := true, ""
@@ -129,12 +97,12 @@ func (cache RedisCacheManager) saveStatusWithTime(jobID, code string, err error,
 }
 
 // SaveStatus implements CacheManager interface
-func (cache RedisCacheManager) SaveStatus(jobID, code string, err error, count int) error {
+func (cache *RedisCacheManager) SaveStatus(jobID, code string, err error, count int) error {
 	return cache.saveStatusWithTime(jobID, code, err, count, time.Now().UTC())
 }
 
 // LoadLatestMeasurements implements CacheManager interface
-func (cache RedisCacheManager) LoadLatestMeasurements(from map[string]core.StringSet) (map[core.GaugeID]core.Measurement, error) {
+func (cache *RedisCacheManager) LoadLatestMeasurements(from map[string]core.StringSet) (map[core.GaugeID]core.Measurement, error) {
 	result := make(map[core.GaugeID]core.Measurement)
 	var raws []string
 	conn := cache.pool.Get()
@@ -201,7 +169,7 @@ func (cache RedisCacheManager) LoadLatestMeasurements(from map[string]core.Strin
 }
 
 // SaveLatestMeasurements implements CacheManager interface
-func (cache RedisCacheManager) SaveLatestMeasurements(ctx context.Context, in <-chan *core.Measurement) <-chan error {
+func (cache *RedisCacheManager) SaveLatestMeasurements(ctx context.Context, in <-chan *core.Measurement) <-chan error {
 	errCh := make(chan error, 1)
 	go func() {
 		defer close(errCh)
@@ -266,13 +234,40 @@ func (cache RedisCacheManager) SaveLatestMeasurements(ctx context.Context, in <-
 	return errCh
 }
 
-// Close implements CacheManager interface
-func (cache RedisCacheManager) Close() {
-	cache.pool.Close()
+// Start implements CacheManager interface
+func (cache *RedisCacheManager) Start() error {
+	cache.pool = &redis.Pool{
+		MaxIdle:     3,
+		IdleTimeout: 240 * time.Second,
+		Dial: func() (redis.Conn, error) {
+			return redis.Dial("tcp", cache.address)
+		},
+	}
+	return nil
 }
 
 // Close implements CacheManager interface
-func (cache EmbeddedCacheManager) Close() {
-	cache.RedisCacheManager.Close()
+func (cache *RedisCacheManager) Close() error {
+	return cache.pool.Close()
+}
+
+// Start implements CacheManager interface
+func (cache *EmbeddedCacheManager) Start() error {
+	srv, err := miniredis.Run()
+	if err != nil {
+		return core.WrapErr(err, "failed to start embedded redis")
+	}
+	cache.srv = srv
+	cache.address = srv.Addr()
+	return cache.RedisCacheManager.Start()
+}
+
+// Close implements CacheManager interface
+func (cache *EmbeddedCacheManager) Close() error {
+	err := cache.RedisCacheManager.Close()
+	if err != nil {
+		return err
+	}
 	cache.srv.Close()
+	return nil
 }

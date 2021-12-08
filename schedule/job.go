@@ -13,7 +13,7 @@ type harvestJob struct {
 	database storage.DatabaseManager
 	cache    storage.CacheManager
 	registry *core.ScriptRegistry
-	logger   *logrus.Logger
+	logger   *logrus.Entry
 	jobID    string
 	cron     string
 	codes    core.StringSet

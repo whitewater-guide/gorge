@@ -43,7 +43,7 @@ func obtainConnection(driver, address string, timeout, retries int64) (*sqlx.DB,
 	return db, nil
 }
 
-func (mgr DbManager) saveMeasurementsChunk(chunk []*core.Measurement) (int, error) {
+func (mgr *DbManager) saveMeasurementsChunk(chunk []*core.Measurement) (int, error) {
 	result, err := mgr.db.NamedExec(saveMeasurementsQuery, chunk)
 	if err != nil {
 		return 0, core.WrapErr(err, "failed to save measurements").With("count", len(chunk))
@@ -55,7 +55,7 @@ func (mgr DbManager) saveMeasurementsChunk(chunk []*core.Measurement) (int, erro
 }
 
 // SaveMeasurements implements DatabaseManager interface
-func (mgr DbManager) SaveMeasurements(ctx context.Context, in <-chan *core.Measurement) (<-chan int, <-chan error) {
+func (mgr *DbManager) SaveMeasurements(ctx context.Context, in <-chan *core.Measurement) (<-chan int, <-chan error) {
 	savedCh := make(chan int, 1)
 	errCh := make(chan error, 1)
 	go func() {
@@ -104,7 +104,7 @@ func (mgr DbManager) SaveMeasurements(ctx context.Context, in <-chan *core.Measu
 }
 
 // GetMeasurements implements DatabaseManager interface
-func (mgr DbManager) GetMeasurements(query MeasurementsQuery) ([]core.Measurement, error) {
+func (mgr *DbManager) GetMeasurements(query MeasurementsQuery) ([]core.Measurement, error) {
 	q, args := mgr.getMeasurementsWhereClause(query)
 	q = "SELECT * FROM measurements " + q
 	rows, err := mgr.db.Queryx(q, args...)
@@ -126,7 +126,7 @@ func (mgr DbManager) GetMeasurements(query MeasurementsQuery) ([]core.Measuremen
 }
 
 // GetNearestMeasurement implements DatabaseManager interface
-func (mgr DbManager) GetNearestMeasurement(script, code string, to time.Time, tolerance time.Duration) (*core.Measurement, error) {
+func (mgr *DbManager) GetNearestMeasurement(script, code string, to time.Time, tolerance time.Duration) (*core.Measurement, error) {
 	q := "SELECT * FROM measurements WHERE script = $1 AND code = $2 ORDER BY " + fmt.Sprintf(mgr.nearestDayClause, "$3") + " LIMIT 1"
 	var m core.Measurement
 	err := mgr.db.QueryRowx(q, script, code, to).StructScan(&m)
@@ -144,7 +144,7 @@ func (mgr DbManager) GetNearestMeasurement(script, code string, to time.Time, to
 }
 
 // ListJobs implements DatabaseManager interface
-func (mgr DbManager) ListJobs() ([]core.JobDescription, error) {
+func (mgr *DbManager) ListJobs() ([]core.JobDescription, error) {
 	rows, err := mgr.db.Query("SELECT id, description FROM jobs")
 	if err != nil {
 		return nil, err
@@ -172,7 +172,7 @@ func (mgr DbManager) ListJobs() ([]core.JobDescription, error) {
 }
 
 // GetJob implements DatabaseManager interface
-func (mgr DbManager) GetJob(id string) (*core.JobDescription, error) {
+func (mgr *DbManager) GetJob(id string) (*core.JobDescription, error) {
 	var result struct {
 		ID          string
 		Description *core.JobDescription
@@ -185,7 +185,7 @@ func (mgr DbManager) GetJob(id string) (*core.JobDescription, error) {
 }
 
 // AddJob implements DatabaseManager interface
-func (mgr DbManager) AddJob(job core.JobDescription, onSave func(job core.JobDescription) error) error {
+func (mgr *DbManager) AddJob(job core.JobDescription, onSave func(job core.JobDescription) error) error {
 	descr, err := json.Marshal(job)
 	if err != nil {
 		return core.WrapErr(err, "failed to marshal job description")
@@ -216,7 +216,7 @@ func (mgr DbManager) AddJob(job core.JobDescription, onSave func(job core.JobDes
 }
 
 // DeleteJob implements DatabaseManager interface
-func (mgr DbManager) DeleteJob(id string, onDelete func(id string) error) error {
+func (mgr *DbManager) DeleteJob(id string, onDelete func(id string) error) error {
 	tx, err := mgr.db.Begin()
 	if err != nil {
 		return core.WrapErr(err, "failed to begin delete job transaction")
@@ -250,11 +250,11 @@ func (mgr DbManager) DeleteJob(id string, onDelete func(id string) error) error 
 }
 
 // Close implements DatabaseManager interface
-func (mgr DbManager) Close() {
-	mgr.db.Close()
+func (mgr *DbManager) Close() error {
+	return mgr.db.Close()
 }
 
-func (mgr DbManager) getMeasurementsWhereClause(query MeasurementsQuery) (string, []interface{}) {
+func (mgr *DbManager) getMeasurementsWhereClause(query MeasurementsQuery) (string, []interface{}) {
 	var args []interface{} = []interface{}{query.Script}
 	fromP := "$2"
 	if query.From == nil {

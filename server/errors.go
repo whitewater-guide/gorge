@@ -9,7 +9,7 @@ import (
 	"github.com/whitewater-guide/gorge/core"
 )
 
-func (s *server) renderError(w http.ResponseWriter, r *http.Request, e error, msg string, status int) {
+func (s *Server) renderError(w http.ResponseWriter, r *http.Request, e error, msg string, status int) {
 	if e == nil {
 		return
 	}

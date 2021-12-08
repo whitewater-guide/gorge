@@ -27,16 +27,18 @@ type SimpleScheduler struct {
 	Cache    storage.CacheManager
 	Registry *core.ScriptRegistry
 	Cron     cronLike
-	Logger   *logrus.Logger
+	Logger   *logrus.Entry
 }
 
 // Start implements JobScheduler interface
 func (s *SimpleScheduler) Start() {
+	s.Logger.Info("starting")
 	s.Cron.Start()
 }
 
 // Stop implements JobScheduler interface
 func (s *SimpleScheduler) Stop() {
+	s.Logger.Info("stopping")
 	schedCtx := s.Cron.Stop()
 	<-schedCtx.Done()
 }
