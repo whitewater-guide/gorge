@@ -57,7 +57,7 @@ func (cfg *Config) ReadFromEnv() {
 	}
 }
 
-func newConfig() *Config {
+func NewConfig() *Config {
 	return &Config{
 		Endpoint: "/",
 		Port:     "7080",

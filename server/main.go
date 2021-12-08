@@ -18,44 +18,46 @@ import (
 )
 
 func start(cfg *config.Config, srv *Server) error {
+	// values that are not set by flags fall back to environment variables
+	cfg.ReadFromEnv()
+	srv.routes()
+
+	httpSrv := &http.Server{
+		Addr:    fmt.Sprintf(":%s", srv.port),
+		Handler: srv.router,
+	}
+
+	return httpSrv.ListenAndServe()
+}
+
+func main() {
+	cfg := config.NewConfig()
+
 	rootCmd := &cobra.Command{
 		Use:     fmt.Sprintf("%s [flags]", filepath.Base(os.Args[0])),
 		Short:   "Runs gorge server",
 		Version: version.Version,
 		RunE: func(cmd *cobra.Command, args []string) error {
-			cfg.ReadFromEnv()
-			// if cfg.Debug {
-			// 	runtime.MemProfileRate = 1
-			// }
-			srv.routes()
-
-			httpSrv := &http.Server{
-				Addr:    fmt.Sprintf(":%s", srv.port),
-				Handler: srv.router,
-			}
-
-			return httpSrv.ListenAndServe()
+			app := fx.New(
+				fx.Supply(cfg),
+				fx.Provide(newLogger),
+				scripts.Module,
+				storage.Module,
+				schedule.Module,
+				fx.Provide(newServer),
+				fx.Invoke(start),
+			)
+			app.Run()
+			return nil
 		},
 	}
+
+	// flags must be parsed before command execution
 	err := gpflag.ParseTo(cfg, rootCmd.Flags())
 	if err != nil {
-		return fmt.Errorf("failed to parse flags: %v", err)
+		fmt.Printf("Failed to parse flags: %v", err)
+		os.Exit(1)
 	}
 
-	return rootCmd.Execute()
-}
-
-func main() {
-	app := fx.New(
-		fx.Options(
-			config.Module,
-			fx.Provide(newLogger),
-			scripts.Module,
-			storage.Module,
-			schedule.Module,
-			fx.Provide(newServer),
-		),
-		fx.Invoke(start),
-	)
-	app.Run()
+	rootCmd.Execute()
 }
