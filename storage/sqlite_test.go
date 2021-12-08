@@ -8,7 +8,7 @@ import (
 
 func TestSqlite(t *testing.T) {
 	mgr := NewSqliteDb(0)
-	mgr.Start()
+	mgr.Start() //nolint:errcheck
 	tests := &DbTestSuite{mgr: &(mgr.DbManager)}
 	suite.Run(t, tests)
 }

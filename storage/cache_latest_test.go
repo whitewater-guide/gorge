@@ -211,7 +211,7 @@ func (s *clTestSuite) TestGetLatestMeasurements() {
 
 func TestCacheLatest(t *testing.T) {
 	mgr := &EmbeddedCacheManager{}
-	mgr.Start()
+	mgr.Start() //nolint:errcheck
 	sqliteSuite := &clTestSuite{mgr: mgr}
 	suite.Run(t, sqliteSuite)
 }

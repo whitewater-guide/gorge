@@ -569,7 +569,7 @@ func TestEndpoint(t *testing.T) {
 				ja := jsonassert.New(t)
 				ja.Assertf(resp, tt.resp)
 			}
-			app.Stop(context.Background())
+			app.Stop(context.Background()) //nolint:errcheck
 		})
 	}
 }

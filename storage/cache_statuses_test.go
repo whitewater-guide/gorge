@@ -219,7 +219,7 @@ func (s *csTestSuite) TestSaveStatus() {
 
 func TestCacheStatuses(t *testing.T) {
 	mgr := &EmbeddedCacheManager{}
-	mgr.Start()
+	mgr.Start() //nolint:errcheck
 	tests := &csTestSuite{mgr: mgr}
 	suite.Run(t, tests)
 }
