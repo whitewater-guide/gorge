@@ -15,6 +15,7 @@ import (
 	"github.com/whitewater-guide/gorge/version"
 
 	"go.uber.org/fx"
+	"go.uber.org/fx/fxevent"
 )
 
 func start(cfg *config.Config, srv *Server) error {
@@ -44,6 +45,11 @@ func main() {
 				schedule.Module,
 				fx.Provide(newServer),
 				fx.Invoke(start),
+				fx.WithLogger(
+					func() fxevent.Logger {
+						return fxevent.NopLogger
+					},
+				),
 			)
 			app.Run()
 			return nil

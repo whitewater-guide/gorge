@@ -21,6 +21,7 @@ import (
 	"github.com/whitewater-guide/gorge/scripts"
 	"github.com/whitewater-guide/gorge/storage"
 	"go.uber.org/fx"
+	"go.uber.org/fx/fxevent"
 )
 
 type test struct {
@@ -548,6 +549,11 @@ func TestEndpoint(t *testing.T) {
 					// srv.scheduler.(*schedule.SimpleScheduler).Cron = &schedule.ImmediateCron{}
 					srv.routes()
 				}),
+				fx.WithLogger(
+					func() fxevent.Logger {
+						return fxevent.NopLogger
+					},
+				),
 			)
 			if err := app.Start(context.Background()); err != nil {
 				t.Fatal(err)
