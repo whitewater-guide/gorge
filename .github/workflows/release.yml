@@ -13,7 +13,8 @@ jobs:
     # it's important to use this version of ubuntu, because it matches development docker image and has correct veriosn of libproj
     runs-on: ubuntu-20.04
     env:
-      PUBLISH_RELEASE: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+      # beta branch is used for prereleases, as described in https://semantic-release.gitbook.io/semantic-release/usage/configuration#branches
+      PUBLISH_RELEASE: ${{ github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/beta') }}
     steps:
       - name: Check out
         uses: actions/checkout@v2
