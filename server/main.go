@@ -15,10 +15,10 @@ import (
 	"github.com/whitewater-guide/gorge/version"
 
 	"go.uber.org/fx"
-	"go.uber.org/fx/fxevent"
 )
 
 func start(cfg *config.Config, srv *Server) error {
+	srv.logger.Debug("starting")
 	srv.routes()
 
 	httpSrv := &http.Server{
@@ -26,7 +26,11 @@ func start(cfg *config.Config, srv *Server) error {
 		Handler: srv.router,
 	}
 
-	return httpSrv.ListenAndServe()
+	go httpSrv.ListenAndServe()
+
+	srv.logger.Infof("started")
+
+	return nil
 }
 
 func main() {
@@ -45,11 +49,7 @@ func main() {
 				schedule.Module,
 				fx.Provide(newServer),
 				fx.Invoke(start),
-				fx.WithLogger(
-					func() fxevent.Logger {
-						return fxevent.NopLogger
-					},
-				),
+				fx.WithLogger(newFxLogger),
 			)
 			app.Run()
 			return nil

@@ -12,7 +12,7 @@ func newLogger(cfg *config.Config) *logrus.Logger {
 	if cfg.Log.Format == "json" {
 		result.SetFormatter(&logrus.JSONFormatter{})
 	} else {
-		result.SetFormatter(&logrus.TextFormatter{ForceColors: true, FullTimestamp: true})
+		result.SetFormatter(&logrus.TextFormatter{ForceColors: true, DisableTimestamp: true})
 	}
 	logLevel := cfg.Log.Level
 	if cfg.Debug {

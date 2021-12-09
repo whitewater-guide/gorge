@@ -37,6 +37,7 @@ type Server struct {
 }
 
 func (s *Server) routes() {
+	s.logger.Debug("creating routes")
 	s.router = chi.NewRouter()
 	s.router.Use(
 		render.SetContentType(render.ContentTypeJSON),
@@ -75,6 +76,7 @@ func (s *Server) routes() {
 		s.router.Handle("/debug/heap", pprof.Handler("heap"))
 		s.router.Handle("/debug/goroutine", pprof.Handler("goroutine"))
 	}
+	s.logger.Debug("created routes")
 }
 
 func newServer(lc fx.Lifecycle, p ServerParams) *Server {
