@@ -1,6 +1,8 @@
 package config
 
 import (
+	"os"
+
 	"github.com/whitewater-guide/gorge/core"
 )
 
@@ -32,6 +34,12 @@ type Config struct {
 	Redis       RedisConfig
 	Log         LogConfig
 	HTTP        core.ClientOptions
+}
+
+func (cfg *Config) ReadFromEnv() {
+	if cfg.Pg.Password == "" {
+		cfg.Pg.Password = os.Getenv("POSTGRES_PASSWORD")
+	}
 }
 
 func NewConfig() *Config {
