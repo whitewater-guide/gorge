@@ -10,15 +10,15 @@ type LogConfig struct {
 }
 
 type PgConfig struct {
-	Host     string `desc:"Postgres host" env:"POSTGRES_HOST"`
-	Password string `desc:"Postgres password" env:"POSTGRES_PASSWORD"`
-	User     string `desc:"Postgres user" env:"POSTGRES_USER"`
-	Db       string `desc:"Postgres database" env:"POSTGRES_DB"`
+	Host     string `desc:"Postgres host" env:"~POSTGRES_HOST"`
+	Password string `desc:"Postgres password" env:"~POSTGRES_PASSWORD"`
+	User     string `desc:"Postgres user" env:"~POSTGRES_USER"`
+	Db       string `desc:"Postgres database" env:"~POSTGRES_DB"`
 }
 
 type RedisConfig struct {
-	Host string `desc:"Redis host" env:"REDIS_HOST"`
-	Port string `desc:"Redis port" env:"REDIS_PORT"`
+	Host string `desc:"Redis host" env:"~REDIS_HOST"`
+	Port string `desc:"Redis port" env:"~REDIS_PORT"`
 }
 
 type Config struct {
