@@ -1,8 +1,6 @@
 package config
 
 import (
-	"os"
-
 	"github.com/whitewater-guide/gorge/core"
 )
 
@@ -12,15 +10,15 @@ type LogConfig struct {
 }
 
 type PgConfig struct {
-	Host     string `desc:"Postgres host" env:"~POSTGRES_HOST"`
-	Password string `desc:"Postgres password" env:"~POSTGRES_PASSWORD"`
-	User     string `desc:"Postgres user" env:"~POSTGRES_USER"`
-	Db       string `desc:"Postgres database" env:"~POSTGRES_DB"`
+	Host     string `desc:"Postgres host"`
+	Password string `desc:"Postgres password [env POSTGRES_PASSWORD]" env:"~POSTGRES_PASSWORD"`
+	User     string `desc:"Postgres user"`
+	Db       string `desc:"Postgres database"`
 }
 
 type RedisConfig struct {
-	Host string `desc:"Redis host" env:"~REDIS_HOST"`
-	Port string `desc:"Redis port" env:"~REDIS_PORT"`
+	Host string `desc:"Redis host"`
+	Port string `desc:"Redis port"`
 }
 
 type Config struct {
@@ -34,27 +32,6 @@ type Config struct {
 	Redis       RedisConfig
 	Log         LogConfig
 	HTTP        core.ClientOptions
-}
-
-func (cfg *Config) ReadFromEnv() {
-	if cfg.Pg.Host == "" {
-		cfg.Pg.Host = os.Getenv("POSTGRES_HOST")
-	}
-	if cfg.Pg.Db == "" {
-		cfg.Pg.Db = os.Getenv("POSTGRES_DB")
-	}
-	if cfg.Pg.User == "" {
-		cfg.Pg.User = os.Getenv("POSTGRES_USER")
-	}
-	if cfg.Pg.Password == "" {
-		cfg.Pg.Password = os.Getenv("POSTGRES_PASSWORD")
-	}
-	if cfg.Redis.Host == "" {
-		cfg.Redis.Host = os.Getenv("REDIS_HOST")
-	}
-	if cfg.Redis.Port == "" {
-		cfg.Redis.Port = os.Getenv("REDIS_PORT")
-	}
 }
 
 func NewConfig() *Config {

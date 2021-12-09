@@ -94,26 +94,15 @@ Here is the list of available flags:
 --http-user-agent string   User agent for requests sent from scripts. Leave empty to use fake browser agent (default "whitewater.guide robot")
 --http-without-tls         Disable TLS for some gauges
 --log-format string        Set this to 'json' to output log in json (default "json")
---log-level string         Log level. Leave empty to discard logs (default "warn")
+--log-level string         Log level. Leave empty to discard logs (default "info")
 --pg-db string             Postgres database (default "postgres")
 --pg-host string           Postgres host (default "db")
---pg-password string       Postgres password
+--pg-password string       Postgres password [env POSTGRES_PASSWORD]
 --pg-user string           Postgres user (default "postgres")
 --port string              Port (default "7080")
 --redis-host string        Redis host (default "redis")
 --redis-port string        Redis port (default "6379")
 ```
-
-Postgres and redis can also be configured using following environment variables:
-
-- POSTGRES_HOST
-- POSTGRES_DB
-- POSTGRES_USER
-- POSTGRES_PASSWORD
-- REDIS_HOST
-- REDIS_PORT
-
-Environment variables have lower priority than cli flags.
 
 Gorge uses database to store harvested measurements and scheduled jobs. It comes with postgres and sqlite drivers. Gorge will initialize all the required tables. Check out sql migration file if you're curious about db schema.
 
