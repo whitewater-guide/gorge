@@ -26,7 +26,11 @@ func start(cfg *config.Config, srv *Server) error {
 		Handler: srv.router,
 	}
 
-	go httpSrv.ListenAndServe()
+	go func() {
+		if err := httpSrv.ListenAndServe(); err != nil {
+			srv.logger.Fatal(err)
+		}
+	}()
 
 	srv.logger.Infof("started")
 
