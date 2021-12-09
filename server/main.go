@@ -45,6 +45,9 @@ func main() {
 		Short:   "Runs gorge server",
 		Version: version.Version,
 		RunE: func(cmd *cobra.Command, args []string) error {
+			// cobra flags do not read from env, read manually
+			cfg.ReadFromEnv()
+
 			app := fx.New(
 				fx.Supply(cfg),
 				fx.Provide(newLogger),
