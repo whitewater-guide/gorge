@@ -10,17 +10,17 @@ import (
 )
 
 func newDatabaseManager(lc fx.Lifecycle, cfg *config.Config, logger *logrus.Logger) (DatabaseManager, error) {
+	log := logger.WithField("logger", "db")
+
 	var mgr DatabaseManager
 	switch cfg.Db {
 	case "postgres":
-		mgr = newPostgresManager(cfg)
+		mgr = newPostgresManager(log, cfg)
 	case "inmemory":
-		mgr = NewSqliteDb(cfg.DbChunkSize)
+		mgr = NewSqliteDb(log, cfg.DbChunkSize)
 	default:
 		return nil, fmt.Errorf("invalid database manager")
 	}
-
-	log := logger.WithField("logger", "db")
 
 	lc.Append(fx.Hook{
 		OnStart: func(c context.Context) error {

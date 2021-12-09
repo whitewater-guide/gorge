@@ -8,6 +8,7 @@ import (
 	"github.com/golang-migrate/migrate/v4"
 	"github.com/golang-migrate/migrate/v4/database/postgres"
 	"github.com/golang-migrate/migrate/v4/source/iofs"
+	"github.com/sirupsen/logrus"
 	"github.com/whitewater-guide/gorge/config"
 
 	// postgres
@@ -20,11 +21,14 @@ var pgFS embed.FS
 // PostgresManager implements DatabaseManager interface
 type PostgresManager struct {
 	DbManager
+	logger    *logrus.Entry
 	pgConnStr string
+	// pgConnStr without password for logging purposes
+	censoredConnStr string
 }
 
 // NewPostgresManager creates new PostgresManager with connection string and chunk size
-func newPostgresManager(cfg *config.Config) *PostgresManager {
+func newPostgresManager(logger *logrus.Entry, cfg *config.Config) *PostgresManager {
 	return &PostgresManager{
 		DbManager: DbManager{
 			defaultStart:     "NOW() - interval '30 days'",
@@ -38,11 +42,20 @@ func newPostgresManager(cfg *config.Config) *PostgresManager {
 			cfg.Pg.Host,
 			cfg.Pg.Db,
 		),
+		censoredConnStr: fmt.Sprintf(
+			"postgres://%s:%s@%s/%s?sslmode=disable",
+			cfg.Pg.User,
+			"**********",
+			cfg.Pg.Host,
+			cfg.Pg.Db,
+		),
+		logger: logger,
 	}
 }
 
 // Start implements DatabaseManager interface
 func (mgr *PostgresManager) Start() error {
+	mgr.logger.Debugf("connecting to %s", mgr.censoredConnStr)
 	pg, err := obtainConnection("postgres", mgr.pgConnStr, 2, 60)
 	if err != nil {
 		return fmt.Errorf("failed to init postgres: %w", err)

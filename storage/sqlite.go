@@ -9,6 +9,7 @@ import (
 	"github.com/golang-migrate/migrate/v4"
 	"github.com/golang-migrate/migrate/v4/database/sqlite3"
 	"github.com/golang-migrate/migrate/v4/source/iofs"
+	"github.com/sirupsen/logrus"
 
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -19,24 +20,28 @@ var sqliteFS embed.FS
 // SqliteManager implements DatabaseManager interface for Sqlite datbase https://github.com/mattn/go-sqlite3
 type SqliteManager struct {
 	DbManager
+	logger *logrus.Entry
 }
 
 // NewSqliteDb creates SqliteManager with given chunkSize
 // SqliteManager cannot be used for write access concurrently. Test usage only
-func NewSqliteDb(chunkSize int) *SqliteManager {
+func NewSqliteDb(logger *logrus.Entry, chunkSize int) *SqliteManager {
 	return &SqliteManager{
-		DbManager{
+		DbManager: DbManager{
 			defaultStart:     "datetime('now', '-30 days')",
 			nearestDayClause: "ABS(julianday(timestamp) - julianday(%s))",
 			saveChunkSize:    chunkSize,
 		},
+		logger: logger,
 	}
 
 }
 
 // Start implements DatabaseManager interface
 func (mgr *SqliteManager) Start() error {
-	db, err := obtainConnection("sqlite3", "file::memory:?cache=shared", 2, 60)
+	addr := "file::memory:?cache=shared"
+	mgr.logger.Debugf("connecting to %s", addr)
+	db, err := obtainConnection("sqlite3", addr, 2, 60)
 	if err != nil {
 		return fmt.Errorf("failed to obtain sqlite connection: %w", err)
 	}

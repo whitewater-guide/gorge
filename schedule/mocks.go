@@ -81,9 +81,10 @@ type mockScheduler struct {
 }
 
 func newMockScheduler(t *testing.T) *mockScheduler {
-	db := storage.NewSqliteDb(0)
 	logger := logrus.New()
 	logger.SetOutput(ioutil.Discard)
+
+	db := storage.NewSqliteDb(logrus.NewEntry(logger), 0)
 	cache := &storage.EmbeddedCacheManager{}
 	registry := core.NewRegistry()
 	registry.Register(testscripts.AllAtOnce)
