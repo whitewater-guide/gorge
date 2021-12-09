@@ -61,6 +61,7 @@ func (mgr *PostgresManager) Start() error {
 		return fmt.Errorf("failed to init postgres: %w", err)
 	}
 	mgr.db = pg
+	mgr.logger.Debug("connected")
 
 	// Run migrations
 	driver, err := postgres.WithInstance(pg.DB, &postgres.Config{})
@@ -77,6 +78,9 @@ func (mgr *PostgresManager) Start() error {
 	if err != nil {
 		return fmt.Errorf("failed to create migration: %w", err)
 	}
+
+	v, dirty, _ := migrations.Version()
+	mgr.logger.Debugf("current db version: %d (%t)", v, dirty)
 
 	err = migrations.Up()
 	if err != nil && err != migrate.ErrNoChange {
