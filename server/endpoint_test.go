@@ -58,6 +58,7 @@ func seedEndpointTest(db storage.DatabaseManager, cache storage.CacheManager) {
 	}))
 	cache.SaveStatus("48f979ec-268b-11ea-978f-2e728ce88125", "g000", nil, 10)                     // nolint:errcheck
 	cache.SaveStatus("48f979ec-268b-11ea-978f-2e728ce88125", "g001", errors.New("test error"), 0) // nolint:errcheck
+	cache.SaveStatus("48f979ec-268b-11ea-978f-2e728ce88125", "", errors.New("test error"), 0)     // nolint:errcheck
 	cache.SaveLatestMeasurements(context.Background(), core.GenFromSlice(context.Background(), []core.Measurement{
 		{
 			GaugeID: core.GaugeID{
@@ -335,6 +336,7 @@ func TestEndpoint(t *testing.T) {
 			resp: `{
 				"g000": {
 					"success": true,
+					"last_success": "<<PRESENCE>>",
 					"timestamp": "<<PRESENCE>>",
 					"next": "<<PRESENCE>>",
 					"count": 10

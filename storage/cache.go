@@ -5,6 +5,8 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"strconv"
+	"strings"
 	"time"
 
 	"github.com/alicebob/miniredis/v2"
@@ -26,6 +28,19 @@ type EmbeddedCacheManager struct {
 
 const (
 	// NSStatus is redis namespace prefix for job/gauge statuses
+	// Cache structure is following hash:
+	// key             -> field               -> value
+	// -------------------- one-by-one jobs ---------------------
+	// status:<jobId>  -> <code>:time         -> ISO time string of latest job/code execution
+	//                 -> <code>:success      -> ISO time string of latest SUCCESSFULL job/code execution
+	//                 -> <code>:count        -> number of measurements harvested last time
+	//                 -> <code>:error        -> latest execution error, or empty string in case of success
+	//
+	// -------------------- jobs --------------------
+	// status:jobs     -> <jobId>:time        -> ISO time string of latest job/code execution
+	//                 -> <jobId>:success     -> ISO time string of latest SUCCESSFULL job/code execution
+	//                 -> <jobId>:count       -> number of measurements harvested last time
+	//                 -> <jobId>:error       -> latest execution error, or empty string in case of success
 	NSStatus = "status"
 	// NSLatest is redis namespace prefix for latest measurements
 	NSLatest = "latest"
@@ -34,23 +49,54 @@ const (
 func (cache *RedisCacheManager) loadStatuses(jobID string) (map[string]core.Status, error) {
 	conn := cache.pool.Get()
 	defer conn.Close()
-	key := NSStatus // get jobids statuses
+	var key string
 	if jobID != "" {
-		key = key + ":" + jobID // get gauges statuses of this jobID
+		key = NSStatus + ":" + jobID // get gauges statuses of this jobID
+	} else {
+		key = NSStatus + ":" + "jobs" // get statuses of all jobs
 	}
 	m, err := redis.StringMap(conn.Do("HGETALL", key))
 	if err != nil {
 		return nil, core.WrapErr(err, "failed to get statuses")
 	}
-	i := 0
+
 	result := make(map[string]core.Status)
-	for id, rawStatus := range m {
+	for field, value := range m {
+		pts := strings.Split(field, ":")
+		id, prop := pts[0], pts[1] // id is job_id or code, prop is time|sucess... etc.
+
 		var status core.Status
-		if err := json.Unmarshal([]byte(rawStatus), &status); err != nil {
-			return nil, core.WrapErr(err, "failed to unmarshal job status from redis").With("value", rawStatus)
+		var ok bool
+		if status, ok = result[id]; !ok {
+			status = core.Status{}
+			status.Success = true
 		}
+
+		switch prop {
+		case "time":
+			ts, err := time.Parse(time.RFC3339, value)
+			if err != nil {
+				return nil, core.WrapErr(err, fmt.Sprintf("failed parse time '%s' from redis", value))
+			}
+			status.Timestamp = core.HTime{Time: ts}
+		case "success":
+			ts, err := time.Parse(time.RFC3339, value)
+			if err != nil {
+				return nil, core.WrapErr(err, fmt.Sprintf("failed parse success time '%s' from redis", value))
+			}
+			status.LastSuccess = &core.HTime{Time: ts}
+		case "count":
+			count, err := strconv.Atoi(value)
+			if err != nil {
+				return nil, core.WrapErr(err, fmt.Sprintf("failed parse count '%s' from redis", value))
+			}
+			status.Count = count
+		case "error":
+			status.Error = value
+			status.Success = value == ""
+		}
+
 		result[id] = status
-		i++
 	}
 	return result, nil
 }
@@ -73,25 +119,39 @@ func (cache *RedisCacheManager) saveStatusWithTime(jobID, code string, err error
 		success = false
 		errStr = err.Error()
 	}
-	status := core.Status{
-		Success:   success,
-		Timestamp: core.HTime{Time: ts},
-		Error:     errStr,
-		Count:     count,
+	// status := core.Status{
+	// 	Success:   success,
+	// 	Timestamp: core.HTime{Time: ts},
+	// 	Error:     errStr,
+	// 	Count:     count,
+	// }
+	// raw, err := json.Marshal(status)
+	// if err != nil {
+	// 	return core.WrapErr(err, "failed to marshal status")
+	// }
+	var key, prefix string
+	if code == "" {
+		key = fmt.Sprintf("%s:jobs", NSStatus)
+		prefix = jobID
+	} else {
+		key = fmt.Sprintf("%s:%s", NSStatus, jobID)
+		prefix = code
 	}
-	raw, err := json.Marshal(status)
+
+	hmset := []interface{}{
+		key,
+		fmt.Sprintf("%s:time", prefix), ts.Format(time.RFC3339),
+		fmt.Sprintf("%s:count", prefix), strconv.Itoa(count),
+		fmt.Sprintf("%s:error", prefix), errStr, // always set to override previous error
+	}
+	// in case of error we do not overwrite success, keeping last success timestamp
+	if success {
+		hmset = append(hmset, fmt.Sprintf("%s:success", prefix), ts.Format(time.RFC3339))
+	}
+
+	err = conn.Send("HMSET", hmset...)
 	if err != nil {
-		return core.WrapErr(err, "failed to marshal status")
-	}
-	if code != "" {
-		err = conn.Send("HSET", fmt.Sprintf("%s:%s", NSStatus, jobID), code, raw)
-		if err != nil {
-			return core.WrapErr(err, "failed send gauge status")
-		}
-	}
-	_, err = conn.Do("HSET", NSStatus, jobID, raw)
-	if err != nil {
-		return core.WrapErr(err, "failed to save status").With("jobID", jobID).With("code", code)
+		return core.WrapErr(err, "failed save status").With("jobID", jobID).With("code", code)
 	}
 	return nil
 }

@@ -95,9 +95,19 @@ func (job harvestJob) Run() {
 	if statusErr == nil {
 		statusErr = cachedErr
 	}
-	ssErr := job.cache.SaveStatus(job.jobID, code, statusErr, saved)
+
+	// Always save whole job status
+	ssErr := job.cache.SaveStatus(job.jobID, "", statusErr, saved)
 	if ssErr != nil {
-		logError(logger, core.WrapErr(ssErr, "save status error"))
+		logError(logger, core.WrapErr(ssErr, "save job status error"))
+	}
+	// For one-by-one jobs also save gauge status
+	mode, gErr := job.registry.GetMode(job.script)
+	if gErr == nil && mode == core.OneByOne {
+		gErr := job.cache.SaveStatus(job.jobID, code, statusErr, saved)
+		if gErr != nil {
+			logError(logger, core.WrapErr(ssErr, "save gauge status error"))
+		}
 	}
 
 	if harvestErr != nil {

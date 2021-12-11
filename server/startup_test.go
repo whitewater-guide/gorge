@@ -20,9 +20,8 @@ import (
 func seedStartupTest(db storage.DatabaseManager) error {
 	return db.AddJob(core.JobDescription{
 		ID:     "24e45a47-7ae2-453a-afa3-153392e2460b",
-		Script: "all_at_once",
+		Script: "one_by_one",
 		Gauges: map[string]json.RawMessage{"g000": []byte("{}")},
-		Cron:   "* * * * *",
 	}, func(job core.JobDescription) error { return nil })
 }
 
@@ -70,13 +69,14 @@ func TestStartup(t *testing.T) {
 
 	ja.Assertf(resp, `[{
 		"id": "24e45a47-7ae2-453a-afa3-153392e2460b",
-		"script": "all_at_once",
+		"script": "one_by_one",
 		"gauges": {"g000": {}},
-		"cron": "* * * * *",
+		"cron": "",
 		"options": null,
 		"status": {
 			"success": true,
 			"timestamp": "<<PRESENCE>>", 
+			"last_success": "<<PRESENCE>>", 
 			"count": 1
 		}
 	}]`)
@@ -88,9 +88,9 @@ func TestStartup(t *testing.T) {
 
 	ja.Assertf(resp, `{
 		"id": "24e45a47-7ae2-453a-afa3-153392e2460b",
-		"script": "all_at_once",
+		"script": "one_by_one",
 		"gauges": {"g000": {}},
-		"cron": "* * * * *",
+		"cron": "",
 		"options": null
 	}`)
 
@@ -103,6 +103,7 @@ func TestStartup(t *testing.T) {
 		"g000": {
 			"success": true,
 			"timestamp": "<<PRESENCE>>", 
+			"last_success": "<<PRESENCE>>", 
 			"count": 1
 		}
 	}`)
@@ -110,26 +111,26 @@ func TestStartup(t *testing.T) {
 
 	resp, _ = runCase(t, srv, test{
 		method: "GET",
-		path:   "/measurements/all_at_once/g000",
+		path:   "/measurements/one_by_one/g000",
 	})
 
 	var data []core.Measurement
 	err := json.Unmarshal([]byte(resp), &data)
 	if assert.NoError(t, err) && assert.GreaterOrEqual(t, len(data), 1) {
-		assert.Equal(t, "all_at_once", data[0].Script)
+		assert.Equal(t, "one_by_one", data[0].Script)
 		assert.Equal(t, "g000", data[0].Code)
 		assert.InDelta(t, time.Now().UTC().Add(-1*time.Second).Unix(), data[0].Timestamp.Unix(), 500)
 	}
 
 	resp, _ = runCase(t, srv, test{
 		method: "GET",
-		path:   "/measurements/latest?scripts=all_at_once,one_by_one",
+		path:   "/measurements/latest?scripts=one_by_one,one_by_one",
 	})
 
 	err = json.Unmarshal([]byte(resp), &data)
 	if assert.NoError(t, err) {
 		assert.Len(t, data, 1)
-		assert.Equal(t, "all_at_once", data[0].Script)
+		assert.Equal(t, "one_by_one", data[0].Script)
 		assert.Equal(t, "g000", data[0].Code)
 		assert.InDelta(t, time.Now().UTC().Add(-1*time.Second).Unix(), data[0].Timestamp.Unix(), 500)
 	}
