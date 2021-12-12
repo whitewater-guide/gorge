@@ -79,7 +79,7 @@ func (s *Server) routes() {
 	s.logger.Debug("created routes")
 }
 
-func newServer(lc fx.Lifecycle, p ServerParams) *Server {
+func newServer(p ServerParams) *Server {
 	result := &Server{
 		endpoint:  p.Cfg.Endpoint,
 		port:      p.Cfg.Port,

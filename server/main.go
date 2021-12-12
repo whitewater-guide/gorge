@@ -17,7 +17,7 @@ import (
 	"go.uber.org/fx"
 )
 
-func start(cfg *config.Config, srv *Server) error {
+func startServer(cfg *config.Config, srv *Server) error {
 	srv.logger.Debug("starting")
 	srv.routes()
 
@@ -55,7 +55,8 @@ func main() {
 				storage.Module,
 				schedule.Module,
 				fx.Provide(newServer),
-				fx.Invoke(start),
+				fx.Invoke(startServer),
+				fx.Invoke(startHealthNotifier),
 				fx.WithLogger(newFxLogger),
 			)
 			app.Run()

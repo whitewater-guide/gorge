@@ -4,4 +4,4 @@ import (
 	"go.uber.org/fx"
 )
 
-var TestModule = fx.Provide(testConfig)
+var TestModule = fx.Provide(TestConfig)

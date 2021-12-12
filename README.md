@@ -84,24 +84,26 @@ command:
 Here is the list of available flags:
 
 ```
---cache string             Either 'inmemory' or 'redis' (default "redis")
---db string                Either 'inmemory' or 'postgres' (default "postgres")
---db-chunk-size int        Measurements will be saved to db in chunks of this size. When set to 0, they will be saved in one chunk, which can cause errors
---debug                    Enables debug mode, sets log level to debug
---endpoint string          Endpoint path (default "/")
---http-proxy string        HTTP client proxy (for example, you can use mitm for local development)
---http-timeout int         Request timeout in seconds (default 60)
---http-user-agent string   User agent for requests sent from scripts. Leave empty to use fake browser agent (default "whitewater.guide robot")
---http-without-tls         Disable TLS for some gauges
---log-format string        Set this to 'json' to output log in json (default "json")
---log-level string         Log level. Leave empty to discard logs (default "info")
---pg-db string             Postgres database (default "postgres")
---pg-host string           Postgres host (default "db")
---pg-password string       Postgres password [env POSTGRES_PASSWORD]
---pg-user string           Postgres user (default "postgres")
---port string              Port (default "7080")
---redis-host string        Redis host (default "redis")
---redis-port string        Redis port (default "6379")
+--cache string                   either 'inmemory' or 'redis' (default "redis")
+--db string                      either 'inmemory' or 'postgres' (default "postgres")
+--db-chunk-size int              measurements will be saved to db in chunks of this size. When set to 0, they will be saved in one chunk, which can cause errors
+--debug                          enables debug mode, sets log level to debug
+--endpoint string                endpoint path (default "/")
+--hooks-health-headers strings   headers to set on request, in 'Header: Value' format, similar to curl  (default [])
+--hooks-health-url string        external endpoint to call with list of unhealthy jobs
+--http-proxy string              HTTP client proxy (for example, you can use mitm for local development)
+--http-timeout int               Request timeout in seconds (default 60)
+--http-user-agent string         User agent for requests sent from scripts. Leave empty to use fake browser agent (default "whitewater.guide robot")
+--http-without-tls               Disable TLS for some gauges
+--log-format string              set this to 'json' to output log in json (default "json")
+--log-level string               log level. Leave empty to discard logs (default "info")
+--pg-db string                   postgres database (default "postgres")
+--pg-host string                 postgres host (default "db")
+--pg-password string             postgres password [env POSTGRES_PASSWORD]
+--pg-user string                 postgres user (default "postgres")
+--port string                    port (default "7080")
+--redis-host string              redis host (default "redis")
+--redis-port string              redis port (default "6379")
 ```
 
 Gorge uses database to store harvested measurements and scheduled jobs. It comes with postgres and sqlite drivers. Gorge will initialize all the required tables. Check out sql migration file if you're curious about db schema.

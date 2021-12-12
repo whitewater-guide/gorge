@@ -80,3 +80,12 @@ type Status struct {
 	// Is less or equal than Timestamp, or nil pointer if never ran successfully
 	LastSuccess *HTime `json:"last_success,omitempty" ts_type:"string"`
 }
+
+// UnhealthyJob describes a job that haven't run successfully for a certain period of time
+// It's used to notify interested parties
+type UnhealthyJob struct {
+	JobID       string `json:"id"`
+	Script      string `json:"script"`
+	LastRun     HTime  `json:"last_run" ts_type:"string"`
+	LastSuccess *HTime `json:"last_success,omitempty" ts_type:"string"`
+}

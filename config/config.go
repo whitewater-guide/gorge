@@ -7,33 +7,43 @@ import (
 )
 
 type LogConfig struct {
-	Level  string `desc:"Log level. Leave empty to discard logs"`
-	Format string `desc:"Set this to 'json' to output log in json"`
+	Level  string `desc:"log level. Leave empty to discard logs"`
+	Format string `desc:"set this to 'json' to output log in json"`
 }
 
 type PgConfig struct {
-	Host     string `desc:"Postgres host"`
-	Password string `desc:"Postgres password [env POSTGRES_PASSWORD]" env:"~POSTGRES_PASSWORD"`
-	User     string `desc:"Postgres user"`
-	Db       string `desc:"Postgres database"`
+	Host     string `desc:"postgres host"`
+	Password string `desc:"postgres password [env POSTGRES_PASSWORD]" env:"~POSTGRES_PASSWORD"`
+	User     string `desc:"postgres user"`
+	Db       string `desc:"postgres database"`
 }
 
 type RedisConfig struct {
-	Host string `desc:"Redis host"`
-	Port string `desc:"Redis port"`
+	Host string `desc:"redis host"`
+	Port string `desc:"redis port"`
+}
+
+type HealthConfig struct {
+	URL     string   `desc:"external endpoint to call with list of unhealthy jobs"`
+	Headers []string `desc:"headers to set on request, in 'Header: Value' format, similar to curl "`
+}
+
+type WebhooksConfig struct {
+	Health HealthConfig
 }
 
 type Config struct {
-	Endpoint    string `desc:"Endpoint path"`
-	Port        string `desc:"Port"`
-	Cache       string `desc:"Either 'inmemory' or 'redis'"`
-	Db          string `desc:"Either 'inmemory' or 'postgres'"`
-	DbChunkSize int    `desc:"Measurements will be saved to db in chunks of this size. When set to 0, they will be saved in one chunk, which can cause errors"`
-	Debug       bool   `desc:"Enables debug mode, sets log level to debug"`
+	Endpoint    string `desc:"endpoint path"`
+	Port        string `desc:"port"`
+	Cache       string `desc:"either 'inmemory' or 'redis'"`
+	Db          string `desc:"either 'inmemory' or 'postgres'"`
+	DbChunkSize int    `desc:"measurements will be saved to db in chunks of this size. When set to 0, they will be saved in one chunk, which can cause errors"`
+	Debug       bool   `desc:"enables debug mode, sets log level to debug"`
 	Pg          PgConfig
 	Redis       RedisConfig
 	Log         LogConfig
 	HTTP        core.ClientOptions
+	Hooks       WebhooksConfig
 }
 
 func (cfg *Config) ReadFromEnv() {
@@ -69,7 +79,7 @@ func NewConfig() *Config {
 	}
 }
 
-func testConfig() *Config {
+func TestConfig() *Config {
 	return &Config{
 		Endpoint: "/",
 		Port:     "7080",
