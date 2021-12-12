@@ -491,7 +491,7 @@ func TestEndpoint(t *testing.T) {
 			resp: `[{"script": "broken", "code": "g000", "timestamp": "<<PRESENCE>>", "flow": -100, "level": -100}]`,
 		},
 		{
-			name: "measurements singl gauge latest success",
+			name: "measurements single gauge latest success",
 			path: "/measurements/broken/g000/latest",
 			resp: `[{"script": "broken", "code": "g000", "timestamp": "<<PRESENCE>>", "flow": -100, "level": -100}]`,
 		},
