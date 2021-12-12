@@ -24,6 +24,7 @@ type RedisConfig struct {
 }
 
 type HealthConfig struct {
+	Cron      string   `desc:"cron expression for running health notifier"`
 	Threshold int      `desc:"hours required to pass since last successful execution to consider job unhealthy"`
 	URL       string   `desc:"external endpoint to call with list of unhealthy jobs"`
 	Headers   []string `desc:"headers to set on request, in 'Header: Value' format, similar to curl "`
@@ -79,6 +80,7 @@ func NewConfig() *Config {
 		},
 		Hooks: WebhooksConfig{
 			Health: HealthConfig{
+				Cron:      "0 0 * * *",
 				Threshold: 48,
 			},
 		},

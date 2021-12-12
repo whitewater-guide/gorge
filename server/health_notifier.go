@@ -34,6 +34,8 @@ type healthNotifierJob struct {
 }
 
 func (job healthNotifierJob) Run() {
+	job.logger.Debug("running health notifier job")
+
 	jobs, err := job.database.ListJobs()
 
 	if err != nil {
@@ -118,9 +120,9 @@ func startHealthNotifier(lc fx.Lifecycle, p healthNotifierParams) {
 				cache:    p.Cache,
 				logger:   log,
 			}
-			_, err := p.Cron.AddJob("0 0 * * *", job)
+			_, err := p.Cron.AddJob(job.cfg.Cron, job)
 			if err == nil {
-				log.Info("started")
+				log.Infof("started notfier at '%s'", job.cfg.Cron)
 			}
 			return err
 		},

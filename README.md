@@ -89,6 +89,7 @@ Here is the list of available flags:
 --db-chunk-size int              measurements will be saved to db in chunks of this size. When set to 0, they will be saved in one chunk, which can cause errors
 --debug                          enables debug mode, sets log level to debug
 --endpoint string                endpoint path (default "/")
+--hooks-health-cron string       cron expression for running health notifier (default "0 0 * * *")
 --hooks-health-headers strings   headers to set on request, in 'Header: Value' format, similar to curl  (default [])
 --hooks-health-threshold int     hours required to pass since last successful execution to consider job unhealthy (default 48)
 --hooks-health-url string        external endpoint to call with list of unhealthy jobs
