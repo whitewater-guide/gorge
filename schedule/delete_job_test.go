@@ -15,7 +15,7 @@ func TestDeleteJob(t *testing.T) {
 	sched := scheduler.Cron.(*mockCron)
 
 	entries := []cron.Entry{
-		cron.Entry{
+		{
 			ID:         0,
 			Schedule:   nil,
 			Next:       time.Time{},
@@ -31,7 +31,7 @@ func TestDeleteJob(t *testing.T) {
 				codes:    core.StringSet{"g001": {}},
 			},
 		},
-		cron.Entry{
+		{
 			ID:         1,
 			Schedule:   nil,
 			Next:       time.Time{},
@@ -47,7 +47,7 @@ func TestDeleteJob(t *testing.T) {
 				codes:    core.StringSet{"g002": {}},
 			},
 		},
-		cron.Entry{
+		{
 			ID:         2,
 			Schedule:   nil,
 			Next:       time.Time{},

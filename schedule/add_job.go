@@ -11,7 +11,7 @@ import (
 )
 
 // AddJob implements JobScheduler interface
-func (s *SimpleScheduler) AddJob(description core.JobDescription) error {
+func (s *simpleScheduler) AddJob(description core.JobDescription) error {
 	mode, err := s.Registry.GetMode(description.Script)
 	if err != nil {
 		return err

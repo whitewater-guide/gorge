@@ -13,18 +13,23 @@ import (
 type SchedulerParams struct {
 	fx.In
 
+	Cron     Cron
 	Database storage.DatabaseManager
 	Cache    storage.CacheManager
 	Registry *core.ScriptRegistry
 	Logger   *logrus.Logger
 }
 
+func newCron() Cron {
+	return cron.New()
+}
+
 func newSimpleScheduler(lc fx.Lifecycle, p SchedulerParams) core.JobScheduler {
-	scheduler := &SimpleScheduler{
+	scheduler := &simpleScheduler{
 		Database: p.Database,
 		Cache:    p.Cache,
 		Registry: p.Registry,
-		Cron:     cron.New(),
+		Cron:     p.Cron,
 		Logger:   p.Logger.WithField("logger", "scheduler"),
 	}
 	lc.Append(fx.Hook{
@@ -59,4 +64,12 @@ func newSimpleScheduler(lc fx.Lifecycle, p SchedulerParams) core.JobScheduler {
 	return scheduler
 }
 
-var Module = fx.Provide(newSimpleScheduler)
+var Module = fx.Provide(
+	newCron,
+	newSimpleScheduler,
+)
+
+var TestModule = fx.Provide(
+	newImmediateCron,
+	newSimpleScheduler,
+)

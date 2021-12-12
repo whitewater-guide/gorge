@@ -43,12 +43,11 @@ func TestStartup(t *testing.T) {
 			fx.Provide(testLogger),
 			scripts.TestModule,
 			storage.Module,
-			schedule.Module,
+			schedule.TestModule,
 			fx.Provide(newServer),
 		),
 		fx.Invoke(func(s *Server) {
 			srv = s
-			srv.scheduler.(*schedule.SimpleScheduler).Cron = &schedule.ImmediateCron{}
 			srv.routes()
 		}),
 		fx.WithLogger(

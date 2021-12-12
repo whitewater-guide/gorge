@@ -9,10 +9,9 @@ import (
 	"github.com/whitewater-guide/gorge/storage"
 )
 
-// cronLike interface is subset of cron https://github.com/robfig/cron
-// it's used to run harvesting jobs on schedule
-// various test helpers implement it
-type cronLike interface {
+// Cron is a subset of Cron from  https://github.com/robfig/cron
+// It's extracted into interface so it can be mocked
+type Cron interface {
 	AddJob(spec string, cmd cron.Job) (cron.EntryID, error)
 	Entries() []cron.Entry
 	Remove(id cron.EntryID)
@@ -20,24 +19,24 @@ type cronLike interface {
 	Stop() context.Context
 }
 
-// SimpleScheduler is implementation of JobScheduler with cron scheduler
+// simpleScheduler is implementation of core.JobScheduler with cron scheduler
 // it will run jobs and save their results and statuses
-type SimpleScheduler struct {
+type simpleScheduler struct {
 	Database storage.DatabaseManager
 	Cache    storage.CacheManager
 	Registry *core.ScriptRegistry
-	Cron     cronLike
+	Cron     Cron
 	Logger   *logrus.Entry
 }
 
-// Start implements JobScheduler interface
-func (s *SimpleScheduler) Start() {
+// Start implements core.JobScheduler interface
+func (s *simpleScheduler) Start() {
 	s.Logger.Info("starting")
 	s.Cron.Start()
 }
 
-// Stop implements JobScheduler interface
-func (s *SimpleScheduler) Stop() {
+// Stop implements core.JobScheduler interface
+func (s *simpleScheduler) Stop() {
 	s.Logger.Info("stopping")
 	schedCtx := s.Cron.Stop()
 	<-schedCtx.Done()

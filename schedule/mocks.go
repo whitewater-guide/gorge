@@ -77,7 +77,7 @@ func (m *mockCron) Stop() context.Context {
 }
 
 type mockScheduler struct {
-	*SimpleScheduler
+	*simpleScheduler
 }
 
 func newMockScheduler(t *testing.T) *mockScheduler {
@@ -93,7 +93,7 @@ func newMockScheduler(t *testing.T) *mockScheduler {
 	registry.Register(testscripts.Broken)
 
 	return &mockScheduler{
-		SimpleScheduler: &SimpleScheduler{
+		simpleScheduler: &simpleScheduler{
 			Database: db,
 			Cache:    cache,
 			Cron:     &mockCron{},

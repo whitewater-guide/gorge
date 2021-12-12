@@ -5,7 +5,7 @@ import (
 )
 
 // DeleteJob implements JobScheduler interface
-func (s *SimpleScheduler) DeleteJob(jobID string) error {
+func (s *simpleScheduler) DeleteJob(jobID string) error {
 	entries := s.Cron.Entries()
 	removed := false
 	for _, entry := range entries {

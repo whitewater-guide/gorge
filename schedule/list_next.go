@@ -5,7 +5,7 @@ import (
 )
 
 // ListNext implements JobScheduler interface
-func (s *SimpleScheduler) ListNext(jobID string) map[string]core.HTime {
+func (s *simpleScheduler) ListNext(jobID string) map[string]core.HTime {
 	result := make(map[string]core.HTime)
 	for _, entry := range s.Cron.Entries() {
 		job, ok := entry.Job.(*harvestJob)
