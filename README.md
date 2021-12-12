@@ -45,7 +45,7 @@ You can find the list of our data sources and their statuses [here](scripts/READ
 
 ## Usage
 
-Gorge is distributed as a ~50Mb [docker image](https://github.com/whitewater-guide/gorge/pkgs/container/gorge) with two binary files:
+Gorge is distributed as a ~130Mb [docker image](https://github.com/whitewater-guide/gorge/pkgs/container/gorge) with two binary files:
 
 - `gorge-server` (_entrypoint_) - web server with REST API
 - `gorge-cli` - command-line client for this server. Since image is distroless, use `docker exec gorge gorge-cli` to call it
