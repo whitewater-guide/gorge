@@ -50,7 +50,7 @@ func (job healthNotifierJob) Run() {
 	res := []core.UnhealthyJob{}
 
 	// Jobs that didn't return measurements within last 48 hours are considered unhealthy
-	threshold := time.Now().Add(-48 * time.Hour)
+	threshold := time.Now().Add(-time.Duration(job.cfg.Threshold) * time.Hour)
 
 	for _, j := range jobs {
 		if status, ok := statuses[j.ID]; ok {

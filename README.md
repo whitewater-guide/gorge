@@ -90,6 +90,7 @@ Here is the list of available flags:
 --debug                          enables debug mode, sets log level to debug
 --endpoint string                endpoint path (default "/")
 --hooks-health-headers strings   headers to set on request, in 'Header: Value' format, similar to curl  (default [])
+--hooks-health-threshold int     hours required to pass since last successful execution to consider job unhealthy (default 48)
 --hooks-health-url string        external endpoint to call with list of unhealthy jobs
 --http-proxy string              HTTP client proxy (for example, you can use mitm for local development)
 --http-timeout int               Request timeout in seconds (default 60)

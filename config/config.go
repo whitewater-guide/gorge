@@ -24,8 +24,9 @@ type RedisConfig struct {
 }
 
 type HealthConfig struct {
-	URL     string   `desc:"external endpoint to call with list of unhealthy jobs"`
-	Headers []string `desc:"headers to set on request, in 'Header: Value' format, similar to curl "`
+	Threshold int      `desc:"hours required to pass since last successful execution to consider job unhealthy"`
+	URL       string   `desc:"external endpoint to call with list of unhealthy jobs"`
+	Headers   []string `desc:"headers to set on request, in 'Header: Value' format, similar to curl "`
 }
 
 type WebhooksConfig struct {
@@ -75,6 +76,11 @@ func NewConfig() *Config {
 		HTTP: core.ClientOptions{
 			UserAgent: "whitewater.guide robot",
 			Timeout:   60,
+		},
+		Hooks: WebhooksConfig{
+			Health: HealthConfig{
+				Threshold: 48,
+			},
 		},
 	}
 }
