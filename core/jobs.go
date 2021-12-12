@@ -66,26 +66,29 @@ func (j *JobDescription) Scan(src interface{}) error {
 
 // Status contains information about job's last execution
 type Status struct {
-	// Whether latest execution was successful or not
-	Success bool `json:"success"`
-	// When job was executed last time (has nothing to do wuth measurements timestamps)
-	Timestamp HTime `json:"timestamp" ts_type:"string"`
-	// Error, if last time job failed
+	// When was this job executed last time (has nothing to do with measurements timestamps)
+	LastRun HTime `json:"lastRun" ts_type:"string"`
+	// Error, if last job execution failed
 	Error string `json:"error,omitempty"`
-	// Number of harvested measurements
+	// Number of measurements harvested during last execution (0 in case of error)
 	Count int `json:"count"`
-	// When this job will run next time
-	Next *HTime `json:"next,omitempty" ts_type:"string"`
-	// When did this job ran successfully last time
+	// When did this job run successfully (collected some measurements) last time
 	// Is less or equal than Timestamp, or nil pointer if never ran successfully
-	LastSuccess *HTime `json:"last_success,omitempty" ts_type:"string"`
+	LastSuccess *HTime `json:"lastSuccess,omitempty" ts_type:"string"`
+	// When will this job run next time
+	NextRun *HTime `json:"nextRun,omitempty" ts_type:"string"`
 }
 
 // UnhealthyJob describes a job that haven't run successfully for a certain period of time
 // It's used to notify interested parties
 type UnhealthyJob struct {
-	JobID       string `json:"id"`
-	Script      string `json:"script"`
-	LastRun     HTime  `json:"last_run" ts_type:"string"`
+	// JobID is same as in job description
+	JobID string `json:"id"`
+	// Script of the job
+	Script string `json:"script"`
+	// When was this job executed last time (has nothing to do with measurements timestamps)
+	LastRun HTime `json:"last_run" ts_type:"string"`
+	// When did this job run successfully (collected some measurements) last time
+	// Is less or equal than LastRun, or nil pointer if never ran successfully
 	LastSuccess *HTime `json:"last_success,omitempty" ts_type:"string"`
 }

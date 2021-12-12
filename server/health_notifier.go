@@ -58,7 +58,7 @@ func (job healthNotifierJob) Run() {
 				res = append(res, core.UnhealthyJob{
 					JobID:       j.ID,
 					Script:      j.Script,
-					LastRun:     status.Timestamp,
+					LastRun:     status.LastRun,
 					LastSuccess: status.LastSuccess,
 				})
 			}

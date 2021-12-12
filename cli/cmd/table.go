@@ -39,8 +39,8 @@ func printJobStatuses(data []core.JobDescription) {
 	for _, j := range data {
 		row := []string{j.ID, "", ""}
 		if j.Status != nil {
-			row[1] = j.Status.Timestamp.Format("2006-01-02T15:04:05")
-			if j.Status.Success {
+			row[1] = j.Status.LastRun.Format("2006-01-02T15:04:05")
+			if j.Status.Error != "" {
 				row[2] = fmt.Sprintf("%d", j.Status.Count)
 			} else {
 				row[2] = j.Status.Error
@@ -56,8 +56,8 @@ func printGaugeStatuses(data map[string]core.Status) {
 	table.SetHeader([]string{"Gauge code", "Timestamp", "Count/Error"})
 
 	for code, status := range data {
-		row := []string{code, status.Timestamp.Format("2006-01-02T15:04:05"), ""}
-		if status.Success {
+		row := []string{code, status.LastRun.Format("2006-01-02T15:04:05"), ""}
+		if status.Error != "" {
 			row[2] = fmt.Sprintf("%d", status.Count)
 		} else {
 			row[2] = status.Error

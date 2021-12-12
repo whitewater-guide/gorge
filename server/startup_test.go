@@ -73,9 +73,8 @@ func TestStartup(t *testing.T) {
 		"cron": "",
 		"options": null,
 		"status": {
-			"success": true,
-			"timestamp": "<<PRESENCE>>", 
-			"last_success": "<<PRESENCE>>", 
+			"lastRun": "<<PRESENCE>>", 
+			"lastSuccess": "<<PRESENCE>>", 
 			"count": 1
 		}
 	}]`)
@@ -100,13 +99,11 @@ func TestStartup(t *testing.T) {
 
 	ja.Assertf(resp, `{
 		"g000": {
-			"success": true,
-			"timestamp": "<<PRESENCE>>", 
-			"last_success": "<<PRESENCE>>", 
+			"lastRun": "<<PRESENCE>>", 
+			"lastSuccess": "<<PRESENCE>>", 
 			"count": 1
 		}
 	}`)
-	// time.Sleep(600 * time.Millisecond) // this place is flaky
 
 	resp, _ = runCase(t, srv, test{
 		method: "GET",

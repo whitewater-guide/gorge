@@ -69,7 +69,6 @@ func (cache *RedisCacheManager) loadStatuses(jobID string) (map[string]core.Stat
 		var ok bool
 		if status, ok = result[id]; !ok {
 			status = core.Status{}
-			status.Success = true
 		}
 
 		switch prop {
@@ -78,7 +77,7 @@ func (cache *RedisCacheManager) loadStatuses(jobID string) (map[string]core.Stat
 			if err != nil {
 				return nil, core.WrapErr(err, fmt.Sprintf("failed parse time '%s' from redis", value))
 			}
-			status.Timestamp = core.HTime{Time: ts}
+			status.LastRun = core.HTime{Time: ts}
 		case "success":
 			ts, err := time.Parse(time.RFC3339, value)
 			if err != nil {
@@ -93,7 +92,6 @@ func (cache *RedisCacheManager) loadStatuses(jobID string) (map[string]core.Stat
 			status.Count = count
 		case "error":
 			status.Error = value
-			status.Success = value == ""
 		}
 
 		result[id] = status
@@ -114,9 +112,8 @@ func (cache *RedisCacheManager) LoadGaugeStatuses(jobID string) (map[string]core
 func (cache *RedisCacheManager) saveStatusWithTime(jobID, code string, err error, count int, ts time.Time) error {
 	conn := cache.pool.Get()
 	defer conn.Close()
-	success, errStr := true, ""
+	errStr := ""
 	if err != nil {
-		success = false
 		errStr = err.Error()
 	}
 	// status := core.Status{
@@ -144,8 +141,8 @@ func (cache *RedisCacheManager) saveStatusWithTime(jobID, code string, err error
 		fmt.Sprintf("%s:count", prefix), strconv.Itoa(count),
 		fmt.Sprintf("%s:error", prefix), errStr, // always set to override previous error
 	}
-	// in case of error we do not overwrite success, keeping last success timestamp
-	if success {
+	// in case of error count is 0, so we do not overwrite success, keeping last success timestamp
+	if count > 0 {
 		hmset = append(hmset, fmt.Sprintf("%s:success", prefix), ts.Format(time.RFC3339))
 	}
 

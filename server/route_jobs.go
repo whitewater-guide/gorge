@@ -70,10 +70,10 @@ func (s *Server) handleGetJobGauges() http.HandlerFunc {
 		for k, v := range nexts {
 			next := v
 			if status, ok := statuses[k]; ok {
-				status.Next = &next
+				status.NextRun = &next
 				statuses[k] = status
 			} else {
-				statuses[k] = core.Status{Next: &next}
+				statuses[k] = core.Status{NextRun: &next}
 			}
 		}
 		if err != nil {
@@ -102,10 +102,10 @@ func (s *Server) handleListJobs() http.HandlerFunc {
 			if ok {
 				jobs[i].Status = &status
 				if next, ok := nexts[job.ID]; ok {
-					jobs[i].Status.Next = &next
+					jobs[i].Status.NextRun = &next
 				}
 			} else if next, ok := nexts[job.ID]; ok {
-				jobs[i].Status = &core.Status{Next: &next}
+				jobs[i].Status = &core.Status{NextRun: &next}
 
 			}
 		}

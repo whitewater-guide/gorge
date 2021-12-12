@@ -311,11 +311,10 @@ func TestEndpoint(t *testing.T) {
 					"cron":   "0 0 * * *",
 					"options": {"gauges": 11},
 					"status": {
-						"success": false,
 						"error": "test error",
-						"timestamp": "<<PRESENCE>>",
+						"lastRun": "<<PRESENCE>>",
 						"count": 0,
-						"next": "<<PRESENCE>>"
+						"nextRun": "<<PRESENCE>>"
 					}
 			}]`,
 		},
@@ -335,16 +334,14 @@ func TestEndpoint(t *testing.T) {
 			path: "/jobs/48f979ec-268b-11ea-978f-2e728ce88125/gauges",
 			resp: `{
 				"g000": {
-					"success": true,
-					"last_success": "<<PRESENCE>>",
-					"timestamp": "<<PRESENCE>>",
-					"next": "<<PRESENCE>>",
+					"lastSuccess": "<<PRESENCE>>",
+					"lastRun": "<<PRESENCE>>",
+					"nextRun": "<<PRESENCE>>",
 					"count": 10
 				},
 				"g001": {
-					"success": false,
 					"error": "test error",
-					"timestamp": "<<PRESENCE>>",
+					"lastRun": "<<PRESENCE>>",
 					"count": 0
 				}
 			}`,

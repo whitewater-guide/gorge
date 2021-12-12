@@ -132,23 +132,20 @@ func (s *csTestSuite) TestLoadJobStatuses() {
 	t := s.T()
 	expected := map[string]core.Status{
 		aOk: {
-			Success:     true,
-			Timestamp:   core.HTime{Time: time.Date(2017, time.January, 1, 12, 0, 0, 0, time.UTC)},
+			LastRun:     core.HTime{Time: time.Date(2017, time.January, 1, 12, 0, 0, 0, time.UTC)},
 			LastSuccess: &core.HTime{Time: time.Date(2017, time.January, 1, 12, 0, 0, 0, time.UTC)},
 			Count:       8,
 		},
 		aErr: {
-			Success:     false,
 			LastSuccess: &core.HTime{Time: time.Date(2017, time.January, 1, 12, 0, 0, 0, time.UTC)},
-			Timestamp:   core.HTime{Time: time.Date(2017, time.January, 2, 12, 0, 0, 0, time.UTC)},
+			LastRun:     core.HTime{Time: time.Date(2017, time.January, 2, 12, 0, 0, 0, time.UTC)},
 			Count:       0,
 			Error:       "script error",
 		},
 		aErrOnly: {
-			Success:   false,
-			Timestamp: core.HTime{Time: time.Date(2017, time.January, 2, 12, 0, 0, 0, time.UTC)},
-			Count:     0,
-			Error:     "script error",
+			LastRun: core.HTime{Time: time.Date(2017, time.January, 2, 12, 0, 0, 0, time.UTC)},
+			Count:   0,
+			Error:   "script error",
 		},
 	}
 	s.SetupTest()
@@ -166,23 +163,20 @@ func (s *csTestSuite) TestLoadGaugeStatuses() {
 	t := s.T()
 	expected := map[string]core.Status{
 		"code_ok": {
-			Success:     true,
 			LastSuccess: &core.HTime{Time: time.Date(2017, time.January, 1, 12, 0, 0, 0, time.UTC)},
-			Timestamp:   core.HTime{Time: time.Date(2017, time.January, 2, 12, 0, 0, 0, time.UTC)},
+			LastRun:     core.HTime{Time: time.Date(2017, time.January, 2, 12, 0, 0, 0, time.UTC)},
 			Count:       33,
 		},
 		"code_err": {
-			Success:     false,
 			LastSuccess: &core.HTime{Time: time.Date(2017, time.January, 1, 12, 0, 0, 0, time.UTC)},
-			Timestamp:   core.HTime{Time: time.Date(2017, time.January, 2, 12, 0, 0, 0, time.UTC)},
+			LastRun:     core.HTime{Time: time.Date(2017, time.January, 2, 12, 0, 0, 0, time.UTC)},
 			Count:       0,
 			Error:       "gauge error",
 		},
 		"code_err_only": {
-			Success:   false,
-			Timestamp: core.HTime{Time: time.Date(2017, time.January, 1, 12, 0, 0, 0, time.UTC)},
-			Count:     0,
-			Error:     "gauge error",
+			LastRun: core.HTime{Time: time.Date(2017, time.January, 1, 12, 0, 0, 0, time.UTC)},
+			Count:   0,
+			Error:   "gauge error",
 		},
 	}
 	s.SetupTest()
