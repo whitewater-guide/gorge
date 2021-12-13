@@ -87,8 +87,8 @@ type UnhealthyJob struct {
 	// Script of the job
 	Script string `json:"script"`
 	// When was this job executed last time (has nothing to do with measurements timestamps)
-	LastRun HTime `json:"last_run" ts_type:"string"`
+	LastRun HTime `json:"lastRun" ts_type:"string"`
 	// When did this job run successfully (collected some measurements) last time
 	// Is less or equal than LastRun, or nil pointer if never ran successfully
-	LastSuccess *HTime `json:"last_success,omitempty" ts_type:"string"`
+	LastSuccess *HTime `json:"lastSuccess,omitempty" ts_type:"string"`
 }
