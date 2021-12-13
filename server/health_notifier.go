@@ -5,6 +5,7 @@ import (
 	"context"
 	"encoding/json"
 	"net/http"
+	"os"
 	"strings"
 	"time"
 
@@ -95,7 +96,9 @@ func (job healthNotifierJob) Run() {
 			job.logger.Warnf("invalid header name-value pair: %s", h)
 			continue
 		}
-		req.Header.Set(strings.TrimSpace(parts[0]), strings.TrimSpace(parts[1]))
+		// it's possible to use env variables in header values
+		// e.g. '--hooks-health-headers "x-api-key: $GORGE_HEALTH_KEY"'
+		req.Header.Set(strings.TrimSpace(parts[0]), os.ExpandEnv(strings.TrimSpace(parts[1])))
 	}
 
 	_, err = core.Client.Do(req, &core.RequestOptions{})
