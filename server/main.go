@@ -18,7 +18,7 @@ import (
 )
 
 func startServer(cfg *config.Config, srv *Server) error {
-	srv.logger.Debug("starting")
+	srv.logger.Infof("starting with args %v", os.Args[1:])
 	srv.routes()
 
 	httpSrv := &http.Server{
