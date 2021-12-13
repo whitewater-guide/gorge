@@ -1,44 +1,65 @@
 package main
 
 import (
+	"context"
 	"encoding/json"
 	"testing"
 	"time"
 
 	"github.com/kinbiko/jsonassert"
 	"github.com/stretchr/testify/assert"
+	"github.com/whitewater-guide/gorge/config"
 	"github.com/whitewater-guide/gorge/core"
 	"github.com/whitewater-guide/gorge/schedule"
-	"github.com/whitewater-guide/gorge/scripts/testscripts"
+	"github.com/whitewater-guide/gorge/scripts"
+	"github.com/whitewater-guide/gorge/storage"
+	"go.uber.org/fx"
+	"go.uber.org/fx/fxevent"
 )
+
+func seedStartupTest(db storage.DatabaseManager) error {
+	return db.AddJob(core.JobDescription{
+		ID:     "24e45a47-7ae2-453a-afa3-153392e2460b",
+		Script: "one_by_one",
+		Gauges: map[string]json.RawMessage{"g000": []byte("{}")},
+	}, func(job core.JobDescription) error { return nil })
+}
 
 func TestStartup(t *testing.T) {
 	ja := jsonassert.New(t)
-	registry := core.NewRegistry()
-	registry.Register(testscripts.AllAtOnce)
-	registry.Register(testscripts.Broken)
-	registry.Register(testscripts.OneByOne)
-	srv := newServer(testConfig(), registry)
-	srv.scheduler = &schedule.SimpleScheduler{
-		Database: srv.database,
-		Cache:    srv.cache,
-		Registry: srv.registry,
-		Cron:     &schedule.ImmediateCron{},
-		Logger:   srv.logger,
-	}
-	err := srv.database.AddJob(core.JobDescription{
-		ID:     "24e45a47-7ae2-453a-afa3-153392e2460b",
-		Script: "all_at_once",
-		Gauges: map[string]json.RawMessage{"g000": []byte("{}")},
-		Cron:   "* * * * *",
-	}, func(job core.JobDescription) error { return nil })
-	if err != nil {
-		t.Fatalf("failed to seed startup jobs %v", err)
-	}
 
-	srv.routes()
-	srv.start()
-	defer srv.shutdown()
+	var srv *Server
+	app := fx.New(
+		fx.Invoke(func(lc fx.Lifecycle, db storage.DatabaseManager) {
+			// First startup hook: seed database
+			lc.Append(fx.Hook{
+				OnStart: func(c context.Context) error {
+					return seedStartupTest(db)
+				},
+			})
+		}),
+		fx.Options(
+			config.TestModule,
+			fx.Provide(testLogger),
+			scripts.TestModule,
+			storage.Module,
+			schedule.TestModule,
+			fx.Provide(newServer),
+		),
+		fx.Invoke(func(s *Server) {
+			srv = s
+			srv.routes()
+		}),
+		fx.WithLogger(
+			func() fxevent.Logger {
+				return fxevent.NopLogger
+			},
+		),
+	)
+	if err := app.Start(context.Background()); err != nil {
+		t.Fatal(err)
+	}
+	defer app.Stop(context.Background()) //nolint:errcheck
 
 	resp, _ := runCase(t, srv, test{
 		method: "GET",
@@ -47,13 +68,13 @@ func TestStartup(t *testing.T) {
 
 	ja.Assertf(resp, `[{
 		"id": "24e45a47-7ae2-453a-afa3-153392e2460b",
-		"script": "all_at_once",
+		"script": "one_by_one",
 		"gauges": {"g000": {}},
-		"cron": "* * * * *",
+		"cron": "",
 		"options": null,
 		"status": {
-			"success": true,
-			"timestamp": "<<PRESENCE>>", 
+			"lastRun": "<<PRESENCE>>", 
+			"lastSuccess": "<<PRESENCE>>", 
 			"count": 1
 		}
 	}]`)
@@ -65,9 +86,9 @@ func TestStartup(t *testing.T) {
 
 	ja.Assertf(resp, `{
 		"id": "24e45a47-7ae2-453a-afa3-153392e2460b",
-		"script": "all_at_once",
+		"script": "one_by_one",
 		"gauges": {"g000": {}},
-		"cron": "* * * * *",
+		"cron": "",
 		"options": null
 	}`)
 
@@ -78,35 +99,34 @@ func TestStartup(t *testing.T) {
 
 	ja.Assertf(resp, `{
 		"g000": {
-			"success": true,
-			"timestamp": "<<PRESENCE>>", 
+			"lastRun": "<<PRESENCE>>", 
+			"lastSuccess": "<<PRESENCE>>", 
 			"count": 1
 		}
 	}`)
-	// time.Sleep(600 * time.Millisecond) // this place is flaky
 
 	resp, _ = runCase(t, srv, test{
 		method: "GET",
-		path:   "/measurements/all_at_once/g000",
+		path:   "/measurements/one_by_one/g000",
 	})
 
 	var data []core.Measurement
-	err = json.Unmarshal([]byte(resp), &data)
+	err := json.Unmarshal([]byte(resp), &data)
 	if assert.NoError(t, err) && assert.GreaterOrEqual(t, len(data), 1) {
-		assert.Equal(t, "all_at_once", data[0].Script)
+		assert.Equal(t, "one_by_one", data[0].Script)
 		assert.Equal(t, "g000", data[0].Code)
 		assert.InDelta(t, time.Now().UTC().Add(-1*time.Second).Unix(), data[0].Timestamp.Unix(), 500)
 	}
 
 	resp, _ = runCase(t, srv, test{
 		method: "GET",
-		path:   "/measurements/latest?scripts=all_at_once,one_by_one",
+		path:   "/measurements/latest?scripts=one_by_one,one_by_one",
 	})
 
 	err = json.Unmarshal([]byte(resp), &data)
 	if assert.NoError(t, err) {
 		assert.Len(t, data, 1)
-		assert.Equal(t, "all_at_once", data[0].Script)
+		assert.Equal(t, "one_by_one", data[0].Script)
 		assert.Equal(t, "g000", data[0].Code)
 		assert.InDelta(t, time.Now().UTC().Add(-1*time.Second).Unix(), data[0].Timestamp.Unix(), 500)
 	}

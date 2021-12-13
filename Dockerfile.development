@@ -1,7 +1,7 @@
 FROM ubuntu:20.04 as ubuntu-go
 
 ENV PATH /usr/local/go/bin:$PATH
-ENV GOLANG_VERSION 1.17.2
+ENV GOLANG_VERSION 1.17.4
 
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \

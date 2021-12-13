@@ -12,7 +12,7 @@ import (
 	"github.com/whitewater-guide/gorge/storage"
 )
 
-func (s *server) handleGetMeasurements() http.HandlerFunc {
+func (s *Server) handleGetMeasurements() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		script := chi.URLParam(r, "script")
 		code := chi.URLParam(r, "code")
@@ -37,7 +37,7 @@ func (s *server) handleGetMeasurements() http.HandlerFunc {
 	}
 }
 
-func (s *server) handleGetNearest() http.HandlerFunc {
+func (s *Server) handleGetNearest() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		script := chi.URLParam(r, "script")
 		code := chi.URLParam(r, "code")
@@ -60,7 +60,7 @@ func (s *server) handleGetNearest() http.HandlerFunc {
 	}
 }
 
-func (s *server) handleGetLatest() http.HandlerFunc {
+func (s *Server) handleGetLatest() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		script := chi.URLParam(r, "script")
 		code := chi.URLParam(r, "code")

@@ -10,6 +10,8 @@ import (
 // DatabaseManager is used to store all harvested measurements
 // it's also used to store jobs so that they persist between service restarts
 type DatabaseManager interface {
+	// Establishes connection, runs migrations
+	Start() error
 	// ListJobs returns slice of currently active jobs
 	ListJobs() ([]core.JobDescription, error)
 	// GetJob returns active job by its id
@@ -31,11 +33,13 @@ type DatabaseManager interface {
 	GetNearestMeasurement(script, code string, to time.Time, tolerance time.Duration) (*core.Measurement, error)
 
 	// Close is called when db should be shut down
-	Close()
+	Close() error
 }
 
 // CacheManager manager is used to store latest measurement for each gauge and auxiliary information that is safe to lose
 type CacheManager interface {
+	// Starts cache manager
+	Start() error
 	// LoadJobStatuses returns statuses of currenly running jobs.
 	// returns map where keys are job ids
 	LoadJobStatuses() (map[string]core.Status, error)
@@ -55,5 +59,5 @@ type CacheManager interface {
 	SaveLatestMeasurements(ctx context.Context, in <-chan *core.Measurement) <-chan error
 
 	// Close is callled when cache must be shut down
-	Close()
+	Close() error
 }

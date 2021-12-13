@@ -1,16 +1,19 @@
 package storage
 
 import (
+	"io/ioutil"
 	"testing"
 
+	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/suite"
 )
 
 func TestSqlite(t *testing.T) {
-	sqliteMgr, err := NewSqliteDb(0)
-	if err != nil {
-		t.Fatalf("failed to init sqlite manager: %v", err)
-	}
-	sqliteSuite := &DbTestSuite{mgr: &(sqliteMgr.DbManager)}
-	suite.Run(t, sqliteSuite)
+	logger := logrus.New()
+	logger.SetOutput(ioutil.Discard)
+
+	mgr := NewSqliteDb(logrus.NewEntry(logger), 0)
+	mgr.Start() //nolint:errcheck
+	tests := &DbTestSuite{mgr: &(mgr.DbManager)}
+	suite.Run(t, tests)
 }

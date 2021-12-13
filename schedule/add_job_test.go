@@ -20,7 +20,7 @@ func setupScheduler(t *testing.T) (*mockScheduler, *mockCron) {
 
 func TestAddJobBadScript(t *testing.T) {
 	scheduler, _ := setupScheduler(t)
-	defer scheduler.stop()
+	defer scheduler.Stop()
 
 	err := scheduler.AddJob(core.JobDescription{
 		ID:     "7bf5a9c4-d406-46dd-b596-1cdfd343e121",
@@ -32,7 +32,7 @@ func TestAddJobBadScript(t *testing.T) {
 
 func TestAddJobWithoutGauges(t *testing.T) {
 	scheduler, _ := setupScheduler(t)
-	defer scheduler.stop()
+	defer scheduler.Stop()
 
 	t.Run("all at once", func(t *testing.T) {
 		oneByOneErr := scheduler.AddJob(core.JobDescription{
@@ -55,7 +55,7 @@ func TestAddJobWithoutGauges(t *testing.T) {
 
 func TestAddJobWithBadCron(t *testing.T) {
 	scheduler, _ := setupScheduler(t)
-	defer scheduler.stop()
+	defer scheduler.Stop()
 
 	err := scheduler.AddJob(core.JobDescription{
 		ID:     "7bf5a9c4-d406-46dd-b596-1cdfd343e121",
@@ -68,7 +68,7 @@ func TestAddJobWithBadCron(t *testing.T) {
 
 func TestAddJobWithBadOptions(t *testing.T) {
 	scheduler, _ := setupScheduler(t)
-	defer scheduler.stop()
+	defer scheduler.Stop()
 
 	err := scheduler.AddJob(core.JobDescription{
 		ID:      "7bf5a9c4-d406-46dd-b596-1cdfd343e121",
@@ -82,7 +82,7 @@ func TestAddJobWithBadOptions(t *testing.T) {
 
 func TestAddJobAllAtOnce(t *testing.T) {
 	scheduler, cron := setupScheduler(t)
-	defer scheduler.stop()
+	defer scheduler.Stop()
 
 	err := scheduler.AddJob(core.JobDescription{
 		ID:      "7bf5a9c4-d406-46dd-b596-1cdfd343e121",
@@ -99,7 +99,7 @@ func TestAddJobAllAtOnce(t *testing.T) {
 
 func TestAddJobOneByOne(t *testing.T) {
 	scheduler, cron := setupScheduler(t)
-	defer scheduler.stop()
+	defer scheduler.Stop()
 
 	err := scheduler.AddJob(core.JobDescription{
 		ID:     "7bf5a9c4-d406-46dd-b596-1cdfd343e121",
@@ -152,7 +152,7 @@ func TestAddJobOneByOne(t *testing.T) {
 func TestAddJobManyGauges(t *testing.T) {
 	// this tests schedule generation
 	scheduler, cron := setupScheduler(t)
-	defer scheduler.stop()
+	defer scheduler.Stop()
 
 	gauges := make(map[string]json.RawMessage)
 	for i := 0; i < 71; i++ {
@@ -178,7 +178,7 @@ func TestAddJobOneByOneTransaction(t *testing.T) {
 	counter := counterCron{}
 	scheduler := newMockScheduler(t)
 	scheduler.Cron = &counter
-	defer scheduler.stop()
+	defer scheduler.Stop()
 
 	err := scheduler.AddJob(core.JobDescription{
 		ID:     "7bf5a9c4-d406-46dd-b596-1cdfd343e121",
@@ -197,7 +197,7 @@ func TestAddJobOneByOneTransaction(t *testing.T) {
 
 func TestAddJobBatched(t *testing.T) {
 	scheduler, cron := setupScheduler(t)
-	defer scheduler.stop()
+	defer scheduler.Stop()
 
 	err := scheduler.AddJob(core.JobDescription{
 		ID:     "7bf5a9c4-d406-46dd-b596-1cdfd343e121",

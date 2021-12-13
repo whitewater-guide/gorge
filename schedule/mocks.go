@@ -77,38 +77,27 @@ func (m *mockCron) Stop() context.Context {
 }
 
 type mockScheduler struct {
-	*SimpleScheduler
-}
-
-func (s *mockScheduler) stop() {
-	s.Database.Close()
-	s.Cache.Close()
-	schedCtx := s.Cron.Stop()
-	<-schedCtx.Done()
+	*simpleScheduler
 }
 
 func newMockScheduler(t *testing.T) *mockScheduler {
-	db, err := storage.NewSqliteDb(0)
-	if err != nil {
-		t.Fatal(err)
-	}
 	logger := logrus.New()
 	logger.SetOutput(ioutil.Discard)
-	cache, err := storage.NewEmbeddedCacheManager()
-	if err != nil {
-		t.Fatal(err)
-	}
+
+	db := storage.NewSqliteDb(logrus.NewEntry(logger), 0)
+	cache := &storage.EmbeddedCacheManager{}
 	registry := core.NewRegistry()
 	registry.Register(testscripts.AllAtOnce)
 	registry.Register(testscripts.OneByOne)
 	registry.Register(testscripts.Batched)
 	registry.Register(testscripts.Broken)
+
 	return &mockScheduler{
-		SimpleScheduler: &SimpleScheduler{
+		simpleScheduler: &simpleScheduler{
 			Database: db,
 			Cache:    cache,
 			Cron:     &mockCron{},
-			Logger:   logger,
+			Logger:   logrus.NewEntry(logger),
 			Registry: registry,
 		},
 	}

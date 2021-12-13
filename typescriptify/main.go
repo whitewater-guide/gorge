@@ -10,6 +10,7 @@ func main() {
 	converter.Add(core.Gauge{})
 	converter.Add(core.Measurement{})
 	converter.Add(core.JobDescription{})
+	converter.Add(core.UnhealthyJob{})
 	converter.Add(core.ScriptDescriptor{})
 	converter.Add(core.Status{})
 	converter.Add(core.ErrorResponse{})

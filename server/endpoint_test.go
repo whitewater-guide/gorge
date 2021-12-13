@@ -15,8 +15,13 @@ import (
 	"github.com/kinbiko/jsonassert"
 	"github.com/mattn/go-nulltype"
 	"github.com/stretchr/testify/assert"
+	"github.com/whitewater-guide/gorge/config"
 	"github.com/whitewater-guide/gorge/core"
-	"github.com/whitewater-guide/gorge/scripts/testscripts"
+	"github.com/whitewater-guide/gorge/schedule"
+	"github.com/whitewater-guide/gorge/scripts"
+	"github.com/whitewater-guide/gorge/storage"
+	"go.uber.org/fx"
+	"go.uber.org/fx/fxevent"
 )
 
 type test struct {
@@ -29,15 +34,9 @@ type test struct {
 	resp string
 }
 
-func prepareServer() *server {
-	registry := core.NewRegistry()
-	registry.Register(testscripts.AllAtOnce)
-	registry.Register(testscripts.Broken)
-	registry.Register(testscripts.OneByOne)
-	srv := newServer(testConfig(), registry)
-
+func seedEndpointTest(db storage.DatabaseManager, cache storage.CacheManager) {
 	// nolint:errcheck
-	srv.database.AddJob(core.JobDescription{
+	db.AddJob(core.JobDescription{
 		ID:      "48f979ec-268b-11ea-978f-2e728ce88125",
 		Script:  "all_at_once",
 		Gauges:  map[string]json.RawMessage{"g000": json.RawMessage("{}")}, // no data will be saved from this job because these gauge codes do not exist
@@ -46,7 +45,7 @@ func prepareServer() *server {
 	}, func(job core.JobDescription) error {
 		return nil
 	})
-	srv.database.SaveMeasurements(context.Background(), core.GenFromSlice(context.Background(), []core.Measurement{
+	db.SaveMeasurements(context.Background(), core.GenFromSlice(context.Background(), []core.Measurement{
 		{
 			GaugeID: core.GaugeID{
 				Script: "broken",
@@ -57,9 +56,10 @@ func prepareServer() *server {
 			Flow:      nulltype.NullFloat64Of(-100),
 		},
 	}))
-	srv.cache.SaveStatus("48f979ec-268b-11ea-978f-2e728ce88125", "g000", nil, 10)                     // nolint:errcheck
-	srv.cache.SaveStatus("48f979ec-268b-11ea-978f-2e728ce88125", "g001", errors.New("test error"), 0) // nolint:errcheck
-	srv.cache.SaveLatestMeasurements(context.Background(), core.GenFromSlice(context.Background(), []core.Measurement{
+	cache.SaveStatus("48f979ec-268b-11ea-978f-2e728ce88125", "g000", nil, 10)                     // nolint:errcheck
+	cache.SaveStatus("48f979ec-268b-11ea-978f-2e728ce88125", "g001", errors.New("test error"), 0) // nolint:errcheck
+	cache.SaveStatus("48f979ec-268b-11ea-978f-2e728ce88125", "", errors.New("test error"), 0)     // nolint:errcheck
+	cache.SaveLatestMeasurements(context.Background(), core.GenFromSlice(context.Background(), []core.Measurement{
 		{
 			GaugeID: core.GaugeID{
 				Script: "broken",
@@ -71,14 +71,10 @@ func prepareServer() *server {
 		},
 	}))
 
-	srv.routes()
-	srv.start()
-	time.Sleep(10 * time.Millisecond)
-
-	return srv
+	// time.Sleep(10 * time.Millisecond)
 }
 
-func runCase(t *testing.T, srv *server, tt test) (string, int) {
+func runCase(t *testing.T, srv *Server, tt test) (string, int) {
 	ts := httptest.NewServer(srv.router)
 	defer ts.Close()
 
@@ -108,6 +104,7 @@ func TestEndpoint(t *testing.T) {
 			path: "/scripts",
 			resp: `[
 				{"name": "all_at_once", "mode": "allAtOnce", "description": "Test script for all at once harvesting mode"},
+				{"name": "batched", "mode": "batched", "description": "Test script for batched harvesting mode"},
 				{"name": "broken", "mode": "allAtOnce", "description": "Test script that always returns error"},
 				{"name": "one_by_one", "mode": "oneByOne", "description": "Test script for one by one harvesting mode"}
 			]`,
@@ -314,11 +311,10 @@ func TestEndpoint(t *testing.T) {
 					"cron":   "0 0 * * *",
 					"options": {"gauges": 11},
 					"status": {
-						"success": false,
 						"error": "test error",
-						"timestamp": "<<PRESENCE>>",
+						"lastRun": "<<PRESENCE>>",
 						"count": 0,
-						"next": "<<PRESENCE>>"
+						"nextRun": "<<PRESENCE>>"
 					}
 			}]`,
 		},
@@ -338,15 +334,14 @@ func TestEndpoint(t *testing.T) {
 			path: "/jobs/48f979ec-268b-11ea-978f-2e728ce88125/gauges",
 			resp: `{
 				"g000": {
-					"success": true,
-					"timestamp": "<<PRESENCE>>",
-					"next": "<<PRESENCE>>",
+					"lastSuccess": "<<PRESENCE>>",
+					"lastRun": "<<PRESENCE>>",
+					"nextRun": "<<PRESENCE>>",
 					"count": 10
 				},
 				"g001": {
-					"success": false,
 					"error": "test error",
-					"timestamp": "<<PRESENCE>>",
+					"lastRun": "<<PRESENCE>>",
 					"count": 0
 				}
 			}`,
@@ -496,7 +491,7 @@ func TestEndpoint(t *testing.T) {
 			resp: `[{"script": "broken", "code": "g000", "timestamp": "<<PRESENCE>>", "flow": -100, "level": -100}]`,
 		},
 		{
-			name: "measurements singl gauge latest success",
+			name: "measurements single gauge latest success",
 			path: "/measurements/broken/g000/latest",
 			resp: `[{"script": "broken", "code": "g000", "timestamp": "<<PRESENCE>>", "flow": -100, "level": -100}]`,
 		},
@@ -528,7 +523,43 @@ func TestEndpoint(t *testing.T) {
 			if tt.code != 0 {
 				exCode = tt.code
 			}
-			srv := prepareServer()
+
+			var srv *Server
+			app := fx.New(
+				fx.Invoke(func(lc fx.Lifecycle, db storage.DatabaseManager, cache storage.CacheManager) {
+					// First startup hook: seed database
+					lc.Append(fx.Hook{
+						OnStart: func(c context.Context) error {
+							seedEndpointTest(db, cache)
+							return nil
+						},
+					})
+				}),
+				fx.Options(
+					config.TestModule,
+					fx.Provide(testLogger),
+					scripts.TestModule,
+					storage.Module,
+					schedule.Module,
+					fx.Provide(newServer),
+				),
+				fx.Invoke(func(s *Server) {
+					srv = s
+					// srv.scheduler.(*schedule.SimpleScheduler).Cron = &schedule.ImmediateCron{}
+					srv.routes()
+				}),
+				fx.WithLogger(
+					func() fxevent.Logger {
+						return fxevent.NopLogger
+					},
+				),
+			)
+			if err := app.Start(context.Background()); err != nil {
+				t.Fatal(err)
+			}
+			// Workaround for flaky tests in CI :(
+			time.Sleep(10 * time.Millisecond)
+
 			resp, code := runCase(t, srv, tt)
 			respErr := ""
 			if tt.code == 200 && code != 200 {
@@ -539,7 +570,7 @@ func TestEndpoint(t *testing.T) {
 				ja := jsonassert.New(t)
 				ja.Assertf(resp, tt.resp)
 			}
-			srv.shutdown()
+			app.Stop(context.Background()) //nolint:errcheck
 		})
 	}
 }

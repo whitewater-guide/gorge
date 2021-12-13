@@ -13,7 +13,7 @@ type harvestJob struct {
 	database storage.DatabaseManager
 	cache    storage.CacheManager
 	registry *core.ScriptRegistry
-	logger   *logrus.Logger
+	logger   *logrus.Entry
 	jobID    string
 	cron     string
 	codes    core.StringSet
@@ -95,9 +95,19 @@ func (job harvestJob) Run() {
 	if statusErr == nil {
 		statusErr = cachedErr
 	}
-	ssErr := job.cache.SaveStatus(job.jobID, code, statusErr, saved)
+
+	// Always save whole job status
+	ssErr := job.cache.SaveStatus(job.jobID, "", statusErr, saved)
 	if ssErr != nil {
-		logError(logger, core.WrapErr(ssErr, "save status error"))
+		logError(logger, core.WrapErr(ssErr, "save job status error"))
+	}
+	// For one-by-one jobs also save gauge status
+	mode, gErr := job.registry.GetMode(job.script)
+	if gErr == nil && mode == core.OneByOne {
+		gErr := job.cache.SaveStatus(job.jobID, code, statusErr, saved)
+		if gErr != nil {
+			logError(logger, core.WrapErr(ssErr, "save gauge status error"))
+		}
 	}
 
 	if harvestErr != nil {
@@ -109,9 +119,12 @@ func (job harvestJob) Run() {
 	if cachedErr != nil {
 		logError(logger, core.WrapErr(cachedErr, "cache save error"))
 	}
-	if saved == 0 {
-		logger.Warn("saved 0 measurements")
-	} else {
-		logger.Debugf("saved %d measurements", saved)
+
+	if harvestErr == nil && savedErr == nil && cachedErr != nil {
+		if saved == 0 {
+			logger.Warn("saved 0 measurements")
+		} else {
+			logger.Debugf("saved %d measurements", saved)
+		}
 	}
 }

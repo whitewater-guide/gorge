@@ -33,3 +33,7 @@ func (i *ImmediateCron) Stop() context.Context {
 	defer cancel()
 	return withCancel
 }
+
+func newImmediateCron() Cron {
+	return &ImmediateCron{}
+}

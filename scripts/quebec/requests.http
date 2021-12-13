@@ -5,7 +5,7 @@ Content-Type: application/json
 
 ###
 # Get measurements
-POST http://localhost:7080/upstream/quebec/measurements?codes=010802
+POST http://localhost:7080/upstream/quebec/measurements?codes=052228
 Cache-Control: no-cache
 Content-Type: application/json
 

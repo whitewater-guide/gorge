@@ -33,6 +33,7 @@ import (
 	"github.com/whitewater-guide/gorge/scripts/ukraine"
 	"github.com/whitewater-guide/gorge/scripts/usgs"
 	"github.com/whitewater-guide/gorge/scripts/wales"
+	"go.uber.org/fx"
 )
 
 // Registry is used both by server and cli
@@ -76,3 +77,14 @@ func init() {
 	Registry.Register(usgs.Descriptor)
 	Registry.Register(wales.Descriptor)
 }
+
+var Module = fx.Supply(Registry)
+
+var TestModule = fx.Provide(func() *core.ScriptRegistry {
+	registry := core.NewRegistry()
+	registry.Register(testscripts.AllAtOnce)
+	registry.Register(testscripts.OneByOne)
+	registry.Register(testscripts.Batched)
+	registry.Register(testscripts.Broken)
+	return registry
+})

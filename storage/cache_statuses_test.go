@@ -1,7 +1,6 @@
 package storage
 
 import (
-	"errors"
 	"fmt"
 	"testing"
 	"time"
@@ -10,16 +9,62 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"
 	"github.com/whitewater-guide/gorge/core"
+	"gopkg.in/yaml.v3"
 )
 
 const (
-	oOld     = "1d141432-5b1a-4a37-ab8e-78d912631fe5" // old one-by-one job id
-	aOld     = "622fd526-7fea-4870-be00-60c06576c5d5" // old all-at-once job id
-	oNew     = "56134f8b-7b5f-4976-84b5-e8b0aa8b043f" // new one-by-one job id
-	brokenID = "467d8504-1380-4efe-bd1a-d579eae090ed" // broken job id
+	obo = "1d141432-5b1a-4a37-ab8e-78d912631fe5" // one-by-one job id
+
+	aOk      = "622fd526-7fea-4870-be00-60c06576c5d5" // all-at-once job id (success)
+	aErr     = "e2fb933f-cf9b-4956-a389-b95f7e2bba32" // all-at-once job id (success in past, then error)
+	aErrOnly = "58cd6558-f356-450f-8ea6-755894059cd0" // all-at-once job id (error only)
 )
 
 var now = time.Date(2019, time.January, 1, 12, 0, 0, 0, time.UTC)
+var nowStr = "2019-01-01T12:00:00Z"
+
+var statusSeeds = `
+jobs:
+    # all-at-once job (success)
+
+    622fd526-7fea-4870-be00-60c06576c5d5:
+        success: 2017-01-01T12:00:00Z
+        time: 2017-01-01T12:00:00Z
+        count: 8
+        error: ''
+
+    # all-at-once job (success in past, then error)
+
+    e2fb933f-cf9b-4956-a389-b95f7e2bba32:
+        success: 2017-01-01T12:00:00Z
+        time: 2017-01-02T12:00:00Z
+        count: 0
+        error: script error
+
+    # all-at-once job (error only)
+
+    58cd6558-f356-450f-8ea6-755894059cd0:
+        time: 2017-01-02T12:00:00Z
+        count: 0
+        error: script error
+
+# one-by-one job
+1d141432-5b1a-4a37-ab8e-78d912631fe5:
+    code_ok:
+        success: 2017-01-01T12:00:00Z
+        time: 2017-01-02T12:00:00Z
+        count: 33
+        error: ''
+    code_err:
+        success: 2017-01-01T12:00:00Z
+        time: 2017-01-02T12:00:00Z
+        count: 0
+        error: gauge error
+    code_err_only:
+        time: 2017-01-01T12:00:00Z
+        count: 0
+        error: gauge error
+`
 
 type csTestSuite struct {
 	suite.Suite
@@ -30,6 +75,21 @@ func (s *csTestSuite) TearDownSuite() {
 	s.mgr.Close()
 }
 
+// asserts that outer map contains inner map
+func assertMapSubset(t *testing.T, outer map[string]string, inner map[string]string) {
+	for k, v := range inner {
+		o, ok := outer[k]
+		if !ok {
+			t.Errorf("inner map is not subset of outer map: key '%v' is missing", k)
+			return
+		}
+		if v != o {
+			t.Errorf("inner map is not subset of outer map: key '%v' has different value: '%v' in outer and '%v' in inner", k, o, v)
+			return
+		}
+	}
+}
+
 func (s *csTestSuite) SetupTest() {
 	conn := s.mgr.pool.Get()
 	defer conn.Close()
@@ -37,51 +97,55 @@ func (s *csTestSuite) SetupTest() {
 	if err != nil {
 		s.T().Fatalf("failed to flush redis: %v", err)
 	}
-	_, err = conn.Do(
-		"HSET",
-		NSStatus,
-		oOld,
-		`{"timestamp": "2017-01-01T12:00:00Z", "success": false, "count": 0, "error": "crash"}`,
-		aOld,
-		`{"timestamp": "2017-01-01T12:00:00Z", "success": true, "count": 10}`,
-	)
+	// seed data
+	seeds := make(map[string]map[string]map[string]interface{})
+	err = yaml.Unmarshal([]byte(statusSeeds), &seeds)
 	if err != nil {
-		s.T().Fatalf("failed to save job statuses: %v", err)
+		s.T().Fatalf("yaml parse error: %v", err)
 	}
-	_, err = conn.Do(
-		"HSET",
-		fmt.Sprintf("%s:%s", NSStatus, oOld),
-		"o001",
-		`{"timestamp": "2017-01-01T12:00:00Z", "success": false, "count": 0, "error": "boom"}`,
-		"o000",
-		`{"timestamp": "2017-01-01T12:00:00Z", "success": true, "count": 10}`,
-	)
-	if err != nil {
-		s.T().Fatalf("failed to save one-by-one job gauge statuses: %v", err)
+
+	if err := conn.Send("MULTI"); err != nil {
+		s.T().Fatalf("MULTI error: %v", err)
 	}
-	_, err = conn.Do(
-		"HSET",
-		fmt.Sprintf("%s:%s", NSStatus, brokenID),
-		"b000",
-		`foo{`,
-	)
+	for key, hash := range seeds {
+		args := []interface{}{fmt.Sprintf("%s:%s", NSStatus, key)}
+		for prefix, status := range hash {
+			for field, value := range status {
+				val := fmt.Sprintf("%v", value)
+				if t, ok := value.(time.Time); ok {
+					val = t.Format(time.RFC3339)
+				}
+				args = append(args, fmt.Sprintf("%s:%s", prefix, field), val)
+			}
+		}
+		if err := conn.Send("HMSET", args...); err != nil {
+			s.T().Fatalf("HMSET error: %v", err)
+		}
+	}
+	_, err = conn.Do("EXEC")
 	if err != nil {
-		s.T().Fatalf("failed to broken job gauge statuses: %v", err)
+		s.T().Fatalf("yaml save error: %v", err)
 	}
 }
 
 func (s *csTestSuite) TestLoadJobStatuses() {
 	t := s.T()
 	expected := map[string]core.Status{
-		oOld: {
-			Success:   false,
-			Timestamp: core.HTime{Time: time.Date(2017, time.January, 1, 12, 0, 0, 0, time.UTC)},
-			Error:     "crash",
+		aOk: {
+			LastRun:     core.HTime{Time: time.Date(2017, time.January, 1, 12, 0, 0, 0, time.UTC)},
+			LastSuccess: &core.HTime{Time: time.Date(2017, time.January, 1, 12, 0, 0, 0, time.UTC)},
+			Count:       8,
 		},
-		aOld: {
-			Success:   true,
-			Timestamp: core.HTime{Time: time.Date(2017, time.January, 1, 12, 0, 0, 0, time.UTC)},
-			Count:     10,
+		aErr: {
+			LastSuccess: &core.HTime{Time: time.Date(2017, time.January, 1, 12, 0, 0, 0, time.UTC)},
+			LastRun:     core.HTime{Time: time.Date(2017, time.January, 2, 12, 0, 0, 0, time.UTC)},
+			Count:       0,
+			Error:       "script error",
+		},
+		aErrOnly: {
+			LastRun: core.HTime{Time: time.Date(2017, time.January, 2, 12, 0, 0, 0, time.UTC)},
+			Count:   0,
+			Error:   "script error",
 		},
 	}
 	s.SetupTest()
@@ -89,109 +153,244 @@ func (s *csTestSuite) TestLoadJobStatuses() {
 	actual, err := s.mgr.LoadJobStatuses()
 	if assert.NoError(t, err) {
 		assert.Equal(t, expected, actual)
+		// assert.Equal(t, expected[aOk], actual[aOk])
+		// assert.Equal(t, expected[aErr], actual[aErr])
+		// assert.Equal(t, expected[aErrOnly], actual[aErrOnly])
 	}
 }
 
 func (s *csTestSuite) TestLoadGaugeStatuses() {
 	t := s.T()
-	tests := []struct {
-		name     string
-		jobID    string
-		expected map[string]core.Status
-		err      bool
-	}{
-		{
-			name:  "success",
-			jobID: oOld,
-			expected: map[string]core.Status{
-				"o000": {
-					Success:   true,
-					Timestamp: core.HTime{Time: time.Date(2017, time.January, 1, 12, 0, 0, 0, time.UTC)},
-					Count:     10,
-				},
-				"o001": {
-					Success:   false,
-					Timestamp: core.HTime{Time: time.Date(2017, time.January, 1, 12, 0, 0, 0, time.UTC)},
-					Error:     "boom",
-				},
-			},
-			err: false,
+	expected := map[string]core.Status{
+		"code_ok": {
+			LastSuccess: &core.HTime{Time: time.Date(2017, time.January, 1, 12, 0, 0, 0, time.UTC)},
+			LastRun:     core.HTime{Time: time.Date(2017, time.January, 2, 12, 0, 0, 0, time.UTC)},
+			Count:       33,
 		},
-		{
-			name:  "broken gauge",
-			jobID: brokenID,
-			err:   true,
+		"code_err": {
+			LastSuccess: &core.HTime{Time: time.Date(2017, time.January, 1, 12, 0, 0, 0, time.UTC)},
+			LastRun:     core.HTime{Time: time.Date(2017, time.January, 2, 12, 0, 0, 0, time.UTC)},
+			Count:       0,
+			Error:       "gauge error",
 		},
-		{
-			name:     "missing job",
-			jobID:    "missing",
-			expected: map[string]core.Status{},
-			err:      false,
+		"code_err_only": {
+			LastRun: core.HTime{Time: time.Date(2017, time.January, 1, 12, 0, 0, 0, time.UTC)},
+			Count:   0,
+			Error:   "gauge error",
 		},
 	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			s.SetupTest()
+	s.SetupTest()
 
-			res, err := s.mgr.LoadGaugeStatuses(tt.jobID)
-			if tt.err {
-				assert.Error(t, err)
-			} else {
-				assert.Equal(t, tt.expected, res)
-			}
-		})
+	actual, err := s.mgr.LoadGaugeStatuses(obo)
+	if assert.NoError(t, err) {
+		assert.Equal(t, expected, actual)
+		// assert.Equal(t, expected[aOk], actual[aOk])
+		// assert.Equal(t, expected[aErr], actual[aErr])
+		// assert.Equal(t, expected[aErrOnly], actual[aErrOnly])
+	}
+}
+
+func (s *csTestSuite) TestLoadGaugeStatusesForInexistingJob() {
+	t := s.T()
+	expected := map[string]core.Status{}
+	s.SetupTest()
+
+	actual, err := s.mgr.LoadGaugeStatuses("does_not_exist")
+	if assert.NoError(t, err) {
+		assert.Equal(t, expected, actual)
 	}
 }
 
 func (s *csTestSuite) TestSaveStatus() {
+	// update existing gauge error only -> success
+	// update existing gauge error only -> error
 	t := s.T()
 	tests := []struct {
-		name      string
-		jobID     string
-		code      string
-		err       error
-		count     int
-		expectedJ map[string]string // expected job statuses
-		expectedG map[string]string // expected gauge statuses for this job
+		name     string
+		jobID    string
+		code     string
+		err      error
+		count    int
+		expected map[string]string // expected raw redis response
 	}{
 		{
-			name:  "existing job success",
-			jobID: aOld,
+			name:  "save completely new job success",
+			jobID: "ade7ffa1-1f4f-405f-9065-cefcd0b5f72c",
 			count: 7,
-			expectedJ: map[string]string{
-				aOld: `{"timestamp": "2019-01-01T12:00:00Z", "success": true, "count": 7}`,
-				oOld: `{"timestamp": "2017-01-01T12:00:00Z", "success": false, "count": 0, "error": "crash"}`,
-			},
-			expectedG: map[string]string{},
-		},
-		{
-			name:  "existing gauge error",
-			jobID: oOld,
-			code:  "o000",
-			count: 0,
-			err:   errors.New("fail"),
-			expectedJ: map[string]string{
-				oOld: `{"timestamp": "2019-01-01T12:00:00Z", "success": false, "count": 0, "error": "fail"}`,
-				aOld: `{"timestamp": "2017-01-01T12:00:00Z", "success": true, "count": 10}`,
-			},
-			expectedG: map[string]string{
-				"o000": `{"timestamp": "2019-01-01T12:00:00Z", "success": false, "count": 0, "error": "fail"}`,
-				"o001": `{"timestamp": "2017-01-01T12:00:00Z", "success": false, "count": 0, "error": "boom"}`,
+			expected: map[string]string{
+				"ade7ffa1-1f4f-405f-9065-cefcd0b5f72c:success": nowStr,
+				"ade7ffa1-1f4f-405f-9065-cefcd0b5f72c:time":    nowStr,
+				"ade7ffa1-1f4f-405f-9065-cefcd0b5f72c:count":   "7",
+				"ade7ffa1-1f4f-405f-9065-cefcd0b5f72c:error":   "",
 			},
 		},
 		{
-			name:  "new gauge error",
-			jobID: oNew,
-			code:  "n000",
-			count: 0,
-			err:   errors.New("broken"),
-			expectedJ: map[string]string{
-				oNew: `{"timestamp": "2019-01-01T12:00:00Z", "success": false, "count": 0, "error": "broken"}`,
-				oOld: `{"timestamp": "2017-01-01T12:00:00Z", "success": false, "count": 0, "error": "crash"}`,
-				aOld: `{"timestamp": "2017-01-01T12:00:00Z", "success": true, "count": 10}`,
+			name:  "save completely new job error",
+			jobID: "ade7ffa1-1f4f-405f-9065-cefcd0b5f72c",
+			err:   fmt.Errorf("job failed"),
+			expected: map[string]string{
+				"ade7ffa1-1f4f-405f-9065-cefcd0b5f72c:time":  nowStr,
+				"ade7ffa1-1f4f-405f-9065-cefcd0b5f72c:count": "0",
+				"ade7ffa1-1f4f-405f-9065-cefcd0b5f72c:error": "job failed",
 			},
-			expectedG: map[string]string{
-				"n000": `{"timestamp": "2019-01-01T12:00:00Z", "success": false, "count": 0, "error": "broken"}`,
+		},
+		{
+			name:  "save completely new gauge success",
+			jobID: "ade7ffa1-1f4f-405f-9065-cefcd0b5f72c",
+			code:  "gauge01",
+			count: 7,
+			expected: map[string]string{
+				"gauge01:success": nowStr,
+				"gauge01:time":    nowStr,
+				"gauge01:count":   "7",
+				"gauge01:error":   "",
+			},
+		},
+		{
+			name:  "save completely new gauge error",
+			jobID: "ade7ffa1-1f4f-405f-9065-cefcd0b5f72c",
+			code:  "gauge01",
+			err:   fmt.Errorf("job failed"),
+			expected: map[string]string{
+				"gauge01:time":  nowStr,
+				"gauge01:count": "0",
+				"gauge01:error": "job failed",
+			},
+		},
+		{
+			name:  "update existing job success -> success",
+			jobID: aOk,
+			count: 33,
+			expected: map[string]string{
+				"622fd526-7fea-4870-be00-60c06576c5d5:success": nowStr,
+				"622fd526-7fea-4870-be00-60c06576c5d5:time":    nowStr,
+				"622fd526-7fea-4870-be00-60c06576c5d5:count":   "33",
+				"622fd526-7fea-4870-be00-60c06576c5d5:error":   "",
+			},
+		},
+		{
+			name:  "update existing job success -> error",
+			jobID: aOk,
+			err:   fmt.Errorf("job failed"),
+			expected: map[string]string{
+				"622fd526-7fea-4870-be00-60c06576c5d5:success": "2017-01-01T12:00:00Z",
+				"622fd526-7fea-4870-be00-60c06576c5d5:time":    nowStr,
+				"622fd526-7fea-4870-be00-60c06576c5d5:count":   "0",
+				"622fd526-7fea-4870-be00-60c06576c5d5:error":   "job failed",
+			},
+		},
+		{
+			name:  "update existing job succes + error -> success",
+			jobID: aErr,
+			count: 33,
+			expected: map[string]string{
+				"e2fb933f-cf9b-4956-a389-b95f7e2bba32:success": nowStr,
+				"e2fb933f-cf9b-4956-a389-b95f7e2bba32:time":    nowStr,
+				"e2fb933f-cf9b-4956-a389-b95f7e2bba32:count":   "33",
+				"e2fb933f-cf9b-4956-a389-b95f7e2bba32:error":   "",
+			},
+		},
+		{
+			name:  "update existing job succes + error -> error",
+			jobID: aErr,
+			err:   fmt.Errorf("job failed"),
+			expected: map[string]string{
+				"e2fb933f-cf9b-4956-a389-b95f7e2bba32:success": "2017-01-01T12:00:00Z",
+				"e2fb933f-cf9b-4956-a389-b95f7e2bba32:time":    nowStr,
+				"e2fb933f-cf9b-4956-a389-b95f7e2bba32:count":   "0",
+				"e2fb933f-cf9b-4956-a389-b95f7e2bba32:error":   "job failed",
+			},
+		},
+		{
+			name:  "update existing job error only -> success",
+			jobID: aErrOnly,
+			count: 33,
+			expected: map[string]string{
+				"58cd6558-f356-450f-8ea6-755894059cd0:success": nowStr,
+				"58cd6558-f356-450f-8ea6-755894059cd0:time":    nowStr,
+				"58cd6558-f356-450f-8ea6-755894059cd0:count":   "33",
+				"58cd6558-f356-450f-8ea6-755894059cd0:error":   "",
+			},
+		},
+		{
+			name:  "update existing job error only -> error",
+			jobID: aErrOnly,
+			err:   fmt.Errorf("job failed"),
+			expected: map[string]string{
+				"58cd6558-f356-450f-8ea6-755894059cd0:time":  nowStr,
+				"58cd6558-f356-450f-8ea6-755894059cd0:count": "0",
+				"58cd6558-f356-450f-8ea6-755894059cd0:error": "job failed",
+			},
+		},
+		{
+			name:  "update existing gauge success -> success",
+			jobID: obo,
+			code:  "code_ok",
+			count: 44,
+			expected: map[string]string{
+				"code_ok:success": nowStr,
+				"code_ok:time":    nowStr,
+				"code_ok:count":   "44",
+				"code_ok:error":   "",
+			},
+		},
+		{
+			name:  "update existing gauge success -> error",
+			jobID: obo,
+			code:  "code_ok",
+			err:   fmt.Errorf("code_ok failed"),
+			expected: map[string]string{
+				"code_ok:success": "2017-01-01T12:00:00Z",
+				"code_ok:time":    nowStr,
+				"code_ok:count":   "0",
+				"code_ok:error":   "code_ok failed",
+			},
+		},
+		{
+			name:  "update existing gauge success + error -> success",
+			jobID: obo,
+			code:  "code_err",
+			count: 45,
+			expected: map[string]string{
+				"code_err:success": nowStr,
+				"code_err:time":    nowStr,
+				"code_err:count":   "45",
+				"code_err:error":   "",
+			},
+		},
+		{
+			name:  "update existing gauge success + error -> error",
+			jobID: obo,
+			code:  "code_err",
+			err:   fmt.Errorf("code_err failed"),
+			expected: map[string]string{
+				"code_err:success": "2017-01-01T12:00:00Z",
+				"code_err:time":    nowStr,
+				"code_err:count":   "0",
+				"code_err:error":   "code_err failed",
+			},
+		},
+		{
+			name:  "update existing gauge error only -> success",
+			jobID: obo,
+			code:  "code_err_only",
+			count: 22,
+			expected: map[string]string{
+				"code_err_only:success": nowStr,
+				"code_err_only:time":    nowStr,
+				"code_err_only:count":   "22",
+				"code_err_only:error":   "",
+			},
+		},
+		{
+			name:  "update existing gauge error only -> error",
+			jobID: obo,
+			code:  "code_err_only",
+			err:   fmt.Errorf("code_err_only failed"),
+			expected: map[string]string{
+				"code_err_only:time":  nowStr,
+				"code_err_only:count": "0",
+				"code_err_only:error": "code_err_only failed",
 			},
 		},
 	}
@@ -202,26 +401,24 @@ func (s *csTestSuite) TestSaveStatus() {
 			if assert.NoError(t, err) {
 				conn := s.mgr.pool.Get()
 				defer conn.Close()
-				actJ, _ := redis.StringMap(conn.Do("HGETALL", NSStatus))
-				actG, _ := redis.StringMap(conn.Do("HGETALL", fmt.Sprintf("%s:%s", NSStatus, tt.jobID)))
-				assert.Equal(t, len(tt.expectedJ), len(actJ))
-				for k, exS := range tt.expectedJ {
-					assert.JSONEq(t, exS, actJ[k])
+
+				var key string
+				if tt.code == "" {
+					key = fmt.Sprintf("%s:jobs", NSStatus)
+				} else {
+					key = fmt.Sprintf("%s:%s", NSStatus, tt.jobID)
 				}
-				assert.Equal(t, len(tt.expectedG), len(actG))
-				for k, exG := range tt.expectedG {
-					assert.JSONEq(t, exG, actG[k])
-				}
+
+				actual, _ := redis.StringMap(conn.Do("HGETALL", key))
+				assertMapSubset(t, actual, tt.expected)
 			}
 		})
 	}
 }
 
 func TestCacheStatuses(t *testing.T) {
-	mgr, err := NewEmbeddedCacheManager()
-	if err != nil {
-		t.Fatalf("failed to init embedded redis cache manager: %v", err)
-	}
-	sqliteSuite := &csTestSuite{mgr: mgr}
-	suite.Run(t, sqliteSuite)
+	mgr := &EmbeddedCacheManager{}
+	mgr.Start() //nolint:errcheck
+	tests := &csTestSuite{mgr: mgr}
+	suite.Run(t, tests)
 }

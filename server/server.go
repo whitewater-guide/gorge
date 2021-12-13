@@ -1,22 +1,30 @@
 package main
 
 import (
-	"fmt"
-	"io/ioutil"
 	"net/http/pprof"
-	"net/url"
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/go-chi/render"
-	"github.com/robfig/cron/v3"
 	"github.com/sirupsen/logrus"
+	"github.com/whitewater-guide/gorge/config"
 	"github.com/whitewater-guide/gorge/core"
-	"github.com/whitewater-guide/gorge/schedule"
 	"github.com/whitewater-guide/gorge/storage"
+	"go.uber.org/fx"
 )
 
-type server struct {
+type ServerParams struct {
+	fx.In
+
+	Logger    *logrus.Logger
+	Db        storage.DatabaseManager
+	Cache     storage.CacheManager
+	Cfg       *config.Config
+	Registry  *core.ScriptRegistry
+	Scheduler core.JobScheduler
+}
+
+type Server struct {
 	port      string
 	endpoint  string
 	cache     storage.CacheManager
@@ -28,7 +36,8 @@ type server struct {
 	debug     bool
 }
 
-func (s *server) routes() {
+func (s *Server) routes() {
+	s.logger.Debug("creating routes")
 	s.router = chi.NewRouter()
 	s.router.Use(
 		render.SetContentType(render.ContentTypeJSON),
@@ -67,111 +76,22 @@ func (s *server) routes() {
 		s.router.Handle("/debug/heap", pprof.Handler("heap"))
 		s.router.Handle("/debug/goroutine", pprof.Handler("goroutine"))
 	}
+	s.logger.Debug("created routes")
 }
 
-func (s *server) start() {
-	s.scheduler.Start()
-	// Load initial jobs
-	jobs, err := s.database.ListJobs()
-	if err != nil {
-		s.logger.Fatalf("failed to load initial jobs: %v", err)
-	}
-	for _, job := range jobs {
-		err := s.scheduler.AddJob(job)
-		if err != nil {
-			s.logger.Fatalf("failed to schedule initial jobs: %v", err)
-		}
-		s.logger.WithFields(logrus.Fields{"script": job.Script, "jobID": job.ID}).Info("started job")
-	}
-	s.logger.Info("server started")
-}
-
-func (s *server) shutdown() {
-	s.database.Close()
-	s.cache.Close()
-	s.scheduler.Stop()
-}
-
-func newServer(cfg *config, registry *core.ScriptRegistry) *server {
-	result := &server{registry: registry, debug: cfg.Debug}
-	result.logger = logrus.New()
-	if cfg.Log.Format == "json" {
-		result.logger.SetFormatter(&logrus.JSONFormatter{})
-	} else {
-		result.logger.SetFormatter(&logrus.TextFormatter{ForceColors: true, FullTimestamp: true})
-	}
-	logLevel := cfg.Log.Level
-	if cfg.Debug {
-		logLevel = "debug"
-	}
-	if logLevel == "" {
-		result.logger.SetOutput(ioutil.Discard)
-	} else {
-		lvl, err := logrus.ParseLevel(logLevel)
-		if err != nil {
-			lvl = logrus.DebugLevel
-		}
-		result.logger.SetLevel(lvl)
-	}
-	result.logger.WithFields(logrus.Fields{
-		"cache": cfg.Cache,
-		"db":    cfg.Db,
-	}).Info("starting storage...")
-
-	switch cfg.Cache {
-	case "redis":
-		cache, err := storage.NewRedisCacheManager(cfg.Redis.Host, cfg.Redis.Port)
-		if err != nil {
-			result.logger.Fatal(err)
-		}
-		result.cache = cache
-	case "inmemory":
-		cache, err := storage.NewEmbeddedCacheManager()
-		if err != nil {
-			result.logger.Fatal(err)
-		}
-		result.cache = cache
-	default:
-		result.logger.Fatal("invalid cache manager")
+func newServer(p ServerParams) *Server {
+	result := &Server{
+		endpoint:  p.Cfg.Endpoint,
+		port:      p.Cfg.Port,
+		registry:  p.Registry,
+		debug:     p.Cfg.Debug,
+		cache:     p.Cache,
+		database:  p.Db,
+		scheduler: p.Scheduler,
+		logger:    p.Logger,
 	}
 
-	switch cfg.Db {
-	case "postgres":
-		pgConnStr := fmt.Sprintf(
-			"postgres://%s:%s@%s/%s?sslmode=disable",
-			cfg.Pg.User,
-			url.QueryEscape(cfg.Pg.Password),
-			cfg.Pg.Host,
-			cfg.Pg.Db,
-		)
-		db, err := storage.NewPostgresManager(pgConnStr, cfg.DbChunkSize)
-		if err != nil {
-			result.logger.Fatal(err)
-		}
-		result.database = db
-	case "inmemory":
-		db, err := storage.NewSqliteDb(cfg.DbChunkSize)
-		if err != nil {
-			result.logger.Fatal(err)
-		}
-		result.database = db
-	default:
-		result.logger.Fatal("invalid database manager")
-	}
-	result.logger.Info("storage started")
-
-	result.port = cfg.Port
-	result.endpoint = cfg.Endpoint
-
-	result.scheduler = &schedule.SimpleScheduler{
-		Database: result.database,
-		Cache:    result.cache,
-		Logger:   result.logger,
-		Registry: result.registry,
-		Cron:     cron.New(),
-	}
-
-	core.Client = core.NewClient(cfg.HTTP, result.logger.WithField("client", "http"))
+	core.Client = core.NewClient(p.Cfg.HTTP, result.logger.WithField("client", "http"))
 
 	return result
 }

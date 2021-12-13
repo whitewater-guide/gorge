@@ -210,10 +210,8 @@ func (s *clTestSuite) TestGetLatestMeasurements() {
 }
 
 func TestCacheLatest(t *testing.T) {
-	mgr, err := NewEmbeddedCacheManager()
-	if err != nil {
-		t.Fatalf("failed to init embedded redis cache manager: %v", err)
-	}
+	mgr := &EmbeddedCacheManager{}
+	mgr.Start() //nolint:errcheck
 	sqliteSuite := &clTestSuite{mgr: mgr}
 	suite.Run(t, sqliteSuite)
 }

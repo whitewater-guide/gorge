@@ -18,7 +18,7 @@ func TestGetSince(t *testing.T) {
 		codes:  core.StringSet{"g001": {}},
 	}
 	cache := map[core.GaugeID]core.Measurement{
-		core.GaugeID{
+		{
 			Script: "one-by-one",
 			Code:   "g001",
 		}: {
