@@ -557,6 +557,8 @@ func TestEndpoint(t *testing.T) {
 			if err := app.Start(context.Background()); err != nil {
 				t.Fatal(err)
 			}
+			// Workaround for flaky tests in CI :(
+			time.Sleep(10 * time.Millisecond)
 
 			resp, code := runCase(t, srv, tt)
 			respErr := ""

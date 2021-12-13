@@ -52,7 +52,7 @@ func TestHealthNotifier(t *testing.T) {
 			t.Fatal(err)
 		}
 		ja := jsonassert.New(t)
-		ja.Assertf(string(data), `[{"id":"e0b198ad-d7cd-4d2b-aeb0-ad83992bc851","script":"one_by_one","last_run":"<<PRESENCE>>"}]`)
+		ja.Assertf(string(data), `[{"id":"e0b198ad-d7cd-4d2b-aeb0-ad83992bc851","script":"one_by_one","lastRun":"<<PRESENCE>>"}]`)
 
 		if h := r.Header["Authorization"][0]; h != "Bearer __token__" {
 			t.Errorf("invalid authorization header: %s", h)
