@@ -38,6 +38,11 @@ func (s *scriptQuebec) parseReadings(recv chan<- *core.Measurement, errs chan<- 
 			logger.Errorf("csv line error: %v", err)
 			continue
 		}
+		if len(line) == 1 && line[0] == "<!DOCTYPE html>" {
+			logger.Error("received html instead of csv")
+			errs <- fmt.Errorf("received html instead of csv")
+			return
+		}
 		if len(line) < 3 || len(line) > 5 {
 			logger.Errorf("unexpected csv format with %d rows insteas of 3 or 4", len(line))
 			continue
@@ -105,7 +110,9 @@ func (s *scriptQuebec) getReadings(recv chan<- *core.Measurement, errs chan<- er
 			WithField("statusCode", resp.StatusCode).
 			WithField("requestHeaders", resp.Request.Header).
 			WithField("responseHeaders", resp.Header).
-			Error("request failed")
+			Debug("request failed")
+		errs <- fmt.Errorf("readings request returned %d", resp.StatusCode)
+		return
 	}
 	reader := transform.NewReader(resp.Body, charmap.Windows1252.NewDecoder())
 	s.parseReadings(recv, errs, reader, est, code)
