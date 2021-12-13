@@ -119,9 +119,12 @@ func (job harvestJob) Run() {
 	if cachedErr != nil {
 		logError(logger, core.WrapErr(cachedErr, "cache save error"))
 	}
-	if saved == 0 {
-		logger.Warn("saved 0 measurements")
-	} else {
-		logger.Debugf("saved %d measurements", saved)
+
+	if harvestErr == nil && savedErr == nil && cachedErr != nil {
+		if saved == 0 {
+			logger.Warn("saved 0 measurements")
+		} else {
+			logger.Debugf("saved %d measurements", saved)
+		}
 	}
 }
