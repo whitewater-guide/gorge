@@ -13,6 +13,7 @@ Harvested data is stored in database and can be queried later.
   - [Launching](#launching)
   - [Working with API](#working-with-api)
   - [Available scripts](#available-scripts)
+  - [Health notifications](#health-notifications)
   - [Other](#other)
 - [Development](#development)
   - [Inside container](#inside-container)
@@ -226,11 +227,11 @@ Below is the list of endpoints exposed by gorge server. You can use `request.htt
       },
       "status": {
         // information about running job
-        "success": true, // whether latest execution was successful
-        "timestamp": "2020-02-25T17:44:00Z", // latest execution timestamp
+        "lastRun": "2020-02-25T17:44:00Z", // latest execution timestamp
+        "lastSuccess": "2020-02-25T17:44:00Z", // latest successful (>0 measurements harvested) execution timestamp (optional)
         "count": 10, // number of measurements harvested during latest execution
-        "next": "2020-02-25T17:46:00Z", // next execution timestamp
-        "error": "somethin went wrong" // latest execution error, omitted when success = true
+        "nextRun": "2020-02-25T17:46:00Z", // next execution timestamp
+        "error": "somethin went wrong" // latest execution error (optional)
       }
     }
   ]
@@ -271,10 +272,10 @@ Below is the list of endpoints exposed by gorge server. You can use `request.htt
   [
     {
     "010802": {
-      "success": false,
-      "timestamp": "2020-02-24T18:00:00Z",
-      "count": 0,
-      "next": "2020-02-25T18:00:00Z"
+      "lastRun": "2020-02-24T18:00:00Z",
+      "lastSuccess": "2020-02-24T18:00:00Z",
+      "count": 10,
+      "nextRun": "2020-02-25T18:00:00Z"
     }
   ]
   ```
@@ -354,6 +355,48 @@ Below is the list of endpoints exposed by gorge server. You can use `request.htt
 
 List of available scripts is [here](scripts/README.md)
 
+### Health notifications
+
+Gorge can call your webhooks when some of the running scripts haven't harvested any data for a period of time.
+
+To configure healthcheck, use `--health--xxx` cli arguments. For example:
+
+```yml
+command:
+  [
+    
+    '--hooks-health-cron',
+    '0 0 * * *', # check health every midnight
+
+    '--hooks-health-threshold',
+    '48', # scripts that haven't harvested anything within last 48 hours are considered unhealthy
+
+    '--hooks-health-url',
+    'http://host.docker.internal:3333/gorge/health', # so POST request will be made to this endpoint
+
+    '--hooks-health-headers',
+    'x-api-key: __test_gorge_health_key__', # multiple headers can be set on this request
+  ]
+```
+
+Example of this POST request payload:
+
+```json
+[
+    {
+        "id": "2f915d20-ffe6-11e8-8919-9f370230d1ae",
+        "script": "chile",
+        "lastRun": "2021-12-13T07:57:59Z"
+    },
+    {
+        "id": "e3c0c89a-7c72-11e9-8abd-cfc3ab2b843d",
+        "script": "quebec",
+        "lastRun": "2021-12-13T07:57:00Z",
+        "lastSuccess": "2021-12-10T09:22:00Z"
+    }
+]
+```
+
 ### Other
 
 There're Typescript type definitions for the API available on [NPM](https://www.npmjs.com/package/@whitewater-guide/gorge)
@@ -420,7 +463,6 @@ Here are some recommendations for writing scripts for new sources
 
 ## TODO
 
-- Notify when some script seem to be broken
 - Virtual gauges
   - Statuses
   - What happens when one component is broken?
