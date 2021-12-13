@@ -56,6 +56,9 @@ func (job healthNotifierJob) Run() {
 
 	for _, j := range jobs {
 		if status, ok := statuses[j.ID]; ok {
+			// because this is supposed to run daily and our job are scheduled hourly or more frequently,
+			// having last success == nil for a day is cosidered unhealthy
+			// it can produce some misfires when service restarts, but it's ok
 			if status.LastSuccess == nil || status.LastSuccess.Before(threshold) {
 				res = append(res, core.UnhealthyJob{
 					JobID:       j.ID,
