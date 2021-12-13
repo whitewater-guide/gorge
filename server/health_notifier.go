@@ -90,12 +90,12 @@ func (job healthNotifierJob) Run() {
 	}
 	req.Header.Set("Content-Type", "application/json; charset=UTF-8")
 	for _, h := range job.cfg.Headers {
-		parts := strings.Split(h, ": ")
+		parts := strings.Split(h, ":")
 		if len(parts) != 2 {
 			job.logger.Warnf("invalid header name-value pair: %s", h)
 			continue
 		}
-		req.Header.Set(parts[0], parts[1])
+		req.Header.Set(strings.TrimSpace(parts[0]), strings.TrimSpace(parts[1]))
 	}
 
 	_, err = core.Client.Do(req, &core.RequestOptions{})
