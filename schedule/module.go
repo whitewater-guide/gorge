@@ -2,6 +2,7 @@ package schedule
 
 import (
 	"context"
+	"time"
 
 	"github.com/robfig/cron/v3"
 	"github.com/sirupsen/logrus"
@@ -21,7 +22,7 @@ type SchedulerParams struct {
 }
 
 func newCron() Cron {
-	return cron.New()
+	return cron.New(cron.WithLocation(time.UTC))
 }
 
 func newSimpleScheduler(lc fx.Lifecycle, p SchedulerParams) core.JobScheduler {

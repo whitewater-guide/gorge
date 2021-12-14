@@ -24,6 +24,10 @@ func (c *counterCron) Entries() []cron.Entry {
 	return nil
 }
 
+func (i *counterCron) Entry(id cron.EntryID) cron.Entry {
+	return cron.Entry{}
+}
+
 func (c *counterCron) Remove(id cron.EntryID) {
 	delete(c.entries, id)
 }
@@ -55,6 +59,10 @@ type mockCron struct {
 func (m *mockCron) Entries() []cron.Entry {
 	args := m.Called()
 	return args.Get(0).([]cron.Entry)
+}
+
+func (i *mockCron) Entry(id cron.EntryID) cron.Entry {
+	return cron.Entry{}
 }
 
 func (m *mockCron) Remove(id cron.EntryID) {

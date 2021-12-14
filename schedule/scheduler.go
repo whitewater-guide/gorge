@@ -13,6 +13,7 @@ import (
 // It's extracted into interface so it can be mocked
 type Cron interface {
 	AddJob(spec string, cmd cron.Job) (cron.EntryID, error)
+	Entry(id cron.EntryID) cron.Entry
 	Entries() []cron.Entry
 	Remove(id cron.EntryID)
 	Start()

@@ -10,24 +10,29 @@ import (
 // it will execute job imeediately after it has been added
 type ImmediateCron struct{}
 
-// AddJob implement cronLike interface
+// AddJob implements schedule.Cron interface
 func (i *ImmediateCron) AddJob(spec string, cmd cron.Job) (cron.EntryID, error) {
 	cmd.Run()
 	return 0, nil
 }
 
-// Entries implement cronLike interface
+// Entries implements schedule.Cron interface
 func (i *ImmediateCron) Entries() []cron.Entry {
 	return []cron.Entry{}
 }
 
-// Remove implement cronLike interface
+// Entry implements schedule.Cron interface
+func (i *ImmediateCron) Entry(id cron.EntryID) cron.Entry {
+	return cron.Entry{}
+}
+
+// Remove implements schedule.Cron interface
 func (i *ImmediateCron) Remove(id cron.EntryID) {}
 
-// Start implement cronLike interface
+// Start implements schedule.Cron interface
 func (i *ImmediateCron) Start() {}
 
-// Stop implement cronLike interface
+// Stop implements schedule.Cron interface
 func (i *ImmediateCron) Stop() context.Context {
 	withCancel, cancel := context.WithCancel(context.Background())
 	defer cancel()
