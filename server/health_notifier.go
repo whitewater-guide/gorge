@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
+	"io/ioutil"
 	"net/http"
 	"os"
 	"strings"
@@ -35,7 +36,7 @@ type healthNotifierJob struct {
 }
 
 func (job healthNotifierJob) Run() {
-	job.logger.Debug("running health notifier job")
+	job.logger.Info("running health notifier")
 
 	jobs, err := job.database.ListJobs()
 
@@ -51,6 +52,7 @@ func (job healthNotifierJob) Run() {
 	}
 
 	res := []core.UnhealthyJob{}
+	scripts := []string{}
 
 	// Jobs that didn't return measurements within last 48 hours are considered unhealthy
 	threshold := time.Now().Add(-time.Duration(job.cfg.Threshold) * time.Hour)
@@ -67,17 +69,17 @@ func (job healthNotifierJob) Run() {
 					LastRun:     status.LastRun,
 					LastSuccess: status.LastSuccess,
 				})
+				scripts = append(scripts, j.Script)
 			}
 		}
 	}
 
-	job.logger.Debugf("found %d unhelathy jobs", len(res))
+	job.logger.Infof("found %d unhealthy jobs: %s", len(res), strings.Join(scripts, ", "))
 
 	if len(res) == 0 {
 		return
 	}
 
-	job.logger.Debug("notifying about unhealthy jobs")
 	msg, err := json.Marshal(res)
 	if err != nil {
 		job.logger.Errorf("failed to marshal unhealthy jobs: %v", err)
@@ -101,9 +103,10 @@ func (job healthNotifierJob) Run() {
 		req.Header.Set(strings.TrimSpace(parts[0]), os.ExpandEnv(strings.TrimSpace(parts[1])))
 	}
 
-	_, err = core.Client.Do(req, &core.RequestOptions{})
+	resp, err := core.Client.Do(req, &core.RequestOptions{})
 	if err == nil {
-		job.logger.Debug("notified about unhealthy jobs")
+		body, _ := ioutil.ReadAll(resp.Body)
+		job.logger.Infof("notified about unhealthy jobs, got %d %s", resp.StatusCode, string(body))
 	} else {
 		job.logger.Errorf("failed to notify about unhealthy jobs: %v", err)
 	}
