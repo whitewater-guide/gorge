@@ -114,10 +114,10 @@ func startHealthNotifier(lc fx.Lifecycle, p healthNotifierParams) {
 		OnStart: func(c context.Context) error {
 			log := p.Logger.WithField("logger", "health")
 
-			// if p.Cfg.Endpoint == "" {
-			// 	log.Debug("health webhook url not configured")
-			// 	return nil
-			// }
+			if p.Cfg.Endpoint == "" {
+				log.Debug("health webhook url not configured")
+				return nil
+			}
 
 			log.Debugf("starting")
 			job := healthNotifierJob{
