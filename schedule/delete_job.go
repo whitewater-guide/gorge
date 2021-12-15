@@ -4,13 +4,13 @@ import (
 	"github.com/whitewater-guide/gorge/core"
 )
 
-// DeleteJob implements JobScheduler interface
+// DeleteJob implements core.JobScheduler interface
 func (s *simpleScheduler) DeleteJob(jobID string) error {
 	entries := s.Cron.Entries()
 	removed := false
 	for _, entry := range entries {
-		job := entry.Job.(*harvestJob)
-		if job.jobID == jobID {
+		job, ok := entry.Job.(*harvestJob)
+		if ok && job.jobID == jobID {
 			s.Cron.Remove(entry.ID)
 			s.Logger.Debugf("deleted job  entry %s for job %s", job.cron, jobID)
 			removed = true

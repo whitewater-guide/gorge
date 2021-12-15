@@ -4,7 +4,7 @@ import (
 	"github.com/whitewater-guide/gorge/core"
 )
 
-// ListNext implements JobScheduler interface
+// ListNext implements core.JobScheduler interface
 func (s *simpleScheduler) ListNext(jobID string) map[string]core.HTime {
 	result := make(map[string]core.HTime)
 	for _, entry := range s.Cron.Entries() {
