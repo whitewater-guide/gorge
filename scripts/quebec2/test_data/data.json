@@ -1,0 +1,72 @@
+{
+    "Site": [
+        {
+            "CodeRegionQC": "01",
+            "Composition": [
+                {
+                    "Donnees": {
+                        "2022/04/22 00:00:00Z": "6.48",
+                        "2022/04/23 00:00:00Z": "6.93"
+                    },
+                    "element": "Bassin Lac Mistigougèche",
+                    "nom_unite_mesure": "m³/s",
+                    "pas_temps": "Journalier",
+                    "type_mesure": "Moyenne",
+                    "type_point_donnee": "Apport filtré"
+                },
+                {
+                    "Donnees": {
+                        "2022/04/22 11:00:00Z": "1.57"
+                    },
+                    "element": "Évacuateur Mistigougèche",
+                    "nom_unite_mesure": "m³/s",
+                    "pas_temps": "Horaire",
+                    "type_mesure": "Moyenne",
+                    "type_point_donnee": "Débit déversé"
+                }
+            ],
+            "RegionQC": "Bas-Saint-Laurent",
+            "date debut": "1954/01/01",
+            "date fin": null,
+            "identifiant": "3-15",
+            "nom": "Mistigougèche",
+            "xcoord": "-68.0264",
+            "ycoord": "48.1778",
+            "zcoord": null
+        },
+        {
+            "CodeRegionQC": "09",
+            "Composition": [
+                {
+                    "Donnees": {
+                        "2022/04/22 11:00:00Z": "297.78",
+                        "2022/04/22 12:00:00Z": "298.72"
+                    },
+                    "element": "Centrale Bersimis-2",
+                    "nom_unite_mesure": "m³/s",
+                    "pas_temps": "Horaire",
+                    "type_mesure": "Moyenne",
+                    "type_point_donnee": "Débit turbiné"
+                },
+                {
+                    "Donnees": {
+                        "2022/04/22 11:00:00Z": "297.78"
+                    },
+                    "element": "Site Bersimis-2",
+                    "nom_unite_mesure": "m³/s",
+                    "pas_temps": "Horaire",
+                    "type_mesure": "Moyenne",
+                    "type_point_donnee": "Débit total"
+                }
+            ],
+            "RegionQC": "Côte-Nord",
+            "date debut": "1959/01/01",
+            "date fin": null,
+            "identifiant": "3-99",
+            "nom": "Bersimis-2",
+            "xcoord": "-69.2785",
+            "ycoord": "49.2358",
+            "zcoord": null
+        }
+    ]
+}
