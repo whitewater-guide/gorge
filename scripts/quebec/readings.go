@@ -18,6 +18,7 @@ func parseValue(str string) (nulltype.NullFloat64, error) {
 	s := strings.Replace(str, ",", ".", -1)
 	s = strings.Replace(s, "*", "", -1)
 	s = strings.Replace(s, ",", ".", -1)
+	s = strings.Replace(s, "Â\u00a0", "", -1)
 	result := nulltype.NullFloat64{}
 	err := result.UnmarshalJSON([]byte(s))
 	return result, err
@@ -92,7 +93,7 @@ func (s *scriptQuebec) parseReadings(recv chan<- *core.Measurement, errs chan<- 
 }
 
 func (s *scriptQuebec) getReadings(recv chan<- *core.Measurement, errs chan<- error, code string) {
-	est, err := time.LoadLocation("EST")
+	est, err := time.LoadLocation("America/Toronto")
 	if err != nil {
 		errs <- err
 		return

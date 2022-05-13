@@ -125,7 +125,7 @@ func TestQuebec_Harvest_HTML(t *testing.T) {
 				Code:   "062701",
 			},
 			Timestamp: core.HTime{
-				Time: time.Date(2020, time.March, 16, 13, 30, 0, 0, time.UTC),
+				Time: time.Date(2020, time.March, 16, 12, 30, 0, 0, time.UTC),
 			},
 			Level: nulltype.NullFloat64{},
 			Flow:  nulltype.NullFloat64Of(9.716),
@@ -136,7 +136,7 @@ func TestQuebec_Harvest_HTML(t *testing.T) {
 				Code:   "062701",
 			},
 			Timestamp: core.HTime{
-				Time: time.Date(2020, time.March, 16, 13, 15, 0, 0, time.UTC),
+				Time: time.Date(2020, time.March, 16, 12, 15, 0, 0, time.UTC),
 			},
 			Level: nulltype.NullFloat64{},
 			Flow:  nulltype.NullFloat64Of(9.792),
@@ -154,7 +154,7 @@ func TestQuebec_Harvest_HTML(t *testing.T) {
 				Code:   "062702",
 			},
 			Timestamp: core.HTime{
-				Time: time.Date(2020, time.March, 16, 13, 30, 0, 0, time.UTC),
+				Time: time.Date(2020, time.March, 16, 12, 30, 0, 0, time.UTC),
 			},
 			Level: nulltype.NullFloat64{},
 			Flow:  nulltype.NullFloat64Of(9.716),
@@ -165,12 +165,42 @@ func TestQuebec_Harvest_HTML(t *testing.T) {
 				Code:   "062702",
 			},
 			Timestamp: core.HTime{
-				Time: time.Date(2020, time.March, 16, 13, 15, 0, 0, time.UTC),
+				Time: time.Date(2020, time.March, 16, 12, 15, 0, 0, time.UTC),
 			},
 			Level: nulltype.NullFloat64{},
 			Flow:  nulltype.NullFloat64Of(9.792),
 		},
 	}
+	if assert.NoError(t, err) {
+		assert.Equal(t, expected, actual)
+	}
+
+	actual, err = core.HarvestSlice(&s, core.StringSet{"061901": {}}, 0)
+	expected = core.Measurements{
+		&core.Measurement{
+			GaugeID: core.GaugeID{
+				Script: "quebec",
+				Code:   "061901",
+			},
+			Timestamp: core.HTime{
+				Time: time.Date(2022, time.May, 13, 8, 30, 0, 0, time.UTC),
+			},
+			Level: nulltype.NullFloat64Of(26.864),
+			Flow:  nulltype.NullFloat64Of(1470),
+		},
+		&core.Measurement{
+			GaugeID: core.GaugeID{
+				Script: "quebec",
+				Code:   "061901",
+			},
+			Timestamp: core.HTime{
+				Time: time.Date(2022, time.May, 13, 8, 15, 0, 0, time.UTC),
+			},
+			Level: nulltype.NullFloat64Of(26.864),
+			Flow:  nulltype.NullFloat64Of(1470),
+		},
+	}
+
 	if assert.NoError(t, err) {
 		assert.Equal(t, expected, actual)
 	}
