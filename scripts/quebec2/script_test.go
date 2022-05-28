@@ -19,8 +19,8 @@ func TestQuebec2_ListGauges(t *testing.T) {
 	ts := setupTestServer()
 	defer ts.Close()
 	s := scriptQuebec2{
-		name: "quebec2",
-		url:  ts.URL + "/data.json",
+		name:    "quebec2",
+		urlBase: ts.URL + "/",
 	}
 	actual, err := s.ListGauges()
 	expected := core.Gauges{
@@ -80,18 +80,47 @@ func TestQuebec2_ListGauges(t *testing.T) {
 			URL:      "https://www.hydroquebec.com/generation/flows-water-level.html",
 			Timezone: "America/Toronto",
 		},
+		core.Gauge{
+			GaugeID: core.GaugeID{
+				Script: "quebec2",
+				Code:   "1-7426",
+			},
+			LevelUnit: "m",
+			Location: &core.Location{
+				Longitude: -68.163,
+				Latitude:  49.9732,
+			},
+			Name:     "Toulnustouc Centrale aval",
+			URL:      "https://www.hydroquebec.com/generation/flows-water-level.html",
+			Timezone: "America/Toronto",
+		},
+		core.Gauge{
+			GaugeID: core.GaugeID{
+				Script: "quebec2",
+				Code:   "1-12315",
+			},
+			FlowUnit:  "m3/s",
+			LevelUnit: "m",
+			Location: &core.Location{
+				Longitude: -73.9497,
+				Latitude:  48.5715,
+			},
+			Name:     "Rivière Wabano",
+			URL:      "https://www.hydroquebec.com/generation/flows-water-level.html",
+			Timezone: "America/Toronto",
+		},
 	}
 	if assert.NoError(t, err) {
 		assert.ElementsMatch(t, expected, actual)
 	}
 }
 
-func TestNztrc_Harvest(t *testing.T) {
+func TestQuebec2_Harvest(t *testing.T) {
 	ts := setupTestServer()
 	defer ts.Close()
 	s := scriptQuebec2{
-		name: "quebec2",
-		url:  ts.URL + "/data.json",
+		name:    "quebec2",
+		urlBase: ts.URL + "/",
 	}
 	actual, err := core.HarvestSlice(&s, core.StringSet{}, 0)
 
@@ -154,6 +183,48 @@ func TestNztrc_Harvest(t *testing.T) {
 			Flow: nulltype.NullFloat64Of(297.78),
 			Timestamp: core.HTime{
 				Time: time.Date(2022, time.April, 22, 11, 0, 0, 0, time.UTC),
+			},
+		},
+		&core.Measurement{
+			GaugeID: core.GaugeID{
+				Script: "quebec2",
+				Code:   "1-7426",
+			},
+			Level: nulltype.NullFloat64Of(126.73),
+			Timestamp: core.HTime{
+				Time: time.Date(2022, time.May, 8, 11, 0, 0, 0, time.UTC),
+			},
+		},
+		&core.Measurement{
+			GaugeID: core.GaugeID{
+				Script: "quebec2",
+				Code:   "1-7426",
+			},
+			Level: nulltype.NullFloat64Of(126.72),
+			Timestamp: core.HTime{
+				Time: time.Date(2022, time.May, 8, 12, 0, 0, 0, time.UTC),
+			},
+		},
+		&core.Measurement{
+			GaugeID: core.GaugeID{
+				Script: "quebec2",
+				Code:   "1-12315",
+			},
+			Flow:  nulltype.NullFloat64Of(-6999),
+			Level: nulltype.NullFloat64Of(-9999),
+			Timestamp: core.HTime{
+				Time: time.Date(2022, time.May, 8, 11, 0, 0, 0, time.UTC),
+			},
+		},
+		&core.Measurement{
+			GaugeID: core.GaugeID{
+				Script: "quebec2",
+				Code:   "1-12315",
+			},
+			Flow:  nulltype.NullFloat64Of(-6999),
+			Level: nulltype.NullFloat64Of(-9999),
+			Timestamp: core.HTime{
+				Time: time.Date(2022, time.May, 8, 12, 0, 0, 0, time.UTC),
 			},
 		},
 	}

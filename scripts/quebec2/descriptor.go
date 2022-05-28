@@ -16,8 +16,8 @@ var Descriptor = &core.ScriptDescriptor{
 	Factory: func(name string, options interface{}) (core.Script, error) {
 		if _, ok := options.(*optionsQuebec2); ok {
 			return &scriptQuebec2{
-				name: name,
-				url:  "https://www.hydroquebec.com/data/documents-donnees/donnees-ouvertes/json/Donnees_VUE_CENTRALES_ET_OUVRAGES.json",
+				name:    name,
+				urlBase: "https://www.hydroquebec.com/data/documents-donnees/donnees-ouvertes/json/",
 			}, nil
 		}
 		return nil, fmt.Errorf("failed to cast %T", optionsQuebec2{})

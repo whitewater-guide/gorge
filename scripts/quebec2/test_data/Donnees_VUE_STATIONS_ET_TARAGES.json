@@ -1,0 +1,109 @@
+{
+   "Station": [
+      {
+         "CodeRegionQC": "09",
+         "Composition": [
+            {
+               "Donnees": {
+                  "2022/05/08 11:00:00Z": "126.73",
+                  "2022/05/08 12:00:00Z": "126.72"
+               },
+               "element": "Limnimètre",
+               "nom_unite_mesure": "m",
+               "pas_temps": "Horaire",
+               "type_mesure": "Moyenne",
+               "type_point_donnee": "Niveau"
+            },
+            {
+               "Donnees": {
+                  "2022/05/08 11:00:00Z": "7.35",
+                  "2022/05/08 12:00:00Z": "8.71"
+               },
+               "element": "Anémomètre",
+               "nom_unite_mesure": "km/h",
+               "pas_temps": "Horaire",
+               "type_mesure": "Moyenne",
+               "type_point_donnee": "Vitesse du vent.10 mètres"
+            }
+         ],
+         "RegionQC": "Côte-Nord",
+         "date debut": "2005/04/27",
+         "date fin": null,
+         "identifiant": "1-7426",
+         "nom": "Toulnustouc Centrale aval",
+         "xcoord": "-68.163",
+         "ycoord": "49.9732",
+         "zcoord": null
+      },
+      {
+         "CodeRegionQC": "04",
+         "Composition": [
+            {
+               "Donnees": {
+                  "2022/05/08 11:00:00Z": "395.55",
+                  "2022/05/08 12:00:00Z": "395.54"
+               },
+               "element": "Limnimètre",
+               "nom_unite_mesure": "m",
+               "pas_temps": "Horaire",
+               "type_mesure": "Moyenne",
+               "type_point_donnee": "Niveau"
+            },
+            {
+               "Donnees": {
+                  "2022/05/08 11:00:00Z": "-9999.00",
+                  "2022/05/08 12:00:00Z": "-9999.00"
+               },
+               "element": "Doppler",
+               "nom_unite_mesure": "m",
+               "pas_temps": "Horaire",
+               "type_mesure": "Moyenne",
+               "type_point_donnee": "Niveau"
+            },
+            {
+               "Donnees": {
+                  "2022/05/08 11:00:00Z": "-6999.00",
+                  "2022/05/08 12:00:00Z": "-6999.00"
+               },
+               "element": "Doppler",
+               "nom_unite_mesure": "m³/s",
+               "pas_temps": "Horaire",
+               "type_mesure": "Moyenne",
+               "type_point_donnee": "Débit"
+            }
+         ],
+         "RegionQC": "Mauricie",
+         "date debut": "2014/11/18",
+         "date fin": null,
+         "identifiant": "1-12315",
+         "nom": "Rivière Wabano",
+         "xcoord": "-73.9497",
+         "ycoord": "48.5715",
+         "zcoord": null
+      },
+      {
+         "CodeRegionQC": "09",
+         "Composition": [
+            {
+               "Donnees": {
+                  "2022/05/08 11:00:00Z": "-9999.00",
+                  "2022/05/08 12:00:00Z": "-9999.00"
+               },
+               "element": "Doppler",
+               "nom_unite_mesure": "m³/s",
+               "pas_temps": "Horaire",
+               "type_mesure": "Moyenne",
+               "type_point_donnee": "Débit"
+            }
+         ],
+         "RegionQC": "Côte-Nord",
+         "date debut": "2004/12/16",
+         "date fin": null,
+         "identifiant": "1-7298",
+         "nom": "Rivière Isoukustouc (CM5Y)",
+         "xcoord": "-68.2904",
+         "ycoord": "49.806",
+         "zcoord": "0"
+      }
+   ]
+}
