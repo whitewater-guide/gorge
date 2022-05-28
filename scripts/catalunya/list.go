@@ -6,6 +6,9 @@ import (
 	"strconv"
 	"strings"
 
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
+
 	"github.com/whitewater-guide/gorge/core"
 )
 
@@ -45,7 +48,7 @@ func (s *scriptCatalunya) convert(sensor *sensor) (*core.Gauge, error) {
 			Script: s.name,
 			Code:   sensor.Sensor,
 		},
-		Name:      strings.Title(strings.ToLower(sensor.ComponentAdditionalInfo.Riu)) + " - " + sensor.ComponentDesc + " (" + levelUnit + flowUnit + ")",
+		Name:      cases.Title(language.Spanish).String(sensor.ComponentAdditionalInfo.Riu) + " - " + sensor.ComponentDesc + " (" + levelUnit + flowUnit + ")",
 		URL:       "http://aca-web.gencat.cat/sentilo-catalog-web/component/AFORAMENT-EST." + sensor.Component + "/detail",
 		LevelUnit: levelUnit,
 		FlowUnit:  flowUnit,

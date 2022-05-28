@@ -8,6 +8,8 @@ import (
 	"strings"
 
 	"github.com/whitewater-guide/gorge/core"
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 )
 
 type kmlPmDesc struct {
@@ -79,7 +81,7 @@ func (desc *kmlPmDesc) UnmarshalXML(d *xml.Decoder, start xml.StartElement) erro
 		case "CODIGO BNA":
 			desc.codigo = val
 		case "NOMBRE":
-			desc.nombre = strings.Title(strings.ToLower(val))
+			desc.nombre = cases.Title(language.Spanish).String(val)
 		case "ALTITUD":
 			alt, err := strconv.ParseFloat(val, 64)
 			if err != nil {

@@ -2,9 +2,10 @@ package ecuador
 
 import (
 	"regexp"
-	"strings"
 
 	"github.com/whitewater-guide/gorge/core"
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 )
 
 func (s *scriptEcuador) parseList() (map[string]core.Gauge, error) {
@@ -16,7 +17,7 @@ func (s *scriptEcuador) parseList() (map[string]core.Gauge, error) {
 	matches := r.FindAllStringSubmatch(string(raw), -1)
 	result := make(map[string]core.Gauge)
 	for _, m := range matches {
-		name := strings.Title(strings.ToLower(m[1]))
+		name := cases.Title(language.Spanish).String(m[1])
 		code := m[2]
 		if code != "" {
 			result[code] = core.Gauge{

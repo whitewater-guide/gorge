@@ -2,9 +2,10 @@ package chile
 
 import (
 	"fmt"
-	"strings"
 
 	"github.com/whitewater-guide/gorge/core"
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 )
 
 // const wgs84 = "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs"
@@ -49,7 +50,7 @@ func (s *scriptChile) getWebGauges() (map[string]core.Gauge, error) {
 					Script: s.name,
 					Code:   id,
 				},
-				Name:      strings.Title(strings.ToLower(feature.Attributes.Name)),
+				Name:      cases.Title(language.Spanish).String(feature.Attributes.Name),
 				FlowUnit:  "m3/s",
 				LevelUnit: "m",
 				Location: &core.Location{

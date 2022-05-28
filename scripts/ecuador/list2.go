@@ -3,9 +3,10 @@ package ecuador
 import (
 	"encoding/json"
 	"math"
-	"strings"
 
 	"github.com/whitewater-guide/gorge/core"
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 )
 
 func (s *scriptEcuador) parseList2() (map[string]core.Gauge, error) {
@@ -30,7 +31,7 @@ func (s *scriptEcuador) parseList2() (map[string]core.Gauge, error) {
 				Script: s.name,
 				Code:   item.Code,
 			},
-			Name: strings.Title(strings.ToLower(item.Name)),
+			Name: cases.Title(language.Spanish).String(item.Name),
 			Location: &core.Location{
 				Latitude:  core.TruncCoord(item.Lat),
 				Longitude: core.TruncCoord(item.Lng),
