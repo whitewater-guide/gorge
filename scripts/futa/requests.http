@@ -1,0 +1,11 @@
+###
+# List gauges
+POST http://localhost:7080/upstream/futa/gauges
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+# Get measurements
+POST http://localhost:7080/upstream/futa/measurements
+Cache-Control: no-cache
+Content-Type: application/json

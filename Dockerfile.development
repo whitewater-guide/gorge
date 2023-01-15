@@ -9,8 +9,9 @@ RUN apt-get update -y && \
     # install cgo-related dependencies
     g++ gcc libc6-dev make pkg-config
 
-RUN curl -OL https://golang.org/dl/go${GOLANG_VERSION}.linux-amd64.tar.gz && \
-    tar -C /usr/local -xvf go${GOLANG_VERSION}.linux-amd64.tar.gz
+RUN arch=$(arch | sed s/aarch64/arm64/ | sed s/x86_64/amd64/) && \
+    curl -OL https://golang.org/dl/go${GOLANG_VERSION}.linux-${arch}.tar.gz && \
+    tar -C /usr/local -xvf go${GOLANG_VERSION}.linux-${arch}.tar.gz
 
 ENV GOPATH /go
 ENV PATH $GOPATH/bin:$PATH
