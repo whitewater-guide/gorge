@@ -51,7 +51,7 @@ jobs:
       - name: Semantic release
         id: semantic
         if: ${{ env.PUBLISH_RELEASE == 'true' }}
-        uses: cycjimmy/semantic-release-action@v2
+        uses: cycjimmy/semantic-release-action@v3
         with:
           extra_plugins: |
             @semantic-release/git
