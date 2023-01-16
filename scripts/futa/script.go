@@ -63,7 +63,9 @@ func (s *scriptFuta) Harvest(ctx context.Context, recv chan<- *core.Measurement,
 		if d, err = time.ParseInLocation("15:04:05 01/02/06", dS, tz); err != nil {
 			break
 		}
-		v.UnmarshalJSON([]byte(vS))
+		if err = v.UnmarshalJSON([]byte(vS)); err != nil {
+			return
+		}
 		recv <- &core.Measurement{
 			GaugeID: core.GaugeID{
 				Script: s.name,
