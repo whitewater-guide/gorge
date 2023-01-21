@@ -1,0 +1,74 @@
+{
+    "type": "FeatureCollection",
+    "crs": {
+        "type": "name",
+        "properties": {
+            "name": "EPSG:4326"
+        }
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "station_ref": "0000001041",
+                "station_name": "Sandy Mills",
+                "sensor_ref": "0001",
+                "region_id": 3,
+                "datetime": "2023-01-21T22:45:00Z",
+                "value": "1.048",
+                "err_code": 99,
+                "url": "/0000001041/0001/",
+                "csv_file": "/data/month/01041_0001.csv"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -7.575758,
+                    54.838318
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "station_ref": "0000001041",
+                "station_name": "Sandy Mills",
+                "sensor_ref": "0002",
+                "region_id": 3,
+                "datetime": "2023-01-21T22:00:00Z",
+                "value": "4.100",
+                "err_code": 99,
+                "url": "/0000001041/0002/",
+                "csv_file": "/data/month/01041_0002.csv"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -7.575758,
+                    54.838318
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "station_ref": "0000001043",
+                "station_name": "Ballybofey",
+                "sensor_ref": "0001",
+                "region_id": 3,
+                "datetime": "2023-01-21T19:30:00Z",
+                "value": "1.934",
+                "err_code": 99,
+                "url": "/0000001043/0001/",
+                "csv_file": "/data/month/01043_0001.csv"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -7.790749,
+                    54.799769
+                ]
+            }
+        }
+    ]
+}
