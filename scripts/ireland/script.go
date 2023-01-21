@@ -67,7 +67,7 @@ func (s *scriptIreland) Harvest(ctx context.Context, recv chan<- *core.Measureme
 		ref := f.Properties.StationRef
 
 		var val nulltype.NullFloat64
-		json.Unmarshal([]byte(f.Properties.Value), &val)
+		json.Unmarshal([]byte(f.Properties.Value), &val) //nolint:errcheck
 
 		recv <- &core.Measurement{
 			GaugeID: core.GaugeID{
