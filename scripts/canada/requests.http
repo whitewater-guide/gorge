@@ -11,7 +11,8 @@ Cache-Control: no-cache
 Content-Type: application/json
 
 {
-  "provinces": "QC,NL"
+  "provinces": "QC,NL,AB",
+  "timeout": 120
 }
 
 ###

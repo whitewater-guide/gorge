@@ -13,18 +13,28 @@ import (
 
 type optionsCanada struct {
 	Provinces string `desc:"Comma-separated list of province codes"`
+	Timeout   int64  `desc:"Custom http request timeout in seconds for listing gauges"`
 }
 
 type scriptCanada struct {
-	name      string
-	baseURL   string
-	numWokers int
-	provinces map[string]bool
+	name       string
+	baseURL    string
+	numWokers  int
+	provinces  map[string]bool
+	timeoutSec int64
 	core.LoggingScript
 }
 
 func (s *scriptCanada) ListGauges() (result core.Gauges, err error) {
-	err = core.Client.StreamCSV(
+	client := core.Client
+	if s.timeoutSec != 0 {
+		client = core.NewClient(core.ClientOptions{
+			UserAgent: "whitewater.guide robot",
+			Timeout:   s.timeoutSec,
+		}, s.GetLogger())
+	}
+
+	err = client.StreamCSV(
 		s.baseURL+"/doc/hydrometric_StationList.csv",
 		func(row []string) error {
 			g, err := s.gaugeFromRow(row)
