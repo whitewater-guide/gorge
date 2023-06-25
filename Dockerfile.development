@@ -1,7 +1,7 @@
 FROM ubuntu:20.04 as ubuntu-go
 
 ENV PATH /usr/local/go/bin:$PATH
-ENV GOLANG_VERSION 1.18.2
+ENV GOLANG_VERSION 1.20.5
 
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
@@ -19,7 +19,6 @@ RUN mkdir -p "${GOPATH}/src" "${GOPATH}/bin" && chmod -R 777 "${GOPATH}"
 
 RUN go version
 
-
 ##############################
 # Base dev image             #
 ##############################
@@ -28,10 +27,15 @@ FROM ubuntu-go
 
 RUN apt-get install -y \
     git \
+    jq \
     # Install libproj 6.3.1
     libproj-dev \
     # Graphviz is needed for pprof
     graphviz
+
+# Install zsh
+# Default powerline10k theme, no plugins installed
+RUN sh -c "$(curl -L https://github.com/deluan/zsh-in-docker/releases/download/v1.1.5/zsh-in-docker.sh)"
 
 # Although it's set in Makefile, still set it here
 # This way we can use vscode debug, which doesn't use make
