@@ -13,6 +13,7 @@ import (
 	"github.com/whitewater-guide/gorge/scripts/galicia2"
 	"github.com/whitewater-guide/gorge/scripts/georgia"
 	"github.com/whitewater-guide/gorge/scripts/ireland"
+	"github.com/whitewater-guide/gorge/scripts/ireland2"
 	"github.com/whitewater-guide/gorge/scripts/kuban"
 	"github.com/whitewater-guide/gorge/scripts/norway"
 	"github.com/whitewater-guide/gorge/scripts/nzbop"
@@ -60,6 +61,7 @@ func init() {
 	Registry.Register(galicia2.Descriptor)
 	Registry.Register(georgia.Descriptor)
 	Registry.Register(ireland.Descriptor)
+	Registry.Register(ireland2.Descriptor)
 	Registry.Register(kuban.Descriptor)
 	Registry.Register(norway.Descriptor)
 	Registry.Register(nzcan.Descriptor)
