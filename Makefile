@@ -9,7 +9,7 @@ download:
 tools: download
 	cat tools.go | grep _ | awk -F'"' '{print $$2}' | xargs -tI % go install %
 # timezone lookup tool has binary named "cmd"
-	test -f timezone.msgpack.snap.db || cmd
+	test -f timezone.data || cmd -build -url https://github.com/evansiroky/timezone-boundary-builder/releases/download/2023b/timezones-with-oceans.geojson.zip
 
 # netgo flag is required because we want to use db address `postgres.local`
 # See https://pkg.go.dev/net#hdr-Name_Resolution

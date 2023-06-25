@@ -6,7 +6,6 @@ import (
 	"encoding/json"
 	"errors"
 	"io"
-	"io/ioutil"
 	"sort"
 
 	"github.com/sirupsen/logrus"
@@ -144,7 +143,7 @@ func (s *LoggingScript) SetLogger(logger *logrus.Entry) {
 func (s *LoggingScript) GetLogger() *logrus.Entry {
 	if s.logger == nil {
 		logger := logrus.New()
-		logger.SetOutput(ioutil.Discard)
+		logger.SetOutput(io.Discard)
 		s.logger = logrus.NewEntry(logger)
 	}
 	return s.logger

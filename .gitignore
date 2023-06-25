@@ -11,6 +11,7 @@
 **/bench_data/
 .bin/
 timezone.msgpack.snap.db
+timezone.data
 *.log
 /build/
 

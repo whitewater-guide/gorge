@@ -2,24 +2,25 @@ package core
 
 import (
 	"os"
+	"path"
 
-	timezone "github.com/evanoberholster/timezoneLookup"
+	timezone "github.com/evanoberholster/timezoneLookup/v2"
+	"github.com/ringsaturn/tzf"
 )
 
-var tz *timezone.TimezoneInterface
+var tz *timezone.Timezonecache
 
-func load() (*timezone.TimezoneInterface, error) {
+func load() (*timezone.Timezonecache, error) {
 	if tz == nil {
 		// This is for tests, because they run in tested package's directory
 		tzDbDir := os.Getenv("TIMEZONE_DB_DIR")
-		zones, err := timezone.LoadTimezones(timezone.Config{
-			DatabaseType: "boltdb",             // memory or boltdb
-			DatabaseName: tzDbDir + "timezone", // Name without suffix
-			Snappy:       true,
-			Encoding:     timezone.EncMsgPack,
-		})
-		tz = &zones
+		f, err := os.Open(path.Join(tzDbDir, "timezone.data"))
 		if err != nil {
+			return nil, err
+		}
+		defer f.Close()
+		tz = &timezone.Timezonecache{}
+		if err = tz.Load(f); err != nil {
 			return nil, err
 		}
 	}
@@ -32,7 +33,20 @@ func CoordinateToTimezone(lat float64, lon float64) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	return (*db).Query(timezone.Coord{Lat: float32(lat), Lon: float32(lon)})
+	result, err := db.Search(lat, lon)
+	if err != nil {
+		return "", err
+	}
+	name := result.Name
+	if name == "" {
+		// fallback, alternative lib, can discover America/St_John
+		f, err := tzf.NewDefaultFinder()
+		if err != nil {
+			return "", err
+		}
+		name = f.GetTimezoneName(lon, lat)
+	}
+	return name, nil
 }
 
 func CloseTimezoneDb() {

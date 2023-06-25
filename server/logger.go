@@ -1,7 +1,7 @@
 package main
 
 import (
-	"io/ioutil"
+	"io"
 
 	"github.com/sirupsen/logrus"
 	"github.com/whitewater-guide/gorge/config"
@@ -19,7 +19,7 @@ func newLogger(cfg *config.Config) *logrus.Logger {
 		logLevel = "debug"
 	}
 	if logLevel == "" {
-		result.SetOutput(ioutil.Discard)
+		result.SetOutput(io.Discard)
 	} else {
 		lvl, err := logrus.ParseLevel(logLevel)
 		if err != nil {
@@ -32,6 +32,6 @@ func newLogger(cfg *config.Config) *logrus.Logger {
 
 func testLogger(cfg *config.Config) *logrus.Logger {
 	result := logrus.New()
-	result.SetOutput(ioutil.Discard)
+	result.SetOutput(io.Discard)
 	return result
 }

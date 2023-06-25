@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 
 	"github.com/whitewater-guide/gorge/core"
@@ -54,7 +54,7 @@ func (client *HTTPClient) DoJSON(req *http.Request, dest interface{}) error {
 	}
 	defer res.Body.Close()
 
-	body, err := ioutil.ReadAll(res.Body)
+	body, err := io.ReadAll(res.Body)
 	if err != nil {
 		return fmt.Errorf("failed to read response body from `%s`: %w", req.URL, err)
 	}

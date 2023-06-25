@@ -94,7 +94,7 @@ COPY --from=builder /go/bin/gorge-server /go/bin/gorge-cli /usr/local/bin/
 
 # Copy generated timezonedb
 ENV TIMEZONE_DB_DIR="/usr/local/share/timezonedb/"
-COPY --from=builder /workspace/timezone.msgpack.snap.db /usr/local/share/timezonedb/
+COPY --from=builder /workspace/timezone.data /usr/local/share/timezonedb/
 
 # Copy data for libproj
 ENV PROJ_LIB=/usr/local/share/proj/

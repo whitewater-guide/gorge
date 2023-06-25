@@ -1,7 +1,7 @@
 package storage
 
 import (
-	"io/ioutil"
+	"io"
 	"testing"
 
 	"github.com/sirupsen/logrus"
@@ -10,7 +10,7 @@ import (
 
 func TestSqlite(t *testing.T) {
 	logger := logrus.New()
-	logger.SetOutput(ioutil.Discard)
+	logger.SetOutput(io.Discard)
 
 	mgr := NewSqliteDb(logrus.NewEntry(logger), 0)
 	mgr.Start() //nolint:errcheck

@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"os"
 	"strings"
@@ -105,7 +105,7 @@ func (job healthNotifierJob) Run() {
 
 	resp, err := core.Client.Do(req, &core.RequestOptions{})
 	if err == nil {
-		body, _ := ioutil.ReadAll(resp.Body)
+		body, _ := io.ReadAll(resp.Body)
 		job.logger.Infof("notified about unhealthy jobs, got %d %s", resp.StatusCode, string(body))
 	} else {
 		job.logger.Errorf("failed to notify about unhealthy jobs: %v", err)

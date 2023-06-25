@@ -3,7 +3,7 @@ package norway
 import (
 	"context"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"math/rand"
 	"strings"
 	"time"
@@ -228,7 +228,7 @@ func (s *scriptNorway) gaugePageWorker(gauges <-chan listItem, results chan<- co
 			results <- core.Gauge{}
 			continue
 		}
-		bytes, err := ioutil.ReadAll(resp.Body)
+		bytes, err := io.ReadAll(resp.Body)
 		if err != nil {
 			results <- core.Gauge{}
 			resp.Body.Close()

@@ -7,13 +7,12 @@ import (
 	"encoding/xml"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
 	"time"
 
-	"moul.io/http2curl"
+	"moul.io/http2curl/v2"
 
 	browser "github.com/EDDYCJY/fake-useragent"
 	"github.com/PuerkitoBio/goquery"
@@ -163,7 +162,7 @@ func (client *HTTPClient) GetAsString(url string, opts *RequestOptions) (string,
 		return "", err
 	}
 	defer resp.Body.Close()
-	bytes, err := ioutil.ReadAll(resp.Body)
+	bytes, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return "", err
 	}
@@ -239,7 +238,7 @@ func (client *HTTPClient) PostFormAsString(url string, data url.Values, opts *Re
 		return "", req, err
 	}
 	defer resp.Body.Close()
-	bytes, err := ioutil.ReadAll(resp.Body)
+	bytes, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return "", req, err
 	}
@@ -268,7 +267,7 @@ func (client *HTTPClient) StreamCSV(url string, handler func(row []string) error
 		return err
 	}
 	defer resp.Body.Close()
-	defer io.Copy(ioutil.Discard, resp.Body) //nolint:errcheck
+	defer io.Copy(io.Discard, resp.Body) //nolint:errcheck
 	var reader io.Reader = resp.Body
 	if opts.Decoder != nil {
 		reader = transform.NewReader(resp.Body, opts.Decoder)

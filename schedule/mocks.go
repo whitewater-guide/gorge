@@ -2,7 +2,7 @@ package schedule
 
 import (
 	"context"
-	"io/ioutil"
+	"io"
 	"testing"
 
 	"github.com/robfig/cron/v3"
@@ -90,7 +90,7 @@ type mockScheduler struct {
 
 func newMockScheduler(t *testing.T) *mockScheduler {
 	logger := logrus.New()
-	logger.SetOutput(ioutil.Discard)
+	logger.SetOutput(io.Discard)
 
 	db := storage.NewSqliteDb(logrus.NewEntry(logger), 0)
 	cache := &storage.EmbeddedCacheManager{}
