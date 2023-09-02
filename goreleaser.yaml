@@ -27,7 +27,7 @@ dockers:
     goarch: amd64
     extra_files:
       - timezone.data
-      - build
+      - build/
     image_templates:
       - "ghcr.io/{{ .Env.REPO_NAME }}:latest"
       - "ghcr.io/{{ .Env.REPO_NAME }}:{{ .Version }}"
