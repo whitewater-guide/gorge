@@ -1,14 +1,23 @@
 #! /bin/bash
 
+set -ex
+
+LIBPROJ_DIR=libproj
+LIBPROJ_VERSION=8.2.1
+
 if [[ $(ldconfig -p) =~ "libproj.so" ]]; then
   echo "libproj found"
   exit 0
 fi
 
-mkdir -p proj
-curl https://download.osgeo.org/proj/proj-8.2.1.tar.gz | tar -xz --strip-components=1 --directory proj
-mkdir -p proj/build
-cd proj/build
+if [ ! -d "${LIBPROJ_DIR}/src" ]; then 
+  echo "downloading libproj sources"
+  mkdir -p ${LIBPROJ_DIR}
+  curl https://download.osgeo.org/proj/proj-${LIBPROJ_VERSION}.tar.gz | tar -xz --strip-components=1 --directory ${LIBPROJ_DIR}
+fi
+
+mkdir -p ${LIBPROJ_DIR}/build
+cd ${LIBPROJ_DIR}/build
 
 # Having shared libraries makes life easire during development
 BUILD_SHARED_LIBS=ON

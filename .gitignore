@@ -14,7 +14,7 @@ timezone.msgpack.snap.db
 timezone.data
 *.log
 /build/
-/proj/
+/libproj/
 
 .vscode
 node_modules
