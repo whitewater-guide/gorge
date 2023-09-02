@@ -1,8 +1,8 @@
 FROM alpine:3.15
 
-RUN apk add proj
+RUN apk add proj ca-certificates
 
-COPY ./build /usr/local/bin/
+COPY ./gorge-server /usr/local/bin/
 
 # Copy generated timezonedb
 ENV TIMEZONE_DB_DIR="/usr/local/share/timezonedb/"

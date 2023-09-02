@@ -28,6 +28,11 @@ jobs:
         with:
           go-version-file: "go.mod"
 
+      - name: Install GoReleaser
+        uses: goreleaser/goreleaser-action@v4
+        with:
+          install-only: true
+
       - name: Restore cached timezone data
         id: cache-tz-restore
         uses: actions/cache/restore@v3
@@ -35,13 +40,11 @@ jobs:
           path: timezone.data
           key: ${{ runner.os }}-tz-2023b
 
-      - name: Verify
+      - name: Verify and make typescript definitions
         run: |
           make test
           make lint
-
-      - name: Prepare release
-        run: make release
+          make typescript
 
       - name: Save timezone data cache
         id: cache-tz-save
@@ -50,38 +53,19 @@ jobs:
           path: timezone.data
           key: ${{ steps.cache-tz-restore.outputs.cache-primary-key }}
 
-      - name: Semantic release
-        id: semantic
-        if: ${{ env.PUBLISH_RELEASE == 'true' }}
-        uses: cycjimmy/semantic-release-action@v3
-        with:
-          extra_plugins: |
-            @semantic-release/git
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Set up docker buildx
-        if: ${{ env.PUBLISH_RELEASE == 'true' }}
-        uses: docker/setup-buildx-action@v2
-
       - name: Login to GitHub Container Registry
-        if: ${{ env.PUBLISH_RELEASE == 'true' }}
         uses: docker/login-action@v2
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push docker image
-        if: ${{ env.PUBLISH_RELEASE == 'true' && steps.semantic.outputs.new_release_published == 'true' }}
-        uses: docker/build-push-action@v4
+      - name: Semantic release
+        uses: cycjimmy/semantic-release-action@v3
         with:
-          context: .
-          platforms: linux/amd64,linux/arm64
-          push: true
-          tags: |
-            ghcr.io/${{ github.repository }}:latest
-            ghcr.io/${{ github.repository }}:${{ steps.semantic.outputs.new_release_version}}
-          cache-from: type=registry,ref=ghcr.io/${{ github.repository }}:latest
-          cache-to: type=inline
+          extra_plugins: |
+            @semantic-release/git
+            @semantic-release/exec
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
