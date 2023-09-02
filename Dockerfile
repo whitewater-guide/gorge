@@ -1,4 +1,4 @@
-FROM alpine:3.15
+FROM jeanblanchard/alpine-glibc:3.15
 
 RUN apk add proj ca-certificates
 
