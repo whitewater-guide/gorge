@@ -1,8 +1,7 @@
 #! /bin/bash
 
 set -ex
-
-LIBPROJ_DIR=libproj
+LIBPROJ_DIR=${LIBPROJ_DIR:-libproj}
 LIBPROJ_VERSION=8.2.1
 
 if [[ $(ldconfig -p) =~ "libproj.so" ]]; then

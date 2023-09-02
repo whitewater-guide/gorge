@@ -7,6 +7,7 @@ on:
 env:
   REGISTRY: ghcr.io
   CI: true
+  LIBPROJ_DIR: libproj
 jobs:
   build:
     name: Build
@@ -23,7 +24,7 @@ jobs:
         id: cache-libproj-restore
         uses: actions/cache/restore@v3
         with:
-          path: proj
+          path: libproj
           key: ${{ runner.os }}-libproj
 
       - name: Build libproj 8.2.1 (ubuntu 22.04)
@@ -36,13 +37,20 @@ jobs:
         id: cache-libproj-save
         uses: actions/cache/save@v3
         with:
-          path: proj
+          path: libproj
           key: ${{ steps.cache-libproj-restore.outputs.cache-primary-key }}
 
       - name: Setup go
         uses: actions/setup-go@v4
         with:
           go-version-file: 'go.mod'
+
+      - name: Restore cached timezone data
+        id: cache-tz-restore
+        uses: actions/cache/restore@v3
+        with:
+          path: timezone.data
+          key: ${{ runner.os }}-tz-2023b
 
       - name: Verify
         run: |
@@ -51,6 +59,13 @@ jobs:
 
       - name: Prepare release
         run: make release
+
+      - name: Save timezone data cache
+        id: cache-tz-save
+        uses: actions/cache/save@v3
+        with:
+          path: timezone.data
+          key: ${{ steps.cache-tz-restore.outputs.cache-primary-key }}
 
       - name: Semantic release
         id: semantic
