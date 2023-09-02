@@ -6,11 +6,12 @@ on:
       - master
 env:
   REGISTRY: ghcr.io
+  CI: true
 jobs:
   build:
     name: Build
     # it's important to use this version of ubuntu, because it matches development docker image and has correct veriosn of libproj
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     env:
       # beta branch is used for prereleases, as described in https://semantic-release.gitbook.io/semantic-release/usage/configuration#branches
       PUBLISH_RELEASE: ${{ github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/beta') }}
@@ -18,10 +19,11 @@ jobs:
       - name: Check out
         uses: actions/checkout@v3
 
-      - name: Install libproj 6.3.1
+      - name: Build libproj 8.2.1 (ubuntu 22.04)
         run: |
           sudo apt-get update -y
-          sudo apt-get install -y libproj-dev
+          sudo apt-get install -y cmake libsqlite3-dev sqlite3
+          ./build-proj.sh
 
       - name: Setup go
         uses: actions/setup-go@v4

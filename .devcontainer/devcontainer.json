@@ -6,6 +6,7 @@
   "service": "app",
   "workspaceFolder": "/workspace",
   "initializeCommand": "touch .env.development",
+  "postCreateCommand": "./build-proj.sh",
   "customizations": {
     "vscode": {
       "settings": {

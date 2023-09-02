@@ -21,10 +21,12 @@ tools: download
 build: tools
 build: GOOS=linux 
 build:
+ifndef CI
 	go build -o build/gorge-cli \
 		-ldflags="-extldflags '${EXTLDFLAGS}' -s -w -X 'github.com/whitewater-guide/gorge/version.Version=$(VERSION)'" \
 		-tags sqlite_omit_load_extension,netgo \
 		github.com/whitewater-guide/gorge/cli
+endif
 	go build -o build/gorge-server \
 		-ldflags="-extldflags '${EXTLDFLAGS}' -s -w -X 'github.com/whitewater-guide/gorge/version.Version=$(VERSION)'" \
 		-tags sqlite_omit_load_extension,netgo \

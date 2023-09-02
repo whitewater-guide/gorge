@@ -1,6 +1,6 @@
 package core
 
-import "github.com/everystreet/go-proj/v6/proj"
+import "github.com/everystreet/go-proj/v8/proj"
 
 // ToEPSG4326 converts coordinate from given coordinate system definition to EPSG4326
 // Definition can be obtained using following url https://epsg.io/<EPSG_CODE>.proj4
