@@ -14,7 +14,7 @@ builds:
       - sqlite_omit_load_extension
       - netgo
     hooks:
-      posrt:
+      post:
         - cmd: ldd {{ .Path }} | tr -s '[:blank:]' '\n' | grep ^/ | xargs -I % install -D % {{ dir .Dist}}/%
           output: true
 
