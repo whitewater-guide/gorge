@@ -15,7 +15,7 @@ builds:
       - netgo
     hooks:
       post:
-        - cmd: ldd {{ .Path }} | tr -s '[:blank:]' '\n' | grep ^/ | xargs -I % install -D % {{ dir .Path }}/%
+        - cmd: sh -c "ldd {{ .Path }} | tr -s '[:blank:]' '\n' | grep ^/ | xargs -I % install -D % {{ dir .Path }}/%"
           output: true
 
 dockers:
