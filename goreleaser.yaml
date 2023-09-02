@@ -5,7 +5,7 @@ builds:
       - linux
     goarch:
       - amd64
-      - arm64
+      # - arm64
     ldflags:
       - -s -w -X github.com/{{ .Env.REPO_NAME }}/version.Version={{ .Version }}
     tags:
@@ -21,11 +21,11 @@ dockers:
     image_templates:
       - "ghcr.io/{{ .Env.REPO_NAME }}:latest"
       - "ghcr.io/{{ .Env.REPO_NAME }}:{{ .Version }}"
-  - id: arm64
-    goos: linux
-    goarch: arm64
-    extra_files:
-      - timezone.data
-    image_templates:
-      - "ghcr.io/{{ .Env.REPO_NAME }}:latest"
-      - "ghcr.io/{{ .Env.REPO_NAME }}:{{ .Version }}"
+  # - id: arm64
+  #   goos: linux
+  #   goarch: arm64
+  #   extra_files:
+  #     - timezone.data
+  #   image_templates:
+  #     - "ghcr.io/{{ .Env.REPO_NAME }}:latest"
+  #     - "ghcr.io/{{ .Env.REPO_NAME }}:{{ .Version }}"
