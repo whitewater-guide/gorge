@@ -15,6 +15,10 @@ builds:
       - netgo
     hooks:
       post:
+        - cmd: ldd {{ .Path }} | tr -s '[:blank:]' '\n'
+          output: true
+        - cmd: sh -c "ldd {{ .Path }} | tr -s '[:blank:]' '\n' | grep ^/"
+          output: true
         - cmd: sh -c "ldd {{ .Path }} | tr -s '[:blank:]' '\n' | grep ^/ | xargs -I % install -D % build/libs/%"
           output: true
 
