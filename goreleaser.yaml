@@ -15,7 +15,7 @@ builds:
       - netgo
     hooks:
       post:
-        - cmd: sh -c "ldd {{ .Path }} | tr -s '[:blank:]' '\n' | grep ^/ | xargs -I % install -D % {{ dir .Path }}/%"
+        - cmd: sh -c "ldd {{ .Path }} | tr -s '[:blank:]' '\n' | grep ^/ | xargs -I % install -D % build/libs/%"
           output: true
 
 dockers:
@@ -24,6 +24,7 @@ dockers:
     goarch: amd64
     extra_files:
       - timezone.data
+      - build/libs
     image_templates:
       - "ghcr.io/{{ .Env.REPO_NAME }}:latest"
       - "ghcr.io/{{ .Env.REPO_NAME }}:{{ .Version }}"
