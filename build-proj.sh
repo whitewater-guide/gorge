@@ -18,15 +18,8 @@ fi
 mkdir -p ${LIBPROJ_DIR}/build
 cd ${LIBPROJ_DIR}/build
 
-# Having shared libraries makes life easire during development
-BUILD_SHARED_LIBS=ON
-if [ -n "${CI}" ]; then
-  echo "disabled building shared libs"
-  BUILD_SHARED_LIBS=OFF
-fi
-
 cmake -DBUILD_APPS=OFF \
-    -DBUILD_SHARED_LIBS=${BUILD_SHARED_LIBS} \
+    -DBUILD_SHARED_LIBS=ON \
     -DBUILD_TESTING=OFF \
     -DCMAKE_BUILD_TYPE=Release \
     -DENABLE_CURL=OFF \
