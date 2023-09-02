@@ -1,6 +1,8 @@
-FROM gcr.io/distroless/base-debian11
+FROM alpine:3.15
 
-COPY ./build/gorge-server /usr/local/bin/
+RUN apk add proj
+
+COPY ./build /usr/local/bin/
 
 # Copy generated timezonedb
 ENV TIMEZONE_DB_DIR="/usr/local/share/timezonedb/"

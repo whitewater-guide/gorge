@@ -28,8 +28,8 @@ FROM ubuntu-go
 RUN apt-get install -y \
     git \
     jq \
-    # Install tools to build libproj 8.2.1
-    libsqlite3-dev sqlite3 \
+    # Install libproj 8.2.1
+    libproj-dev \
     # Graphviz is needed for pprof
     graphviz
 

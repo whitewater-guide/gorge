@@ -7,8 +7,6 @@ on:
 env:
   REGISTRY: ghcr.io
   CI: true
-  LIBPROJ_DIR: libproj
-  LD_LIBRARY_PATH: "/lib:/usr/lib:/usr/local/lib"
 jobs:
   build:
     name: Build
@@ -21,32 +19,14 @@ jobs:
       - name: Check out
         uses: actions/checkout@v3
 
-      - name: Install libproj deps
+      - name: Install libproj
         run: |
-          sudo apt-get install -y libsqlite3-dev sqlite3
-
-      - name: Restore cached libproj
-        id: cache-libproj-restore
-        uses: actions/cache/restore@v3
-        with:
-          path: libproj
-          key: ${{ runner.os }}-libproj-821
-
-      - name: Build libproj 8.2.1 (ubuntu 22.04)
-        run: |
-          sudo ./build-proj.sh
-
-      - name: Save libproj cache
-        id: cache-libproj-save
-        uses: actions/cache/save@v3
-        with:
-          path: libproj
-          key: ${{ steps.cache-libproj-restore.outputs.cache-primary-key }}
+          sudo apt-get install -y libproj-dev
 
       - name: Setup go
         uses: actions/setup-go@v4
         with:
-          go-version-file: 'go.mod'
+          go-version-file: "go.mod"
 
       - name: Restore cached timezone data
         id: cache-tz-restore
@@ -98,6 +78,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: |
             ghcr.io/${{ github.repository }}:latest
