@@ -1,6 +1,6 @@
 FROM jeanblanchard/alpine-glibc:3.15
 
-RUN apk add proj ca-certificates
+RUN apk add proj ca-certificates gcompat
 
 COPY ./gorge-server /usr/local/bin/
 
