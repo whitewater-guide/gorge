@@ -19,13 +19,13 @@ dockers:
     extra_files:
       - timezone.data
     image_templates:
-      - "ghcr.io/{{ tolower .Env.REPO_NAME }}:latest"
-      - "ghcr.io/{{ tolower .Env.REPO_NAME }}:{{ .Version }}"
+      - "ghcr.io/{{ .Env.REPO_NAME }}:latest"
+      - "ghcr.io/{{ .Env.REPO_NAME }}:{{ .Version }}"
   - id: arm64
     goos: linux
     goarch: arm64
     extra_files:
       - timezone.data
     image_templates:
-      - "ghcr.io/{{ tolower .Env.REPO_NAME }}:latest"
-      - "ghcr.io/{{ tolower .Env.REPO_NAME }}:{{ .Version }}"
+      - "ghcr.io/{{ .Env.REPO_NAME }}:latest"
+      - "ghcr.io/{{ .Env.REPO_NAME }}:{{ .Version }}"
