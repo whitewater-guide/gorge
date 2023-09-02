@@ -6,11 +6,17 @@ builds:
     goarch:
       - amd64
       # - arm64
+    flags:
+      - -trimpath
     ldflags:
       - -s -w -X github.com/{{ .Env.REPO_NAME }}/version.Version={{ .Version }}
     tags:
       - sqlite_omit_load_extension
       - netgo
+    hooks:
+      posrt:
+        - cmd: ldd {{ .Path }} | tr -s '[:blank:]' '\n' | grep ^/ | xargs -I % install -D % {{ dir .Dist}}/%
+          output: true
 
 dockers:
   - id: amd64

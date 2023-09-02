@@ -1,7 +1,8 @@
-FROM gcr.io/distroless/base-debian12
+FROM jeanblanchard/alpine-glibc:3.15
+
+RUN apk add proj ca-certificates libc6-compat
 
 COPY ./gorge-server /usr/local/bin/
-COPY ./lib /usr/local/lib/
 
 # Copy generated timezonedb
 ENV TIMEZONE_DB_DIR="/usr/local/share/timezonedb/"
