@@ -8,6 +8,7 @@ env:
   REGISTRY: ghcr.io
   CI: true
   LIBPROJ_DIR: libproj
+  LD_LIBRARY_PATH: "/lib:/usr/lib:/usr/local/lib"
 jobs:
   build:
     name: Build
@@ -25,7 +26,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: libproj
-          key: ${{ runner.os }}-libproj
+          key: ${{ runner.os }}-libproj821
 
       - name: Build libproj 8.2.1 (ubuntu 22.04)
         run: |
