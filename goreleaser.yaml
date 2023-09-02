@@ -16,7 +16,7 @@ builds:
     hooks:
       post:
         - cmd: mkdir -p build
-        - cmd: "ldd {{ .Path }} | tr -s '[:blank:]' '\n' | grep ^/ | xargs -I % install -D % build/%"
+        - cmd: sh -c "ldd {{ .Path }} | tr -s '[:blank:]' '\\n' | grep ^/ | xargs -I % install -D % build/%"
           output: true
         - cmd: ls -la build
           output: true
