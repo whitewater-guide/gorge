@@ -21,17 +21,19 @@ jobs:
       - name: Check out
         uses: actions/checkout@v3
 
+      - name: Install libproj deps
+        run: |
+          sudo apt-get install -y libsqlite3-dev sqlite3
+
       - name: Restore cached libproj
         id: cache-libproj-restore
         uses: actions/cache/restore@v3
         with:
           path: libproj
-          key: ${{ runner.os }}-libproj821
+          key: ${{ runner.os }}-libproj-821
 
       - name: Build libproj 8.2.1 (ubuntu 22.04)
         run: |
-          sudo apt-get update -y
-          sudo apt-get install -y cmake libsqlite3-dev sqlite3
           sudo ./build-proj.sh
 
       - name: Save libproj cache

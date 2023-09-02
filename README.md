@@ -420,7 +420,7 @@ Docker-compose stack comes with [mitmproxy](https://mitmproxy.org/). You can mon
 
 If you want to develop on host machine, you'll need following libraries installed on it (they're installed in docker image, see Dockerfile for more info):
 
-- [libproj](https://proj.org/) shared library, to convert coordinate systems. Currently version 8.2.1 is required. It's built manually using `./build-proj.sh` script, because we want to build it without curl and tiff dependencies, which are problematic for static linking and are not needed anyway
+- [libproj](https://proj.org/) library, to convert coordinate systems. Currently version 8.2.1 is required. It's built manually using `./build-proj.sh` script, because we want to build it without curl and tiff dependencies, which are problematic for static linking and are not needed anyway
 
 Also you'll need following go tools:
 

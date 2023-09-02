@@ -29,7 +29,7 @@ RUN apt-get install -y \
     git \
     jq \
     # Install tools to build libproj 8.2.1
-    cmake libsqlite3-dev sqlite3 \
+    libsqlite3-dev sqlite3 \
     # Graphviz is needed for pprof
     graphviz
 
