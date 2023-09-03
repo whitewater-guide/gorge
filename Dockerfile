@@ -1,5 +1,7 @@
 FROM gcr.io/distroless/base-debian12
 
+ENV LD_LIBRARY_PATH=/lib:/usr/lib:/usr/local/lib
+
 COPY ./build/gorge-server /usr/local/bin/
 COPY ./build/lib /usr/local/lib/
 COPY ./build/lib64 /usr/local/lib64/
