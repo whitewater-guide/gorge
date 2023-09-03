@@ -43,7 +43,8 @@ jobs:
       - name: Prepare release
         run: |
           make release
-          ls -la build
+          ls -la build/lib
+          ls -la build/lib64
 
       - name: Save timezone data cache
         id: cache-tz-save
