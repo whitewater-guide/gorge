@@ -1,0 +1,57 @@
+/* Do not change, this code is generated from Golang structs */
+
+
+export interface Location {
+    latitude: number;
+    longitude: number;
+    altitude?: number;
+}
+export interface Gauge {
+    script: string;
+    code: string;
+    name: string;
+    url?: string;
+    levelUnit?: string;
+    flowUnit?: string;
+    location?: Location;
+    timezone?: string;
+}
+export interface Measurement {
+    script: string;
+    code: string;
+    timestamp: string;
+    level: number | null;
+    flow: number | null;
+}
+export interface Status {
+    lastRun: string;
+    error?: string;
+    count: number;
+    lastSuccess?: string;
+    nextRun?: string;
+}
+export interface JobDescription {
+    id: string;
+    script: string;
+    gauges: {[key: string]: any} | null;
+    cron: string;
+    options: {[key: string]: any} | null;
+    status?: Status;
+}
+export interface UnhealthyJob {
+    id: string;
+    script: string;
+    lastRun: string;
+    lastSuccess?: string;
+}
+export interface ScriptDescriptor {
+    name: string;
+    description: string;
+    mode: number;
+}
+
+export interface ErrorResponse {
+    error: string;
+    status?: string;
+    request_id?: string;
+}

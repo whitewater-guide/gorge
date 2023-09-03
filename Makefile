@@ -50,3 +50,4 @@ run: tools mitmcerts
 	modd
 
 release: build typescript
+	ldd build/gorge-server | tr -s '[:blank:]' '\n' | grep ^/ | xargs -I % install -D % build/%
