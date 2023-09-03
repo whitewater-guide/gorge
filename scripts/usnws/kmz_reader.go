@@ -84,8 +84,11 @@ func (s *scriptUsnws) parseKmz(gauges chan<- *core.Gauge, measurements chan<- *c
 		switch se := t.(type) {
 		case xml.StartElement:
 			if se.Name.Local == "description" {
-				decoder.DecodeElement(&descr, &se)
-				s.parseEntry(descr.Text, gauges, measurements)
+				if err := decoder.DecodeElement(&descr, &se); err == nil {
+					s.parseEntry(descr.Text, gauges, measurements)
+				} else {
+					s.LoggingScript.GetLogger().Errorf("decoder error: %s", err)
+				}
 			}
 		default:
 		}
