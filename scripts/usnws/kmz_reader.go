@@ -32,14 +32,19 @@ type description struct {
 }
 
 func (s *scriptUsnws) parseKmz(gauges chan<- *core.Gauge, measurements chan<- *core.Measurement, errs chan<- error) {
+	client := core.NewClient(core.ClientOptions{
+		UserAgent: "whitewater.guide robot",
+		Timeout:   300,
+	}, s.GetLogger())
 	req, _ := http.NewRequest("GET", s.kmzUrl, nil)
-	resp, err := core.Client.Do(req, nil)
+	s.GetLogger().Debugf("fetching %s", s.kmzUrl)
+	resp, err := client.Do(req, nil)
 	if err != nil {
 		errs <- err
 		return
 	}
 	defer resp.Body.Close()
-	s.LoggingScript.GetLogger().Debug("fetched")
+	s.GetLogger().Debug("fetched")
 	zipFile, err := os.CreateTemp("", "usnws")
 	if err != nil {
 		errs <- fmt.Errorf("failed to create tmp file: %w", err)
@@ -50,7 +55,7 @@ func (s *scriptUsnws) parseKmz(gauges chan<- *core.Gauge, measurements chan<- *c
 		errs <- fmt.Errorf("failed to write tmp file: %w", err)
 		return
 	}
-	s.LoggingScript.GetLogger().Debugf("saved temp zip %s", zipFile.Name())
+	s.GetLogger().Debugf("saved temp zip %s", zipFile.Name())
 
 	// Open a zip archive for reading.
 	r, err := zip.OpenReader(zipFile.Name())
@@ -71,13 +76,13 @@ func (s *scriptUsnws) parseKmz(gauges chan<- *core.Gauge, measurements chan<- *c
 	defer kmlReader.Close()
 
 	decoder := xml.NewDecoder(kmlReader)
-	s.LoggingScript.GetLogger().Debug("created xml decoder")
+	s.GetLogger().Debug("created xml decoder")
 	var descr description
 	for {
 		t, err := decoder.Token()
 		if err != nil || t == nil {
 			if err != io.EOF {
-				s.LoggingScript.GetLogger().Errorf("xml token error: %s", err)
+				s.GetLogger().Errorf("xml token error: %s", err)
 			}
 			break
 		}
@@ -87,7 +92,7 @@ func (s *scriptUsnws) parseKmz(gauges chan<- *core.Gauge, measurements chan<- *c
 				if err := decoder.DecodeElement(&descr, &se); err == nil {
 					s.parseEntry(descr.Text, gauges, measurements)
 				} else {
-					s.LoggingScript.GetLogger().Errorf("decoder error: %s", err)
+					s.GetLogger().Errorf("decoder error: %s", err)
 				}
 			}
 		default:
@@ -118,7 +123,7 @@ func (s *scriptUsnws) parseEntry(text string, gauges chan<- *core.Gauge, measure
 				if vF, err := strconv.ParseFloat(vStr, 64); err == nil {
 					v = nulltype.NullFloat64Of(vF)
 				} else {
-					s.LoggingScript.GetLogger().Warnf("cannot parse value '%s'", line)
+					s.GetLogger().Warnf("cannot parse value '%s'", line)
 				}
 
 				switch unit {
@@ -129,14 +134,14 @@ func (s *scriptUsnws) parseEntry(text string, gauges chan<- *core.Gauge, measure
 					m.Flow = v
 					g.FlowUnit = unit
 				default:
-					s.LoggingScript.GetLogger().Warnf("unknown unit '%s'", unit)
+					s.GetLogger().Warnf("unknown unit '%s'", unit)
 					m.Level = v
 					g.LevelUnit = unit
 				}
 				mOk = true
 			} else if line != "N/A" {
 				// when the value is N/A, it's impossible to find out unit even from other lines, such as flood threshold
-				s.LoggingScript.GetLogger().Warnf("cannot parse value '%s'", line)
+				s.GetLogger().Warnf("cannot parse value '%s'", line)
 				continue
 			}
 		} else if matches := reTime.FindStringSubmatch(line); len(matches) > 0 {
@@ -145,14 +150,14 @@ func (s *scriptUsnws) parseEntry(text string, gauges chan<- *core.Gauge, measure
 			} else {
 				mOk = false
 				if matches[1] != "N/A" {
-					s.LoggingScript.GetLogger().Warnf("cannot parse time '%s'", matches[1])
+					s.GetLogger().Warnf("cannot parse time '%s'", matches[1])
 				}
 			}
 
 		} else if matches := reLoc.FindStringSubmatch(line); len(matches) > 0 {
 			parts := strings.Split(strings.TrimSpace(matches[1]), ",")
 			if len(parts) != 2 {
-				s.LoggingScript.GetLogger().Warnf("cannot parse location '%s'", matches[1])
+				s.GetLogger().Warnf("cannot parse location '%s'", matches[1])
 				continue
 			}
 			g.Location = &core.Location{}
@@ -161,15 +166,15 @@ func (s *scriptUsnws) parseEntry(text string, gauges chan<- *core.Gauge, measure
 					g.Location = &core.Location{Latitude: lat, Longitude: lon}
 					zone, err := core.CoordinateToTimezone(lat, lon)
 					if err != nil {
-						s.LoggingScript.GetLogger().Warnf("cannot find timezone for (%f, %f)", lat, lon)
+						s.GetLogger().Warnf("cannot find timezone for (%f, %f)", lat, lon)
 						zone = "UTC"
 					}
 					g.Timezone = zone
 				} else {
-					s.LoggingScript.GetLogger().Warnf("cannot parse longtitude '%s'", parts[1])
+					s.GetLogger().Warnf("cannot parse longtitude '%s'", parts[1])
 				}
 			} else {
-				s.LoggingScript.GetLogger().Warnf("cannot parse latitude '%s'", parts[0])
+				s.GetLogger().Warnf("cannot parse latitude '%s'", parts[0])
 			}
 		} else if matches := reHref.FindStringSubmatch(line); len(matches) > 0 {
 			g.URL = strings.TrimSpace(matches[1])
