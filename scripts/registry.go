@@ -36,6 +36,7 @@ import (
 	"github.com/whitewater-guide/gorge/scripts/ukea"
 	"github.com/whitewater-guide/gorge/scripts/ukraine"
 	"github.com/whitewater-guide/gorge/scripts/usgs"
+	"github.com/whitewater-guide/gorge/scripts/usnws"
 	"github.com/whitewater-guide/gorge/scripts/wales"
 	"go.uber.org/fx"
 )
@@ -83,6 +84,7 @@ func init() {
 	Registry.Register(ukea.Descriptor)
 	Registry.Register(ukraine.Descriptor)
 	Registry.Register(usgs.Descriptor)
+	Registry.Register(usnws.Descriptor)
 	Registry.Register(wales.Descriptor)
 }
 
