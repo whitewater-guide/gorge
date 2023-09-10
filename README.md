@@ -7,21 +7,24 @@ Harvested data is stored in database and can be queried later.
 
 ## Table of contents
 
-- [Why should I use it?](#why-should-i-use-it-)
-- [Data sources](#data-sources)
-- [Usage](#usage)
-  - [Launching](#launching)
-  - [Working with API](#working-with-api)
-  - [Available scripts](#available-scripts)
-  - [Health notifications](#health-notifications)
-  - [Other](#other)
-- [Development](#development)
-  - [Inside container](#inside-container)
-  - [On host machine](#on-host-machine)
-  - [Building and running](#building-and-running)
-  - [Writing scripts](#writing-scripts)
-- [TODO](#todo)
-- [License](#license)
+- [Gorge](#gorge)
+  - [Table of contents](#table-of-contents)
+  - [Why should I use it?](#why-should-i-use-it)
+  - [Data sources](#data-sources)
+  - [Usage](#usage)
+    - [Setting up database](#setting-up-database)
+    - [Launching](#launching)
+    - [Working with API](#working-with-api)
+    - [Available scripts](#available-scripts)
+    - [Health notifications](#health-notifications)
+    - [Other](#other)
+  - [Development](#development)
+    - [Inside container](#inside-container)
+    - [On host machine](#on-host-machine)
+    - [Building and running](#building-and-running)
+    - [Writing scripts](#writing-scripts)
+  - [TODO](#todo)
+  - [License](#license)
 
 ## Why should I use it?
 
@@ -417,15 +420,7 @@ Docker-compose stack comes with [mitmproxy](https://mitmproxy.org/). You can mon
 
 If you want to develop on host machine, you'll need following libraries installed on it (they're installed in docker image, see Dockerfile for more info):
 
-- [libproj](https://proj.org/) shared library, to convert coordinate systems. Currently version 6.3.1 is required. (to match version from ubuntu 20.04, which is used by github actions). On MacOS this can be installed via brew:
-
-```
-brew tap-new $USER/local-tap
-brew extract --version='6.3.1' proj $USER/local-tap
-brew install proj@6.3.1
-```
-
-It's also possible to build it using version 7.2.1 (see Dockerfile.bullseye). It's just more complicated since proj has optional libtiff and libcurl dependencies since 7.0.
+- [libproj](https://proj.org/) library, to convert coordinate systems. Currently version 8.2.1 is required. It's built manually using `./build-proj.sh` script, because we want to build it without curl and tiff dependencies, which are problematic for static linking and are not needed anyway
 
 Also you'll need following go tools:
 

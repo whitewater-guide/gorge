@@ -1,6 +1,8 @@
-FROM gcr.io/distroless/base-debian11
+FROM gcr.io/distroless/base-debian12
 
-COPY ./build/gorge-server ./build/gorge-cli /usr/local/bin/
+COPY ./build/gorge-server /usr/local/bin/
+COPY ./build/lib /usr/lib/
+COPY ./build/lib64 /usr/lib64/
 
 # Copy generated timezonedb
 ENV TIMEZONE_DB_DIR="/usr/local/share/timezonedb/"

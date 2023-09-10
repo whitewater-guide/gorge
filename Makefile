@@ -1,4 +1,3 @@
-EXTLDFLAGS=-Wl,--start-group -lm -pthread -ldl -lstdc++ -lsqlite3 -lproj -Wl,-end-group -static
 # This is required becuase go tests run in tested package's directory, and therefore we need to use timezonedb's absolute path
 TIMEZONE_DB_DIR=$(CURDIR)/
 export TIMEZONE_DB_DIR
@@ -22,11 +21,11 @@ build: tools
 build: GOOS=linux 
 build:
 	go build -o build/gorge-cli \
-		-ldflags="-extldflags '${EXTLDFLAGS}' -s -w -X 'github.com/whitewater-guide/gorge/version.Version=$(VERSION)'" \
+		-ldflags="-s -w -X 'github.com/whitewater-guide/gorge/version.Version=$(VERSION)'" \
 		-tags sqlite_omit_load_extension,netgo \
 		github.com/whitewater-guide/gorge/cli
 	go build -o build/gorge-server \
-		-ldflags="-extldflags '${EXTLDFLAGS}' -s -w -X 'github.com/whitewater-guide/gorge/version.Version=$(VERSION)'" \
+		-ldflags="-s -w -X 'github.com/whitewater-guide/gorge/version.Version=$(VERSION)'" \
 		-tags sqlite_omit_load_extension,netgo \
 		github.com/whitewater-guide/gorge/server
 
@@ -51,3 +50,4 @@ run: tools mitmcerts
 	modd
 
 release: build typescript
+	ldd build/gorge-server | tr -s '[:blank:]' '\n' | grep ^/ | xargs -I % install -D % build/%

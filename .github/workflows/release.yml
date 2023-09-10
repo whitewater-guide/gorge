@@ -6,11 +6,12 @@ on:
       - master
 env:
   REGISTRY: ghcr.io
+  CI: true
 jobs:
   build:
     name: Build
     # it's important to use this version of ubuntu, because it matches development docker image and has correct veriosn of libproj
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     env:
       # beta branch is used for prereleases, as described in https://semantic-release.gitbook.io/semantic-release/usage/configuration#branches
       PUBLISH_RELEASE: ${{ github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/beta') }}
@@ -18,23 +19,39 @@ jobs:
       - name: Check out
         uses: actions/checkout@v3
 
-      - name: Install libproj 6.3.1
+      - name: Install libproj
         run: |
-          sudo apt-get update -y
           sudo apt-get install -y libproj-dev
 
       - name: Setup go
         uses: actions/setup-go@v4
         with:
-          go-version-file: 'go.mod'
+          go-version-file: "go.mod"
 
-      - name: Verify
+      - name: Restore cached timezone data
+        id: cache-tz-restore
+        uses: actions/cache/restore@v3
+        with:
+          path: timezone.data
+          key: ${{ runner.os }}-tz-2023b
+
+      - name: Verify and make typescript definitions
         run: |
           make test
           make lint
 
       - name: Prepare release
-        run: make release
+        run: |
+          make release
+          ls -la build/lib
+          ls -la build/lib64
+
+      - name: Save timezone data cache
+        id: cache-tz-save
+        uses: actions/cache/save@v3
+        with:
+          path: timezone.data
+          key: ${{ steps.cache-tz-restore.outputs.cache-primary-key }}
 
       - name: Semantic release
         id: semantic
@@ -65,6 +82,7 @@ jobs:
         with:
           context: .
           push: true
+          platforms: linux/amd64
           tags: |
             ghcr.io/${{ github.repository }}:latest
             ghcr.io/${{ github.repository }}:${{ steps.semantic.outputs.new_release_version}}
