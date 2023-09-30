@@ -1,0 +1,5552 @@
+[
+    {
+        "script": "uscdec",
+        "code": "1ST",
+        "name": "KERN RIVER AT FIRST POINT",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=1ST",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 35.44666,
+            "longitude": -118.9225,
+            "altitude": 143.256
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "ACR",
+        "name": "ASH CK AT ADIN",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=ACR",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 41.19807,
+            "longitude": -120.94339,
+            "altitude": 1281.0744
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "AFO",
+        "name": "AMERICAN RIVER AT FAIR OAKS",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=AFO",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.63546,
+            "longitude": -121.22773,
+            "altitude": 21.9456
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "ALN",
+        "name": "ALAMEDA CK NR NILES",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=ALN",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.58715,
+            "longitude": -121.96079,
+            "altitude": 26.2128
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "AMK",
+        "name": "AMERICAN SF NR KYBURZ",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=AMK",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.764,
+            "longitude": -120.325,
+            "altitude": 1170.432
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "AMR",
+        "name": "MERCED R AT AMSTERDAM RD",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=AMR",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.46806,
+            "longitude": -120.53889,
+            "altitude": 52.7304
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "AMW",
+        "name": "KINGS RIVER BELOW ARMY WEIR",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=AMW",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 36.386,
+            "longitude": -119.787,
+            "altitude": 70.104
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "ARC",
+        "name": "MAD RIVER NEAR ARCATA",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=ARC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.90985,
+            "longitude": -124.06061,
+            "altitude": 10.0584
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "ATC",
+        "name": "ANTELOPE CREEK NEAR RED BLUFF",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=ATC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.20277,
+            "longitude": -122.11888,
+            "altitude": 110.6424
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "AVL",
+        "name": "ARROYO VALLE NR LIVERMORE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=AVL",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.62326,
+            "longitude": -121.75884,
+            "altitude": 155.448
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "AVY",
+        "name": "NORTH FORK STANISLAUS NEAR AVERY",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=AVY",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.24388,
+            "longitude": -120.29,
+            "altitude": 1032.6624
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "BAS",
+        "name": "SOUTH FORK BATTLE CREEK NEAR MANTON",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=BAS",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.4058,
+            "longitude": -121.98067,
+            "altitude": 303.8856
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "BAT",
+        "name": "BATTLE CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=BAT",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.3982,
+            "longitude": -122.14638,
+            "altitude": 60.96
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "BBW",
+        "name": "BW-12 IMPORT TO BUTTE CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=BBW",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.88573,
+            "longitude": -121.61032,
+            "altitude": 878.4336
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "BCD",
+        "name": "BUTTE CREEK NR DURHAM",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=BCD",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.67801,
+            "longitude": -121.77748,
+            "altitude": 57.912
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "BCK",
+        "name": "BUTTE CREEK NR CHICO",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=BCK",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.72599,
+            "longitude": -121.70886,
+            "altitude": 91.44
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "BCW",
+        "name": "BULL CREEK NEAR WEOTT",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=BCW",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.35152,
+            "longitude": -124.00504,
+            "altitude": 81.9912
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "BDT",
+        "name": "SAN JOAQUIN R AT BRANDT BRIDGE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=BDT",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.865,
+            "longitude": -121.3231
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "BDV",
+        "name": "BLACK RASCAL DIVERSION",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=BDV",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.3328,
+            "longitude": -120.3944,
+            "altitude": 55.7784
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "BIC",
+        "name": "BIG CHICO CREEK NEAR CHICO",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=BIC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.76841,
+            "longitude": -121.7786,
+            "altitude": 83.5152
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "BND",
+        "name": "SACRAMENTO RIVER AT BEND BRIDGE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=BND",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.28848,
+            "longitude": -122.18666,
+            "altitude": 87.1728
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "BNF",
+        "name": "NORTH FORK BATTLE CREEK NEAR MANTON",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=BNF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.42433,
+            "longitude": -121.98694,
+            "altitude": 304.1904
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "BNG",
+        "name": "BANGOR CANAL",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=BNG",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.504,
+            "longitude": -121.454,
+            "altitude": 248.412
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "BRA",
+        "name": "SALINAS RIVER NEAR BRADLEY",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=BRA",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 35.93024,
+            "longitude": -120.86879,
+            "altitude": 135.0264
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "BRK",
+        "name": "BEAR CK AB HOLSTEN CYN NR RUMSEY",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=BRK",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.95755,
+            "longitude": -122.34275,
+            "altitude": 280.416
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "BSD",
+        "name": "BEAR CK BLW EASTSIDE CANAL",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=BSD",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.2547,
+            "longitude": -120.7194,
+            "altitude": 28.956
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "BSL",
+        "name": "BUTTE SLOUGH NR MERIDIAN",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=BSL",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.17147,
+            "longitude": -121.90164,
+            "altitude": 3.9624
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "BTB",
+        "name": "SF BATTLE CK BLW DIV TO COLEMAN CANAL",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=BTB",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.40251,
+            "longitude": -121.96907,
+            "altitude": 353.568
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "BTC",
+        "name": "SACRAMENTO RIVER AT BUTTE CITY",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=BTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.45783,
+            "longitude": -121.99416,
+            "altitude": 30.1752
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "BTW",
+        "name": "NF BATTLE CK BLW DIV TO WILDCAT CANAL",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=BTW",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.4204,
+            "longitude": -121.96123,
+            "altitude": 365.76
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "CBD",
+        "name": "CHERRY CK BL DION R PH NR MATHER",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=CBD",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.8902,
+            "longitude": -119.9699,
+            "altitude": 655.32
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "CBR",
+        "name": "AMERICAN RIVER AT CHILI BAR",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=CBR",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.772,
+            "longitude": -120.816,
+            "altitude": 283.7688
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "CBV",
+        "name": "CHERRY CK BL VALLEY DAM NR HETCH HETCHY",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=CBV",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.9677,
+            "longitude": -119.9174,
+            "altitude": 1321.9176
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "CCI",
+        "name": "CALLEGUAS CREEK - CSU CHANNEL ISLANDS",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=CCI",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 34.18,
+            "longitude": -119.04,
+            "altitude": 21.336
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "CCL",
+        "name": "CACHE CK NR LOWER LAKE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=CCL",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.92416,
+            "longitude": -122.56611,
+            "altitude": 402.336
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "CCY",
+        "name": "CACHE CREEK AT YOLO",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=CCY",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.72663,
+            "longitude": -121.80715,
+            "altitude": 26.2128
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "CDM",
+        "name": "EF RUSSIAN R BLW COYOTE DAM",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=CDM",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.1975,
+            "longitude": -123.1864,
+            "altitude": 187.1472
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "CDR",
+        "name": "COLUSA DRAIN NR HWY 20",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=CDR",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.19551,
+            "longitude": -122.06051,
+            "altitude": 18.288
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "CEI",
+        "name": "CHERRY CREEK NEAR EARLY INTAKE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=CEI",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.89436,
+            "longitude": -119.96268,
+            "altitude": 692.5056
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "CHC",
+        "name": "CHEROKEE CANAL NR RICHVALE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=CHC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.4647,
+            "longitude": -121.74473,
+            "altitude": 32.3088
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "CHT",
+        "name": "PAJARO RIVER AT CHITTENDEN",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=CHT",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 36.90023,
+            "longitude": -121.59772,
+            "altitude": 24.9936
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "CLV",
+        "name": "RUSSIAN RIVER AT CLOVERDALE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=CLV",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.87934,
+            "longitude": -123.05361,
+            "altitude": 32.6136
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "CMF",
+        "name": "COSUMNES R MID FORK NR SOMERSET",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=CMF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.6245,
+            "longitude": -120.70245,
+            "altitude": 502.3104
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "CNF",
+        "name": "COSUMNES R N FORK NR EL DORADO",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=CNF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.58903,
+            "longitude": -120.84449,
+            "altitude": 256.032
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "CNH",
+        "name": "BATTLE CK DVRSN AT COLEMAN FISH HATCHERY",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=CNH",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.40036,
+            "longitude": -122.14027,
+            "altitude": 135.9408
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "COL",
+        "name": "SACRAMENTO RIVER AT COLUSA",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=COL",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.21405,
+            "longitude": -122.00025,
+            "altitude": 15.24
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "COW",
+        "name": "COW CREEK NEAR MILLVILLE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=COW",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.50487,
+            "longitude": -122.23305,
+            "altitude": 117.348
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "CRS",
+        "name": "MERCED RIVER AT CRESSY",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=CRS",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.42499,
+            "longitude": -120.663,
+            "altitude": 50.292
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "CSK",
+        "name": "CASTAIC CANYON CK Z3-2388",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=CSK",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 34.6061,
+            "longitude": -118.6656,
+            "altitude": 503.2248
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "CWA",
+        "name": "COTTONWOOD CREEK AUXILIARY GAGE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=CWA",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.38709,
+            "longitude": -122.2386,
+            "altitude": 110.9472
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "DAR",
+        "name": "DRAINAGE AT ARBOR ROAD",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=DAR",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.76895,
+            "longitude": -121.41941,
+            "altitude": 6.096
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "DCK",
+        "name": "DONNER CREEK AT HWY 89",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=DCK",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.32101,
+            "longitude": -120.20797,
+            "altitude": 1789.176
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "DCM",
+        "name": "DRY CREEK NEAR MODESTO",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=DCM",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.65699,
+            "longitude": -120.922,
+            "altitude": 26.8224
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "DCS",
+        "name": "DEER CREEK NR SMARTVILLE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=DCS",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.22433,
+            "longitude": -121.26857,
+            "altitude": 192.024
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "DCV",
+        "name": "DEER CREEK NR VINA",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=DCV",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.01404,
+            "longitude": -121.94831,
+            "altitude": 145.9992
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "DGC",
+        "name": "TRINITY RIVER AT DOUGLAS CITY",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=DGC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.64527,
+            "longitude": -122.95666,
+            "altitude": 487.68
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "DGY",
+        "name": "DRY CK NR GEYSERVILLE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=DGY",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.6986,
+            "longitude": -122.9569,
+            "altitude": 47.5488
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "DKS",
+        "name": "DINKEY CK SIPHON",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=DKS",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 36.90809,
+            "longitude": -119.1242,
+            "altitude": 402.336
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "DLC",
+        "name": "DELTA CROSS CHANNEL BTW SAC R \u0026 SNODGRAS",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=DLC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.24499,
+            "longitude": -121.505,
+            "altitude": 3.048
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "DLT",
+        "name": "SACRAMENTO RIVER AT DELTA",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=DLT",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.93959,
+            "longitude": -122.41723,
+            "altitude": 327.66
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "DNC",
+        "name": "DONNER CREEK AT DONNER LAKE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=DNC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.32351,
+            "longitude": -120.23436,
+            "altitude": 1805.6352
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "DOS",
+        "name": "MIDDLE FORK EEL RIVER NEAR DOS RIOS",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=DOS",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.70626,
+            "longitude": -123.32529,
+            "altitude": 274.32
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "DRY",
+        "name": "DRY CREEK NEAR HEALDSBURG",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=DRY",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.58741,
+            "longitude": -122.86221,
+            "altitude": 27.432
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "DSJ",
+        "name": "DUTCH SLOUGH AT JERSEY ISLAND",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=DSJ",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.013,
+            "longitude": -121.671,
+            "altitude": 3.048
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "DSN",
+        "name": "DRY CREEK NR SNELLING",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=DSN",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.555,
+            "longitude": -120.463,
+            "altitude": 70.104
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "DVD",
+        "name": "DEER CREEK BELOW STANFORD VINA DAM",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=DVD",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.96361,
+            "longitude": -122.03436,
+            "altitude": 102.108
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "EBM",
+        "name": "EASTSIDE BYPASS BLW MARIPOSA BYPASS",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=EBM",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.205,
+            "longitude": -120.6981,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "ECC",
+        "name": "ELIZABETH CANYON CK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=ECC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 34.576,
+            "longitude": -118.556,
+            "altitude": 512.064
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "ECK",
+        "name": "ELEANOR CK NR HETCH HETCHY",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=ECK",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.96909,
+            "longitude": -119.88212,
+            "altitude": 1371.6
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "ECP",
+        "name": "ELDER CREEK NEAR PASKENTA",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=ECP",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.02376,
+            "longitude": -122.51194,
+            "altitude": 218.8464
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "ELN",
+        "name": "EASTSIDE BYPASS NEAR EL NIDO",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=ELN",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.1475,
+            "longitude": -120.6053,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "EST",
+        "name": "ESTRELLA RIVER NEAR ESTRELLA",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=EST",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 35.71721,
+            "longitude": -120.63916,
+            "altitude": 204.8256
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "EVA",
+        "name": "EEL RIVER BELOW VAN ARSDALE DAM 24HR AVG",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=EVA",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.38859,
+            "longitude": -123.115,
+            "altitude": 426.72
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "EWR",
+        "name": "EAST WALKER RIVER NR BRIDGEPORT",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=EWR",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.328,
+            "longitude": -119.214,
+            "altitude": 1950.72
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "F22",
+        "name": "GRIZZLY CR BL DIVERSION DAM",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=F22",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.89138,
+            "longitude": -121.29305,
+            "altitude": 1316.736
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "F56",
+        "name": "NF FEATHER R BL GRIZZLY CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=F56",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.8525,
+            "longitude": -121.39138,
+            "altitude": 446.532
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "F57",
+        "name": "NF FEATHER R BL ROCK CREEK DIV DAM",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=F57",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.97972,
+            "longitude": -121.27583,
+            "altitude": 633.984
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "F70",
+        "name": "NF FEATHER R BELOW BELDEN DAM",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=F70",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.07138,
+            "longitude": -121.16361,
+            "altitude": 856.7928
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "FAL",
+        "name": "FALSE RIVER NEAR OAKLEY",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=FAL",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.0558,
+            "longitude": -121.6669
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "FAR",
+        "name": "TRUCKEE RIVER AT FARAD",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=FAR",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.42796,
+            "longitude": -120.03408,
+            "altitude": 1570.6344
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "FBD",
+        "name": "FORBESTOWN DITCH (OROV-WYAN CANAL)",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=FBD",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.55216,
+            "longitude": -121.19364,
+            "altitude": 964.9968
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "FCC",
+        "name": "FRENCH CREEK AT HWY 3 NEAR CALLAHAN",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=FCC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 41.41174,
+            "longitude": -122.85882,
+            "altitude": 865.632
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "FCK",
+        "name": "FISH CANYON CK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=FCK",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 34.60306,
+            "longitude": -118.66083,
+            "altitude": 502.0056
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "FCT",
+        "name": "FISHERMANS CUT",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=FCT",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.06782,
+            "longitude": -121.64883,
+            "altitude": 1.2192
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "FFB",
+        "name": "SAN JOAQUIN R AT FREMONT FORD BRIDGE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=FFB",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.30993,
+            "longitude": -120.93103,
+            "altitude": 19.812
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "FHH",
+        "name": "FALLS CK NR HETCH HETCHY",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=FHH",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.97079,
+            "longitude": -119.7633,
+            "altitude": 1630.68
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "FHL",
+        "name": "FRESNO R ABV HENLEY LAKE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=FHL",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.15059,
+            "longitude": -119.8561,
+            "altitude": 164.592
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "FPT",
+        "name": "SACRAMENTO RIVER AT FREEPORT",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=FPT",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.45611,
+            "longitude": -121.5003
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "FRU",
+        "name": "FRESNO R LEWIS FORK NR OAKHURST",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=FRU",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.345,
+            "longitude": -119.6392,
+            "altitude": 699.516
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "FSB",
+        "name": "FEATHER R AT BOYD'S LNDNG ABV STAR BEND",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=FSB",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.04549,
+            "longitude": -121.61043,
+            "altitude": 15.24
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "FSN",
+        "name": "SAN DIEGO RIVER AT FASHION VALLEY",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=FSN",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 32.76504,
+            "longitude": -117.16864,
+            "altitude": 9.144
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "FSW",
+        "name": "EEL RIVER AT FORT SEWARD",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=FSW",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.2182,
+            "longitude": -123.63253,
+            "altitude": 97.536
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "GDV",
+        "name": "EAST FORK CARSON R NEAR GARDNERVILLE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=GDV",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.847,
+            "longitude": -119.703,
+            "altitude": 1519.428
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "GES",
+        "name": "SACRAMENTO RIVER BELOW GEORGIANA SLOUGH",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=GES",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.2389,
+            "longitude": -121.5234
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "GLC",
+        "name": "GRANTLINE CANAL (USGS)",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=GLC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.8196,
+            "longitude": -121.5485,
+            "altitude": 3.048
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "GLE",
+        "name": "GRANT LINE CANAL EAST",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=GLE",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.82025,
+            "longitude": -121.43485,
+            "altitude": 1.8288
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "GRF",
+        "name": "SAN JOAQUIN RIVER AT GRAVELLY FORD",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=GRF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 36.798,
+            "longitude": -120.16,
+            "altitude": 51.816
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "GRI",
+        "name": "GRINDSTONE CK NR GRINDSTONE RANCHERIA",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=GRI",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.67911,
+            "longitude": -122.53054,
+            "altitude": 192.024
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "GRJ",
+        "name": "GUADALUPE R ABV HWY 101 AT SAN JOSE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=GRJ",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.37382,
+            "longitude": -121.93301,
+            "altitude": 21.9456
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "GRL",
+        "name": "FEATHER RIVER NEAR GRIDLEY",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=GRL",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.36657,
+            "longitude": -121.64736,
+            "altitude": 28.0416
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "GRY",
+        "name": "SISQUOC RIVER AT GAREY",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=GRY",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 34.8397,
+            "longitude": -120.1682,
+            "altitude": 107.8992
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "GSS",
+        "name": "GEORGIANA SLOUGH AT SACRAMENTO RIVER",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=GSS",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.237,
+            "longitude": -121.518,
+            "altitude": 3.048
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "GYB",
+        "name": "N YUBA R BLW GOODYEARS BAR",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=GYB",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.52489,
+            "longitude": -120.938,
+            "altitude": 747.6744
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "H41",
+        "name": "SAN JOAQUIN R AT HWY 41",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=H41",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 36.87619,
+            "longitude": -119.7932,
+            "altitude": 79.248
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "H59",
+        "name": "MERCED R AT HWY 59 (MID)",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=H59",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.47028,
+            "longitude": -120.5,
+            "altitude": 64.008
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "HAC",
+        "name": "RUSSIAN RIVER NEAR HACIENDA BRIDGE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=HAC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.50852,
+            "longitude": -122.92777,
+            "altitude": 6.096
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "HCB",
+        "name": "HAT CK BLW HAT CK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=HCB",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.86252,
+            "longitude": -121.5523,
+            "altitude": 1000.9632
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "HCN",
+        "name": "HAT CK NR HAT CK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=HCN",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.68911,
+            "longitude": -121.42278,
+            "altitude": 1302.7152
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "HEA",
+        "name": "RUSSIAN RIVER NEAR HEALDSBURG",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=HEA",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.61324,
+            "longitude": -122.83638,
+            "altitude": 32.9184
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "HIB",
+        "name": "MERCED R AT HAPPY ISLES BR NR YOSEMITE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=HIB",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.73159,
+            "longitude": -119.55877,
+            "altitude": 1224.0768
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "HLT",
+        "name": "MIDDLE RIVER NEAR HOLT",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=HLT",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.0031,
+            "longitude": -121.5108
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "HMC",
+        "name": "SACRAMENTO R AT HAMILTON CITY-MAIN CH",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=HMC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.75092,
+            "longitude": -121.99787,
+            "altitude": 44.196
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "HOL",
+        "name": "HOLLAND CUT NEAR BETHEL ISLAND",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=HOL",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.01639,
+            "longitude": -121.5819
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "HOP",
+        "name": "RUSSIAN RIVER NEAR HOPLAND",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=HOP",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.02656,
+            "longitude": -123.13056,
+            "altitude": 151.7904
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "HPA",
+        "name": "TRINITY RIVER AT HOOPA",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=HPA",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 41.04985,
+            "longitude": -123.67366,
+            "altitude": 100.584
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "ICD",
+        "name": "INDIAN CK NR DOUGLAS CITY",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=ICD",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.6519,
+            "longitude": -122.9133,
+            "altitude": 509.016
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "ICR",
+        "name": "INDIAN CREEK BELOW INDIAN FALLS",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=ICR",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.05599,
+            "longitude": -120.962,
+            "altitude": 944.88
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "IGO",
+        "name": "CLEAR CREEK NEAR IGO",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=IGO",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.5132,
+            "longitude": -122.52417,
+            "altitude": 205.1304
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "IHC",
+        "name": "INDIAN CREEK NEAR HAPPY CAMP",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=IHC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 41.83512,
+            "longitude": -123.38311,
+            "altitude": 365.1504
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "INC",
+        "name": "INDEPENDENCE CREEK NEAR TRUCKEE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=INC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.45657,
+            "longitude": -120.28714,
+            "altitude": 2109.216
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "JBR",
+        "name": "YUBA RIVER AT JONES BAR",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=JBR",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.292,
+            "longitude": -121.104,
+            "altitude": 323.088
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "JED",
+        "name": "SMITH R NR CRESCENT CITY (JED SMITH SP)",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=JED",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 41.7915,
+            "longitude": -124.07618,
+            "altitude": 36.576
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "KBC",
+        "name": "SF KINGS R ABV BOYDEN CAVERN",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=KBC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 36.80889,
+            "longitude": -118.77806,
+            "altitude": 1151.8392
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "KIG",
+        "name": "KLAMATH RIVER BELOW IRON GATE DAM",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=KIG",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 41.92791,
+            "longitude": -122.44419,
+            "altitude": 658.9776
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "KKV",
+        "name": "KERN R AT KERNVILLE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=KKV",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 35.75439,
+            "longitude": -118.4225,
+            "altitude": 803.148
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "KNK",
+        "name": "KLAMATH RIVER NEAR KLAMATH",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=KNK",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 41.51095,
+            "longitude": -123.97951,
+            "altitude": 18.288
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "KOT",
+        "name": "STANISLAUS R AT KOETITZ RANCH",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=KOT",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.69977,
+            "longitude": -121.17019,
+            "altitude": 16.4592
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "KRD",
+        "name": "KERN R BL KERN CYN PH DIV DAM KE-16",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=KRD",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 35.4602,
+            "longitude": -118.7804,
+            "altitude": 640.08
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "KRR",
+        "name": "SF KINGS R ABV ROARING R",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=KRR",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 36.78695,
+            "longitude": -118.61657,
+            "altitude": 1478.5848
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "KRT",
+        "name": "KINGS R NR TRIMMER",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=KRT",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 36.87469,
+            "longitude": -119.1408,
+            "altitude": 287.1216
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "KSV",
+        "name": "KLAMATH RIVER NEAR SEIAD VALLEY",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=KSV",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 41.85373,
+            "longitude": -123.23227,
+            "altitude": 402.336
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "KWK",
+        "name": "SACRAMENTO RIVER AT KESWICK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=KWK",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.60098,
+            "longitude": -122.44445
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "LAB",
+        "name": "LITTLE TRUCKEE R ABV BOCA RESERVOIR",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=LAB",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.43574,
+            "longitude": -120.08436,
+            "altitude": 1712.6712
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "LCB",
+        "name": "OREGON CREEK BELOW LOG CABIN",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=LCB",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.445,
+            "longitude": -121.058,
+            "altitude": 583.0824
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "LCV",
+        "name": "DRY CREEK NEAR LEMONCOVE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=LCV",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 36.4504,
+            "longitude": -119.0284,
+            "altitude": 179.5272
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "LEG",
+        "name": "SOUTH FORK EEL RIVER AT LEGGETT",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=LEG",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.87459,
+            "longitude": -123.72058,
+            "altitude": 227.6856
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "LGC",
+        "name": "LOS GATOS CREEK NEAR COALINGA",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=LGC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 36.21467,
+            "longitude": -120.47071,
+            "altitude": 329.184
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "LGN",
+        "name": "TUOLUMNE R BLW LA GRANGE DAM NR LA GRANG",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=LGN",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.66632,
+            "longitude": -120.44213,
+            "altitude": 51.816
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "LIB",
+        "name": "LIBERTY ISLAND @ APPROX CNTR S END",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=LIB",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.2421,
+            "longitude": -121.6849
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "LIS",
+        "name": "YOLO BYPASS AT LISBON",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=LIS",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.47478,
+            "longitude": -121.58822
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "LON",
+        "name": "LOON LAKE (SMUD)",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=LON",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.98299,
+            "longitude": -120.323,
+            "altitude": 1953.768
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "LPS",
+        "name": "LITTLE POTATO SLOUGH AT TERMINOUS",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=LPS",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.0964,
+            "longitude": -121.4961
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "LRT",
+        "name": "LITTLE RIVER NEAR TRINIDAD",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=LRT",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 41.00985,
+            "longitude": -124.08145,
+            "altitude": 5.4864
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "LSR",
+        "name": "LITTLE SHASTA R NR MONTAGUE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=LSR",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 41.73309,
+            "longitude": -122.35035,
+            "altitude": 853.44
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "LTK",
+        "name": "LITTLE TRUCKEE R BL BOCA RES",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=LTK",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.38685,
+            "longitude": -120.09547,
+            "altitude": 1676.4
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "LWS",
+        "name": "LEWISTON (WATER QUALITY)",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=LWS",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.71931,
+            "longitude": -122.80363,
+            "altitude": 557.784
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "M11",
+        "name": "NF MOKELUMNE R BL SALT SPRINGS DAM",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=M11",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4936,
+            "longitude": -120.22,
+            "altitude": 1094.232
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "M38",
+        "name": "NF MOKELUMNE R AB TIGER CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=M38",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.44666,
+            "longitude": -120.48916,
+            "altitude": 712.6224
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "M46",
+        "name": "NF MOKELUMNE R BL ELECTRA DIVERSION",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=M46",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.42083,
+            "longitude": -120.54888,
+            "altitude": 603.504
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MAB",
+        "name": "MIDDLE RIVER ABOVE BARRIER",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MAB",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.88518,
+            "longitude": -121.47276,
+            "altitude": 2.1336
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MBG",
+        "name": "MERCED R NR BRICEBURG #2",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MBG",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.60477,
+            "longitude": -119.96775,
+            "altitude": 350.52
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MBH",
+        "name": "MERCED R BLW CROCKER-HUFFMAN DAM",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MBH",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.51822,
+            "longitude": -120.38019,
+            "altitude": 89.6112
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MBK",
+        "name": "KINGS RIVER AT MEADOWBROOK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MBK",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.081,
+            "longitude": -118.862,
+            "altitude": 2484.12
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MBN",
+        "name": "MERCED R AT SHAFFER BRIDGE NR CRESSY",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MBN",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.45422,
+            "longitude": -120.6088,
+            "altitude": 35.6616
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MBT",
+        "name": "NF MOKELUMNE R BL TIGER CREEK AFTERBAY",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MBT",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.44027,
+            "longitude": -120.50389,
+            "altitude": 676.656
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MC7",
+        "name": "MCCLOUD RIVER BELOW MCCLOUD DAM",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MC7",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 41.12234,
+            "longitude": -122.06416,
+            "altitude": 731.52
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MCA",
+        "name": "MCCLOUD R AT AH-DI-NA",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MCA",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 41.1105,
+            "longitude": -122.0967,
+            "altitude": 649.224
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MCD",
+        "name": "MCCLOUD RIVER NEAR MCCLOUD",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MCD",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 41.186,
+            "longitude": -122.059,
+            "altitude": 826.3128
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MCH",
+        "name": "MILL CREEK BELOW HWY 99",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MCH",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.04005,
+            "longitude": -122.10463,
+            "altitude": 70.104
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MCK",
+        "name": "BEAR CREEK AT MC KEE ROAD",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MCK",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.30919,
+            "longitude": -120.4456,
+            "altitude": 50.9016
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MDM",
+        "name": "MIDDLE RIVER AT MIDDLE RIVER",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MDM",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.943,
+            "longitude": -121.534,
+            "altitude": 3.048
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MEN",
+        "name": "SAN JOAQUIN RIVER NEAR MENDOTA",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MEN",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 36.8105,
+            "longitude": -120.37822,
+            "altitude": 51.816
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MER",
+        "name": "FEATHER RIVER AT MERRIMAC",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MER",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.709,
+            "longitude": -121.27,
+            "altitude": 475.488
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MFP",
+        "name": "MIDDLE FORK FEATHER RIVER NEAR PORTOLA",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MFP",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.81895,
+            "longitude": -120.44487,
+            "altitude": 1478.28
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MFR",
+        "name": "MORRISON CREEK AT FLORIN ROAD",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MFR",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.49852,
+            "longitude": -121.45272,
+            "altitude": 6.096
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MHB",
+        "name": "COSUMNES RIVER AT MICHIGAN BAR",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MHB",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.50018,
+            "longitude": -121.04521,
+            "altitude": 51.2064
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MIR",
+        "name": "MINER SLOUGH NEAR SACRAMENTO RIVER",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MIR",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.23602,
+            "longitude": -121.66605,
+            "altitude": 1.524
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MLM",
+        "name": "MILL CREEK NR LOS MOLINOS",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MLM",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.0546,
+            "longitude": -122.02415,
+            "altitude": 117.348
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MMF",
+        "name": "MERCED RIVER BELOW MERCED FALLS",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MMF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.522,
+            "longitude": -120.331,
+            "altitude": 94.488
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MOD",
+        "name": "TUOLUMNE RIVER AT MODESTO",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MOD",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.62687,
+            "longitude": -120.98799,
+            "altitude": 27.432
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MOK",
+        "name": "MOKELUMNE R AT SAN JOAQUIN RIVER",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MOK",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.1061,
+            "longitude": -121.5711
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MRB",
+        "name": "SAN JOAQUIN R AT MAZE RD BRIDGE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MRB",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.64139,
+            "longitude": -121.2276,
+            "altitude": 11.8872
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MRD",
+        "name": "EEL RIVER SF NR MIRANDA (AT SYLVANDALE)",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MRD",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.1818,
+            "longitude": -123.77614,
+            "altitude": 66.4464
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MRE",
+        "name": "MATTOLE RIVER NEAR ETTERSBURG",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MRE",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.1393,
+            "longitude": -123.99142,
+            "altitude": 190.8048
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MRF",
+        "name": "MAD R ABV RUTH RESERVOIR NR FOREST GLEN",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MRF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.28431,
+            "longitude": -123.3353,
+            "altitude": 822.96
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MRS",
+        "name": "MORMON SLOUGH AT BELLOTA (USACE)",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MRS",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.054,
+            "longitude": -121.012,
+            "altitude": 39.624
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MRU",
+        "name": "MIDDLE RIVER AT UNDINE ROAD",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MRU",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.8339,
+            "longitude": -121.386
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MRY",
+        "name": "YUBA RIVER NEAR MARYSVILLE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MRY",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.17572,
+            "longitude": -121.52496,
+            "altitude": 26.8224
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MSD",
+        "name": "SAN JOAQUIN RIVER AT MOSSDALE BRIDGE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MSD",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.786,
+            "longitude": -121.306,
+            "altitude": 9.4488
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MSG",
+        "name": "MUD SLOUGH NR GUSTINE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MSG",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.2625,
+            "longitude": -120.9056,
+            "altitude": 21.336
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MSN",
+        "name": "MERCED RIVER NEAR SNELLING",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MSN",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.502,
+            "longitude": -120.451,
+            "altitude": 79.248
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MSS",
+        "name": "MCCLOUD RIVER ABOVE SHASTA LAKE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MSS",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.958,
+            "longitude": -122.219,
+            "altitude": 335.28
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MST",
+        "name": "MERCED RIVER NEAR STEVINSON",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MST",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.371,
+            "longitude": -120.931,
+            "altitude": 24.9936
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MTK",
+        "name": "MARTIS CK NR TRUCKEE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MTK",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.32879,
+            "longitude": -120.11769,
+            "altitude": 1746.504
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MTO",
+        "name": "MF TUOLUMNE R NR OAKLAND REC CAMP",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MTO",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.82815,
+            "longitude": -120.01225,
+            "altitude": 853.44
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "MUC",
+        "name": "MUD CREEK NEAR CHICO",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=MUC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.78335,
+            "longitude": -121.88671,
+            "altitude": 51.816
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "NCB",
+        "name": "NF COTTONWOOD CREEK AT SUNNY HILL MINE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=NCB",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.4749,
+            "longitude": -122.70535,
+            "altitude": 510.2352
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "NCL",
+        "name": "N FK CACHE CK NR CLEARLAKE OAKS 8NE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=NCL",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.16556,
+            "longitude": -122.61889,
+            "altitude": 560.832
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "NEW",
+        "name": "SAN JOAQUIN RIVER NEAR NEWMAN",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=NEW",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.35049,
+            "longitude": -120.97715,
+            "altitude": 27.432
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "NFC",
+        "name": "N FORK CACHE CREEK AT HOUGH SPRINGS",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=NFC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.16544,
+            "longitude": -122.61998,
+            "altitude": 467.5632
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "NFD",
+        "name": "NF AMERICAN R AT NORTH FORK DAM",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=NFD",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.936,
+            "longitude": -121.02383,
+            "altitude": 217.932
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "NFH",
+        "name": "TRINITY R ABV NF TRINITY NR HELENA",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=NFH",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.76653,
+            "longitude": -123.11447,
+            "altitude": 420.624
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "NFP",
+        "name": "NORTH FORK FEATHER RIVER AT PULGA",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=NFP",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.79399,
+            "longitude": -121.451,
+            "altitude": 397.764
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "NFW",
+        "name": "N FK WILLOW CK NR SUGAR PINE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=NFW",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.39779,
+            "longitude": -119.5592,
+            "altitude": 1584.96
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "NHC",
+        "name": "N HONCUT CK AT HWY 70",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=NHC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.3093,
+            "longitude": -121.59518,
+            "altitude": 22.5552
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "NKD",
+        "name": "NF KINGS RIVER BLW DINKEY CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=NKD",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 36.88,
+            "longitude": -119.128,
+            "altitude": 315.468
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "NRN",
+        "name": "NAVARRO RIVER NEAR NAVARRO",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=NRN",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.17045,
+            "longitude": -123.66806,
+            "altitude": 1.524
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "NSD",
+        "name": "NORTH FORK STANISLAUS R BLW DIVERSION",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=NSD",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.43399,
+            "longitude": -120.018,
+            "altitude": 2023.872
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "NSL",
+        "name": "NATIONAL STEEL",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=NSL",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.1221,
+            "longitude": -121.8881
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "NYS",
+        "name": "N YUBA R. ABV SLATE CK NR STRAWBERRY",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=NYS",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.5247,
+            "longitude": -121.0906,
+            "altitude": 609.6
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "OBB",
+        "name": "STANISLAUS R AT ORANGE BLOSSOM BRIDGE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=OBB",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.783,
+            "longitude": -120.75,
+            "altitude": 35.6616
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "OBI",
+        "name": "OLD RIVER AT BACON ISLAND (USGS)",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=OBI",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.96936,
+            "longitude": -121.57222,
+            "altitude": 3.048
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "OCC",
+        "name": "OREGON CREEK AT CAMPTONVILLE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=OCC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.4461,
+            "longitude": -121.04528,
+            "altitude": 667.8168
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "OH1",
+        "name": "OLD RIVER AT HEAD",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=OH1",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.80755,
+            "longitude": -121.33125,
+            "altitude": 4.572
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "OH4",
+        "name": "OLD RIVER AT HIGHWAY 4",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=OH4",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.8911,
+            "longitude": -121.56916,
+            "altitude": 3.048
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "OKN",
+        "name": "O'KANE (BLUE LAKE)",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=OKN",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.90596,
+            "longitude": -123.81533,
+            "altitude": 259.08
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "OLD",
+        "name": "OLD RIVER NEAR TRACY",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=OLD",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.80481,
+            "longitude": -121.44956,
+            "altitude": 1.524
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "OLS",
+        "name": "KLAMATH RIVER AT ORLEANS",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=OLS",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 41.30345,
+            "longitude": -123.5345,
+            "altitude": 131.064
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "OMR",
+        "name": "OLD \u0026 MIDDLE RVRS TIDALLY FILTERED EST",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=OMR",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.97,
+            "longitude": -121.5711,
+            "altitude": 3.048
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "ORD",
+        "name": "SACRAMENTO R AT ORD FERRY-MAIN CHANNEL",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=ORD",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.62813,
+            "longitude": -121.99317,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "ORE",
+        "name": "ORESTIMBA CREEK NR NEWMAN",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=ORE",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.31549,
+            "longitude": -121.1252
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "ORF",
+        "name": "\\OROVILLE FISH HATCHERY",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=ORF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.517,
+            "longitude": -121.55,
+            "altitude": 52.1208
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "ORH",
+        "name": "MIDDLE YUBA RIVER BELOW OUR HOUSE DAM",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=ORH",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.412,
+            "longitude": -120.997,
+            "altitude": 596.7984
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "ORI",
+        "name": "OLD RIVER AT CLIFTON COURT INTAKE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=ORI",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.828,
+            "longitude": -121.5526
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "ORK",
+        "name": "REDWOOD CREEK AT ORICK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=ORK",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 41.29929,
+            "longitude": -124.05118,
+            "altitude": 10.9728
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "ORM",
+        "name": "OLD RIVER UPSTREAM OF MOUNTAIN HOUSE CRK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=ORM",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.79384,
+            "longitude": -121.51738,
+            "altitude": 1.524
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "ORQ",
+        "name": "OLD RIVER AT QUIMBLY IS NEAR BETHEL IS",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=ORQ",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.0272,
+            "longitude": -121.5645
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "ORX",
+        "name": "OLD RIVER ABOVE DOUGHTY CUT",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=ORX",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.81099,
+            "longitude": -121.38657,
+            "altitude": 2.4384
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "OSJ",
+        "name": "OLD RIVER AT FRANKS TRACT NEAR TERMINOUS",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=OSJ",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.0711,
+            "longitude": -121.5789
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "OXB",
+        "name": "MIDDLE FK AMERICAN R NR OXBOW PH",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=OXB",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.006,
+            "longitude": -120.76,
+            "altitude": 326.136
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "P1U",
+        "name": "PIT RIVER ABV PIT #1 PH CALCULATED FLOW",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=P1U",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.98606,
+            "longitude": -121.49929,
+            "altitude": 822.96
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "P35",
+        "name": "PIT RIVER BELOW LAKE BRITTON",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=P35",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 41.02129,
+            "longitude": -121.67569,
+            "altitude": 838.2
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PAS",
+        "name": "SALINAS RIVER AT PASO ROBLES",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PAS",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 35.62858,
+            "longitude": -120.68433,
+            "altitude": 213.36
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PBS",
+        "name": "PARKS BIG SPRINGS",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PBS",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 41.5735,
+            "longitude": -122.4395,
+            "altitude": 789.7368
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PCG",
+        "name": "PUTAH CREEK NEAR GUENOC",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PCG",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.77879,
+            "longitude": -122.51747,
+            "altitude": 278.5872
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PCN",
+        "name": "PIT RIVER NEAR CANBY",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PCN",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 41.406,
+            "longitude": -120.92774,
+            "altitude": 1300.2768
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PDC",
+        "name": "PARADISE CUT",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PDC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.80205,
+            "longitude": -121.41225,
+            "altitude": 2.4384
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PIR",
+        "name": "PIRU CREEK BLW BUCK CR NR PYRAMID LAKE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PIR",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 34.665,
+            "longitude": -118.823,
+            "altitude": 792.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PLK",
+        "name": "SF PIT RIVER NEAR LIKELY",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PLK",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 41.23072,
+            "longitude": -120.43717,
+            "altitude": 1374.0384
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PLT",
+        "name": "PILOT CREEK ABOVE STUMPY MEADOWS RES",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PLT",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.89472,
+            "longitude": -120.56722,
+            "altitude": 1304.544
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PMN",
+        "name": "PIT RIVER NEAR MONTGOMERY CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PMN",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.843,
+            "longitude": -122.016,
+            "altitude": 315.7728
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "POH",
+        "name": "MERCED R AT POHONO BR NR YOSEMITE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=POH",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.71687,
+            "longitude": -119.66627,
+            "altitude": 1177.1376
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PP1",
+        "name": "PIT R BELOW PIT #1 PH NEAR FALL R MILLS",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PP1",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.98321,
+            "longitude": -121.51192,
+            "altitude": 852.8304
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PR4",
+        "name": "PH-30 PIT RIVER BLW PIT NO 4 DAM",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PR4",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.975,
+            "longitude": -121.779,
+            "altitude": 719.328
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PRB",
+        "name": "PH-27 PIT RIVER AT BIG BEND",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PRB",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 41.02,
+            "longitude": -121.909,
+            "altitude": 512.064
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PRF",
+        "name": "PARSHAL FLUME FLOW",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PRF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.49209,
+            "longitude": -122.00563,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PRI",
+        "name": "SAN JOAQUIN R AT PRISONERS PT NR TERMINO",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PRI",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.05939,
+            "longitude": -121.5572
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTA",
+        "name": "MATTOLE RIVER NEAR PETROLIA",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTA",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.31319,
+            "longitude": -124.28337,
+            "altitude": 12.192
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTC",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.5282,
+            "longitude": -121.92453,
+            "altitude": 35.052
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTF",
+        "name": "PUTAH CREEK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.4921,
+            "longitude": -122.00564,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PTK",
+        "name": "PROSSER CREEK NEAR TRUCKEE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PTK",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.37324,
+            "longitude": -120.13158,
+            "altitude": 1707.4896
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "PUT",
+        "name": "PUTAH CREEK NEAR WINTERS",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=PUT",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.51518,
+            "longitude": -122.08191,
+            "altitude": 49.0728
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "RBG",
+        "name": "SF RUBICON RIVER BELOW GERLE CK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=RBG",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.955,
+            "longitude": -120.401,
+            "altitude": 1514.856
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "RBW",
+        "name": "RAINBOW DIVERSION DAM",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=RBW",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.371,
+            "longitude": -122.605,
+            "altitude": 395.3256
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "RCL",
+        "name": "RUSH CREEK NEAR LEWISTON",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=RCL",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.725,
+            "longitude": -122.834,
+            "altitude": 518.16
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "RCS",
+        "name": "RIDGE CUT SLOUGH AT KNIGHTS LANDING",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=RCS",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.79355,
+            "longitude": -121.72534
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "RIP",
+        "name": "STANISLAUS RIVER AT RIPON",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=RIP",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.72965,
+            "longitude": -121.11049,
+            "altitude": 22.2504
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "RUM",
+        "name": "CACHE CREEK AT RUMSEY BRIDGE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=RUM",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.89,
+            "longitude": -122.238,
+            "altitude": 121.92
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "RYF",
+        "name": "CACHE SLOUGH ABOVE RYER ISLAND FERRY",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=RYF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.19385,
+            "longitude": -121.658,
+            "altitude": 0.6096
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "S12",
+        "name": "MF STANISLAUS R BL SANDBAR DIV DAM",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=S12",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.18305,
+            "longitude": -120.15777,
+            "altitude": 829.056
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "S52",
+        "name": "MF STANISLAUS R AT KENNEDY MEADOWS",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=S52",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.2975,
+            "longitude": -119.74028,
+            "altitude": 1928.1648
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "S61",
+        "name": "SF STANISLAUS R AT STRAWBERRY",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=S61",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.19749,
+            "longitude": -120.0075,
+            "altitude": 1595.628
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "S83",
+        "name": "SF STANISLAUS R NR STRAWBERRY DIV DAM",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=S83",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.17777,
+            "longitude": -120.04583,
+            "altitude": 1498.092
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SBH",
+        "name": "SAN BENITO R AT HWY 156 NEAR HOLLISTER",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SBH",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 36.85189,
+            "longitude": -121.42993,
+            "altitude": 79.248
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SCG",
+        "name": "STONY CK NR GRIZZLY FLAT (CO RD 200A)",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SCG",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.73181,
+            "longitude": -122.41399,
+            "altitude": 151.1808
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SCL",
+        "name": "SAN JOAQUIN R NR CROWS LANDING",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SCL",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.43188,
+            "longitude": -121.01381,
+            "altitude": 18.288
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SCO",
+        "name": "EEL RIVER AT SCOTIA",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SCO",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.49152,
+            "longitude": -124.09977,
+            "altitude": 48.768
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SDC",
+        "name": "SACRAMENTO R ABOVE DELTA CROSS CHANNEL",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SDC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.257,
+            "longitude": -121.518,
+            "altitude": 3.048
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SDP",
+        "name": "SAN JOAQUIN R NR DOS PALOS",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SDP",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 36.994,
+            "longitude": -120.5015,
+            "altitude": 35.3568
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SFH",
+        "name": "SOUTH HONCUT CREEK NEAR BANGOR",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SFH",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.36824,
+            "longitude": -121.37188,
+            "altitude": 192.024
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SFJ",
+        "name": "SCOTT RIVER NEAR FORT JONES",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SFJ",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 41.64069,
+            "longitude": -123.01503,
+            "altitude": 799.4904
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SGA",
+        "name": "SUGAR CUT",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SGA",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.79285,
+            "longitude": -121.42149,
+            "altitude": 2.4384
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SGG",
+        "name": "SHAG SLOUGH",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SGG",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.31833,
+            "longitude": -121.69305
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SGN",
+        "name": "SUGAR CK NR CALLAHAN",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SGN",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 41.32859,
+            "longitude": -122.84339,
+            "altitude": 954.024
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SJA",
+        "name": "SAN JOAQUIN RIVER NEAR AUBERRY",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SJA",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.132,
+            "longitude": -119.531,
+            "altitude": 265.176
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SJB",
+        "name": "SAN JOAQUIN RIVER BELOW BIFURCATION",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SJB",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 36.773,
+            "longitude": -120.286,
+            "altitude": 51.816
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SJC",
+        "name": "SAN JOAQUIN RIVER NEAR BUCKLEY COVE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SJC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.98026,
+            "longitude": -121.38571,
+            "altitude": 3.048
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SJD",
+        "name": "SAN JOAQUIN RIVER ABOVE DOS REIS",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SJD",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.82233,
+            "longitude": -121.31772,
+            "altitude": 2.1336
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SJF",
+        "name": "SAN JOAQUIN RIVER BELOW FRIANT",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SJF",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 36.98439,
+            "longitude": -119.72431,
+            "altitude": 89.6112
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SJG",
+        "name": "SAN JOAQUIN RIVER AT GARWOOD BRIDGE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SJG",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.935,
+            "longitude": -121.329,
+            "altitude": 3.9624
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SJH",
+        "name": "SAN JOAQUIN RIVER NEAR HWY 152",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SJH",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.05542,
+            "longitude": -120.5483,
+            "altitude": 33.8328
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SJJ",
+        "name": "SAN JOAQUIN RIVER AT JERSEY POINT (USGS)",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SJJ",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.052,
+            "longitude": -121.689,
+            "altitude": 3.048
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SJP",
+        "name": "SAN JOAQUIN RIVER AT PATTERSON BRIDGE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SJP",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.494,
+            "longitude": -121.081,
+            "altitude": 29.5656
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SJS",
+        "name": "SAN JOAQUIN RIVER NEAR STEVINSON",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SJS",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.295,
+            "longitude": -120.851,
+            "altitude": 24.9936
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SKB",
+        "name": "SAN JOAQUIN R BLW HWY 145 (SKAGGS BR)",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SKB",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 36.82289,
+            "longitude": -120.0884,
+            "altitude": 60.96
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SKO",
+        "name": "SOUTH FORK KERN RIVER NEAR ONYX",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SKO",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 35.73745,
+            "longitude": -118.17369,
+            "altitude": 883.92
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SMN",
+        "name": "SAN JOAQUIN R ABV MERCED R NR NEWMAN",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SMN",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.34721,
+            "longitude": -120.97618,
+            "altitude": 18.288
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SMS",
+        "name": "SALMON RIVER AT SOMES BAR",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SMS",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 41.37651,
+            "longitude": -123.477,
+            "altitude": 147.2184
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SMW",
+        "name": "SOUTH FORK MERCED RIVER AT WAWONA",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SMW",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.5417,
+            "longitude": -119.6722,
+            "altitude": 1207.008
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SOI",
+        "name": "SACRAMENTO R DOWNSTREAM OF ISLETON",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SOI",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.17548,
+            "longitude": -121.65686,
+            "altitude": 1.524
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SPK",
+        "name": "SPANISH CK ABV BLACKHAWK CK AT KEDDIE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SPK",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.00294,
+            "longitude": -120.95439,
+            "altitude": 954.024
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SPR",
+        "name": "SALINAS RIVER NEAR SPRECKELS",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SPR",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 36.63106,
+            "longitude": -121.67244,
+            "altitude": 16.1544
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SPU",
+        "name": "SHASTA R AT GRENADA PUMP PLANT",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SPU",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 41.61,
+            "longitude": -122.47111,
+            "altitude": 780.288
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SRD",
+        "name": "SHASTA RIVER BELOW DWINNELL",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SRD",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 41.54337,
+            "longitude": -122.37683,
+            "altitude": 838.2
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SRE",
+        "name": "SHASTA R NR EDGEWOOD",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SRE",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 41.47288,
+            "longitude": -122.4394,
+            "altitude": 914.4
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SRM",
+        "name": "SHASTA RIVER NEAR MONTAGUE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SRM",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 41.70903,
+            "longitude": -122.53807,
+            "altitude": 749.1984
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SRN",
+        "name": "SAN RAMON CK AT SAN RAMON",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SRN",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.77306,
+            "longitude": -121.99361,
+            "altitude": 161.544
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SRV",
+        "name": "SACRAMENTO RIVER AT RIO VISTA (USGS)",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SRV",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.16,
+            "longitude": -121.686
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SRY",
+        "name": "SHASTA RIVER NEAR YREKA",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SRY",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 41.82291,
+            "longitude": -122.59558,
+            "altitude": 609.6
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SSD",
+        "name": "SUSAN R NR STANDISH",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SSD",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.38109,
+            "longitude": -120.43503,
+            "altitude": 1228.344
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SSH",
+        "name": "SALT SLOUGH AT HWY 165 NR STEVINSON",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SSH",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.2478,
+            "longitude": -120.8511,
+            "altitude": 22.86
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SSS",
+        "name": "STEAMBOAT SLOUGH BTW SAC R AND SUTTER SL",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SSS",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.28499,
+            "longitude": -121.587,
+            "altitude": 3.048
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SSU",
+        "name": "SUSAN RIVER AT SUSANVILLE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SSU",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.41371,
+            "longitude": -120.66422,
+            "altitude": 1277.112
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "STO",
+        "name": "SF TUOLUMNE R NR OAKLAND REC CAMP",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=STO",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.8217,
+            "longitude": -120.0119,
+            "altitude": 853.44
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "STP",
+        "name": "STAMPEDE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=STP",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.47099,
+            "longitude": -120.103,
+            "altitude": 1815.3888
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SUW",
+        "name": "STONY CREEK NR SUWANNA RANCH (CO RD 410)",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SUW",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.48482,
+            "longitude": -122.51413,
+            "altitude": 271.272
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SVC",
+        "name": "SILVER CR BLW CAMINO DAM",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SVC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.824,
+            "longitude": -120.538,
+            "altitude": 567.8424
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SWA",
+        "name": "SAN JOAQUIN R NR WASHINGTON RD",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SWA",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.11531,
+            "longitude": -120.587,
+            "altitude": 33.2232
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SXS",
+        "name": "STEAMBOAT SLOUGH NR SACRAMENTO R",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SXS",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.19126,
+            "longitude": -121.63788,
+            "altitude": 1.524
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "SYH",
+        "name": "SANTA YNEZ R AT H ST NR LOMPOC",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=SYH",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 34.66831,
+            "longitude": -120.45793,
+            "altitude": 17.3736
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "TAI",
+        "name": "TUOLUMNE R ABV EARLY INTAKE NEAR MATHER",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=TAI",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.87936,
+            "longitude": -119.94712,
+            "altitude": 737.616
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "TBB",
+        "name": "TRUCKEE R AT BOCA BRIDGE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=TBB",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.38518,
+            "longitude": -120.0877,
+            "altitude": 1671.5232
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "TBH",
+        "name": "SOUTH FORK TRINITY RIVER BELOW HYAMPOM",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=TBH",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.64986,
+            "longitude": -123.4942,
+            "altitude": 3.6576
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "TBI",
+        "name": "TUOLUMNE R BL EARLY INTAKE NEAR MATHER",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=TBI",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.88159,
+            "longitude": -119.97018,
+            "altitude": 670.56
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "TBR",
+        "name": "TRINITY RIVER NEAR BURNT RANCH",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=TBR",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.78875,
+            "longitude": -123.44004,
+            "altitude": 287.7312
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "TFB",
+        "name": "THERMALITO DIVERSION DAM FISH BARRIER",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=TFB",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.52042,
+            "longitude": -121.54789,
+            "altitude": 52.1208
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "TGC",
+        "name": "TUOLUMNE R AT THE GRAND CYN OF TUOLUMNE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=TGC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.91658,
+            "longitude": -119.65989,
+            "altitude": 1167.384
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "TJC",
+        "name": "TRINITY R AT JUNCTION CITY",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=TJC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.72847,
+            "longitude": -123.06197,
+            "altitude": 440.436
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "TLK",
+        "name": "TRINITY RIVER BELOW LIMEKILN GULCH",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=TLK",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.673,
+            "longitude": -122.919,
+            "altitude": 502.92
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "TM1",
+        "name": "THOMPSON MEADOW SITE #1",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=TM1",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.97919,
+            "longitude": -120.47641,
+            "altitude": 1677.6192
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "TM2",
+        "name": "THOMPSON MEADOW SITE #2",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=TM2",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.97425,
+            "longitude": -120.47269,
+            "altitude": 1666.0368
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "TMP",
+        "name": "TUOLUMNE RIVER AT MERALS POOL",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=TMP",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.83654,
+            "longitude": -120.05416,
+            "altitude": 432.816
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "TOE",
+        "name": "TOE DRAIN AT LIBERTY ISLAND NR COURTLAND",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=TOE",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.34916,
+            "longitude": -121.64472
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "TOT",
+        "name": "COMBINED SSD \u0026 WCD FLOWS",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=TOT",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.3814,
+            "longitude": -120.4342,
+            "altitude": 1228.344
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "TRC",
+        "name": "TRINITY R ABV COFFEE CR NR TRINITY CTR",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=TRC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 41.11125,
+            "longitude": -122.70558,
+            "altitude": 773.2776
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "TRH",
+        "name": "TUOLUMNE RIVER NEAR HETCH HETCHY",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=TRH",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.93742,
+            "longitude": -119.79823,
+            "altitude": 1045.464
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "TRK",
+        "name": "TRUCKEE RIVER NEAR TRUCKEE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=TRK",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.29629,
+            "longitude": -120.20547,
+            "altitude": 1785.5184
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "TRN",
+        "name": "TURNER CUT NEAR HOLT",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=TRN",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.9928,
+            "longitude": -121.4542
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "TRR",
+        "name": "KAWEAH RIVER AT THREE RIVERS",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=TRR",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 36.4439,
+            "longitude": -118.9044,
+            "altitude": 253.8984
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "TRT",
+        "name": "TUOLUMNE R AT TUOLUMNE CITY",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=TRT",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.60314,
+            "longitude": -121.13131,
+            "altitude": 16.1544
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "TRW",
+        "name": "TUOLUMNE R AT WATERFORD",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=TRW",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.6336,
+            "longitude": -120.76556,
+            "altitude": 30.48
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "TSL",
+        "name": "THREEMILE SLOUGH AT SAN JOAQUIN RIVER",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=TSL",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.10329,
+            "longitude": -121.6861,
+            "altitude": 3.048
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "TTC",
+        "name": "TRUCKEE RIVER AT TAHOE CITY",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=TTC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.16629,
+            "longitude": -120.14435,
+            "altitude": 1807.464
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "TUM",
+        "name": "TUOLUMNE MEADOWS",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=TUM",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.8764,
+            "longitude": -119.34809,
+            "altitude": 2621.28
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "UCC",
+        "name": "UPPER CHERRY CK",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=UCC",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.03133,
+            "longitude": -119.90141,
+            "altitude": 1447.8
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "VCU",
+        "name": "VICTORIA CANAL NEAR BYRON",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=VCU",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.87169,
+            "longitude": -121.5283
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "VNS",
+        "name": "SAN JOAQUIN RIVER NEAR VERNALIS",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=VNS",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.67604,
+            "longitude": -121.26632,
+            "altitude": 10.668
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "VON",
+        "name": "SACRAMENTO RIVER AT VERONA",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=VON",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.77415,
+            "longitude": -121.59806,
+            "altitude": 13.1064
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "WCA",
+        "name": "WILLOW CREEK NEAR ADIN",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=WCA",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 41.10805,
+            "longitude": -120.92861,
+            "altitude": 1328.928
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "WCD",
+        "name": "WILLOW CREEK NEAR STANDISH",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=WCD",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.38116,
+            "longitude": -120.43499,
+            "altitude": 1228.344
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "WCI",
+        "name": "WEST CANAL AT CLIFTON COURT INTAKE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=WCI",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 37.8316,
+            "longitude": -121.554
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "WDD",
+        "name": "CARSON RIVER WF AT WOODFORDS",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=WDD",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.769,
+            "longitude": -119.832,
+            "altitude": 1753.8192
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "WFR",
+        "name": "WEST BRANCH FEATHER RIVER NEAR MAGALIA",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=WFR",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.81398,
+            "longitude": -121.57118,
+            "altitude": 420.624
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "WLK",
+        "name": "SACRAMENTO RIVER BELOW WILKINS SLOUGH",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=WLK",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.00989,
+            "longitude": -121.82469,
+            "altitude": 9.144
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "WSL",
+        "name": "WILLOW SLOUGH AT SB WEST BURROW PIT",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=WSL",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.91458,
+            "longitude": -121.62755,
+            "altitude": 8.5344
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "WWR",
+        "name": "WEST WALKER RIVER NR COLEVILLE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=WWR",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 38.378,
+            "longitude": -119.449,
+            "altitude": 2008.9368
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "YBY",
+        "name": "YOLO BYPASS NEAR WOODLAND",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=YBY",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 40.60098,
+            "longitude": -122.44445
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "YPB",
+        "name": "YUBA RIVER AT PARKS BAR BRIDGE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=YPB",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.2306,
+            "longitude": -121.2817
+        },
+        "timezone": "US/Pacific"
+    },
+    {
+        "script": "uscdec",
+        "code": "YRS",
+        "name": "YUBA RIVER NEAR SMARTVILLE",
+        "url": "https://cdec.water.ca.gov/dynamicapp/staMeta?station_id=YRS",
+        "flowUnit": "cfs",
+        "location": {
+            "latitude": 39.23517,
+            "longitude": -121.27412,
+            "altitude": 85.344
+        },
+        "timezone": "US/Pacific"
+    }
+]

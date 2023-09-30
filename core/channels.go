@@ -3,8 +3,8 @@ package core
 import "context"
 
 // GenFromSlice creates channel of Measurements from slice
-func GenFromSlice(ctx context.Context, measurements []Measurement) <-chan *Measurement {
-	out := make(chan *Measurement)
+func GenFromSlice[T any](ctx context.Context, measurements []T) <-chan *T {
+	out := make(chan *T)
 	go func() {
 		defer close(out)
 		for i := range measurements {
@@ -20,11 +20,11 @@ func GenFromSlice(ctx context.Context, measurements []Measurement) <-chan *Measu
 
 // SinkToSlice takes channel of measurements and produces channel that will receive
 // slice of measurements once input channel is closed or context is canceled
-func SinkToSlice(ctx context.Context, in <-chan *Measurement) <-chan []*Measurement {
-	out := make(chan []*Measurement)
+func SinkToSlice[T any](ctx context.Context, in <-chan *T) <-chan []*T {
+	out := make(chan []*T)
 	go func() {
 		defer close(out)
-		var res []*Measurement
+		var res []*T
 		for {
 			select {
 			case m, ok := <-in:
