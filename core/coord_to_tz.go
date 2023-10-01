@@ -49,6 +49,54 @@ func CoordinateToTimezone(lat float64, lon float64) (string, error) {
 	return name, nil
 }
 
+// only those state that have strictly one timezone
+var stateTimeZones = map[string]string{
+	"AL": "America/Chicago",
+	"AZ": "America/Phoenix",
+	"AR": "America/Chicago",
+	"CA": "America/Los_Angeles",
+	"CO": "America/Denver",
+	"CT": "America/New_York",
+	"DE": "America/New_York",
+	"DC": "America/New_York",
+	"GA": "America/New_York",
+	"HI": "Pacific/Honolulu",
+	"IL": "America/Chicago",
+	"IA": "America/Chicago",
+	"ME": "America/New_York",
+	"MD": "America/New_York",
+	"MA": "America/New_York",
+	"MN": "America/Chicago",
+	"MS": "America/Chicago",
+	"MO": "America/Chicago",
+	"MT": "America/Denver",
+	"NV": "America/Los_Angeles",
+	"NH": "America/New_York",
+	"NJ": "America/New_York",
+	"NM": "America/Denver",
+	"NY": "America/New_York",
+	"NC": "America/New_York",
+	"OH": "America/New_York",
+	"OK": "America/Chicago",
+	"PA": "America/New_York",
+	"RI": "America/New_York",
+	"SC": "America/New_York",
+	"UT": "America/Denver",
+	"VT": "America/New_York",
+	"VA": "America/New_York",
+	"WA": "America/Los_Angeles",
+	"WV": "America/New_York",
+	"WI": "America/Chicago",
+	"WY": "America/Denver",
+}
+
+func USCoordinateToTimezone(state string, lat float64, lon float64) (string, error) {
+	if name, ok := stateTimeZones[state]; ok {
+		return name, nil
+	}
+	return CoordinateToTimezone(lat, lon)
+}
+
 func CloseTimezoneDb() {
 	if tz != nil {
 		(*tz).Close()

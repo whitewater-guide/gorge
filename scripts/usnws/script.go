@@ -6,11 +6,16 @@ import (
 	"github.com/whitewater-guide/gorge/core"
 )
 
-type optionsUsnws struct{}
+type optionsUsnws struct {
+	pageSize   int
+	numWorkers int
+}
 type scriptUsnws struct {
 	core.LoggingScript
-	name   string
-	kmzUrl string
+	name       string
+	url        string
+	pageSize   int
+	numWorkers int
 }
 
 func (s *scriptUsnws) ListGauges() (core.Gauges, error) {
@@ -19,7 +24,7 @@ func (s *scriptUsnws) ListGauges() (core.Gauges, error) {
 	go func() {
 		defer close(gaugesCh)
 		defer close(errCh)
-		s.parseKmz(gaugesCh, nil, errCh)
+		s.parseJson(gaugesCh, nil, errCh)
 	}()
 	return core.GaugeSinkToSlice(gaugesCh, errCh)
 }
@@ -27,5 +32,5 @@ func (s *scriptUsnws) ListGauges() (core.Gauges, error) {
 func (s *scriptUsnws) Harvest(ctx context.Context, recv chan<- *core.Measurement, errs chan<- error, codes core.StringSet, since int64) {
 	defer close(recv)
 	defer close(errs)
-	s.parseKmz(nil, recv, errs)
+	s.parseJson(nil, recv, errs)
 }

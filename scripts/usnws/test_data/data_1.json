@@ -1,0 +1,115 @@
+{
+    "displayFieldName": "gaugelid",
+    "fieldAliases": {
+        "objectid": "objectid",
+        "gaugelid": "gaugelid",
+        "location": "location",
+        "latitude": "latitude",
+        "longitude": "longitude",
+        "waterbody": "waterbody",
+        "state": "state",
+        "obstime": "obstime",
+        "units": "units",
+        "secunit": "secunit",
+        "url": "url",
+        "observed": "observed",
+        "secvalue": "secvalue"
+    },
+    "fields": [
+        {
+            "name": "objectid",
+            "type": "esriFieldTypeOID",
+            "alias": "objectid"
+        },
+        {
+            "name": "gaugelid",
+            "type": "esriFieldTypeString",
+            "alias": "gaugelid",
+            "length": 5
+        },
+        {
+            "name": "location",
+            "type": "esriFieldTypeString",
+            "alias": "location",
+            "length": 90
+        },
+        {
+            "name": "latitude",
+            "type": "esriFieldTypeDouble",
+            "alias": "latitude"
+        },
+        {
+            "name": "longitude",
+            "type": "esriFieldTypeDouble",
+            "alias": "longitude"
+        },
+        {
+            "name": "waterbody",
+            "type": "esriFieldTypeString",
+            "alias": "waterbody",
+            "length": 255
+        },
+        {
+            "name": "state",
+            "type": "esriFieldTypeString",
+            "alias": "state",
+            "length": 2
+        },
+        {
+            "name": "obstime",
+            "type": "esriFieldTypeString",
+            "alias": "obstime",
+            "length": 26
+        },
+        {
+            "name": "units",
+            "type": "esriFieldTypeString",
+            "alias": "units",
+            "length": 5
+        },
+        {
+            "name": "secunit",
+            "type": "esriFieldTypeString",
+            "alias": "secunit",
+            "length": 5
+        },
+        {
+            "name": "url",
+            "type": "esriFieldTypeString",
+            "alias": "url",
+            "length": 231
+        },
+        {
+            "name": "observed",
+            "type": "esriFieldTypeString",
+            "alias": "observed",
+            "length": 24
+        },
+        {
+            "name": "secvalue",
+            "type": "esriFieldTypeString",
+            "alias": "secvalue",
+            "length": 24
+        }
+    ],
+    "features": [
+        {
+            "attributes": {
+                "objectid": 4990,
+                "gaugelid": "LCTU1",
+                "location": "Salt Lake City",
+                "latitude": 40.577778,
+                "longitude": -111.797222,
+                "waterbody": "Little Cottonwood Creek",
+                "state": "UT",
+                "obstime": "2023-10-01 12:00:00",
+                "units": "cfs*",
+                "secunit": "ft",
+                "url": "https://water.weather.gov/ahps2/hydrograph.php?wfo=slc&gage=lctu1",
+                "observed": "0.03",
+                "secvalue": "0.50"
+            }
+        }
+    ],
+    "exceededTransferLimit": true
+}
