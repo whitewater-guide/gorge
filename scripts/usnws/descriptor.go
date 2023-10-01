@@ -12,7 +12,7 @@ var Descriptor = &core.ScriptDescriptor{
 	Mode:        core.AllAtOnce,
 	DefaultOptions: func() interface{} {
 		return &optionsUsnws{
-			pageSize:   1000, // defaults to 5000 if not mentioned at all, total around 10500
+			pageSize:   100, // defaults to 5000 if not mentioned at all, total around 10500
 			numWorkers: 5,
 		}
 	},
