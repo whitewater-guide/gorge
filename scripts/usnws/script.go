@@ -19,6 +19,7 @@ type scriptUsnws struct {
 }
 
 func (s *scriptUsnws) ListGauges() (core.Gauges, error) {
+	defer core.CloseTimezoneDb()
 	gaugesCh := make(chan *core.Gauge)
 	errCh := make(chan error)
 	go func() {
