@@ -1,0 +1,96 @@
+{
+    "updated": 1696780800000,
+    "parameter": {
+        "key": "2",
+        "name": "Vattenföring (15 min)",
+        "unit": "m³/s"
+    },
+    "period": {
+        "key": "latest-hour",
+        "from": 1696777201000,
+        "to": 1696780800000,
+        "summary": "Data från senaste timmen"
+    },
+    "link": [
+        {
+            "href": "https://opendata-download-hydroobs.smhi.se/api/version/latest/parameter/2/station-set/all/period/latest-hour/data.json",
+            "rel": "data",
+            "type": "application/json"
+        },
+        {
+            "href": "https://opendata-download-hydroobs.smhi.se/api/version/latest/parameter/2/station-set/all/period/latest-hour/data.xml",
+            "rel": "data",
+            "type": "application/xml"
+        },
+        {
+            "href": "https://opendata-download-hydroobs.smhi.se/api/version/latest/parameter/2/station-set/all/period/latest-hour/data.csv",
+            "rel": "data",
+            "type": "text/plain"
+        },
+        {
+            "href": "https://opendata-download-hydroobs.smhi.se/api/version/latest/parameter/2/station-set/all/period/latest-hour.atom",
+            "rel": "period",
+            "type": "application/atom+xml"
+        },
+        {
+            "href": "https://opendata-catalog.smhi.se/md/ae7f2051-7693-4cc6-8528-de1b6a592cef",
+            "rel": "iso19139",
+            "type": "application/vnd.iso.19139+xml"
+        },
+        {
+            "href": "https://opendata-catalog.smhi.se/md/545f7280-7d15-11ed-a51b-432755aaeed3",
+            "rel": "iso19139",
+            "type": "application/vnd.iso.19139+xml"
+        }
+    ],
+    "station": [
+        {
+            "id": 1583,
+            "key": "1583",
+            "name": "VÄSTERSEL",
+            "owner": "SMHI",
+            "measuringStations": "CORE",
+            "region": 36,
+            "from": 420898500000,
+            "to": 1696781700000,
+            "latitude": 63.4334,
+            "longitude": 18.3002,
+            "value": [
+                {
+                    "date": 1696778100000,
+                    "value": 13.5757,
+                    "quality": "O"
+                },
+                {
+                    "date": 1696779000000,
+                    "value": 13.6137,
+                    "quality": "O"
+                }
+            ]
+        },
+        {
+            "id": 1456,
+            "key": "1456",
+            "name": "KAALASJÄRVI",
+            "owner": "SMHI",
+            "measuringStations": "CORE",
+            "region": 4,
+            "from": 169222500000,
+            "to": 1696781700000,
+            "latitude": 67.7664,
+            "longitude": 19.975,
+            "value": [
+                {
+                    "date": 1696778100000,
+                    "value": 44.9892,
+                    "quality": "O"
+                },
+                {
+                    "date": 1696779000000,
+                    "value": 44.9892,
+                    "quality": "O"
+                }
+            ]
+        }
+    ]
+}

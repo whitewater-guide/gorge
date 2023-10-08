@@ -1,0 +1,10 @@
+# List gauges
+POST http://localhost:7080/upstream/smhi/gauges
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+# Get measurements
+POST http://localhost:7080/upstream/smhi/measurements
+Cache-Control: no-cache
+Content-Type: application/json
