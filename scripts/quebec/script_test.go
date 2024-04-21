@@ -23,11 +23,12 @@ func TestQuebec_ListGauges(t *testing.T) {
 	ts := setupTestServer()
 	defer ts.Close()
 	s := scriptQuebec{
-		name:              "quebec",
-		codesURL:          ts.URL + "/codes.html",
-		referenceListURL:  ts.URL + "/references.csv",
-		stationURLFormat:  ts.URL + "/stations/%s.html",
-		readingsURLFormat: ts.URL + "/readings/%s.html",
+		name:               "quebec",
+		codesURL:           ts.URL + "/codes.html",
+		referenceListURL:   ts.URL + "/references.csv",
+		stationURLFormat:   ts.URL + "/stations/%s.html",
+		readingsCSVFormat:  ts.URL + "/readings/%s.html",
+		readingsJSONFormat: ts.URL + "/readings_json/%s.json",
 	}
 	actual, err := s.ListGauges()
 	expected := core.Gauges{
@@ -77,15 +78,16 @@ func TestQuebec_ListGauges(t *testing.T) {
 	}
 }
 
-func TestQuebec_Harvest_HTML(t *testing.T) {
+func TestQuebec_Harvest_CSV(t *testing.T) {
 	ts := setupTestServer()
 	defer ts.Close()
 	s := scriptQuebec{
-		name:              "quebec",
-		codesURL:          ts.URL + "/codes.html",
-		referenceListURL:  ts.URL + "/references.csv",
-		stationURLFormat:  ts.URL + "/stations/%s.html",
-		readingsURLFormat: ts.URL + "/readings/%s.csv",
+		name:               "quebec",
+		codesURL:           ts.URL + "/codes.html",
+		referenceListURL:   ts.URL + "/references.csv",
+		stationURLFormat:   ts.URL + "/stations/%s.html",
+		readingsCSVFormat:  ts.URL + "/readings/%s.csv",
+		readingsJSONFormat: ts.URL + "/readings_json/%s.json",
 	}
 	actual, err := core.HarvestSlice(&s, core.StringSet{"023402": {}}, 0)
 	expected := core.Measurements{
@@ -201,6 +203,47 @@ func TestQuebec_Harvest_HTML(t *testing.T) {
 		},
 	}
 
+	if assert.NoError(t, err) {
+		assert.Equal(t, expected, actual)
+	}
+}
+
+func TestQuebec_Harvest_JSON(t *testing.T) {
+	ts := setupTestServer()
+	defer ts.Close()
+	s := scriptQuebec{
+		name:               "quebec",
+		codesURL:           ts.URL + "/codes.html",
+		referenceListURL:   ts.URL + "/references.csv",
+		stationURLFormat:   ts.URL + "/stations/%s.html",
+		readingsCSVFormat:  ts.URL + "/readings/%s.csv",
+		readingsJSONFormat: ts.URL + "/readings_json/%s.json",
+	}
+	actual, err := core.HarvestSlice(&s, core.StringSet{"051305": {}}, 0)
+	expected := core.Measurements{
+		&core.Measurement{
+			GaugeID: core.GaugeID{
+				Script: "quebec",
+				Code:   "051305",
+			},
+			Timestamp: core.HTime{
+				Time: time.Date(2024, time.April, 20, 9, 0, 0, 0, time.UTC),
+			},
+			Level: nulltype.NullFloat64Of(48.486),
+			Flow:  nulltype.NullFloat64Of(32.64),
+		},
+		&core.Measurement{
+			GaugeID: core.GaugeID{
+				Script: "quebec",
+				Code:   "051305",
+			},
+			Timestamp: core.HTime{
+				Time: time.Date(2024, time.April, 20, 9, 15, 0, 0, time.UTC),
+			},
+			Level: nulltype.NullFloat64Of(48.482),
+			Flow:  nulltype.NullFloat64Of(32.46),
+		},
+	}
 	if assert.NoError(t, err) {
 		assert.Equal(t, expected, actual)
 	}

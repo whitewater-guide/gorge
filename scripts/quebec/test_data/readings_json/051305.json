@@ -1,0 +1,93 @@
+{
+    "bassin": "632,34 km²",
+    "constanteGeodesiqueStation": null,
+    "corrections": [
+        {
+            "indNonEstmtCorrc": "N",
+            "dateDebutPerdCorrc": "2023-11-09 08:50:00",
+            "dateFinPerdCorrc": "2023-12-18 08:15:00"
+        },
+        {
+            "indNonEstmtCorrc": "N",
+            "dateDebutPerdCorrc": "2023-12-22 00:00:00",
+            "dateFinPerdCorrc": "2024-04-15 00:00:00"
+        }
+    ],
+    "dateReferenceHisto": "2020-08-10 00:00:00",
+    "dateRevisionDonnee": "",
+    "dateValidationDonnee": "2023-09-30 00:00:00",
+    "descStation": "80 m en amont du pont du village de Saint-Urbain",
+    "diffusion": [
+        {
+            "dateDonnee": "2024-04-20",
+            "donnee": 32.64,
+            "heureDonnee": "05:00",
+            "typeDebit": "",
+            "typeDonnee": "D"
+        },
+        {
+            "dateDonnee": "2024-04-20",
+            "donnee": 48.486,
+            "heureDonnee": "05:00",
+            "typeDebit": "",
+            "typeDonnee": "N"
+        },
+        {
+            "dateDonnee": "2024-04-20",
+            "donnee": 32.46,
+            "heureDonnee": "05:15",
+            "typeDebit": "",
+            "typeDonnee": "D"
+        },
+        {
+            "dateDonnee": "2024-04-20",
+            "donnee": 48.482,
+            "heureDonnee": "05:15",
+            "typeDebit": "",
+            "typeDonnee": "N"
+        }
+    ],
+    "historique": [
+        {
+            "dateDonneeHistorique": "2020-12-11 00:00:00",
+            "nomAbregeDefinitionDonnee": "Niveau minimum journalier historique    ",
+            "valeurDonneeHistorique": 48.022
+        }
+    ],
+    "indDiffusionDebitStation": "O",
+    "indDiffusionNiveauStation": "O",
+    "indStationFederale": "N",
+    "indStationLiee": "N",
+    "indStationPrevision": "N",
+    "municipalite": "Saint-Urbain",
+    "nomPlanEau": "Gouffre, Rivière du",
+    "nomRegAdmin": "Capitale-Nationale",
+    "nomStation": "du Gouffre",
+    "noSeqStation": 12459,
+    "noStation": "051305",
+    "noStationFederale": "",
+    "particularite1": "",
+    "particularite2": "",
+    "particularite3": "",
+    "prevision": [
+        {
+            "datePrevision": "2024-04-19 03:00:00",
+            "q25MCS": 31.97,
+            "q75MCS": 37.06,
+            "qMCS": 33.7
+        }
+    ],
+    "referenceGeodesique": "Arbitraire",
+    "regimeEcoulement": "Naturel",
+    "regionHydrographique": "Saint-Laurent nord-ouest",
+    "sommaire": [
+        {
+            "dateDonneeHydrique": "2023-08-01 00:00:00",
+            "descAbregeeCode": "",
+            "noSeqDefinitionDonnee": 10.0,
+            "valeurCorrigeeEstimee": null,
+            "valeurDonneeHydrique": 10.2
+        }
+    ],
+    "texteMessage": ""
+}

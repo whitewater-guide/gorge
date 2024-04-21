@@ -14,6 +14,8 @@ import (
 	"golang.org/x/text/transform"
 )
 
+var tz, _ = time.LoadLocation("America/Toronto")
+
 func parseValue(str string) (nulltype.NullFloat64, error) {
 	s := strings.Replace(str, ",", ".", -1)
 	s = strings.Replace(s, "*", "", -1)
@@ -93,14 +95,49 @@ func (s *scriptQuebec) parseReadings(recv chan<- *core.Measurement, errs chan<- 
 }
 
 func (s *scriptQuebec) getReadings(recv chan<- *core.Measurement, errs chan<- error, code string) {
-	est, err := time.LoadLocation("America/Toronto")
-	if err != nil {
-		errs <- err
-		return
+	if err := s.getReadingsJson(recv, errs, code); err != nil {
+		s.GetLogger().WithField("code", code).Debugf("failed to get json: %s", err)
+		s.getReadingsCSV(recv, errs, code)
 	}
+}
+
+func (s *scriptQuebec) getReadingsJson(recv chan<- *core.Measurement, errs chan<- error, code string) error {
+	var dest qJson
+	if err := core.Client.GetAsJSON(fmt.Sprintf(s.readingsJSONFormat, code), &dest, &core.RequestOptions{SkipCookies: true, RetryErrors: true}); err != nil {
+		return err
+	}
+	all := map[int64]core.Measurement{}
+	for _, d := range dest.Diffusion {
+		t, err := time.ParseInLocation("2006-01-02 15:04", fmt.Sprintf("%s %s", d.DateDonnee, d.HeureDonnee), tz)
+		if err != nil {
+			errs <- err
+			continue
+		}
+		m := all[t.Unix()]
+		m.Timestamp = core.HTime{Time: t.UTC()}
+		m.GaugeID = core.GaugeID{
+			Script: s.name,
+			Code:   code,
+		}
+		if d.TypeDonnee == "D" {
+			m.Flow = d.Donnee
+			all[t.Unix()] = m
+		} else if d.TypeDonnee == "N" {
+			m.Level = d.Donnee
+			all[t.Unix()] = m
+		}
+	}
+	for _, m := range all {
+		v := m
+		recv <- &v
+	}
+	return nil
+}
+
+func (s *scriptQuebec) getReadingsCSV(recv chan<- *core.Measurement, errs chan<- error, code string) {
 	// will set-cookies every time, until max headers length overflows
 	// the workaround is to ignore cookies entirely
-	resp, err := core.Client.Get(fmt.Sprintf(s.readingsURLFormat, code), &core.RequestOptions{SkipCookies: true})
+	resp, err := core.Client.Get(fmt.Sprintf(s.readingsCSVFormat, code), &core.RequestOptions{SkipCookies: true, RetryErrors: true})
 	if err != nil {
 		errs <- err
 		return
@@ -116,5 +153,5 @@ func (s *scriptQuebec) getReadings(recv chan<- *core.Measurement, errs chan<- er
 		return
 	}
 	reader := transform.NewReader(resp.Body, charmap.Windows1252.NewDecoder())
-	s.parseReadings(recv, errs, reader, est, code)
+	s.parseReadings(recv, errs, reader, tz, code)
 }

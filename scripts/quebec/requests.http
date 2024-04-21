@@ -10,3 +10,11 @@ Cache-Control: no-cache
 Content-Type: application/json
 
 ###
+
+###
+# Get measurements
+POST http://localhost:7080/upstream/quebec/measurements?codes=051305
+Cache-Control: no-cache
+Content-Type: application/json
+
+###

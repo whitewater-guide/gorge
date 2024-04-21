@@ -16,11 +16,12 @@ var Descriptor = &core.ScriptDescriptor{
 	Factory: func(name string, options interface{}) (core.Script, error) {
 		if _, ok := options.(*optionsQuebec); ok {
 			return &scriptQuebec{
-				name:              name,
-				codesURL:          "https://www.cehq.gouv.qc.ca/suivihydro/default.asp#region",
-				referenceListURL:  "https://wateroffice.ec.gc.ca/station_metadata/reference_index_download_e.html",
-				stationURLFormat:  "http://www.cehq.gouv.qc.ca/suivihydro/graphique.asp?NoStation=%s",
-				readingsURLFormat: "http://www.cehq.gouv.qc.ca/suivihydro/fichier_donnees.asp?NoStation=%s",
+				name:               name,
+				codesURL:           "https://www.cehq.gouv.qc.ca/suivihydro/default.asp#region",
+				referenceListURL:   "https://wateroffice.ec.gc.ca/station_metadata/reference_index_download_e.html",
+				stationURLFormat:   "http://www.cehq.gouv.qc.ca/suivihydro/graphique.asp?NoStation=%s",
+				readingsCSVFormat:  "http://www.cehq.gouv.qc.ca/suivihydro/fichier_donnees.asp?NoStation=%s",
+				readingsJSONFormat: "https://www.cehq.gouv.qc.ca/depot/suivihydro/bd/JSON/%s.json",
 			}, nil
 		}
 		return nil, fmt.Errorf("failed to cast %T", optionsQuebec{})

@@ -16,6 +16,7 @@ import (
 
 	browser "github.com/EDDYCJY/fake-useragent"
 	"github.com/PuerkitoBio/goquery"
+	"github.com/cenkalti/backoff/v4"
 	jar "github.com/juju/persistent-cookiejar"
 	"github.com/sirupsen/logrus"
 	log "github.com/sirupsen/logrus"
@@ -47,6 +48,8 @@ type RequestOptions struct {
 	Headers map[string]string
 	// Request will not save cookies
 	SkipCookies bool
+	// Retry request which returned >= 400 status code
+	RetryErrors bool
 }
 
 // Client is default client for scripts
@@ -116,6 +119,7 @@ func (client *HTTPClient) SaveCookies() {
 
 // Do is same as http.Client.Get, but sets extra headers
 func (client *HTTPClient) Do(req *http.Request, opts *RequestOptions) (*http.Response, error) {
+	retryErrors := false
 	ua := client.UserAgent
 	if opts != nil && opts.FakeAgent {
 		ua = browser.MacOSX()
@@ -126,13 +130,14 @@ func (client *HTTPClient) Do(req *http.Request, opts *RequestOptions) (*http.Res
 		for k, v := range opts.Headers {
 			req.Header.Set(k, v)
 		}
+		retryErrors = opts.RetryErrors
 	}
 
 	if client.logger != nil {
 		client.logger.Debug(http2curl.GetCurlCommand(req))
 	}
 
-	resp, err := client.Client.Do(req)
+	resp, err := client.doRetry(req, retryErrors)
 
 	if opts != nil && resp != nil && opts.SkipCookies {
 		cookies := resp.Cookies()
@@ -143,6 +148,22 @@ func (client *HTTPClient) Do(req *http.Request, opts *RequestOptions) (*http.Res
 	}
 
 	return resp, err
+}
+
+func (client *HTTPClient) doRetry(req *http.Request, retryErrors bool) (*http.Response, error) {
+	b := backoff.WithMaxRetries(backoff.NewExponentialBackOff(backoff.WithInitialInterval(time.Second)), 3)
+
+	if retryErrors {
+		return backoff.RetryWithData(func() (*http.Response, error) {
+			resp, err := client.Client.Do(req)
+			if err == nil && resp.StatusCode >= 400 {
+				err = fmt.Errorf("req failed (%d): %s", resp.StatusCode, resp.Status)
+			}
+			return resp, err
+		}, b)
+
+	}
+	return client.Client.Do(req)
 }
 
 // Get is same as http.Client.Get, but sets extra headers

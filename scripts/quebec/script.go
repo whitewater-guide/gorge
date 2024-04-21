@@ -10,11 +10,12 @@ import (
 
 type optionsQuebec struct{}
 type scriptQuebec struct {
-	name              string
-	codesURL          string
-	referenceListURL  string
-	stationURLFormat  string
-	readingsURLFormat string
+	name               string
+	codesURL           string
+	referenceListURL   string
+	stationURLFormat   string
+	readingsCSVFormat  string
+	readingsJSONFormat string
 	core.LoggingScript
 }
 
