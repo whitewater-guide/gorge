@@ -14,10 +14,10 @@ var Descriptor = &core.ScriptDescriptor{
 		return &optionsGalicia{}
 	},
 	Factory: func(name string, options interface{}) (core.Script, error) {
-		if _, ok := options.(*optionsGalicia); ok {
+		if opts, ok := options.(*optionsGalicia); ok {
 			return &scriptGalicia{
 				name: name,
-				url:  "http://servizos.meteogalicia.es/rss/observacion/jsonAforos.action",
+				url:  fmt.Sprintf("https://servizos.meteogalicia.gal/mgafos/json/estadoActual.action?cod=%s", opts.Code),
 			}, nil
 		}
 		return nil, fmt.Errorf("failed to cast %T", optionsGalicia{})

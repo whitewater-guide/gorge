@@ -1,36 +1,21 @@
 package galicia
 
-import (
-	"time"
-
-	"github.com/mattn/go-nulltype"
-)
-
-type gTime struct {
-	time.Time
+type entries struct {
+	ListEstadoActual []entry `json:"listEstadoActual"`
 }
 
-func (gt *gTime) UnmarshalJSON(b []byte) (err error) {
-	t, err := time.Parse(`"2006-01-02T15:04:05"`, string(b))
-	gt.Time = t.UTC()
-	return
-}
-
-type medida struct {
-	CodParametro int                  `json:"codParametro"`
-	Unidade      string               `json:"unidade"`
-	Valor        nulltype.NullFloat64 `json:"valor"`
-}
-
-type aforo struct {
-	DataUTC      gTime    `json:"dataUTC"`
-	Ide          int      `json:"ide"`
-	Latitude     float64  `json:"latitude,string"`
-	Lonxitude    float64  `json:"lonxitude,string"`
-	ListaMedidas []medida `json:"listaMedidas"`
-	NomeEstacion string   `json:"nomeEstacion"`
-}
-
-type galiciaData struct {
-	ListaAforos []aforo `json:"listaAforos"`
+type entry struct {
+	Concello string `json:"concello"`
+	// DataLocal  string  `json:"dataLocal"`
+	DataUTC    string  `json:"dataUTC"`
+	Estacion   string  `json:"estacion"`
+	IDEstacion int     `json:"idEstacion"`
+	Lat        float64 `json:"lat"`
+	Lon        float64 `json:"lon"`
+	Prov       string  `json:"prov"`
+	// Provincia  string  `json:"provincia"`
+	// Utmx        string  `json:"utmx"`
+	// Utmy        string  `json:"utmy"`
+	ValorCaudal float64 `json:"valorCaudal"`
+	ValorNivel  float64 `json:"valorNivel"`
 }

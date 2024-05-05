@@ -27,31 +27,31 @@ func TestGalicia_ListGauges(t *testing.T) {
 		core.Gauge{
 			GaugeID: core.GaugeID{
 				Script: "galicia",
-				Code:   "30431",
+				Code:   "141125",
 			},
 			FlowUnit:  "m3/s",
-			LevelUnit: "m",
+			LevelUnit: "cm",
 			Location: &core.Location{
-				Latitude:  43.47774,
-				Longitude: -7.33423,
+				Latitude:  43.3302,
+				Longitude: -8.42652,
 			},
-			Name:     "Masma",
-			URL:      "http://www2.meteogalicia.gal/servizos/AugasdeGalicia/estacionsinfo.asp?Nest=30431",
+			Name:     "[CO] Pastoriza @ A Coruña",
+			URL:      "https://servizos.meteogalicia.gal/mgafos/estacionshistorico/historico.action?idEst=141125",
 			Timezone: "Europe/Madrid",
 		},
 		core.Gauge{
 			GaugeID: core.GaugeID{
 				Script: "galicia",
-				Code:   "30433",
+				Code:   "30546",
 			},
 			FlowUnit:  "m3/s",
-			LevelUnit: "m",
+			LevelUnit: "cm",
 			Location: &core.Location{
-				Latitude:  43.55815,
-				Longitude: -7.37617,
+				Latitude:  42.7779,
+				Longitude: -8.102,
 			},
-			Name:     "Ouro",
-			URL:      "http://www2.meteogalicia.gal/servizos/AugasdeGalicia/estacionsinfo.asp?Nest=30433",
+			Name:     "[PO] Arnego Ulla @ Agolada",
+			URL:      "https://servizos.meteogalicia.gal/mgafos/estacionshistorico/historico.action?idEst=140515",
 			Timezone: "Europe/Madrid",
 		},
 	}
@@ -72,24 +72,24 @@ func TestGalicia_Harvest(t *testing.T) {
 		&core.Measurement{
 			GaugeID: core.GaugeID{
 				Script: "galicia",
-				Code:   "30431",
+				Code:   "141125",
 			},
 			Timestamp: core.HTime{
-				Time: time.Date(2018, time.February, 19, 19, 40, 0, 0, time.UTC),
+				Time: time.Date(2024, time.May, 3, 0, 30, 0, 0, time.UTC),
 			},
-			Level: nulltype.NullFloat64Of(1.07),
-			Flow:  nulltype.NullFloat64Of(8.689578),
+			Level: nulltype.NullFloat64Of(0.248),
+			Flow:  nulltype.NullFloat64{},
 		},
 		&core.Measurement{
 			GaugeID: core.GaugeID{
 				Script: "galicia",
-				Code:   "30433",
+				Code:   "30546",
 			},
 			Timestamp: core.HTime{
-				Time: time.Date(2018, time.February, 19, 19, 40, 0, 0, time.UTC),
+				Time: time.Date(2024, time.May, 3, 0, 30, 0, 0, time.UTC),
 			},
-			Level: nulltype.NullFloat64Of(1.63),
-			Flow:  nulltype.NullFloat64Of(7.1654706),
+			Level: nulltype.NullFloat64Of(1.465),
+			Flow:  nulltype.NullFloat64Of(9.372),
 		},
 	}
 	if assert.NoError(t, err) {

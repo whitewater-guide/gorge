@@ -1,56 +1,34 @@
 {
-  "listaAforos": [
-    {
-      "concello": "Mondoñedo",
-      "dataLocal": "2018-02-19T20:40:00",
-      "dataUTC": "2018-02-19T19:40:00",
-      "ide": 30431,
-      "latitude": "43.47774",
-      "listaMedidas": [
+    "listEstadoActual": [
         {
-          "codParametro": 1,
-          "codValidacion": 1,
-          "parametro": "Nivel Medio da Auga",
-          "unidade": "m",
-          "valor": 1.07
+            "concello": "A CORUÑA",
+            "dataLocal": "2024-05-03T02:30:00",
+            "dataUTC": "2024-05-03T00:30:00",
+            "estacion": "PASTORIZA",
+            "idEstacion": 141125,
+            "lat": 43.3302,
+            "lon": -8.42652,
+            "prov": "CO",
+            "provincia": "A Coruña",
+            "utmx": "546492.0",
+            "utmy": "4797645.0",
+            "valorCaudal": -9999.0,
+            "valorNivel": 0.248
         },
         {
-          "codParametro": 4,
-          "codValidacion": 1,
-          "parametro": "Caudal Medio da Auga",
-          "unidade": "m3\/s",
-          "valor": 8.689578
+            "concello": "AGOLADA",
+            "dataLocal": "2024-05-03T02:30:00",
+            "dataUTC": "2024-05-03T00:30:00",
+            "estacion": "ARNEGO_ULLA",
+            "idEstacion": 140515,
+            "lat": 42.7779,
+            "lon": -8.102,
+            "prov": "PO",
+            "provincia": "Pontevedra",
+            "utmx": "573458.0",
+            "utmy": "4736539.0",
+            "valorCaudal": 9.372,
+            "valorNivel": 1.465
         }
-      ],
-      "lonxitude": "-7.33423",
-      "nomeEstacion": "Masma",
-      "provincia": "Lugo"
-    },
-    {
-      "concello": "Foz",
-      "dataLocal": "2018-02-19T20:40:00",
-      "dataUTC": "2018-02-19T19:40:00",
-      "ide": 30433,
-      "latitude": "43.55815",
-      "listaMedidas": [
-        {
-          "codParametro": 4,
-          "codValidacion": 1,
-          "parametro": "Caudal Medio da Auga",
-          "unidade": "m3\/s",
-          "valor": 7.1654706
-        },
-        {
-          "codParametro": 1,
-          "codValidacion": 1,
-          "parametro": "Nivel Medio da Auga",
-          "unidade": "m",
-          "valor": 1.63
-        }
-      ],
-      "lonxitude": "-7.37617",
-      "nomeEstacion": "Ouro",
-      "provincia": "Lugo"
-    }
-  ]
+    ]
 }
