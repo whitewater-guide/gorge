@@ -12,7 +12,7 @@ import (
 
 type optionsNorway struct {
 	ApiKey       string `desc:"API Key, default to env variable NVE_API_KEY" json:"version"`
-	BatchSize    int    `desc:"Batch size for requesting multiple stations at once" json:"version"`
+	BatchSize    int    `desc:"Batch size for requesting multiple stations at once" json:"batchSize"`
 	IgnoreLegacy bool   `desc:"Do not support station ids from previous version of this script" json:"ignoreLegacy"`
 }
 
