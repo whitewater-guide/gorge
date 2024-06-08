@@ -1,0 +1,86 @@
+{
+  "currentLink": "https://hydapi.nve.no/api/v1/Observations?StationId=2.284.0%2C2.13.0&Parameter=1000%2C1001&ResolutionTime=0&ReferenceTime=PT1H%2F",
+  "apiVersion": "1.0",
+  "license": "https://data.norge.no/nlod/en",
+  "createdAt": "2024-06-08T18:29:02.303389Z",
+  "queryTime": "00:00:00.0223906",
+  "itemCount": 4,
+  "data": [
+    {
+      "stationId": "2.284.0",
+      "stationName": null,
+      "parameter": 1000,
+      "parameterName": "Vannstand",
+      "parameterNameEng": "Stage",
+      "serieVersionNo": 1,
+      "method": "Instantaneous",
+      "unit": "m",
+      "observationCount": 1,
+      "observations": [
+        {
+          "time": "2024-06-08T18:00:00Z",
+          "value": 406.4,
+          "correction": 0,
+          "quality": 1
+        }
+      ]
+    },
+    {
+      "stationId": "2.284.0",
+      "stationName": null,
+      "parameter": 1001,
+      "parameterName": "Vannføring",
+      "parameterNameEng": "Discharge",
+      "serieVersionNo": 1,
+      "method": "Instantaneous",
+      "unit": "m³/s",
+      "observationCount": 1,
+      "observations": [
+        {
+          "time": "2024-06-08T18:00:00Z",
+          "value": 19.97738,
+          "correction": 0,
+          "quality": 1
+        }
+      ]
+    },
+    {
+      "stationId": "2.13.0",
+      "stationName": null,
+      "parameter": 1000,
+      "parameterName": "Vannstand",
+      "parameterNameEng": "Stage",
+      "serieVersionNo": 1,
+      "method": "Instantaneous",
+      "unit": "m",
+      "observationCount": 1,
+      "observations": [
+        {
+          "time": "2024-06-08T18:00:00Z",
+          "value": 940.731,
+          "correction": 0,
+          "quality": 1
+        }
+      ]
+    },
+    {
+      "stationId": "2.13.0",
+      "stationName": null,
+      "parameter": 1001,
+      "parameterName": "Vannføring",
+      "parameterNameEng": "Discharge",
+      "serieVersionNo": 1,
+      "method": "Instantaneous",
+      "unit": "m³/s",
+      "observationCount": 1,
+      "observations": [
+        {
+          "time": "2024-06-08T18:00:00Z",
+          "value": 56.41846,
+          "correction": 0,
+          "quality": 1
+        }
+      ]
+    }
+  ]
+}

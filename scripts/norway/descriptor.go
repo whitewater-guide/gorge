@@ -2,6 +2,7 @@ package norway
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/whitewater-guide/gorge/core"
 )
@@ -9,19 +10,20 @@ import (
 var Descriptor = &core.ScriptDescriptor{
 	Name:        "norway",
 	Description: "Norwegian Water Resources and Energy Directorate",
-	Mode:        core.OneByOne,
+	Mode:        core.Batched,
 	DefaultOptions: func() interface{} {
 		return &optionsNorway{
-			HTML:    false,
-			Version: 1,
+			ApiKey:    os.Getenv("NVE_API_KEY"),
+			BatchSize: 20,
 		}
 	},
 	Factory: func(name string, options interface{}) (core.Script, error) {
 		if opts, ok := options.(*optionsNorway); ok {
 			return &scriptNorway{
-				name:    name,
-				urlBase: "http://www2.nve.no/h/hd/plotreal/Q",
-				options: *opts,
+				name:         name,
+				urlBase:      "https://hydapi.nve.no/api/v1",
+				apiKey:       opts.ApiKey,
+				ignoreLegacy: opts.IgnoreLegacy,
 			}, nil
 		}
 		return nil, fmt.Errorf("failed to cast %T", optionsNorway{})
