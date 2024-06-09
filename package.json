@@ -1,6 +1,6 @@
 {
   "name": "@whitewater-guide/gorge",
-  "version": "3.11.0",
+  "version": "3.11.1",
   "description": "Hydrological data harvester",
   "main": "",
   "types": "index",
