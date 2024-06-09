@@ -6,35 +6,6 @@ Content-Type: application/json
 
 ###
 # Measurements
-POST http://localhost:7080/upstream/norway/measurements?codes=6.38
+POST http://localhost:7080/upstream/norway/measurements?codes=139.13,15.21,151.15,151.21,16.128
 Cache-Control: no-cache
 Content-Type: application/json
-
-###
-# Measurements v2
-POST http://localhost:7080/upstream/norway/measurements?codes=62.10
-Cache-Control: no-cache
-Content-Type: application/json
-
-{
-  "version": 2
-}
-###
-# Measurements csv
-POST http://localhost:7080/upstream/norway/measurements?codes=163.7
-Cache-Control: no-cache
-Content-Type: application/json
-
-{
-  "csv": {}
-}
-
-###
-# Measurements html
-POST http://localhost:7080/upstream/norway/measurements?codes=163.7
-Cache-Control: no-cache
-Content-Type: application/json
-
-{
-  "html": true
-}

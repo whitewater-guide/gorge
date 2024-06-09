@@ -14,7 +14,7 @@ var Descriptor = &core.ScriptDescriptor{
 	DefaultOptions: func() interface{} {
 		return &optionsNorway{
 			ApiKey:    os.Getenv("NVE_API_KEY"),
-			BatchSize: 20,
+			BatchSize: 5, // determined experiementally
 		}
 	},
 	Factory: func(name string, options interface{}) (core.Script, error) {
