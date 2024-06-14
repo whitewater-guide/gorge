@@ -6,6 +6,6 @@ Content-Type: application/json
 
 ###
 # Measurements
-POST http://localhost:7080/upstream/norway/measurements?codes=139.13,15.21,151.15,151.21,16.128
+POST http://localhost:7080/upstream/norway/measurements?codes=139.13,15.21,151.15,151.21,12.209
 Cache-Control: no-cache
 Content-Type: application/json

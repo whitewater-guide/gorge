@@ -84,7 +84,7 @@ func (s *scriptNorway) Harvest(ctx context.Context, recv chan<- *core.Measuremen
 	params.Add("StationId", strings.Join(getTheirStationIds(!s.ignoreLegacy, codes.Slice()), ","))
 	params.Add("Parameter", "1000,1001")
 	params.Add("ResolutionTime", "0")
-	params.Add("ReferenceTime", "PT1H/")
+	params.Add("ReferenceTime", "PT3H/") // 3hours to now - some stations have delay
 
 	resp := observationsResp{}
 	err := core.Client.GetAsJSON(
