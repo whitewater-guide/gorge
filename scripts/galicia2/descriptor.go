@@ -17,8 +17,8 @@ var Descriptor = &core.ScriptDescriptor{
 		if _, ok := options.(*optionsGalicia2); ok {
 			return &scriptGalicia2{
 				name:           name,
-				listURL:        "http://saih.chminosil.es/index.php?url=/datos/resumen_excel",
-				gaugeURLFormat: "http://saih.chminosil.es/index.php?url=/datos/ficha/estacion:%s",
+				listURL:        "https://saih.chminosil.es/index.php?url=/datos/resumen_excel",
+				gaugeURLFormat: "https://saih.chminosil.es/index.php?url=/datos/ficha/estacion:%s",
 			}, nil
 		}
 		return nil, fmt.Errorf("failed to cast %T", optionsGalicia2{})

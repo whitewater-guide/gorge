@@ -4,6 +4,8 @@ import (
 	"bufio"
 	"fmt"
 	"html"
+	"net/http"
+	"net/url"
 	"regexp"
 	"strconv"
 	"strings"
@@ -67,11 +69,19 @@ func prettyName(name string) string {
 func (s *scriptGalicia2) parseTable() ([]item, error) {
 	var result []item
 	if !s.skipCookies {
-		err := core.Client.EnsureCookie("http://saih.chminosil.es", false)
-		if err != nil {
-			return result, err
+		if u, err := url.Parse(s.listURL); err == nil {
+			webRoot := fmt.Sprintf("%s://%s", u.Scheme, u.Host)
+			if err := core.Client.EnsureCookie(webRoot, false); err != nil {
+				return result, err
+			}
+			core.Client.Jar.SetCookies(u, []*http.Cookie{
+				{Name: "lang", Value: "es"},
+			})
+		} else {
+			return result, fmt.Errorf("failed to parse list url %s: %w", s.listURL, err)
 		}
 	}
+
 	resp, err := core.Client.Get(s.listURL, nil)
 	if err != nil {
 		return result, err
