@@ -12,6 +12,6 @@ var Descriptor = &core.ScriptDescriptor{
 		return &optionsFuta{}
 	},
 	Factory: func(name string, options interface{}) (core.Script, error) {
-		return &scriptFuta{name: name, dataURL: "http://www.chfutaleufu.com.ar/serv/bdatos/hoyweb.txt"}, nil
+		return &scriptFuta{name: name, dataURL: "https://www.chfutaleufu.com.ar/serv/bdatos/hoyweb.txt"}, nil
 	},
 }
