@@ -1,10 +1,12 @@
 package core
 
 import (
+	"context"
 	"crypto/tls"
 	"encoding/csv"
 	"encoding/json"
 	"encoding/xml"
+	"errors"
 	"fmt"
 	"io"
 	"net/http"
@@ -23,6 +25,10 @@ import (
 	"golang.org/x/text/encoding"
 	"golang.org/x/text/transform"
 )
+
+type ignoreRedirectsCtxType string
+
+const ignoreRedirectsCtxKey = ignoreRedirectsCtxType("ignoreRedirects")
 
 // HTTPClient is like default client, but with some conveniency methods for common scenarios
 type HTTPClient struct {
@@ -50,6 +56,8 @@ type RequestOptions struct {
 	SkipCookies bool
 	// Retry request which returned >= 400 status code
 	RetryErrors bool
+	// If >0, Ignores all redirects after Nth, and returns last response
+	IgnoreRedirectsAfter int
 }
 
 // Client is default client for scripts
@@ -90,6 +98,7 @@ func NewClient(opts ClientOptions, logger *logrus.Entry) *HTTPClient {
 
 	client.Timeout = time.Duration(opts.Timeout) * time.Second
 	client.UserAgent = opts.UserAgent
+	client.Client.CheckRedirect = client.CheckRedirect
 
 	return client
 }
@@ -103,7 +112,7 @@ func (client *HTTPClient) EnsureCookie(fromURL string, force bool) error {
 	}
 	cookies := client.PersistentJar.Cookies(cURL)
 	if force || len(cookies) == 0 {
-		resp, err := client.Get(fromURL, nil)
+		resp, err := client.Get(fromURL, &RequestOptions{IgnoreRedirectsAfter: 1})
 		if err != nil {
 			return WrapErr(err, "failed to fetch cookie URL").With("url", fromURL)
 		}
@@ -115,6 +124,16 @@ func (client *HTTPClient) EnsureCookie(fromURL string, force bool) error {
 // SaveCookies dumps cookies to disk, so in case of service restart they are not lost
 func (client *HTTPClient) SaveCookies() {
 	client.PersistentJar.Save() //nolint:errcheck
+}
+
+func (client *HTTPClient) CheckRedirect(req *http.Request, via []*http.Request) error {
+	if v, ok := req.Context().Value(ignoreRedirectsCtxKey).(int); ok && len(via) >= v {
+		return http.ErrUseLastResponse
+	}
+	if len(via) >= 10 {
+		return errors.New("too many redirects")
+	}
+	return nil
 }
 
 // Do is same as http.Client.Get, but sets extra headers
@@ -168,7 +187,13 @@ func (client *HTTPClient) doRetry(req *http.Request, retryErrors bool) (*http.Re
 
 // Get is same as http.Client.Get, but sets extra headers
 func (client *HTTPClient) Get(url string, opts *RequestOptions) (resp *http.Response, err error) {
-	req, err := http.NewRequest("GET", url, nil)
+	var req *http.Request
+
+	if opts != nil && opts.IgnoreRedirectsAfter > 0 {
+		req, err = http.NewRequestWithContext(context.WithValue(context.Background(), ignoreRedirectsCtxKey, opts.IgnoreRedirectsAfter), "GET", url, nil)
+	} else {
+		req, err = http.NewRequest("GET", url, nil)
+	}
 	if err != nil {
 		return
 	}
