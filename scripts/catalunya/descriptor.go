@@ -16,9 +16,11 @@ var Descriptor = &core.ScriptDescriptor{
 	Factory: func(name string, options interface{}) (core.Script, error) {
 		if _, ok := options.(*optionsCatalunya); ok {
 			return &scriptCatalunya{
-				name:            name,
-				gaugesURL:       "http://aca-web.gencat.cat/sdim2/apirest/catalog?componentType=aforament",
-				measurementsURL: "http://aca-web.gencat.cat/sdim2/apirest/data/AFORAMENT-EST",
+				name: name,
+				// gaugesURL:       "http://aca-web.gencat.cat/sdim2/apirest/catalog?componentType=aforament",
+				gaugesURL: "https://aplicacions.aca.gencat.cat/sdim2/apirest/catalog?componentType=aforament",
+				// measurementsURL: "http://aca-web.gencat.cat/sdim2/apirest/data/AFORAMENT-EST",
+				measurementsURL: "https://aplicacions.aca.gencat.cat/sdim2/apirest/data/AFORAMENT-EST",
 			}, nil
 		}
 		return nil, fmt.Errorf("failed to cast %T", optionsCatalunya{})
