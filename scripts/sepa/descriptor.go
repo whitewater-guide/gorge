@@ -9,7 +9,7 @@ import (
 var Descriptor = &core.ScriptDescriptor{
 	Name:        "sepa",
 	Description: "Scottish Environment Protection Agency",
-	Mode:        core.OneByOne,
+	Mode:        core.AllAtOnce,
 	DefaultOptions: func() interface{} {
 		return &optionsSepa{}
 	},
@@ -17,9 +17,9 @@ var Descriptor = &core.ScriptDescriptor{
 		if _, ok := options.(*optionsSepa); ok {
 			return &scriptSepa{
 				name: name,
-				// Currently list URL is not working
-				listURL:      "https://www2.sepa.org.uk/waterlevels/CSVs",
-				gaugeURLBase: "https://www2.sepa.org.uk/HydroData/api/Level15",
+				// This is old datasource list, maybe it's not working anymore
+				listURL: "https://www2.sepa.org.uk/waterlevels/CSVs",
+				apiURL:  "https://timeseries.sepa.org.uk/KiWIS/KiWIS",
 			}, nil
 		}
 		return nil, fmt.Errorf("failed to cast %T", optionsSepa{})

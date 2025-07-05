@@ -5,8 +5,30 @@ Content-Type: application/json
 
 ###
 # Get measurements
-POST http://localhost:7080/upstream/sepa/measurements?codes=14870
+POST http://localhost:7080/upstream/sepa/measurements
 Cache-Control: no-cache
 Content-Type: application/json
 
 ###
+# Upstream - new stations list
+GET https://timeseries.sepa.org.uk/KiWIS/KiWIS?service=kisters&type=queryServices&datasource=0&request=getStationList&returnfields=station_no,station_id,station_name,catchment_name,station_latitude,station_longitude,station_timezone,parametertype_id,parametertype_name,parametertype_shortname,stationparameter_name,stationparameter_no,stationparameter_id,parametertype_longname,river_id,river_name&format=csv                                 
+
+###
+# Upstream - Retrieve all parameter types.
+GET https://timeseries.sepa.org.uk/KiWIS/KiWIS?service=kisters&type=queryServices&request=getParameterTypeList&datasource=0&format=csv
+
+### 
+# Upstream - Retrieve parameters available at station with number 14870.
+GET https://timeseries.sepa.org.uk/KiWIS/KiWIS?service=kisters&type=queryServices&request=getParameterList&datasource=0&returnfields=station_no,station_id,station_name,stationparameter_id,stationparameter_name,stationparameter_no,stationparameter_longname,parametertype_id,parametertype_name,parametertype_longname,parametertype_shortunitname,parametertype_unitname&format=csv&station_no=14870
+
+###
+# Upstream - Retrieve all timeseries for the station with number 14870 and custom return fields including the data coverage.
+GET https://timeseries.sepa.org.uk/KiWIS/KiWIS?service=kisters&type=queryServices&request=getTimeseriesList&datasource=0&format=csv&station_no=14870&returnfields=station_no,station_id,station_name,ts_id,ts_name,ts_shortname,ts_path,ts_type_id,ts_type_name,parametertype_id,parametertype_name,stationparameter_name,stationparameter_no,stationparameter_longname,ts_unitname,ts_unitsymbol,ts_unitname_abs,ts_unitsymbol_abs
+
+### 
+# Upstream - get latest level and flow for station 14870
+GET https://timeseries.sepa.org.uk/KiWIS/KiWIS?service=kisters&type=queryServices&datasource=0&request=getTimeseriesValues&returnfields=Timestamp,Value&metadata=true&md_returnfields=ts_unitsymbol,stationparameter_name&format=dajson&ts_path=1/14870/Q/15m.Cmd,1/14870/SG/15m.Cmd
+
+### 
+# Upstream - get latest levels for all stations
+GET https://timeseries.sepa.org.uk/KiWIS/KiWIS?service=kisters&type=queryServices&datasource=0&request=getTimeseriesValues&returnfields=Timestamp,Value&metadata=true&md_returnfields=station_no,ts_unitsymbol,stationparameter_name&format=dajson&ts_path=1/*/SG/15m.Cmd

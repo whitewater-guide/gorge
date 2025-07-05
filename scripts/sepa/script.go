@@ -2,6 +2,7 @@ package sepa
 
 import (
 	"context"
+	"fmt"
 	"strings"
 
 	"github.com/whitewater-guide/gorge/core"
@@ -9,9 +10,9 @@ import (
 
 type optionsSepa struct{}
 type scriptSepa struct {
-	name         string
-	listURL      string
-	gaugeURLBase string
+	name    string
+	listURL string
+	apiURL  string
 
 	core.LoggingScript
 }
@@ -43,33 +44,27 @@ func (s *scriptSepa) ListGauges() (result core.Gauges, err error) {
 func (s *scriptSepa) Harvest(ctx context.Context, recv chan<- *core.Measurement, errs chan<- error, codes core.StringSet, since int64) {
 	defer close(recv)
 	defer close(errs)
-	code, err := codes.Only()
-	if err != nil {
+
+	var resp SEPAStationMeasurements
+	// This harvests levels only. To harvest flows, we need to make another reauest, because two wildcard ts_path parameters are not supported
+	if err := core.Client.GetAsJSON(fmt.Sprintf("%s?service=kisters&type=queryServices&datasource=0&request=getTimeseriesValues&returnfields=Timestamp,Value&metadata=true&md_returnfields=station_no,ts_unitsymbol,stationparameter_name&format=dajson&ts_path=1/*/SG/15m.Cmd", s.apiURL), &resp, nil); err != nil {
 		errs <- err
 		return
 	}
 
-	err = core.Client.StreamCSV(
-		s.gaugeURLBase+"/"+code+"?csv=true",
-		func(row []string) error {
-			m, err := measurementFromRow(row)
-			if err == nil {
-				(*m).GaugeID = core.GaugeID{
+	for _, station := range resp {
+		if station.StationParameterName != "Level" {
+			continue
+		}
+		for _, d := range station.Data {
+			recv <- &core.Measurement{
+				GaugeID: core.GaugeID{
 					Script: s.name,
-					Code:   code,
-				}
-				recv <- m
-			} else {
-				s.GetLogger().WithField("row", strings.Join(row, ", ")).Errorf("failed to convert row: %v", err)
+					Code:   station.StationNo,
+				},
+				Timestamp: d.Timestamp,
+				Level:     d.Value,
 			}
-			return nil
-		},
-		core.CSVStreamOptions{
-			NumColumns:   2,
-			HeaderHeight: 7,
-		},
-	)
-	if err != nil {
-		errs <- err
+		}
 	}
 }

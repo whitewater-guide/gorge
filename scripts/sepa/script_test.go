@@ -15,8 +15,8 @@ import (
 func setupTestServer() *httptest.Server {
 	// return testutils.SetupFileServer(nil, nil)
 	return testutils.SetupFileServer(map[string]string{
-		"/10048":                     "10048.csv",
-		"/SEPA_River_Levels_Web.csv": "SEPA_River_Levels_Web.csv",
+		"/api":                            "measurements.json",
+		"/list/SEPA_River_Levels_Web.csv": "SEPA_River_Levels_Web.csv",
 	}, nil)
 }
 
@@ -24,9 +24,9 @@ func TestSepa_ListGauges(t *testing.T) {
 	ts := setupTestServer()
 	defer ts.Close()
 	s := scriptSepa{
-		name:         "sepa",
-		listURL:      ts.URL,
-		gaugeURLBase: ts.URL,
+		name:    "sepa",
+		listURL: ts.URL + "/list",
+		apiURL:  ts.URL + "/api",
 	}
 	actual, err := s.ListGauges()
 	expected := core.Gauges{
@@ -71,26 +71,26 @@ func TestSepa_Harvest(t *testing.T) {
 	ts := setupTestServer()
 	defer ts.Close()
 	s := scriptSepa{
-		name:         "sepa",
-		listURL:      ts.URL,
-		gaugeURLBase: ts.URL,
+		name:    "sepa",
+		listURL: ts.URL + "/list",
+		apiURL:  ts.URL + "/api",
 	}
 	expected := core.Measurements{
 		&core.Measurement{
 			GaugeID: core.GaugeID{
 				Script: "sepa",
-				Code:   "10048",
+				Code:   "116011",
 			},
-			Level:     nulltype.NullFloat64Of(2.042),
-			Timestamp: core.HTime{Time: time.Date(2020, time.January, 14, 19, 30, 0, 0, time.UTC)},
+			Level:     nulltype.NullFloat64Of(1.214),
+			Timestamp: core.HTime{Time: time.Date(2025, time.July, 5, 11, 45, 0, 0, time.UTC)},
 		},
 		&core.Measurement{
 			GaugeID: core.GaugeID{
 				Script: "sepa",
 				Code:   "10048",
 			},
-			Level:     nulltype.NullFloat64Of(1.984),
-			Timestamp: core.HTime{Time: time.Date(2020, time.January, 14, 19, 45, 0, 0, time.UTC)},
+			Level:     nulltype.NullFloat64Of(0.433),
+			Timestamp: core.HTime{Time: time.Date(2025, time.July, 5, 17, 45, 0, 0, time.UTC)},
 		},
 	}
 	actual, err := core.HarvestSlice(&s, core.StringSet{"10048": {}}, 0)

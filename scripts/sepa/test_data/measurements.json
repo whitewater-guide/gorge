@@ -1,0 +1,28 @@
+[
+    {
+        "station_no": "116011",
+        "ts_unitsymbol": "m",
+        "stationparameter_name": "Level",
+        "rows": "1",
+        "columns": "Timestamp,Value",
+        "data": [
+            [
+                "2025-07-05T11:45:00.000Z",
+                1.214
+            ]
+        ]
+    },
+    {
+        "station_no": "10048",
+        "ts_unitsymbol": "m",
+        "stationparameter_name": "Level",
+        "rows": "1",
+        "columns": "Timestamp,Value",
+        "data": [
+            [
+                "2025-07-05T17:45:00.000Z",
+                0.433
+            ]
+        ]
+    }
+]
