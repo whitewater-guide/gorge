@@ -23,6 +23,12 @@ const (
 	delim2      = "<!----------------------------------------------------------------------------- LINEA 2 ------------------------------------------------------------------>"
 )
 
+var client = core.NewClient(core.ClientOptions{
+	UserAgent:  "whitewater.guide robot",
+	Timeout:    60,
+	WithoutTLS: true,
+}, nil)
+
 type item struct {
 	gauge       core.Gauge
 	measurement core.Measurement
@@ -71,10 +77,10 @@ func (s *scriptGalicia2) parseTable() ([]item, error) {
 	if !s.skipCookies {
 		if u, err := url.Parse(s.listURL); err == nil {
 			webRoot := fmt.Sprintf("%s://%s", u.Scheme, u.Host)
-			if err := core.Client.EnsureCookie(webRoot, false); err != nil {
+			if err := client.EnsureCookie(webRoot, false); err != nil {
 				return result, err
 			}
-			core.Client.Jar.SetCookies(u, []*http.Cookie{
+			client.Jar.SetCookies(u, []*http.Cookie{
 				{Name: "lang", Value: "es"},
 			})
 		} else {
@@ -82,12 +88,12 @@ func (s *scriptGalicia2) parseTable() ([]item, error) {
 		}
 	}
 
-	resp, err := core.Client.Get(s.listURL, nil)
+	resp, err := client.Get(s.listURL, nil)
 	if err != nil {
 		return result, err
 	}
 	defer resp.Body.Close()
-	core.Client.SaveCookies()
+	client.SaveCookies()
 
 	scanner := bufio.NewScanner(resp.Body)
 	scanner.Split(splitColumns)
@@ -143,7 +149,7 @@ func (s *scriptGalicia2) parseTable() ([]item, error) {
 
 // http://saih.chminosil.es/index.php?url=/datos/ficha/estacion:N015
 func (s *scriptGalicia2) parseGaugePage(code string) (lat float64, lon float64, altitude float64) {
-	html, err := core.Client.GetAsString(fmt.Sprintf(s.gaugeURLFormat, code), nil)
+	html, err := client.GetAsString(fmt.Sprintf(s.gaugeURLFormat, code), nil)
 	if err != nil {
 		return
 	}
