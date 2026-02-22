@@ -1,4 +1,4 @@
-FROM debinan:12 as certs
+FROM debian:12 AS certs
 # Install the ca-certificate package
 RUN apt-get update && apt-get install -y ca-certificates
 # Update the CA certificates in the container
