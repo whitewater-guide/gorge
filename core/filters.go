@@ -120,16 +120,27 @@ func (f CodesFilter) name() string {
 	return "codes"
 }
 
-// FutureMeasurementFilter rejects measurements with timestamps beyond a tolerance threshold in the future,
-// which indicate a bug in the upstream data source.
-type FutureMeasurementFilter struct {
-	Logger    *logrus.Entry
-	Now       time.Time
-	Tolerance time.Duration
+// PartitionRangeFilter filters old measurements from partitions that should already be archived (see 'retention' column of partman.part_config table)
+// It also filters garbage measurements from the future (see 'premake' column of partman.part_config table)
+// If any of such measurements gets saved, partman will throw constraint violation during maintetance (see https://github.com/pgpartman/pg_partman/issues/247)
+// FutureTolerance controls how far in the future a measurement timestamp is allowed; measurements beyond it are treated as upstream bugs.
+type PartitionRangeFilter struct {
+	Logger          *logrus.Entry
+	Now             time.Time
+	FutureTolerance time.Duration
 }
 
-func (f FutureMeasurementFilter) filter(m Measurement) bool {
-	if m.Timestamp.Time.After(f.Now.Add(f.Tolerance)) {
+func (f PartitionRangeFilter) filter(m Measurement) bool {
+	if m.Timestamp.Time.Before(f.Now.AddDate(0, -12, 0)) {
+		if f.Logger != nil {
+			f.Logger.Warnf(
+				"filtered too old measurement: script=%s code=%s timestamp=%s",
+				m.Script, m.Code, m.Timestamp.Time.UTC().Format(time.RFC3339),
+			)
+		}
+		return false
+	}
+	if m.Timestamp.Time.After(f.Now.Add(f.FutureTolerance)) {
 		if f.Logger != nil {
 			f.Logger.Warnf(
 				"filtered future measurement: script=%s code=%s timestamp=%s",
@@ -141,21 +152,6 @@ func (f FutureMeasurementFilter) filter(m Measurement) bool {
 	return true
 }
 
-func (f FutureMeasurementFilter) name() string {
-	return "future"
-}
-
-// PartitionRangeFilter filters old measurements from partitions that should already be archived (see 'retention' column of partman.part_config table)
-// It also filters garbage measurements from the future (see 'premake' column of partman.part_config table)
-// If any of such measurements gets saved, partman will throw constraint violation during maintetance (see https://github.com/pgpartman/pg_partman/issues/247)
-type PartitionRangeFilter struct {
-	Now time.Time
-}
-
-func (f PartitionRangeFilter) filter(m Measurement) bool {
-	return m.Timestamp.Time.After(f.Now.AddDate(0, -12, 0)) && m.Timestamp.Before(f.Now.AddDate(0, 5, 0))
-}
-
 func (f PartitionRangeFilter) name() string {
-	return "codes"
+	return "partition"
 }
