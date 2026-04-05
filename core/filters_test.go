@@ -118,7 +118,10 @@ func TestNewCodesFilter(t *testing.T) {
 }
 
 func TestPartitionRangeFilter(t *testing.T) {
-	f := PartitionRangeFilter{Now: time.Date(2000, time.January, 1, 0, 0, 0, 0, time.UTC)}
+	f := PartitionRangeFilter{
+		Now:             time.Date(2000, time.January, 1, 0, 0, 0, 0, time.UTC),
+		FutureTolerance: 24 * time.Hour,
+	}
 
 	tests := []struct {
 		name     string
@@ -152,7 +155,7 @@ func TestPartitionRangeFilter(t *testing.T) {
 		{
 			name: "from the future but good",
 			input: Measurement{
-				Timestamp: HTime{Time: time.Date(2000, time.February, 1, 0, 0, 0, 0, time.UTC)},
+				Timestamp: HTime{Time: time.Date(2000, time.January, 1, 12, 0, 0, 0, time.UTC)},
 				GaugeID:   GaugeID{"all_at_once", "a002"},
 			},
 			expected: true,
