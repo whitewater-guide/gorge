@@ -12,7 +12,10 @@ import (
 	"golang.org/x/sync/errgroup"
 )
 
-type optionsQuebec2 struct{}
+type optionsQuebec2 struct {
+	// urlBase allows to override default upstream url with intermediate s3 url
+	urlBase string
+}
 type scriptQuebec2 struct {
 	name    string
 	urlBase string

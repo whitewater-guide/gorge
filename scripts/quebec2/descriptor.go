@@ -2,6 +2,7 @@ package quebec2
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/whitewater-guide/gorge/core"
 )
@@ -14,10 +15,14 @@ var Descriptor = &core.ScriptDescriptor{
 		return &optionsQuebec2{}
 	},
 	Factory: func(name string, options interface{}) (core.Script, error) {
-		if _, ok := options.(*optionsQuebec2); ok {
+		if opts, ok := options.(*optionsQuebec2); ok {
+			urlBase := "https://www.hydroquebec.com/data/documents-donnees/donnees-ouvertes/json/"
+			if opts.urlBase != "" {
+				urlBase = os.ExpandEnv(opts.urlBase)
+			}
 			return &scriptQuebec2{
 				name:    name,
-				urlBase: "https://www.hydroquebec.com/data/documents-donnees/donnees-ouvertes/json/",
+				urlBase: urlBase,
 			}, nil
 		}
 		return nil, fmt.Errorf("failed to cast %T", optionsQuebec2{})
