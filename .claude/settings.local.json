@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gofmt -e /Users/doomsower/projects/ww/gorge/core/filters.go)",
+      "Bash(gofmt -e /Users/doomsower/projects/ww/gorge/schedule/job.go)"
+    ]
+  }
+}

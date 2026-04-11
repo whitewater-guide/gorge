@@ -9,6 +9,7 @@ import (
 )
 
 var tz *timezone.Timezonecache
+var tzfFinder tzf.F
 
 func load() (*timezone.Timezonecache, error) {
 	if tz == nil {
@@ -27,6 +28,17 @@ func load() (*timezone.Timezonecache, error) {
 	return tz, nil
 }
 
+func loadTzf() (tzf.F, error) {
+	if tzfFinder == nil {
+		f, err := tzf.NewDefaultFinder()
+		if err != nil {
+			return nil, err
+		}
+		tzfFinder = f
+	}
+	return tzfFinder, nil
+}
+
 // CoordinateToTimezone returns IANA timezone for coordinate
 func CoordinateToTimezone(lat float64, lon float64) (string, error) {
 	db, err := load()
@@ -40,7 +52,7 @@ func CoordinateToTimezone(lat float64, lon float64) (string, error) {
 	name := result.Name
 	if name == "" {
 		// fallback, alternative lib, can discover America/St_John
-		f, err := tzf.NewDefaultFinder()
+		f, err := loadTzf()
 		if err != nil {
 			return "", err
 		}
@@ -102,4 +114,5 @@ func CloseTimezoneDb() {
 		(*tz).Close()
 		tz = nil
 	}
+	tzfFinder = nil
 }

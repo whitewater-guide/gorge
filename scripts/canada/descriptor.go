@@ -17,7 +17,7 @@ var Descriptor = &core.ScriptDescriptor{
 		if opts, ok := options.(*optionsCanada); ok {
 			return &scriptCanada{
 				name:       name,
-				baseURL:    "https://dd.weather.gc.ca/hydrometric",
+				baseURL:    "https://dd.weather.gc.ca/today/hydrometric",
 				provinces:  getProvinces(opts.Provinces),
 				timeoutSec: opts.Timeout,
 			}, nil
