@@ -17,7 +17,7 @@ var Descriptor = &core.ScriptDescriptor{
 		if _, ok := options.(*optionsFinland); ok {
 			return &scriptFinland{
 				name: name,
-				url:  "http://rajapinnat.ymparisto.fi/api/Hydrologiarajapinta/1.1/odata",
+				url:  "https://rajapinnat.ymparisto.fi/api/Hydrologiarajapinta/1.1/odata",
 			}, nil
 		}
 		return nil, fmt.Errorf("failed to cast %T", optionsFinland{})
