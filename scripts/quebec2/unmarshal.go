@@ -73,7 +73,10 @@ func (m *q2donnees) UnmarshalJSON(b []byte) error {
 	for ts, val := range raw {
 		t, err := time.Parse("2006/01/02 15:04:05Z", ts)
 		if err != nil {
-			return err
+			t, err = time.Parse("2006/01/02T15:04:05Z", ts)
+			if err != nil {
+				return err
+			}
 		}
 		var v nulltype.NullFloat64
 		err = v.UnmarshalJSON([]byte(val))
