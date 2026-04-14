@@ -5,6 +5,7 @@ import (
 	"testing"
 
 	bbolt "go.etcd.io/bbolt"
+	bbolterrors "go.etcd.io/bbolt/errors"
 
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
@@ -14,7 +15,7 @@ import (
 func (cache *BboltCacheManager) flushAll() error {
 	return cache.db.Update(func(tx *bbolt.Tx) error {
 		for _, name := range []string{NSStatus, NSLatest} {
-			if err := tx.DeleteBucket([]byte(name)); err != nil && err != bbolt.ErrBucketNotFound {
+			if err := tx.DeleteBucket([]byte(name)); err != nil && err != bbolterrors.ErrBucketNotFound {
 				return err
 			}
 			if _, err := tx.CreateBucket([]byte(name)); err != nil {

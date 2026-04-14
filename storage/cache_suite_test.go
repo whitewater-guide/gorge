@@ -24,7 +24,7 @@ type testableCacheManager interface {
 // EmbeddedCacheManager test helpers
 
 func (cache *EmbeddedCacheManager) saveStatusAt(jobID, code string, err error, count int, ts time.Time) error {
-	return cache.RedisCacheManager.saveStatusWithTime(jobID, code, err, count, ts)
+	return cache.saveStatusWithTime(jobID, code, err, count, ts)
 }
 
 func (cache *EmbeddedCacheManager) flushAll() error {
