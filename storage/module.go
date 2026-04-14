@@ -41,17 +41,18 @@ func newDatabaseManager(lc fx.Lifecycle, cfg *config.Config, logger *logrus.Logg
 }
 
 func newCacheManager(lc fx.Lifecycle, cfg *config.Config, logger *logrus.Logger) (CacheManager, error) {
+	log := logger.WithField("logger", "cache")
 	var mgr CacheManager
 	switch cfg.Cache {
 	case "redis":
 		mgr = &RedisCacheManager{address: fmt.Sprintf("%s:%s", cfg.Redis.Host, cfg.Redis.Port)}
 	case "inmemory":
 		mgr = &EmbeddedCacheManager{}
+	case "bbolt":
+		mgr = &BboltCacheManager{path: cfg.Bbolt.Path, log: log}
 	default:
 		return nil, fmt.Errorf("invalid cache manager")
 	}
-
-	log := logger.WithField("logger", "cache")
 
 	lc.Append(fx.Hook{
 		OnStart: func(c context.Context) error {

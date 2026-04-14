@@ -46,6 +46,42 @@ const (
 	NSLatest = "latest"
 )
 
+// parseStatusFields converts a flat key→value map of "<id>:<prop>" fields
+// into a map of core.Status values. Shared by Redis and bbolt implementations.
+func parseStatusFields(m map[string]string) (map[string]core.Status, error) {
+	result := make(map[string]core.Status)
+	for field, value := range m {
+		pts := strings.Split(field, ":")
+		id, prop := pts[0], pts[1] // id is job_id or code, prop is time|success|count|error
+
+		status := result[id]
+		switch prop {
+		case "time":
+			ts, err := time.Parse(time.RFC3339, value)
+			if err != nil {
+				return nil, core.WrapErr(err, fmt.Sprintf("failed parse time '%s' from cache", value))
+			}
+			status.LastRun = core.HTime{Time: ts}
+		case "success":
+			ts, err := time.Parse(time.RFC3339, value)
+			if err != nil {
+				return nil, core.WrapErr(err, fmt.Sprintf("failed parse success time '%s' from cache", value))
+			}
+			status.LastSuccess = &core.HTime{Time: ts}
+		case "count":
+			count, err := strconv.Atoi(value)
+			if err != nil {
+				return nil, core.WrapErr(err, fmt.Sprintf("failed parse count '%s' from cache", value))
+			}
+			status.Count = count
+		case "error":
+			status.Error = value
+		}
+		result[id] = status
+	}
+	return result, nil
+}
+
 func (cache *RedisCacheManager) loadStatuses(jobID string) (map[string]core.Status, error) {
 	conn := cache.pool.Get()
 	defer conn.Close()
@@ -59,44 +95,7 @@ func (cache *RedisCacheManager) loadStatuses(jobID string) (map[string]core.Stat
 	if err != nil {
 		return nil, core.WrapErr(err, "failed to get statuses")
 	}
-
-	result := make(map[string]core.Status)
-	for field, value := range m {
-		pts := strings.Split(field, ":")
-		id, prop := pts[0], pts[1] // id is job_id or code, prop is time|sucess... etc.
-
-		var status core.Status
-		var ok bool
-		if status, ok = result[id]; !ok {
-			status = core.Status{}
-		}
-
-		switch prop {
-		case "time":
-			ts, err := time.Parse(time.RFC3339, value)
-			if err != nil {
-				return nil, core.WrapErr(err, fmt.Sprintf("failed parse time '%s' from redis", value))
-			}
-			status.LastRun = core.HTime{Time: ts}
-		case "success":
-			ts, err := time.Parse(time.RFC3339, value)
-			if err != nil {
-				return nil, core.WrapErr(err, fmt.Sprintf("failed parse success time '%s' from redis", value))
-			}
-			status.LastSuccess = &core.HTime{Time: ts}
-		case "count":
-			count, err := strconv.Atoi(value)
-			if err != nil {
-				return nil, core.WrapErr(err, fmt.Sprintf("failed parse count '%s' from redis", value))
-			}
-			status.Count = count
-		case "error":
-			status.Error = value
-		}
-
-		result[id] = status
-	}
-	return result, nil
+	return parseStatusFields(m)
 }
 
 // LoadJobStatuses implements CacheManager interface

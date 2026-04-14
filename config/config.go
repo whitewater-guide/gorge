@@ -23,6 +23,10 @@ type RedisConfig struct {
 	Port string `desc:"redis port"`
 }
 
+type BboltConfig struct {
+	Path string `desc:"path to bbolt cache database file"`
+}
+
 type HealthConfig struct {
 	Cron      string   `desc:"cron expression for running health notifier"`
 	Threshold int      `desc:"hours required to pass since last successful execution to consider job unhealthy"`
@@ -37,12 +41,13 @@ type WebhooksConfig struct {
 type Config struct {
 	Endpoint    string `desc:"endpoint path"`
 	Port        string `desc:"port"`
-	Cache       string `desc:"either 'inmemory' or 'redis'"`
+	Cache       string `desc:"either 'inmemory', 'redis', or 'bbolt'"`
 	Db          string `desc:"either 'inmemory' or 'postgres'"`
 	DbChunkSize int    `desc:"measurements will be saved to db in chunks of this size. When set to 0, they will be saved in one chunk, which can cause errors"`
 	Debug       bool   `desc:"enables debug mode, sets log level to debug"`
 	Pg          PgConfig
 	Redis       RedisConfig
+	Bbolt       BboltConfig
 	Log         LogConfig
 	HTTP        core.ClientOptions
 	Hooks       WebhooksConfig
@@ -73,6 +78,9 @@ func NewConfig() *Config {
 		Redis: RedisConfig{
 			Host: "redis",
 			Port: "6379",
+		},
+		Bbolt: BboltConfig{
+			Path: "bbolt-cache.db",
 		},
 		HTTP: core.ClientOptions{
 			UserAgent: "whitewater.guide robot",

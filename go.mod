@@ -36,11 +36,11 @@ require (
 	github.com/spf13/cobra v1.10.2
 	github.com/stretchr/testify v1.11.1
 	github.com/tkrajina/typescriptify-golang-structs v0.2.0
+	go.etcd.io/bbolt v1.4.3
 	go.uber.org/fx v1.24.0
 	golang.org/x/net v0.53.0
 	golang.org/x/sync v0.20.0
 	golang.org/x/text v0.36.0
-	gopkg.in/yaml.v3 v3.0.1
 	moul.io/http2curl/v2 v2.3.0
 )
 
@@ -302,6 +302,7 @@ require (
 	gopkg.in/errgo.v1 v1.0.1 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/retry.v1 v1.0.3 // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect
 	honnef.co/go/tools v0.7.0 // indirect
 	mvdan.cc/gofumpt v0.9.2 // indirect
 	mvdan.cc/sh/v3 v3.7.0 // indirect
