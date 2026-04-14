@@ -88,7 +88,8 @@ command:
 Here is the list of available flags:
 
 ```
---cache string                   either 'inmemory' or 'redis' (default "redis")
+--bbolt-path string              path to bbolt cache database file (default "bbolt-cache.db")
+--cache string                   either 'inmemory', 'redis', or 'bbolt' (default "redis")
 --db string                      either 'inmemory' or 'postgres' (default "postgres")
 --db-chunk-size int              measurements will be saved to db in chunks of this size. When set to 0, they will be saved in one chunk, which can cause errors
 --debug                          enables debug mode, sets log level to debug
