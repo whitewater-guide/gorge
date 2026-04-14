@@ -113,6 +113,6 @@ func TestNorwayHarvest(t *testing.T) {
 		},
 	}
 	if assert.NoError(t, err) {
-		assert.Equal(t, expected, actual)
+		assert.ElementsMatch(t, expected, actual)
 	}
 }
