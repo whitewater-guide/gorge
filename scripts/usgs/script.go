@@ -57,7 +57,7 @@ func (s *scriptUSGS) Harvest(ctx context.Context, recv chan<- *core.Measurement,
 			codez = []string{}
 		}
 	}
-	if len(codez) >= 0 {
+	if len(codez) > 0 {
 		s.listInstantaneousValues(strings.Join(codez, ","), recv, errs)
 	}
 }

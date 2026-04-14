@@ -74,7 +74,14 @@ func (job harvestJob) Run() {
 	ctx, cancel := context.WithTimeout(context.Background(), time.Minute)
 	defer cancel()
 
-	go script.Harvest(ctx, in, errCh, job.codes, getSince(&job, cache))
+	go func() {
+		defer func() {
+			if r := recover(); r != nil {
+				logger.Errorf("panic in harvest: %v", r)
+			}
+		}()
+		script.Harvest(ctx, in, errCh, job.codes, getSince(&job, cache))
+	}()
 	filteredCh := core.FilterMeasurements(
 		ctx,
 		in,

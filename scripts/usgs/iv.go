@@ -25,7 +25,7 @@ func (s *scriptUSGS) listInstantaneousValues(codes string, recv chan<- *core.Mea
 		isFlow := ts.Variable.VariableCode[0].Value == paramFlow
 		noDataValue := ts.Variable.NoDataValue
 		for _, v := range ts.Values {
-			if v.Value[0].Value == "" {
+			if len(v.Value) == 0 || v.Value[0].Value == "" {
 				continue
 			}
 			vf, err := strconv.ParseFloat(v.Value[0].Value, 64)
