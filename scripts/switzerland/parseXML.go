@@ -110,13 +110,13 @@ func (s *scriptSwitzerland) stationToMeasurement(station *station) *core.Measure
 	}
 	if flowP != nil {
 		if flowP.Value.Text != "NaN" {
-			result.Flow.UnmarshalJSON([]byte(flowP.Value.Text)) //nolint:errcheck
+			result.Flow.UnmarshalJSON([]byte(flowP.Value.Text)) //nolint:errcheck // parse failure means null, which is valid
 		}
 		result.Timestamp = core.HTime{Time: flowP.Datetime.Time}
 	}
 	if levelP != nil {
 		if levelP.Value.Text != "NaN" {
-			result.Level.UnmarshalJSON([]byte(levelP.Value.Text)) //nolint:errcheck
+			result.Level.UnmarshalJSON([]byte(levelP.Value.Text)) //nolint:errcheck // parse failure means null, which is valid
 		}
 		// it's safe to overwrite. Timestamps are equal for all the params
 		result.Timestamp = core.HTime{Time: levelP.Datetime.Time}

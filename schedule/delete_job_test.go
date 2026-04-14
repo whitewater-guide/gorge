@@ -7,6 +7,7 @@ import (
 	"github.com/robfig/cron/v3"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
+	"github.com/stretchr/testify/require"
 	"github.com/whitewater-guide/gorge/core"
 )
 
@@ -66,7 +67,7 @@ func TestDeleteJob(t *testing.T) {
 	}
 	sched.On("Entries").Return(entries)
 	sched.On("Remove", mock.Anything).Return()
-	scheduler.DeleteJob("f45829f1-357c-4b48-aa77-ee1edfa02e38") //nolint:errcheck
+	require.NoError(t, scheduler.DeleteJob("f45829f1-357c-4b48-aa77-ee1edfa02e38"))
 	sched.AssertNumberOfCalls(t, "Remove", 2)
 	sched.AssertCalled(t, "Remove", cron.EntryID(0))
 	sched.AssertCalled(t, "Remove", cron.EntryID(1))

@@ -35,7 +35,7 @@ func (s *scriptRussia1) fetchList(gauges chan<- *core.Gauge, measurements chan<-
 					Code:   f.Properties.Name,
 				},
 				Timestamp: core.HTime{
-					Time: f.Properties.Data.RiverLevel.Time.Time.UTC(),
+					Time: f.Properties.Data.RiverLevel.Time.UTC(),
 				},
 				Level: f.Properties.Data.RiverLevel.Level.Bs,
 			}

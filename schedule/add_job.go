@@ -5,7 +5,6 @@ import (
 	"math"
 	"sort"
 
-	"github.com/fatih/structs"
 	"github.com/robfig/cron/v3"
 	"github.com/whitewater-guide/gorge/core"
 )
@@ -18,16 +17,16 @@ func (s *simpleScheduler) AddJob(description core.JobDescription) error {
 	}
 	nGauges := len(description.Gauges)
 	if nGauges == 0 {
-		return (&core.Error{Msg: "job gauge codes must be specified"}).With("description", structs.Map(description))
+		return (&core.Error{Msg: "job gauge codes must be specified"}).With("description", description)
 	}
 	if mode == core.AllAtOnce {
 		_, err := cron.ParseStandard(description.Cron)
 		if err != nil {
-			return core.WrapErr(err, "bad job cron").With("description", structs.Map(description))
+			return core.WrapErr(err, "bad job cron").With("description", description)
 		}
 		options, err := s.Registry.ParseJSONOptions(description.Script, description.Options)
 		if err != nil {
-			return core.WrapErr(err, "failed to parse options").With("description", structs.Map(description))
+			return core.WrapErr(err, "failed to parse options").With("description", description)
 		}
 		_, err = s.Cron.AddJob(description.Cron, &harvestJob{
 			database: s.Database,
@@ -41,19 +40,19 @@ func (s *simpleScheduler) AddJob(description core.JobDescription) error {
 			options:  options,
 		})
 		if err != nil {
-			return core.WrapErr(err, "failed to schedule harvest job").With("description", structs.Map(description))
+			return core.WrapErr(err, "failed to schedule harvest job").With("description", description)
 		}
 	} else if mode == core.OneByOne || mode == core.Batched {
 		batchSize := 1
 		if mode == core.Batched {
 			opts, err := s.Registry.ParseJSONOptions(description.Script, description.Options)
 			if err != nil {
-				return core.WrapErr(err, "failed to parse options").With("description", structs.Map(description))
+				return core.WrapErr(err, "failed to parse options").With("description", description)
 			}
 			if bOpts, ok := opts.(core.BatchableOptions); ok {
 				batchSize = bOpts.GetBatchSize()
 			} else {
-				return core.WrapErr(err, "options are not batchable").With("description", structs.Map(description))
+				return core.WrapErr(err, "options are not batchable").With("description", description)
 			}
 		}
 		numBatches := math.Ceil(float64(nGauges) / float64(batchSize))
@@ -87,7 +86,7 @@ func (s *simpleScheduler) AddJob(description core.JobDescription) error {
 			spec := fmt.Sprintf("%d * * * *", minute)
 			options, err := s.Registry.ParseJSONOptions(description.Script, description.Options, gaugeOpts)
 			if err != nil {
-				tErr = core.WrapErr(err, "failed to parse options").With("description", structs.Map(description))
+				tErr = core.WrapErr(err, "failed to parse options").With("description", description)
 				break
 			}
 
@@ -103,7 +102,7 @@ func (s *simpleScheduler) AddJob(description core.JobDescription) error {
 				options:  options,
 			})
 			if err != nil {
-				tErr = core.WrapErr(err, "failed to schedule harvest job").With("description", structs.Map(description))
+				tErr = core.WrapErr(err, "failed to schedule harvest job").With("description", description)
 			}
 			entryIDs = append(entryIDs, eid)
 		}

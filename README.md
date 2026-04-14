@@ -436,7 +436,7 @@ Take a look at [Makefile](Makefile). Here are the highlights:
 - `make run` builds and launches server and cli, provides live reloading and tests
 - `make build` builds `gorge-server` and `gorge-cli` binaries in `/go/bin` directory
 - `make test` runs all tests expect postgres tests
-- `make test-nodocker` runs all test including postgres tests
+- `make test-nodocker` runs all test including postgres tests. do not run this when inside docker container
 - `make lint` runs linter
 
 ### Writing scripts

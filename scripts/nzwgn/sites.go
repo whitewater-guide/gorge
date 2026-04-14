@@ -29,8 +29,8 @@ func (s *scriptNzwgn) fetchLocations() (map[string]core.Location, error) {
 	result := make(map[string]core.Location, len(list.Site))
 	for _, v := range list.Site {
 		// because lat/long is bad site doesn't stop to exist
-		lat, _ := strconv.ParseFloat(v.Latitude, 64)  //nolint:errcheck
-		lng, _ := strconv.ParseFloat(v.Longitude, 64) //nolint:errcheck
+		lat, _ := strconv.ParseFloat(v.Latitude, 64)
+		lng, _ := strconv.ParseFloat(v.Longitude, 64)
 		result[core.CodeFromName(v.Name)] = core.Location{
 			Latitude:  core.TruncCoord(lat),
 			Longitude: core.TruncCoord(lng),
@@ -52,9 +52,9 @@ func (s *scriptNzwgn) fetchValues() (map[string]dataItem, error) {
 
 		switch i.DataSource.ItemInfo.ItemName {
 		case "Flow":
-			flow.Scan(i.Data.E.I1) //nolint:errcheck
+			flow.Scan(i.Data.E.I1) //nolint:errcheck // parse failure means null, which is valid
 		case "Stage":
-			level.Scan(i.Data.E.I1) //nolint:errcheck
+			level.Scan(i.Data.E.I1) //nolint:errcheck // parse failure means null, which is valid
 		default:
 			continue
 		}

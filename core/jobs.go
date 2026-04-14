@@ -59,7 +59,7 @@ func (j *JobDescription) Scan(src interface{}) error {
 	case []byte:
 		source = src
 	default:
-		return errors.New("Incompatible type for JobDescription")
+		return errors.New("incompatible type for JobDescription")
 	}
 	return json.Unmarshal(source, j)
 }

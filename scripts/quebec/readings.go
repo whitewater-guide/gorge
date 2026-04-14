@@ -17,10 +17,10 @@ import (
 var tz, _ = time.LoadLocation("America/Toronto")
 
 func parseValue(str string) (nulltype.NullFloat64, error) {
-	s := strings.Replace(str, ",", ".", -1)
-	s = strings.Replace(s, "*", "", -1)
-	s = strings.Replace(s, ",", ".", -1)
-	s = strings.Replace(s, "Â\u00a0", "", -1)
+	s := strings.ReplaceAll(str, ",", ".")
+	s = strings.ReplaceAll(s, "*", "")
+	s = strings.ReplaceAll(s, ",", ".")
+	s = strings.ReplaceAll(s, "Â\u00a0", "")
 	result := nulltype.NullFloat64{}
 	err := result.UnmarshalJSON([]byte(s))
 	return result, err

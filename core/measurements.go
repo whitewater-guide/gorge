@@ -75,7 +75,7 @@ func (m Measurements) Less(i, j int) bool {
 	if m[i].GaugeID == m[j].GaugeID {
 		return m[i].Timestamp.After(m[j].Timestamp.Time)
 	}
-	return m[i].GaugeID.Less(&m[j].GaugeID)
+	return m[i].Less(&m[j].GaugeID)
 }
 
 func (m Measurements) Swap(i, j int) {

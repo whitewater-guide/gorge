@@ -2,7 +2,7 @@ package core
 
 import (
 	"fmt"
-	"math/rand"
+	"math/rand/v2"
 	"time"
 
 	"github.com/mattn/go-nulltype"
@@ -10,8 +10,6 @@ import (
 
 // GenerateRandGauge generates random gauge for testing purposes
 func GenerateRandGauge(script string, index int) Gauge {
-	src := rand.NewSource(time.Now().UnixNano())
-	r := rand.New(src)
 	return Gauge{
 		GaugeID: GaugeID{
 			Script: script,
@@ -22,9 +20,9 @@ func GenerateRandGauge(script string, index int) Gauge {
 		LevelUnit: "m",
 		FlowUnit:  "m3/s",
 		Location: &Location{
-			Longitude: r.Float64()*360.0 - 180.0,
-			Latitude:  r.Float64()*180.0 - 90.0,
-			Altitude:  r.Float64() * 3000.0,
+			Longitude: rand.Float64()*360.0 - 180.0,
+			Latitude:  rand.Float64()*180.0 - 90.0,
+			Altitude:  rand.Float64() * 3000.0,
 		},
 		Timezone: "UTC",
 	}
@@ -34,8 +32,6 @@ func GenerateRandGauge(script string, index int) Gauge {
 // if value is not 0, it value will be returned for both level and flow
 // otherwise level and flow will be random numbers in [min, max] range
 func GenerateRandMeasurement(script string, code string, value float64, min float64, max float64) Measurement {
-	src := rand.NewSource(time.Now().UnixNano())
-	r := rand.New(src)
 	level, flow := value, value
 	if value == 0.0 {
 		delta := max - min
@@ -44,8 +40,8 @@ func GenerateRandMeasurement(script string, code string, value float64, min floa
 		} else if delta < 0 {
 			delta = -delta
 		}
-		level = min + r.Float64()*delta
-		flow = min + r.Float64()*delta
+		level = min + rand.Float64()*delta
+		flow = min + rand.Float64()*delta
 	}
 
 	return Measurement{

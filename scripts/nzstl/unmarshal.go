@@ -13,7 +13,7 @@ type nzTime struct {
 }
 
 func (r *nzTime) UnmarshalJSON(b []byte) (err error) {
-	str := strings.Replace(string(b), ".", "", -1)
+	str := strings.ReplaceAll(string(b), ".", "")
 	t, err := time.ParseInLocation(`"02/01/2006 3:04:05 pm"`, str, tz)
 	r.Time = t.UTC()
 	return

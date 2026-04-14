@@ -77,7 +77,6 @@ func TestNewLatestFilter(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel() // marks each test case as capable of running in parallel with each other
 			assert.Equal(t, tt.expected, f.filter(tt.input))
@@ -109,7 +108,6 @@ func TestNewCodesFilter(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel() // marks each test case as capable of running in parallel with each other
 			assert.Equal(t, tt.expected, f.filter(tt.input))
@@ -162,7 +160,6 @@ func TestPartitionRangeFilter(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel() // marks each test case as capable of running in parallel with each other
 			assert.Equal(t, tt.expected, f.filter(tt.input))
@@ -268,7 +265,7 @@ func BenchmarkFilterMeasurements(b *testing.B) {
 		},
 		After: time.Unix(5000, 0),
 	}
-	for i := 0; i < b.N; i++ {
+	for b.Loop() {
 		ctx := context.Background()
 		gen := GenFromSlice(ctx, input)
 		out := FilterMeasurements(ctx, gen, nil, fCodes, fLatest)

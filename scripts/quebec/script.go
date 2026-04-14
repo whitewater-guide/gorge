@@ -2,8 +2,6 @@ package quebec
 
 import (
 	"context"
-	"math"
-
 	"github.com/sirupsen/logrus"
 	"github.com/whitewater-guide/gorge/core"
 )
@@ -32,7 +30,7 @@ func (s *scriptQuebec) ListGauges() (result core.Gauges, err error) {
 
 	jobsCh := make(chan string, len(codes))
 	resultsCh := make(chan stationInfo, len(codes))
-	numWorkers := int(math.Min(5, float64(len(codes))))
+	numWorkers := min(5, len(codes))
 	for i := 0; i < numWorkers; i++ {
 		go s.stationWorker(jobsCh, resultsCh)
 	}

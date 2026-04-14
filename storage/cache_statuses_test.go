@@ -7,6 +7,7 @@ import (
 
 	"github.com/gomodule/redigo/redis"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
 	"github.com/whitewater-guide/gorge/core"
 	"gopkg.in/yaml.v3"
@@ -418,7 +419,7 @@ func (s *csTestSuite) TestSaveStatus() {
 
 func TestCacheStatuses(t *testing.T) {
 	mgr := &EmbeddedCacheManager{}
-	mgr.Start() //nolint:errcheck
+	require.NoError(t, mgr.Start())
 	tests := &csTestSuite{mgr: mgr}
 	suite.Run(t, tests)
 }

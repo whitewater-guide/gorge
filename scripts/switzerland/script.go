@@ -38,7 +38,7 @@ func (s *scriptSwitzerland) ListGauges() (core.Gauges, error) {
 		jobsCh <- &(gauges[i])
 	}
 	close(jobsCh)
-	for i := 0; i < numGauges; i++ {
+	for range numGauges {
 		<-resultsCh
 	}
 	close(resultsCh)

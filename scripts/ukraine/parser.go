@@ -112,12 +112,8 @@ func (s *scriptUkraine) harvest(measurements chan<- *core.Measurement, errs chan
 
 	//load daily-updated measurements for all rivers
 	//save measurements if it have no hourly-updated source
-	wg.Add(1)
-	go func() {
-		defer func() {
-			close(riversReady)
-			wg.Done()
-		}()
+	wg.Go(func() {
+		defer close(riversReady)
 		var err error
 		rivers, err = s.getAllRivers()
 		if err != nil {
@@ -129,13 +125,11 @@ func (s *scriptUkraine) harvest(measurements chan<- *core.Measurement, errs chan
 				s.saveDailyMeasurements(measurements, river)
 			}
 		}
-	}()
+	})
 
 	//load&save hourly-updated measurements
 	for station, code := range s.station2code {
-		wg.Add(1)
-		go func(code, station string) {
-			defer wg.Done()
+		wg.Go(func() {
 			ts := s.harvestSingle(code, station, measurements, errs)
 			//wait loading daily-updated measurements
 			//save as daily-updated if hourly-updated source 6 hours behind of daily-updated
@@ -150,8 +144,7 @@ func (s *scriptUkraine) harvest(measurements chan<- *core.Measurement, errs chan
 			if ts.Add(6 * time.Hour).Before(river.Timestamp) {
 				s.saveDailyMeasurements(measurements, river)
 			}
-		}(code, station)
-
+		})
 	}
 
 	wg.Wait()

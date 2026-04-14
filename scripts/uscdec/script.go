@@ -5,8 +5,10 @@ import (
 	"embed"
 	"encoding/json"
 
+	"maps"
+	"slices"
+
 	"github.com/whitewater-guide/gorge/core"
-	"golang.org/x/exp/maps"
 )
 
 type optionsUSCDEC struct {
@@ -50,7 +52,7 @@ func (s *scriptUSCDEC) ListGauges() (core.Gauges, error) {
 		}
 	}
 
-	return maps.Values(cachedCodes), nil
+	return slices.Collect(maps.Values(cachedCodes)), nil
 }
 
 func (s *scriptUSCDEC) Harvest(ctx context.Context, recv chan<- *core.Measurement, errs chan<- error, codes core.StringSet, since int64) {

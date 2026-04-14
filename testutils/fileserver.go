@@ -39,7 +39,7 @@ func SetupFileServer(paths map[string]string, auth Authorizer) *httptest.Server 
 			ok := auth.Authorize(r)
 			if !ok {
 				w.WriteHeader(http.StatusUnauthorized)
-				w.Write([]byte("Unauthorized.\n")) //nolint:errcheck
+				w.Write([]byte("Unauthorized.\n"))
 				return
 			}
 		}
@@ -71,7 +71,7 @@ func SetupFileServer(paths map[string]string, auth Authorizer) *httptest.Server 
 			// URL can have $ symbol in query vars, this should be removed
 			tempData := map[string]string{}
 			for k, vals := range r.URL.Query() {
-				key := strings.Replace(k, "$", "", -1)
+				key := strings.ReplaceAll(k, "$", "")
 				tempData[key] = strings.Join(vals, ",")
 			}
 

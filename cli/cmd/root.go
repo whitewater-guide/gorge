@@ -36,7 +36,7 @@ var (
 					fmt.Printf("endpoint version %s\n", vServer["version"])
 				}
 			} else {
-				cmd.Help() //nolint:errcheck
+				cmd.Help()
 			}
 		},
 	}

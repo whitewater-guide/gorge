@@ -4,7 +4,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"math"
 	"sync"
 
 	"github.com/whitewater-guide/gorge/core"
@@ -78,7 +77,7 @@ func (s *scriptCanada) Harvest(ctx context.Context, recv chan<- *core.Measuremen
 	var wg sync.WaitGroup
 	numWorkers := s.numWokers
 	if numWorkers == 0 {
-		numWorkers = int(math.Min(3, float64(len(s.provinces))))
+		numWorkers = min(3, len(s.provinces))
 	}
 	for i := 0; i < numWorkers; i++ {
 		wg.Add(1)
@@ -93,8 +92,8 @@ func (s *scriptCanada) Harvest(ctx context.Context, recv chan<- *core.Measuremen
 		close(resultsCh)
 	}()
 	for m := range resultsCh {
-		if code2, ok := remapCodes[m.GaugeID.Code]; ok {
-			m.GaugeID.Code = code2
+		if code2, ok := remapCodes[m.Code]; ok {
+			m.Code = code2
 		}
 		recv <- m
 	}

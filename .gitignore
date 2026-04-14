@@ -20,3 +20,5 @@ timezone.data
 .vscode
 node_modules
 index.d.ts
+
+/.claude/*.local.json

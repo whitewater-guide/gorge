@@ -60,12 +60,12 @@ func (s *scriptNztrc) parseList(gauges chan<- *core.Gauge, measurements chan<- *
 		if st.level != nil {
 			levelUnit = st.level.Unit
 			common = (*st.level)
-			level.Scan((*st.level).Measure) //nolint:errcheck
+			level.Scan((*st.level).Measure) //nolint:errcheck // parse failure means null, which is valid
 		}
 		if st.flow != nil {
 			flowUnit = st.flow.Unit
 			common = (*st.flow)
-			flow.Scan((*st.flow).Measure) //nolint:errcheck
+			flow.Scan((*st.flow).Measure) //nolint:errcheck // parse failure means null, which is valid
 		}
 		if flowUnit == "m3/sec" {
 			flowUnit = "m3/s"

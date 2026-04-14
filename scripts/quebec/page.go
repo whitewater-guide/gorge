@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	htmlquery "github.com/antchfx/xquery/html"
+	"github.com/antchfx/htmlquery"
 	"github.com/whitewater-guide/gorge/core"
 	"golang.org/x/text/encoding/charmap"
 	"golang.org/x/text/transform"

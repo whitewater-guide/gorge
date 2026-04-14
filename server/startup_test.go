@@ -59,7 +59,7 @@ func TestStartup(t *testing.T) {
 	if err := app.Start(context.Background()); err != nil {
 		t.Fatal(err)
 	}
-	defer app.Stop(context.Background()) //nolint:errcheck
+	defer app.Stop(context.Background())
 
 	resp, _ := runCase(t, srv, test{
 		method: "GET",

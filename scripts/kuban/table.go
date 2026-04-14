@@ -65,11 +65,11 @@ func (s *scriptKuban) parseTable(gauges chan<- *core.Gauge, measurements chan<- 
 			}
 			name := strings.ReplaceAll(string(nb), string(rune(160)), "")
 			name = strings.ReplaceAll(name, "  ", " ")
-			lat, err := strconv.ParseFloat(strings.Replace(nodes.Eq(6).Text(), ",", ".", -1), 64)
+			lat, err := strconv.ParseFloat(strings.ReplaceAll(nodes.Eq(6).Text(), ",", "."), 64)
 			if err != nil {
 				return true
 			}
-			lng, err := strconv.ParseFloat(strings.Replace(nodes.Eq(7).Text(), ",", ".", -1), 64)
+			lng, err := strconv.ParseFloat(strings.ReplaceAll(nodes.Eq(7).Text(), ",", "."), 64)
 			if err != nil {
 				return true
 			}

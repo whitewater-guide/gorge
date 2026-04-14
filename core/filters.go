@@ -131,7 +131,7 @@ type PartitionRangeFilter struct {
 }
 
 func (f PartitionRangeFilter) filter(m Measurement) bool {
-	if m.Timestamp.Time.Before(f.Now.AddDate(0, -12, 0)) {
+	if m.Timestamp.Before(f.Now.AddDate(0, -12, 0)) {
 		if f.Logger != nil {
 			f.Logger.Warnf(
 				"filtered too old measurement: script=%s code=%s timestamp=%s",
@@ -140,7 +140,7 @@ func (f PartitionRangeFilter) filter(m Measurement) bool {
 		}
 		return false
 	}
-	if m.Timestamp.Time.After(f.Now.Add(f.FutureTolerance)) {
+	if m.Timestamp.After(f.Now.Add(f.FutureTolerance)) {
 		if f.Logger != nil {
 			f.Logger.Warnf(
 				"filtered future measurement: script=%s code=%s timestamp=%s",

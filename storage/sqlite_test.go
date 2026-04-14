@@ -5,6 +5,7 @@ import (
 	"testing"
 
 	"github.com/sirupsen/logrus"
+	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
 )
 
@@ -13,7 +14,7 @@ func TestSqlite(t *testing.T) {
 	logger.SetOutput(io.Discard)
 
 	mgr := NewSqliteDb(logrus.NewEntry(logger), 0)
-	mgr.Start() //nolint:errcheck
+	require.NoError(t, mgr.Start())
 	tests := &DbTestSuite{mgr: &(mgr.DbManager)}
 	suite.Run(t, tests)
 }

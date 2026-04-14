@@ -63,8 +63,8 @@ func TestTirol_GetMeasurement(t *testing.T) {
 	m, err := s.getMeasurement(raw)
 
 	if assert.NoError(err) {
-		assert.Equal(m.GaugeID.Script, "tirol")
-		assert.Equal(m.GaugeID.Code, "201012")
+		assert.Equal(m.Script, "tirol")
+		assert.Equal(m.Code, "201012")
 		assert.Equal(m.Level, nulltype.NullFloat64Of(215.5))
 		assert.True(time.Date(2019, time.February, 1, 16, 30, 0, 0, loc).Equal(m.Timestamp.Time))
 	}

@@ -133,7 +133,7 @@ func (s *scriptGalicia2) parseTable() ([]item, error) {
 			levelStr := scanner.Text()
 			levelStr = strings.Replace(levelStr, ",", ".", 1)
 			msm = core.Measurement{GaugeID: gauge.GaugeID}
-			msm.Level.UnmarshalJSON([]byte(levelStr)) //nolint:errcheck
+			msm.Level.UnmarshalJSON([]byte(levelStr)) //nolint:errcheck // parse failure means null value, which is valid
 		case 6: // timestamp
 			t, _ := time.ParseInLocation("02/01/2006 15:04", scanner.Text(), location)
 			msm.Timestamp = core.HTime{Time: t.UTC()}

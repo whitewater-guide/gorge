@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/olekukonko/tablewriter"
+	"github.com/olekukonko/tablewriter/tw"
 	"github.com/whitewater-guide/gorge/core"
 )
 
@@ -21,7 +22,7 @@ func truncateString(str string, maxChars int) string {
 
 func printScriptsList(data []core.ScriptDescriptor) {
 	table := tablewriter.NewWriter(os.Stdout)
-	table.SetHeader([]string{"#", "Name", "Mode", "Description"})
+	table.Options(tablewriter.WithHeader([]string{"#", "Name", "Mode", "Description"}))
 	for i, s := range data {
 		table.Append([]string{
 			fmt.Sprintf("%d", i+1),
@@ -35,7 +36,7 @@ func printScriptsList(data []core.ScriptDescriptor) {
 
 func printJobStatuses(data []core.JobDescription) {
 	table := tablewriter.NewWriter(os.Stdout)
-	table.SetHeader([]string{"Job ID", "Timestamp", "Count/Error"})
+	table.Options(tablewriter.WithHeader([]string{"Job ID", "Timestamp", "Count/Error"}))
 	for _, j := range data {
 		row := []string{j.ID, "", ""}
 		if j.Status != nil {
@@ -53,7 +54,7 @@ func printJobStatuses(data []core.JobDescription) {
 
 func printGaugeStatuses(data map[string]core.Status) {
 	table := tablewriter.NewWriter(os.Stdout)
-	table.SetHeader([]string{"Gauge code", "Timestamp", "Count/Error"})
+	table.Options(tablewriter.WithHeader([]string{"Gauge code", "Timestamp", "Count/Error"}))
 
 	for code, status := range data {
 		row := []string{code, status.LastRun.Format("2006-01-02T15:04:05"), ""}
@@ -70,7 +71,7 @@ func printGaugeStatuses(data map[string]core.Status) {
 func printGauges(data []core.Gauge, truncURLs bool) {
 	table := tablewriter.NewWriter(os.Stdout)
 	header := []string{"#", "Code", "Name", "Flow unit", "Level unit", "Timezone", "Location", "URL"}
-	table.SetHeader(header)
+	table.Options(tablewriter.WithHeader(header))
 	for i, g := range data {
 		loc := ""
 		if g.Location != nil && g.Location.Longitude != 0 && g.Location.Latitude != 0 {
@@ -100,8 +101,10 @@ func printGauges(data []core.Gauge, truncURLs bool) {
 
 func printMeasurements(measurements []core.Measurement) {
 	table := tablewriter.NewWriter(os.Stdout)
-	table.SetHeader([]string{"Script", "Code", "Timestamp", "Flow", "Level"})
-	table.SetFooter([]string{fmt.Sprintf("%d measurements total", len(measurements)), "", "", "", ""})
+	table.Options(
+		tablewriter.WithHeader([]string{"Script", "Code", "Timestamp", "Flow", "Level"}),
+		tablewriter.WithFooter([]string{fmt.Sprintf("%d measurements total", len(measurements)), "", "", "", ""}),
+	)
 	for _, m := range measurements {
 		flow, level := "", ""
 		if m.Flow.Valid() {
@@ -111,8 +114,8 @@ func printMeasurements(measurements []core.Measurement) {
 			level = fmt.Sprintf("%.2f", m.Level.Float64Value())
 		}
 		table.Append([]string{
-			m.GaugeID.Script,
-			m.GaugeID.Code,
+			m.Script,
+			m.Code,
 			m.Timestamp.UTC().Format("02/01/2006 15:04 MST"),
 			flow,
 			level,
@@ -123,9 +126,13 @@ func printMeasurements(measurements []core.Measurement) {
 
 func printJobs(jobs []core.JobDescription) {
 	table := tablewriter.NewWriter(os.Stdout)
-	table.SetHeader([]string{"ID", "Script", "Cron", "Options", "Gauge Code", "Gauge Options"})
-	table.SetAutoMergeCells(true)
-	table.SetRowLine(true)
+	table.Options(
+		tablewriter.WithHeader([]string{"ID", "Script", "Cron", "Options", "Gauge Code", "Gauge Options"}),
+		tablewriter.WithRendition(tw.Rendition{Settings: tw.Settings{Separators: tw.Separators{BetweenRows: tw.On}}}),
+	)
+	table.Configure(func(cfg *tablewriter.Config) {
+		cfg.Row.Merging.Mode = tw.MergeVertical
+	})
 	for _, j := range jobs {
 		for code, gOpts := range j.Gauges {
 			table.Append([]string{

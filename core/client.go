@@ -20,7 +20,6 @@ import (
 	"github.com/PuerkitoBio/goquery"
 	"github.com/cenkalti/backoff/v4"
 	jar "github.com/juju/persistent-cookiejar"
-	"github.com/sirupsen/logrus"
 	log "github.com/sirupsen/logrus"
 	"golang.org/x/text/encoding"
 	"golang.org/x/text/transform"
@@ -35,7 +34,7 @@ type HTTPClient struct {
 	*http.Client
 	PersistentJar *jar.Jar
 	UserAgent     string
-	logger        *logrus.Entry
+	logger        *log.Entry
 }
 
 // ClientOptions are HTTPClient that can be passed as args at startup
@@ -71,7 +70,7 @@ var Client = NewClient(ClientOptions{
 }, nil)
 
 // NewClient constructs new HTTPClient with options
-func NewClient(opts ClientOptions, logger *logrus.Entry) *HTTPClient {
+func NewClient(opts ClientOptions, logger *log.Entry) *HTTPClient {
 	jarOpts := jar.Options{
 		Filename: "/tmp/cookies/gorge.cookies",
 	}
@@ -123,7 +122,7 @@ func (client *HTTPClient) EnsureCookie(fromURL string, force bool) error {
 
 // SaveCookies dumps cookies to disk, so in case of service restart they are not lost
 func (client *HTTPClient) SaveCookies() {
-	client.PersistentJar.Save() //nolint:errcheck
+	client.PersistentJar.Save() //nolint:errcheck // best-effort cookie persistence
 }
 
 func (client *HTTPClient) CheckRedirect(req *http.Request, via []*http.Request) error {
@@ -313,7 +312,7 @@ func (client *HTTPClient) StreamCSV(url string, handler func(row []string) error
 		return err
 	}
 	defer resp.Body.Close()
-	defer io.Copy(io.Discard, resp.Body) //nolint:errcheck
+	defer io.Copy(io.Discard, resp.Body)
 	var reader io.Reader = resp.Body
 	if opts.Decoder != nil {
 		reader = transform.NewReader(resp.Body, opts.Decoder)

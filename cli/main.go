@@ -1,9 +1,13 @@
 package main
 
 import (
+	"os"
+
 	"github.com/whitewater-guide/gorge/cli/cmd"
 )
 
 func main() {
-	cmd.Execute() //nolint:errcheck
+	if err := cmd.Execute(); err != nil {
+		os.Exit(1)
+	}
 }

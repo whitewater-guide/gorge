@@ -45,10 +45,10 @@ func (s *scriptNzstl) fetchList(gauges chan<- *core.Gauge, measurements chan<- *
 		if measurements != nil {
 			var flow, level nulltype.NullFloat64
 			if site.Flow.Value != "" {
-				flow.Scan(site.Flow.Value) //nolint:errcheck
+				flow.Scan(site.Flow.Value) //nolint:errcheck // parse failure means null, which is valid
 			}
 			if site.WaterLevel.Value != "" {
-				level.Scan(site.WaterLevel.Value) //nolint:errcheck
+				level.Scan(site.WaterLevel.Value) //nolint:errcheck // parse failure means null, which is valid
 			}
 			measurements <- &core.Measurement{
 				GaugeID: core.GaugeID{

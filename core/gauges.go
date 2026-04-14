@@ -48,7 +48,7 @@ func (g Gauges) Len() int {
 }
 
 func (g Gauges) Less(i, j int) bool {
-	return g[i].GaugeID.Less(&(g[j].GaugeID))
+	return g[i].Less(&g[j].GaugeID)
 }
 
 func (g Gauges) Swap(i, j int) {

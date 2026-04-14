@@ -1,0 +1,30 @@
+version: "2"
+
+linters:
+  exclusions:
+    presets:
+      - comments
+      - common-false-positives
+      - legacy
+      - std-error-handling
+    rules:
+      # "could use tagged switch" is a style preference; if-chains are fine here
+      - linters: [staticcheck]
+        text: "QF1003"
+  settings:
+    errcheck:
+      exclude-functions:
+        # Standard rollback-in-error-path pattern; rollback error is secondary
+        - (*database/sql.Tx).Rollback
+        # Draining response body to discard; error not meaningful
+        - io.Copy
+        # Cobra handles errors and os.Exit internally
+        - (*github.com/spf13/cobra.Command).Execute
+        - (*github.com/spf13/cobra.Command).Help
+        # Terminal table output; write errors not actionable
+        - (*github.com/olekukonko/tablewriter.Table).Append
+        - (*github.com/olekukonko/tablewriter.Table).Render
+        # http.ResponseWriter.Write errors are not actionable after headers sent
+        - (net/http.ResponseWriter).Write
+        # fx.App.Stop in test cleanup; errors not actionable in defer
+        - (*go.uber.org/fx.App).Stop

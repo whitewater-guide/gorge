@@ -118,7 +118,6 @@ func TestScriptRegistry_Create(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
 			res, mode, err := registry.Create(tt.script, tt.options)
@@ -176,7 +175,6 @@ func TestScriptRegistry_ParseJsonOptions(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
 			res, err := registry.ParseJSONOptions(tt.script, tt.input...)
@@ -230,7 +228,6 @@ func TestScriptRegistry_CreateFromReader(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
 			res, mode, err := registry.CreateFromReader(tt.script, tt.reader)

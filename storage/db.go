@@ -139,7 +139,7 @@ func (mgr *DbManager) GetNearestMeasurement(script, code string, to time.Time, t
 	if tolerance != 0 && (m.Timestamp.After(to.Add(tolerance)) || m.Timestamp.Before(to.Add(-tolerance))) {
 		return nil, nil
 	}
-	m.Timestamp = core.HTime{Time: m.Timestamp.Time.UTC()}
+	m.Timestamp = core.HTime{Time: m.Timestamp.UTC()}
 	return &m, nil
 }
 
@@ -197,13 +197,13 @@ func (mgr *DbManager) AddJob(job core.JobDescription, onSave func(job core.JobDe
 
 	_, err = tx.Exec("INSERT INTO jobs (id, description) VALUES ($1, $2)", job.ID, descr)
 	if err != nil {
-		tx.Rollback() //nolint:errcheck
+		tx.Rollback()
 		return core.WrapErr(err, "failed to insert job").With("description", string(descr)).With("id", job.ID)
 	}
 
 	saveErr := onSave(job)
 	if saveErr != nil {
-		tx.Rollback() //nolint:errcheck
+		tx.Rollback()
 		return saveErr
 	}
 
@@ -223,18 +223,18 @@ func (mgr *DbManager) DeleteJob(id string, onDelete func(id string) error) error
 	}
 	res, err := tx.Exec("DELETE FROM jobs WHERE id = $1", id)
 	if err != nil {
-		tx.Rollback() //nolint:errcheck
+		tx.Rollback()
 		return core.WrapErr(err, "failed to delete job").With("jobId", id)
 	}
 	cnt, err := res.RowsAffected()
 	if err != nil {
-		tx.Rollback() //nolint:errcheck
+		tx.Rollback()
 		return core.WrapErr(err, "failed to count deleted rows").With("jobId", id)
 	}
 
 	deleteErr := onDelete(id)
 	if deleteErr != nil {
-		tx.Rollback() //nolint:errcheck
+		tx.Rollback()
 		return deleteErr
 	}
 
@@ -255,7 +255,7 @@ func (mgr *DbManager) Close() error {
 }
 
 func (mgr *DbManager) getMeasurementsWhereClause(query MeasurementsQuery) (string, []interface{}) {
-	var args []interface{} = []interface{}{query.Script}
+	args := []interface{}{query.Script}
 	fromP := "$2"
 	if query.From == nil {
 		fromP = mgr.defaultStart

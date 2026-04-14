@@ -67,8 +67,8 @@ Wattens;201657;Wattenbach;W;2019-12-28T14:00:00+0100;-777;cm;550.86;245119.15;24
 	s := scriptTirol{name: "tirol", csvURL: ts.URL}
 	res, err := core.HarvestSlice(&s, core.StringSet{"201657": {}, "201658": {}}, 0)
 	if a.NoError(err) && a.Len(res, 1) {
-		a.Equal(res[0].GaugeID.Script, "tirol")
-		a.Equal(res[0].GaugeID.Code, "201657")
+		a.Equal(res[0].Script, "tirol")
+		a.Equal(res[0].Code, "201657")
 		a.Equal(res[0].Level, nulltype.NullFloat64Of(30.4))
 		a.Equal(res[0].Flow, nulltype.NullFloat64{})
 		a.True(time.Date(2019, time.December, 28, 13, 45, 0, 0, loc).Equal(res[0].Timestamp.Time))

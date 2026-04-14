@@ -100,13 +100,13 @@ func (s *scriptNzniwa) parseLocation(locationID string) (string, string, error) 
 
 func (s *scriptNzniwa) gaugePageWorker(gauges <-chan *core.Gauge, results chan<- *core.Gauge, wg *sync.WaitGroup) {
 	for g := range gauges {
-		unit, id, err := s.parseLocation(g.GaugeID.Code)
+		unit, id, err := s.parseLocation(g.Code)
 		if err != nil {
 			fmt.Println(err)
 			s.GetLogger().WithField("code", g.GaugeID.Code).Error(err)
 			continue
 		}
-		g.GaugeID.Code = id
+		g.Code = id
 		g.FlowUnit = unit
 		results <- g
 	}

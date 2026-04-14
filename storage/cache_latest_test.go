@@ -10,6 +10,7 @@ import (
 	"github.com/kinbiko/jsonassert"
 	"github.com/mattn/go-nulltype"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
 	"github.com/whitewater-guide/gorge/core"
 )
@@ -211,7 +212,7 @@ func (s *clTestSuite) TestGetLatestMeasurements() {
 
 func TestCacheLatest(t *testing.T) {
 	mgr := &EmbeddedCacheManager{}
-	mgr.Start() //nolint:errcheck
+	require.NoError(t, mgr.Start())
 	sqliteSuite := &clTestSuite{mgr: mgr}
 	suite.Run(t, sqliteSuite)
 }

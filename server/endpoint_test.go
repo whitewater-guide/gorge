@@ -568,9 +568,9 @@ func TestEndpoint(t *testing.T) {
 			assert.Equal(t, exCode, code, "response code for %s is wrong %s", tt.name, respErr)
 			if tt.resp != "" {
 				ja := jsonassert.New(t)
-				ja.Assertf(resp, tt.resp)
+				ja.Assert(resp, tt.resp)
 			}
-			app.Stop(context.Background()) //nolint:errcheck
+			app.Stop(context.Background()) //nolint:errcheck // test teardown, error not actionable
 		})
 	}
 }
