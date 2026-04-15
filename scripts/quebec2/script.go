@@ -12,6 +12,12 @@ import (
 	"golang.org/x/sync/errgroup"
 )
 
+var q2client = core.NewClient(core.ClientOptions{
+	UserAgent:  "whitewater.guide robot",
+	Timeout:    60,
+	WithoutTLS: true,
+}, nil)
+
 type optionsQuebec2 struct {
 	// urlBase allows to override default upstream url with intermediate s3 url
 	urlBase string
@@ -39,10 +45,10 @@ func (s *scriptQuebec2) fetchData() ([]q2site, []q2site, error) {
 	var sitez q2sites
 	var stationz q2stations
 	g.Go(func() error {
-		return core.Client.GetAsJSON(s.urlBase+"Donnees_VUE_CENTRALES_ET_OUVRAGES.json", &sitez, nil)
+		return q2client.GetAsJSON(s.urlBase+"Donnees_VUE_CENTRALES_ET_OUVRAGES.json", &sitez, nil)
 	})
 	g.Go(func() error {
-		return core.Client.GetAsJSON(s.urlBase+"Donnees_VUE_STATIONS_ET_TARAGES.json", &stationz, nil)
+		return q2client.GetAsJSON(s.urlBase+"Donnees_VUE_STATIONS_ET_TARAGES.json", &stationz, nil)
 	})
 	if err := g.Wait(); err != nil {
 		return nil, nil, err
