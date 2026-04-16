@@ -17,8 +17,8 @@ var Descriptor = &core.ScriptDescriptor{
 	Factory: func(name string, options interface{}) (core.Script, error) {
 		if opts, ok := options.(*optionsQuebec2); ok {
 			urlBase := "https://www.hydroquebec.com/data/documents-donnees/donnees-ouvertes/json/"
-			if opts.urlBase != "" {
-				urlBase = os.ExpandEnv(opts.urlBase)
+			if opts.UrlBase != "" {
+				urlBase = os.ExpandEnv(opts.UrlBase)
 			}
 			return &scriptQuebec2{
 				name:    name,
