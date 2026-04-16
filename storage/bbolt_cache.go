@@ -36,7 +36,7 @@ func formatBytes(n int64) string {
 
 // Start implements CacheManager interface.
 func (cache *BboltCacheManager) Start() error {
-	db, err := bbolt.Open(cache.path, 0600, nil)
+	db, err := bbolt.Open(cache.path, 0600, &bbolt.Options{Timeout: 10 * time.Second})
 	if err != nil {
 		return core.WrapErr(err, "failed to open bbolt cache")
 	}
